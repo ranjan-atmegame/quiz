@@ -1,7 +1,5 @@
 import { GENERAL_CONTEST } from '@/utils/Constant';
-// const API_URL = 'http://localhost:5000';
-// const API_URL = 'http://localhost:3001';
-const API_URL = 'https://testserv.atmegame.com';
+import { API_URL } from '@/config';
 
 //============(A) CONTEST==============
 // 1) Fetch contest by type
