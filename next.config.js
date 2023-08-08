@@ -7,6 +7,11 @@ const nextConfig = {
         hostname: 'www.atmequiz.com',
         port: '',
       },
+      {
+        protocol: 'https',
+        hostname: 'test4.atmegame.com',
+        port: '',
+      },
     ],
   },
 };
