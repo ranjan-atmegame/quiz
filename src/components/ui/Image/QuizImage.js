@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { ATMEQUIZ_PATH } from '@/config';
+import { IMG_PATH } from '@/config';
 
 export default function QuizImage({
   imageName,
@@ -9,7 +9,7 @@ export default function QuizImage({
 }) {
   return (
     <Image
-      src={`${ATMEQUIZ_PATH}/img/${imageName}`}
+      src={`${IMG_PATH}/img/${imageName}`}
       alt={name}
       title={name}
       width={width}
