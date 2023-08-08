@@ -14,7 +14,7 @@ export default function QuizImage({
       title={name}
       width={width}
       height={height}
-      priority
+      priority={true}
     />
   );
 }

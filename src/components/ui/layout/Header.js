@@ -16,6 +16,7 @@ const Header = ({ displayCoins = true }) => {
                 height={14}
                 title="Toggle Sidebar"
                 alt="Toggle Sidebar"
+                priority={true}
               />
             </label>
           </nav>
@@ -26,7 +27,7 @@ const Header = ({ displayCoins = true }) => {
               src={`${IMG_PATH}/logo.png`}
               alt="Play Online Quiz Contest win Coin - AtmeQuiz"
               title="Play Online Quiz Contest win Coin - AtmeQuiz"
-              priority
+              priority={true}
             />
           </Link>
         </div>
@@ -41,7 +42,7 @@ const Header = ({ displayCoins = true }) => {
                   title="Coin"
                   alt="Coin"
                   className={styles.pulse}
-                  priority
+                  priority={true}
                 />
                 <span>
                   200
@@ -57,6 +58,7 @@ const Header = ({ displayCoins = true }) => {
               src={`${IMG_PATH}/img/notifications-icon.svg`}
               title="Notifications"
               alt="Notifications"
+              priority={true}
             />
           </div>
         </div>

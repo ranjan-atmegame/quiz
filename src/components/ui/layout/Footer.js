@@ -1,4 +1,3 @@
-// import Link from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { IMG_PATH } from '@/config';
@@ -16,6 +15,7 @@ export default function Footer() {
               height={34}
               alt="Play Online Quiz Contest win Coin - AtmeQuiz"
               title="Play Online Quiz Contest win Coin - AtmeQuiz"
+              priority={true}
             />
           </Link>
         </div>
@@ -26,6 +26,7 @@ export default function Footer() {
           src={`${IMG_PATH}/img/heart-icon.svg`}
           title="Heart"
           alt="Heart"
+          priority={true}
         />{' '}
         in India{' '}
         <Image
@@ -34,6 +35,7 @@ export default function Footer() {
           src={`${IMG_PATH}/img/india-flag-icon.svg`}
           title="India Flag"
           alt="India Flag"
+          priority={true}
         />
       </div>
     </>
