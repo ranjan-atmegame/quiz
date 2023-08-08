@@ -1,0 +1,97 @@
+
+  .shimmerCard{
+    width: calc(20% - 00px);
+    cursor: pointer;
+    border: 1px solid #fff;
+    margin: 0 4px 20px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+  }
+  .box{
+    background: #e3e3e3;
+    border-radius: 12px;
+    height: 50px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .list{
+    background: #e3e3e3;
+    border-radius: 12px;
+    height: 12px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .shimmer {
+    color: #edeef1;
+    display:inline-block;
+    -webkit-mask:linear-gradient(-60deg,#000 30%,#0005,#000 70%) right/300% 100%;
+    background-repeat: no-repeat;
+    animation: shimmer 1.5s infinite;
+    font-size: 50px;
+    max-width:200px;
+    
+  }
+  
+  @keyframes shimmer {
+    100% {-webkit-mask-position:left}
+  }  @keyframes shimmer {
+    100% {-webkit-mask-position:left}
+  }
+
+  .container{
+    margin: 0px auto;
+    max-width: 90%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+   }
+   .miniShimeer{
+        color: #edeef1;
+        display:inline-block;
+        -webkit-mask:linear-gradient(-60deg,#000 30%,#0005,#000 70%) right/300% 100%;
+        background-repeat: no-repeat;
+        animation: miniShimmer 1.5s infinite;
+        font-size: 50px;
+        max-width:100%;
+        width: 100%;
+   }
+
+   .miniBox{
+    background: #e3e3e3;
+    border-radius: 12px;
+    height: 40px;
+    width: 100%;
+    margin-bottom: 10px;
+   }
+    .miniList{  
+        background: #e3e3e3;
+        border-radius: 12px;
+        height: 12px;
+        width: 100%;
+        margin-bottom: 10px;
+   }
+
+   @keyframes miniShimmer {
+    100% {-webkit-mask-position:left}
+  }
+
+   @media (max-width: 768px){
+    .shimmerCard{
+        width:28%;
+        padding: 0;
+        margin: 0;
+    }
+    .box{
+        height: 40px;
+    }
+    .list{
+        height: 10px;
+    }
+
+   }
+
+
+   
