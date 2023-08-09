@@ -1,17 +1,21 @@
 'use client';
+import { useEffect } from 'react';
 import Link from 'next/link';
+import { CONTEST_TYPES } from '@/utils/Constant';
 import styles from './tab.module.css';
 
-export default function Tab({ tabs, selectedTab, onTabChange, children }) {
+export default function Tab({ selectedTab, onTabChange, children }) {
+  useEffect(() => {
+    onTabChange(CONTEST_TYPES[0].id);
+  }, []);
+
   const handleClick = (e, tabId) => {
-    console.log('hhhhhhhhhhhhhh');
     e.preventDefault();
-    console.log('clicked...');
     onTabChange(tabId);
   };
 
   const tabJSX = () => {
-    return tabs.map((tab) => {
+    return CONTEST_TYPES.map((tab) => {
       const tabClass = tab.id === selectedTab ? styles.active : '';
       return (
         <li key={tab.id}>

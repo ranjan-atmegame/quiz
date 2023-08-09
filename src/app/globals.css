@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
   font-family: 'Poppins';
   src: url('../../public/fonts/Poppins-Regular.eot');
   src: url('../../public/fonts/Poppins-Regular.eot?#iefix')
@@ -10,7 +10,7 @@
   font-weight: normal;
   font-style: normal;
   font-display: swap;
-}
+} */
 
 body {
   margin: 0;
@@ -119,8 +119,8 @@ body {
   color: #fff;
 }
 
-body::after {
-  /* background: url(../../public/bg_quiz.jpg); */
+/* body::after {
+  background: url(../../public/bg_quiz.jpg);
   content: '';
   position: absolute;
   z-index: 0;
@@ -129,7 +129,7 @@ body::after {
   top: 0;
   left: 0;
   opacity: 0.05;
-}
+} */
 
 a {
   color: inherit;

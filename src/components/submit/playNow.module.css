@@ -1,0 +1,238 @@
+.playNow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  color: #fff;
+  position: relative;
+}
+
+.playNow h1 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-top: 16px;
+}
+
+.playNow p {
+  text-align: center;
+  margin-bottom: 12px;
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.coins {
+  margin-bottom: 16px;
+}
+
+.btn {
+  background: #fc8c1b;
+  padding: 16px;
+  height: 56px;
+  width: 100%;
+  line-height: 100%;
+  display: flex;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 24px;
+  margin-top: 8px;
+}
+
+.backInDown {
+  -webkit-animation-name: backInDown;
+  animation-name: backInDown;
+  position: absolute;
+}
+
+@-webkit-keyframes backInDown {
+  0% {
+    -webkit-transform: translateY(-1200px) scale(0.7);
+    transform: translateY(-1200px) scale(0.7);
+    opacity: 0.7;
+  }
+
+  80% {
+    -webkit-transform: translateY(0) scale(0.7);
+    transform: translateY(0) scale(0.7);
+    opacity: 0.7;
+  }
+
+  to {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes backInDown {
+  0% {
+    -webkit-transform: translateY(-1200px) scale(0.7);
+    transform: translateY(-1200px) scale(0.7);
+    opacity: 0.7;
+  }
+
+  80% {
+    -webkit-transform: translateY(0) scale(0.7);
+    transform: translateY(0) scale(0.7);
+    opacity: 0.7;
+  }
+
+  to {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine:before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 22px;
+  background-color: rgba(255, 255, 255, 0.2);
+  -webkit-transform: skewX(-15deg);
+  transform: skewX(-15deg);
+  opacity: 0.6;
+  -webkit-filter: blur(5px);
+  filter: blur(5px);
+  left: -10%;
+  top: 1px;
+  -webkit-animation: shine 1.8s ease infinite;
+  animation: shine 1.8s ease infinite;
+}
+
+@-webkit-keyframes shine {
+  0% {
+    opacity: 0.6;
+    left: -10%;
+  }
+
+  66% {
+    opacity: 1;
+    left: 100%;
+  }
+
+  to {
+    opacity: 1;
+    left: 100%;
+  }
+}
+
+@keyframes shine {
+  0% {
+    opacity: 0.6;
+    left: -10%;
+  }
+
+  66% {
+    opacity: 1;
+    left: 100%;
+  }
+
+  to {
+    opacity: 1;
+    left: 100%;
+  }
+}
+
+.pulse {
+  -webkit-animation: pulse 1s infinite ease-in-out alternate;
+  animation: pulse 1s infinite ease-in-out alternate;
+}
+
+.sanimated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-duration: var(--animate-duration);
+  animation-duration: var(--animate-duration);
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.coins {
+  position: relative;
+}
+
+.waviy {
+  position: relative;
+  -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0, 0, 0, 0.2));
+  font-size: 60px;
+}
+.waviy span {
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  text-transform: uppercase;
+  animation: waviy 1.5s infinite;
+  animation-delay: calc(0.1s * var(--i));
+  animation-iteration-count: 2;
+}
+@keyframes waviy {
+  0%,
+  40%,
+  100% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-20px);
+  }
+}
+
+.stage {
+  display: flex;
+  width: 100%;
+}
+
+.box {
+  align-self: flex-end;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  margin: 0 auto 0 auto;
+  transform-origin: bottom;
+}
+.bounce {
+  animation-name: bounce;
+  animation-timing-function: ease;
+}
+@keyframes bounce {
+  0% {
+    transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    transform: scale(1.1, 0.9) translateY(0);
+  }
+  30% {
+    transform: scale(0.9, 1.1) translateY(-100px);
+  }
+  50% {
+    transform: scale(1.05, 0.95) translateY(0);
+  }
+  57% {
+    transform: scale(1, 1) translateY(-7px);
+  }
+  64% {
+    transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    transform: scale(1, 1) translateY(0);
+  }
+}
+
+.categories {
+  width: 100%;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 600;
+  color: #dfe1fc;
+  margin-top: 0px;
+  margin-bottom: 8px;
+}
