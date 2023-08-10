@@ -41,7 +41,7 @@ export default function Contest({ contest }) {
           </p>
 
           <Link
-            prefetch={false}
+            // prefetch={false}
             className={`${styles.btn} ${styles.btnSmall}`}
             title={`Play ${contest.name} contest`}
             href={`/${contest.slug}-quiz/join-contest?contestId=${contest._id}`}
