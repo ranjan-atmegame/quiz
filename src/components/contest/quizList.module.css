@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   position: relative;
   z-index: 1;
+  width: 100%;
 }
 
 .quizList .quizCard {
@@ -12,6 +13,8 @@
   border: solid 1px #4c51af;
   border-radius: 8px;
   margin-bottom: 8px;
+  width: 100%;
+  min-height: 135px;
 }
 
 .quizCard .cardContent {

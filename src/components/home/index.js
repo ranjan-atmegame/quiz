@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Ad from '../ad';
 import Tab from '@/components/tab';
 import Item from '@/components/contest';
+import EmptyItem from '../contest/EmptyItem';
 import { getContestListByType } from '@/api';
 
 export default function ContestList() {
@@ -24,7 +25,16 @@ export default function ContestList() {
 
   const contestListJSX = () => {
     if (!contestList) {
-      return null;
+      return (
+        <>
+          <EmptyItem />
+          <EmptyItem />
+          <EmptyItem />
+          <EmptyItem />
+          <EmptyItem />
+          <EmptyItem />
+        </>
+      );
     }
 
     return contestList.map((contest) => (
