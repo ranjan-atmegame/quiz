@@ -26,7 +26,7 @@ export default function Contest({ contest }) {
                 <span className={styles.statusLive}>Live</span>
               </div>
               <h3>
-                {/* {`Play and Win ${formatNumber(contest.winningCoins)}`} */}
+                {`Play and Win ${formatNumber(contest.winningCoins)}`}
                 <CoinIcon className="medium" />
               </h3>
               <p>Winner announcement @ {getQuizEndTime(contest.endTime)}</p>
