@@ -4,7 +4,7 @@ import { QUIZ_TIME } from '@/utils/Constant';
 import QuizImage from '@/components/ui/Image/QuizImage';
 import styles from '@/components/submit/playNow.module.css';
 
-export default function Detail() {
+export default function Detail({ contest }) {
   return (
     <>
       <div className={styles.stage}>

@@ -1,0 +1,37 @@
+.smListCard {
+  padding: 0;
+  position: relative;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.smListCard ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.smListCard ul li {
+  width: 23%;
+  text-align: center;
+  padding: 8px;
+  min-height: 80px;
+  background: #272c93;
+  border: #4c51af solid 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.smListCard ul li h2 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.smListCard ul li p {
+  font-size: 12px;
+  font-weight: 400;
+}

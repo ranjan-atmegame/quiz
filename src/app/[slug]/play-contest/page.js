@@ -1,11 +1,11 @@
 import dynamic from 'next/dynamic';
-const Home = dynamic(() => import('@/components/home/index-v2'));
 const Layout = dynamic(() => import('@/components/ui/layout'));
+const Play = dynamic(() => import('@/components/contest/play'));
 
 export default function Page() {
   return (
     <Layout>
-      <Home />
+      <Play />
     </Layout>
   );
 }

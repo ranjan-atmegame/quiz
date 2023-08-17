@@ -1,0 +1,50 @@
+.contentList{
+    padding: 32px 0px 0px 0px;
+    color: #fff;
+}
+
+.contentList h2{
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+.contentList ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.contentList ul li{
+    line-height: 1.4;
+    padding-bottom: 16px;
+    padding-left: 32px;
+    position: relative;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.contentList ul li:before {
+    content: "";
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #191e7b;
+}
+
+.contentList ul li:after {
+    content: "";
+    display: flex;
+    position: absolute;
+    top: 4px;
+    left: 7px;
+    width: 4px;
+    height: 8px;
+    border: solid #f5f6ff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}

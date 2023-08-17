@@ -1,0 +1,88 @@
+.timeOver {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  position: relative;
+}
+
+.timeOver .card {
+  border-radius: 8px;
+  width: 100%;
+  text-align: center;
+  padding: 24px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-bottom: 16px;
+  background: #272c93;
+  border: #4c51af solid 1px;
+}
+
+.timeOver .card h1 {
+  margin-bottom: 8px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.timeOver .card p {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.timeOver .score {
+  padding: 0px;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+}
+
+.timeOver .score img {
+  width: 60px;
+}
+.timeOver .score span {
+  margin-left: 0px;
+  width: 45%;
+}
+.timeOver .score span strong {
+  font-size: 44px;
+  font-weight: 700;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.timeOver .animate__fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+.pulse {
+  -webkit-animation: pulse 1.5s infinite ease-in-out alternate;
+  animation: pulse 1.5s infinite ease-in-out alternate;
+}
+
+.smCoins {
+  vertical-align: top;
+  padding-left: 3px;
+}
