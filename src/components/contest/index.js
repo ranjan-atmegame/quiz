@@ -29,23 +29,8 @@ export default function Contest({ contest }) {
                 {`Play and Win ${formatNumber(contest.winningCoins)}`}
                 <CoinIcon className="medium" />
               </h3>
-              <p>Winner announcement @ {getQuizEndTime(contest.endTime)}</p>
-              <p className={styles.w100p}>
-                <strong>{randomNumber(5000, 6500)}</strong> Users Playing
-              </p>
-              <p className={styles.w100p}>
-                <strong>{entryFeeJSX}</strong>
-                <CoinIcon />
-                <Link
-                  // prefetch={false}
-                  className={`${styles.btn} ${styles.btnSmall}`}
-                  title={`Play ${contest.name} contest`}
-                  href={`/${contest.slug}-quiz/join-contest?contestId=${contest._id}`}
-                >
-                  {' '}
-                  Play
-                </Link>
-              </p>
+              {/* <p>Winner announcement @ {getQuizEndTime(contest.endTime)}</p> */}
+              <p>Winner announcement @ </p>
             </div>
           </div>
           {/* <div className={styles.cardFooter}>
