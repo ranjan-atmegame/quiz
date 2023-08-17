@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+// import CoinLink from '@/components/coin/CoinLink';
 import { IMG_PATH } from '@/config';
 import styles from './header.module.css';
 
@@ -44,6 +45,7 @@ const Header = ({ displayCoins = true }) => {
                   className={styles.pulse}
                   priority={true}
                 />
+                {/* <CoinLink /> */}
                 <span>
                   200
                   <span>Coins</span>

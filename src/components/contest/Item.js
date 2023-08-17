@@ -1,13 +1,12 @@
 import Link from 'next/link';
 import QuizImage from '@/components/ui/Image/QuizImage';
 import CoinIcon from '@/components/coin';
-
-// import { getQuizEndTime } from '@/utils/DateTime';
+import { getQuizEndTime } from '@/utils/DateTime';
 import { formatNumber, randomNumber } from '@/utils';
 
 import styles from './quizList.module.css';
 
-export default function Contest({ contest }) {
+export default function Item({ contest }) {
   const entryFeeJSX = contest.entryCoins
     ? `Entry: ${contest.entryCoins} `
     : 'Free Entry ';
@@ -26,11 +25,11 @@ export default function Contest({ contest }) {
                 <span className={styles.statusLive}>Live</span>
               </div>
               <h3>
-                {/* {`Play and Win ${formatNumber(contest.winningCoins)}`} */}
+                {`Play and Win ${formatNumber(contest.winningCoins)}`}
                 <CoinIcon className="medium" />
               </h3>
-              {/* <p>Winner announcement @ {getQuizEndTime(contest.endTime)}</p> */}
-              <p>Winner announcement @ </p>
+              <p>Winner announcement @ {getQuizEndTime(contest.endTime)}</p>
+              {/* <p>Winner announcement @ </p> */}
             </div>
           </div>
           <div className={styles.cardFooter}>

@@ -12,6 +12,9 @@ export const getItem = (name) => {
   return JSON.parse(response);
 };
 
+export const removeItem = (name) => localStorage.removeItem(name);
+export const removeAll = () => localStorage.clear();
+
 // 2) Local Storage with expiry
 export const setItemWithExpiry = (name, value, expires = 5) => {
   if (!name) {
@@ -24,20 +27,19 @@ export const setItemWithExpiry = (name, value, expires = 5) => {
     expiry: new Date().getTime() + expires,
   };
 
-  localStorage.setItem(name, JSON.stringify(item));
+  setItem(name, item);
 };
 
 export const getItemWithExpiry = (name) => {
-  const itemStr = localStorage.getItem(name);
-  if (!itemStr) {
+  const item = getItem(name);
+  if (!item) {
     return null;
   }
 
-  const item = JSON.parse(itemStr);
   const now = new Date();
 
   if (now.getTime() > item.expiry) {
-    localStorage.removeItem(name);
+    removeItem(name);
     return null;
   }
   return item.value;
