@@ -14,31 +14,31 @@
   border-radius: 8px;
   margin-bottom: 8px;
   width: 100%;
-  min-height: 135px;
+  min-height: 124px;
 }
 
 .quizCard .cardContent {
   display: flex;
   flex-wrap: wrap;
   flex-wrap: nowrap;
-  padding: 8px;
-  padding-bottom: 16px;
+  padding: 12px;
 }
 
 .quizCard .cardContent .thumbnialImg {
   display: flex;
   flex-wrap: wrap;
-  width: 54px;
+  width: 80px;
 }
 
 .quizCard .cardContent .thumbnialImg img {
-  width: 54px;
+  width: 70px;
 }
 
 .quizCard .cardContent .quizNameStatus {
   display: flex;
   flex-wrap: wrap;
-  padding-left: 8px;
+  padding-left: 12px;
+  align-content: flex-start;
 }
 
 .categoryLiveDiv {
@@ -61,6 +61,7 @@
   color: #fff;
   font-size: 16px;
   font-weight: 600;
+  line-height: 20px;
 }
 .quizCard .cardContent .quizNameStatus h3 img {
   margin-left: 4px;
@@ -69,7 +70,7 @@
 
 .quizCard .cardContent .quizNameStatus p {
   font-size: 11px;
-  color: #dfe1fc;
+  color: #9DA1CE;
 }
 
 .quizCard .cardFooter {
@@ -125,6 +126,9 @@
   text-shadow: 0 1px 0 #fc8c1b;
   line-height: 20px;
   text-transform: uppercase;
+  float: right;
+  border-radius: 50px;
+  margin-top: -10px;
 }
 
 .statusLive {
@@ -148,6 +152,13 @@
   animation: glowing 1s infinite;
   -webkit-box-shadow: 0 0 2px 3px #55e6c1;
   box-shadow: 0 0 2px 3px #55e6c1;
+}
+
+.w100p{
+  width: 100%;
+}
+.w100p img{
+  vertical-align: middle;
 }
 
 @keyframes glowing {
