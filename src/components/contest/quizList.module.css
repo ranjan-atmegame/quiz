@@ -9,8 +9,8 @@
 .quizList .quizCard {
   display: flex;
   flex-wrap: wrap;
-  background: #212583;
-  border: solid 1px #4c51af;
+  background: #282D93;
+  border: solid 0px #4c51af;
   border-radius: 8px;
   margin-bottom: 8px;
   width: 100%;
