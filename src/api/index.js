@@ -4,7 +4,7 @@ import { API_URL } from '@/config';
 //============(A) CONTEST==============
 // 1) Fetch two question
 export const getTwoQuestions = async () => {
-  const res = await fetch(`${SITE_URL}/api/question/two-question`, {
+  const res = await fetch(`${API_URL}/api/question/two-question`, {
     next: { revalidate: 6 * 60 * 60 },
   });
 

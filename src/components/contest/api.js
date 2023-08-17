@@ -1,5 +1,4 @@
 import { getContestById } from '@/api';
-
 // import { getContestById, addTransaction } from '@/api';
 import { USER_CONTEST, COIN_HISTORY } from '@/utils/Constant';
 // import { setCookies, getCookies } from '@/utils/Cookies';

@@ -7,6 +7,8 @@ export const DEFAULT_EXPIRES = 30;
 
 export const JWT = 'jwt';
 
+export const IS_SUBMITTED = 'tq-submitted';
+export const IS_SUBMITTED_EXP = 60 * 24 * 30;
 export const COIN_HISTORY = 'coin-history';
 export const USER_CONTEST = 'u-contest';
 export const CONTEST_FETCH_AT = 'c-fetch';

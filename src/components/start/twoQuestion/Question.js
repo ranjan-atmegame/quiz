@@ -4,7 +4,11 @@ import Button from '@/components/ui/Button';
 import Loader from '@/components/loader/shimmer/ContestShimmer';
 import styles from '@/components/quiz/quizCard.module.css';
 
-export default function Body({ questionIndex, question, verifyUserAnswer }) {
+export default function Question({
+  question,
+  questionIndex,
+  verifyUserAnswer,
+}) {
   const [answered, setAnswered] = useState(false);
 
   useEffect(() => {
