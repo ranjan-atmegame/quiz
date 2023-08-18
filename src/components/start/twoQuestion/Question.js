@@ -13,22 +13,26 @@ export default function Question({
 }) {
   const [answered, setAnswered] = useState(false);
 
+  let incorrectClass = `${styles.incorrect} ${styles.shine} ${styles.animate__animated} ${styles.animate__shakeX}`;
+
   useEffect(() => {
     setAnswered(false);
   }, [questionIndex]);
 
   const handleClick = (e, answer) => {
     e.preventDefault();
+    console.log(answer);
     if (!answered) {
       let answerClass = answer.isCorrectAnswer
         ? styles.correct
-        : `${styles.incorrect} ${styles.shine} ${styles.animate__animated} ${styles.animate__shakeX}`;
+        : incorrectClass;
+      // : `${styles.incorrect} ${styles.shine} ${styles.animate__animated} ${styles.animate__shakeX}`;
 
       e.target.className += answerClass;
 
       setAnswered(true);
       setTimeout(() => {
-        verifyUserAnswer(answer.isCorrectAnswer);
+        // verifyUserAnswer(answer.isCorrectAnswer);
       }, 500);
     }
   };
@@ -46,12 +50,19 @@ export default function Question({
               <h3>{question.question}</h3>
               <ul>
                 {question.answerOptions.map((option) => (
-                  <li key={option._id} onClick={(e) => handleClick(e, option)}>
-                    <Button
+                  <li key={option._id}>
+                    {/* <Button
                       text={option.answer}
                       btnColor="default"
                       btnSize={''}
-                    ></Button>
+                    ></Button> */}
+
+                    <button
+                      onClick={(e) => handleClick(e, option)}
+                      className={''}
+                    >
+                      {option.answer}
+                    </button>
                   </li>
                 ))}
               </ul>

@@ -1,14 +1,14 @@
 import Link from 'next/link';
-import { signinSignup, login } from '@/components/quiz/quizCard.module.css';
+import styles from './loginOption.module.css';
 
 export default function LoginOption() {
   return (
-    <div className={signinSignup}>
-      <Link className={login} href="/login">
+    <div className={styles.signinSignup}>
+      <Link className={styles.login} href="/login">
         Sign up
       </Link>
       OR
-      <Link className={login} href="/login">
+      <Link className={styles.login} href="/login">
         Sign In
       </Link>
     </div>

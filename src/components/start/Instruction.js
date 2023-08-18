@@ -8,10 +8,10 @@ export default function Instruction({ questionNumber, total = 2 }) {
       <p>
         Just answer {total} questions and win {DEFAULT_COIN} coins.
       </p>
-      <div className={styles.qNumbers}>
+      {/* <div className={styles.qNumbers}>
         Question <span className={styles.lite}>{questionNumber}</span> /{' '}
         <span className={styles.bold}> {total} </span>
-      </div>
+      </div> */}
     </div>
   );
 }

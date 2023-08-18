@@ -7,6 +7,7 @@ import { getTwoQuestions } from '@/api';
 import { isQuizSubmitted, setQuizSubmitted } from './api';
 import LoginOption from './LoginOptions';
 import TwoQuestion from './twoQuestion/Question';
+import FunFact from './FunFact';
 
 export default function Start() {
   const router = useRouter();
@@ -72,6 +73,7 @@ export default function Start() {
         verifyUserAnswer={verifyUserAnswer}
         questionIndex={state.questionIndex}
       />
+      <FunFact />
       <LoginOption />
       <QuizRules />
     </>
