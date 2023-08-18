@@ -32,7 +32,7 @@ export default function Question({
   };
 
   return (
-    <section className={styles.quizCard}>
+    <>
       <Instruction questionNumber={questionIndex + 1} />
       <div className={styles.body}>
         <div className={styles.qaOptions}>
@@ -52,6 +52,6 @@ export default function Question({
           )}
         </div>
       </div>
-    </section>
+    </>
   );
 }
