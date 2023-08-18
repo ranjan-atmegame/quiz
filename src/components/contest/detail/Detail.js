@@ -6,11 +6,11 @@ import styles from '@/components/submit/playNow.module.css';
 
 export default function Detail({ contest }) {
   return (
-    <>
+    <div className={styles.playNow}>
       <div className={styles.stage}>
         <div className={`${styles.box} ${styles.bounce}`}>
           <QuizImage imageName={contest.quizImage} name={contest.name} />
-          <h3>{contest.name}</h3>
+          <h3 className={styles.title}>{contest.name}</h3>
         </div>
       </div>
 
@@ -26,6 +26,6 @@ export default function Detail({ contest }) {
         <Coin />
       </p>
       <p className="mb-16">Join and save the coins you win! Its free & safe!</p>
-    </>
+    </div>
   );
 }

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import {
   btn,
   shine,
+  blue,
   animated,
   bounceIn,
 } from '@/components/submit/playNow.module.css';
@@ -23,7 +24,7 @@ export default function Join({ isSignedIn, href, onClick }) {
       )}
 
       <Link
-        className={`${btn} ${shine} ${animated} ${bounceIn}`}
+        className={`${btn} ${blue} ${shine} ${animated} ${bounceIn}`}
         href={href}
         onClick={onClick}
       >
