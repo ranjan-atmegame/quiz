@@ -53,6 +53,12 @@
 .ad {
   min-height: 200px;
   width: 100%;
+  overflow: hidden;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  border-radius: 16px;
+  background: #B8C2DB;
+  position: relative;
 }
 
 .signinSignup {

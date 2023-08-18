@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Button from '@/components/ui/Button';
 import Loader from '@/components/loader/shimmer/ContestShimmer';
 import styles from '../quizCard.module.css';
+import Timer from '@/components/ui/timer/timer';
 
 export default function Body({ questionIndex, question, verifyUserAnswer }) {
   const [answered, setAnswered] = useState(false);
@@ -29,10 +30,12 @@ export default function Body({ questionIndex, question, verifyUserAnswer }) {
   return (
     <div className={styles.body}>
       <div className={styles.qaOptions}>
+        fafjal
         {!question ? (
           <Loader />
         ) : (
           <>
+            <Timer />
             <h3>{question.question}</h3>
             <ul>
               {question.answerOptions.map((option) => (

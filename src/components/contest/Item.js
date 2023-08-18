@@ -47,7 +47,7 @@ export default function Item({ contest }) {
               </p>
             </div>
           </div>
-          {/* <div className={styles.cardFooter}>
+          <div className={styles.cardFooter}>
             <p>
               <span>
                 {entryFeeJSX}
@@ -64,7 +64,7 @@ export default function Item({ contest }) {
             >
               Play
             </Link>
-          </div> */}
+          </div>
         </div>
       </div>
     </>

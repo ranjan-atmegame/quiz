@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import Button from '@/components/ui/Button';
 import Loader from '@/components/loader/shimmer/ContestShimmer';
 import styles from '@/components/quiz/quizCard.module.css';
+import Timer from '@/components/ui/timer/timer';
+import QuestionNumber from './questionNumber';
 
 export default function Question({
   question,
@@ -37,6 +39,7 @@ export default function Question({
           <Loader />
         ) : (
           <>
+            <QuestionNumber />
             <h3>{question.question}</h3>
             <ul>
               {question.answerOptions.map((option) => (
