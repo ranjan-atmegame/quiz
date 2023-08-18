@@ -14,10 +14,6 @@ export default function Header({
         {children}
         <div className={styles.questionIncorrect}>{inCorrectAnswer}</div>
       </div>
-      <div className={styles.qNumbers}>
-        Question <span className={styles.lite}>{questionNumber}</span> /{' '}
-        <span className={styles.bold}> {totalQuestions} </span>
-      </div>
     </div>
   );
 }
