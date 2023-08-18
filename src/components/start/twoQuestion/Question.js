@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Button from '@/components/ui/Button';
 import Loader from '@/components/loader/shimmer/ContestShimmer';
 import styles from '@/components/quiz/quizCard.module.css';
+import Instruction from '../Instruction';
 
 export default function Question({
   question,
@@ -31,25 +32,26 @@ export default function Question({
   };
 
   return (
-    <div className={styles.body}>
-      <div className={styles.qaOptions}>
-        {!question ? (
-          <Loader />
-        ) : (
-          <>
-            <h3>{question.question}</h3>
-            <ul>
-              {question.answerOptions.map((option) => (
-                <li key={option._id} onClick={(e) => handleClick(e, option)}>
-                  <Button href="" className="">
-                    {option.answer}
-                  </Button>
-                </li>
-              ))}
-            </ul>
-          </>
-        )}
+    <section className={styles.quizCard}>
+      <Instruction questionNumber={questionIndex + 1} />
+      <div className={styles.body}>
+        <div className={styles.qaOptions}>
+          {!question ? (
+            <Loader />
+          ) : (
+            <>
+              <h3>{question.question}</h3>
+              <ul>
+                {question.answerOptions.map((option) => (
+                  <li key={option._id} onClick={(e) => handleClick(e, option)}>
+                    <Button className="">{option.answer}</Button>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

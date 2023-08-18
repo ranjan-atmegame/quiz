@@ -1,7 +1,7 @@
 import { DEFAULT_COIN } from '@/utils/Constant';
 import styles from '@/components/quiz/quizCard.module.css';
 
-export default function Instruction({ questionNumber, total }) {
+export default function Instruction({ questionNumber, total = 2 }) {
   return (
     <div className={styles.header}>
       <h1>Quick Start!</h1>
