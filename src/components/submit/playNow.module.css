@@ -149,7 +149,7 @@
   animation: pulse 1s infinite ease-in-out alternate;
 }
 
-.sanimated {
+.animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
   -webkit-animation-duration: var(--animate-duration);

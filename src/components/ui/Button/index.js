@@ -1,14 +1,23 @@
-import Link from 'next/link';
-import styles from '@/components/contest/quizList.module.css';
+import styles from './button.module.css';
 
-export default function Button({
+const Button = ({
   href,
-  className = styles.btnSmall,
-  children,
-}) {
+  text,
+  btnSize,
+  btnColor,
+  btnRadius,
+  btnClick,
+  btnIconUrl,
+}) => {
   return (
-    <Link href={href} className={`${styles.btn} ${className}`}>
-      {children}
-    </Link>
+    <button
+      href={href}
+      onClick={btnClick}
+      className={`${styles.btn} ${styles[btnSize]}  ${styles[btnRadius]} ${styles[btnColor]}`}
+    >
+      {text}
+    </button>
   );
-}
+};
+
+export default Button;

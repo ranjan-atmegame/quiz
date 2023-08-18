@@ -10,6 +10,18 @@
   color: var(--white);
   position: relative;
 }
+.header{
+  text-align: center;
+  margin-top: 16px;
+  margin-bottom: 50px;
+}
+.header h1{
+  font-size: 22px;
+}
+.header p{
+  color: rgba(255, 255, 255, 0.64);
+  line-height: 20px;
+}
 
 .quizCard .header {
   background: #272c93;
@@ -92,7 +104,7 @@
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
-  background: #282D93 url(/_next/static/media/cardBG.60042b0e.svg) no-repeat top 0px left -6px;
+  background: #282D93 url('../../../public/img/cardBG.svg') no-repeat top 0px left -6px;
   border-radius: 16px;
   padding: 40px 8px;
   min-height: 320px;
@@ -132,9 +144,9 @@
   position: relative;
 }
 
-.qaOptions ul li a {
+.qaOptions ul li button {
   width: 100%;
-  min-height: 54px;
+  min-height: 58px;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -151,7 +163,7 @@
   border-radius: 8px;
 }
 
-.qaOptions ul li a.correct {
+.qaOptions ul li button.correct {
   -webkit-box-shadow: 0 1px 3px #2a2f98;
   box-shadow: 0 1px 3px #2a2f98;
   background: #31d2a9 0% 0% no-repeat padding-box;
@@ -160,9 +172,11 @@
   border: 1px solid #31d2a9;
   color: #fff;
   text-shadow: 0 1px 0 #23c39a;
+  width: 100%;
+  height: 58px;
 }
 
-.qaOptions ul li a.incorrect {
+.qaOptions ul li button.incorrect {
   -webkit-box-shadow: 0 1px 3px #2a2f98;
   box-shadow: 0 1px 3px #2a2f98;
   background: #ef4242 0% 0% no-repeat padding-box;
@@ -171,9 +185,11 @@
   border: 1px solid #de5353;
   color: #fff;
   text-shadow: 0 1px 0 #de5353;
+  width: 100%;
+  height: 58px;
 }
 
-.qaOptions ul li a.prediction {
+.qaOptions ul li button.prediction {
   background: transparent -webkit-gradient(
       linear,
       left top,
@@ -190,7 +206,7 @@
   background-size: 200% 100%;
 }
 
-.qaOptions ul li a.predictionCorrect {
+.qaOptions ul li button.predictionCorrect {
   background: transparent -webkit-gradient(
       linear,
       left top,
