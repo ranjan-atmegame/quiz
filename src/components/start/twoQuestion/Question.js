@@ -21,7 +21,8 @@ export default function Question({
     if (!answered) {
       let answerClass = answer.isCorrectAnswer
         ? styles.correct
-        : styles.incorrect;
+        : `${styles.incorrect} ${styles.shine} ${styles.animate__animated} ${styles.animate__shakeX}`;
+
       e.target.className += answerClass;
 
       setAnswered(true);
