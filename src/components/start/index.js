@@ -19,6 +19,10 @@ export default function Start() {
 
   useEffect(() => {
     const isSubmitted = isQuizSubmitted();
+    if (isSubmitted) {
+      return router.push('/');
+    }
+
     getTwoQuestions()
       .then((response) => {
         if (response.length) {
