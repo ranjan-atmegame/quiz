@@ -15,9 +15,9 @@ export default function EmptyItem() {
               <p>&nbsp;</p>
             </div>
           </div>
-          {/* <div className={styles.cardFooter}>
+          <div className={styles.cardFooter}>
             <p>&nbsp;</p>
-          </div> */}
+          </div>
         </div>
       </div>
     </>

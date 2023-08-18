@@ -11,7 +11,7 @@
 
 .funFact::before {
   content: '';
-  /* content: url(../../../public/img/funFactBg.png); */
+  content: url(../../../public/img/funFactBg.png);
   height: 100px;
   width: 100px;
   position: absolute;

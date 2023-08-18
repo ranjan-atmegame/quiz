@@ -29,10 +29,10 @@ export default function Item({ contest }) {
                 <CoinIcon className="medium" />
               </h3>
               <p>Winner announcement @ {getQuizEndTime(contest.endTime)}</p>
-              <p className={styles.w100p}>
+              {/* <p className={styles.w100p}>
                 <strong>{randomNumber(5000, 6500)}</strong> Users Playing
-              </p>
-              <p className={styles.w100p}>
+              </p> */}
+              {/* <p className={styles.w100p}>
                 <strong>{entryFeeJSX}</strong>
                 <CoinIcon />
                 <Link
@@ -44,7 +44,7 @@ export default function Item({ contest }) {
                   {' '}
                   Play
                 </Link>
-              </p>
+              </p> */}
             </div>
           </div>
           <div className={styles.cardFooter}>
