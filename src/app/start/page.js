@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
-const Layout = dynamic(() => import('@/components/ui/layout'));
 const Start = dynamic(() => import('@/components/start'));
+const Layout = dynamic(() => import('@/components/ui/layout'));
 
 export default function Page() {
   return (

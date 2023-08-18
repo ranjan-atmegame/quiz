@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { getFunFact } from './api';
 import styles from './funFact.module.css';
 
-export default function FunFact({ funFact }) {
+export default function FunFact() {
   const [fact, setFact] = useState();
 
   useEffect(() => {
