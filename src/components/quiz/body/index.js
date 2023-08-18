@@ -19,10 +19,12 @@ export default function Body({
 
   const handleClick = (e, answer) => {
     e.preventDefault();
+
     if (!answered) {
       let answerClass = answer.isCorrectAnswer
-        ? styles.correct
-        : styles.incorrect;
+        ? `${styles.correct}`
+        : `${styles.incorrect} ${styles.shine} ${styles.animate__animated} ${styles.animate__shakeX}`;
+
       e.target.className += answerClass;
 
       setAnswered(true);
@@ -45,13 +47,13 @@ export default function Body({
             </div>
             <h3>{question.question}</h3>
             <ul>
-              {question.answerOptions.map((option) => (
-                <li key={option._id} onClick={(e) => handleClick(e, option)}>
-                  <Button href="" className="">
-                    {option.answer}
-                  </Button>
-                </li>
-              ))}
+              {question.answerOptions.map((option) => {
+                return (
+                  <li key={option._id} onClick={(e) => handleClick(e, option)}>
+                    <button className={''}>{option.answer}</button>
+                  </li>
+                );
+              })}
             </ul>
           </>
         )}

@@ -50,7 +50,6 @@ export default function Play() {
     if (contestId) {
       // getContestById(contestId).then((contest) => {
       getContestQuizById(contestId).then((contest) => {
-        console.log(contest);
         if (!contest) {
           return router.push('/');
         }
