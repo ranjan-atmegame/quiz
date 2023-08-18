@@ -39,14 +39,14 @@ export default function Question({
 
   return (
     <>
-      <Instruction questionNumber={questionIndex + 1} />
+      <Instruction />
       <div className={styles.body}>
         <div className={styles.qaOptions}>
           {!question ? (
             <Loader />
           ) : (
             <>
-              <QuestionNumber />
+              <QuestionNumber questionNumber={questionIndex + 1} />
               <h3>{question.question}</h3>
               <ul>
                 {question.answerOptions.map((option) => (

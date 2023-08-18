@@ -38,13 +38,19 @@ export default function Body({ questionIndex, question, verifyUserAnswer }) {
             <Timer />
             <h3>{question.question}</h3>
             <ul>
-              {question.answerOptions.map((option) => (
-                <li key={option._id} onClick={(e) => handleClick(e, option)}>
-                  <Button href="" className="">
-                    {option.answer}
-                  </Button>
-                </li>
-              ))}
+              {question.answerOptions.map((option) => {
+                console.log(option);
+                return (
+                  <li key={option._id} onClick={(e) => handleClick(e, option)}>
+                    <button
+                      onClick={(e) => handleClick(e, option)}
+                      className={''}
+                    >
+                      {option.answer}
+                    </button>
+                  </li>
+                );
+              })}
             </ul>
           </>
         )}
