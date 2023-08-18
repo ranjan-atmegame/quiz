@@ -21,10 +21,22 @@
 
 }
 
+.funFact::after{
+    content: "";
+    content: url(../../../public/img/funFactBg.png);
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    right: 0px;
+    top: -8px;
+    z-index: 1;
+    transform: rotate(-180deg);
+}
+
 .funFact p{
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 400;
-    line-height: 18px;
+    line-height: 16px;
     position: relative;
     z-index: 2;
 }
