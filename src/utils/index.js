@@ -13,3 +13,6 @@ export const formatNumber = (number) => {
 export const randomNumber = (min, max) => {
   return Math.floor(Math.random() * (max - min)) + min;
 };
+
+// Is client or server
+export const isServer = () => typeof window === 'undefined';
