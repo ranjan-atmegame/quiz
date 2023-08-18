@@ -14,10 +14,12 @@ export default function Body({ questionIndex, question, verifyUserAnswer }) {
 
   const handleClick = (e, answer) => {
     e.preventDefault();
+
     if (!answered) {
       let answerClass = answer.isCorrectAnswer
-        ? styles.correct
-        : styles.incorrect;
+        ? `${styles.correct}`
+        : `${styles.incorrect} ${styles.shine} ${styles.animate__animated} ${styles.animate__shakeX}`;
+
       e.target.className += answerClass;
 
       setAnswered(true);
@@ -39,15 +41,9 @@ export default function Body({ questionIndex, question, verifyUserAnswer }) {
             <h3>{question.question}</h3>
             <ul>
               {question.answerOptions.map((option) => {
-                console.log(option);
                 return (
                   <li key={option._id} onClick={(e) => handleClick(e, option)}>
-                    <button
-                      onClick={(e) => handleClick(e, option)}
-                      className={''}
-                    >
-                      {option.answer}
-                    </button>
+                    <button className={''}>{option.answer}</button>
                   </li>
                 );
               })}

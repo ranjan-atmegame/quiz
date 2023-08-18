@@ -18,8 +18,8 @@ export const CRICKET_CONTEST_LIST = 'i-list';
 export const GENERAL_CONTEST = 'C';
 export const CRICKET_CONTEST = 'I';
 export const CONTEST_TYPES = [
-  { id: GENERAL_CONTEST, name: 'Contests' },
-  { id: CRICKET_CONTEST, name: 'IPL & Cricket' },
+  { id: GENERAL_CONTEST, name: 'Contests', slug: '/' },
+  { id: CRICKET_CONTEST, name: 'IPL & Cricket', slug: '/cricket' },
 ];
 
 export const DEBIT = 0;
