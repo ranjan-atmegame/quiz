@@ -32,7 +32,7 @@ export default function Question({
 
       setAnswered(true);
       setTimeout(() => {
-        // verifyUserAnswer(answer.isCorrectAnswer);
+        verifyUserAnswer(answer.isCorrectAnswer);
       }, 500);
     }
   };
