@@ -21,8 +21,6 @@ const COLOR_CODES = {
   },
 };
 
-let remainingPathColor = COLOR_CODES.info.color;
-
 export default function Timer({ onTimerOver, shouldStopTimer }) {
   const [timer, setTimer] = useState(0);
   const [seconds, setSeconds] = useState(QUIZ_TIME);
@@ -38,8 +36,6 @@ export default function Timer({ onTimerOver, shouldStopTimer }) {
   const setCountDown = () => {
     if (seconds >= 1) {
       setSeconds((lastSeconds) => lastSeconds - 1);
-      // setCircleDasharray();
-      // return setRemainingPathColor();
     }
 
     stopTimer();
@@ -60,34 +56,6 @@ export default function Timer({ onTimerOver, shouldStopTimer }) {
   function calculateTimeFraction() {
     return seconds / QUIZ_TIME;
   }
-
-  // function setCircleDasharray() {
-  //   const circleDasharray = `${(
-  //     calculateTimeFraction() * FULL_DASH_ARRAY
-  //   ).toFixed(0)} ${FULL_DASH_ARRAY}`;
-  //   document
-  //     .getElementById('base-timer-path-remaining')
-  //     .setAttribute('stroke-dasharray', circleDasharray);
-  // }
-
-  // function setRemainingPathColor() {
-  //   const { alert, warning, info } = COLOR_CODES;
-  //   if (seconds <= alert.threshold) {
-  //     document
-  //       .getElementById('base-timer-path-remaining')
-  //       .classList.remove(warning.color);
-  //     document
-  //       .getElementById('base-timer-path-remaining')
-  //       .classList.add(alert.color);
-  //   } else if (seconds <= warning.threshold) {
-  //     document
-  //       .getElementById('base-timer-path-remaining')
-  //       .classList.remove(info.color);
-  //     document
-  //       .getElementById('base-timer-path-remaining')
-  //       .classList.add(warning.color);
-  //   }
-  // }
 
   function getColor() {
     const { alert, warning, info } = COLOR_CODES;
