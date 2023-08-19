@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Button from '@/components/ui/Button';
 import Loader from '@/components/loader/shimmer/ContestShimmer';
 import styles from '../quizCard.module.css';
+import LifeLine from './lifeLine';
 
 export default function Body({
   questionIndex,
@@ -55,6 +56,8 @@ export default function Body({
                 );
               })}
             </ul>
+            <LifeLine />
+            <div className={styles.lifeLine}>lifeLine</div>
           </>
         )}
       </div>

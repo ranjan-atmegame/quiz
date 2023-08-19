@@ -83,6 +83,7 @@ export default function Quiz({
       >
         <Timer onTimerOver={onTimerOver} shouldStopTimer={false} />
       </Header>
+
       <Body
         question={question}
         verifyUserAnswer={verifyUserAnswer}

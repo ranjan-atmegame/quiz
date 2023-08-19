@@ -1,7 +1,11 @@
 .baseTimer {
-  position: relative;
-  width: 75px;
-  height: 75px;
+  position: absolute;
+    width: 86px;
+    height: 86px;
+    left: 150px;
+    top: -19px;
+    border-radius: 50px;
+    background: #282D93;
 }
 
 .baseTimer__svg {
@@ -15,7 +19,7 @@
 
 .baseTimer__pathElapsed {
   stroke-width: 7px;
-  stroke: grey;
+  stroke: #0E0A5F;
 }
 
 .baseTimer__pathRemaining {
@@ -29,11 +33,12 @@
 }
 
 .baseTimer__pathRemaining.green {
-  color: rgb(65, 184, 131);
+  /* color: rgb(65, 184, 131); */
+  color: #6C73FF;
 }
 
 .baseTimer__pathRemaining.orange {
-  color: orange;
+  color: #fc8c1b;
 }
 
 .baseTimer__pathRemaining.red {
@@ -44,9 +49,27 @@
   position: absolute;
   width: 75px;
   height: 75px;
-  top: 0;
+  top: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 24px;
+  text-align: center;
+  left: 6px;
+}
+
+.inner{
+  border-radius: 50px;
+  background: #282D93;
+  border: 6px solid #090551;
+  width: 72px;
+  position: absolute;
+  height: 72px;
+  left: 1px;
+  top: 1px;
+}
+
+.seconds{
+  position: relative;
+  z-index: 1002;
 }
