@@ -17,12 +17,12 @@ export default function RootLayout({ children }) {
           data-ad-client="ca-pub-9733910408335876"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
         ></Script>
-        {/* <Script id="google-ad-page" strategy="beforeInteractive">
+        <Script id="google-ad-page" strategy="beforeInteractive">
           {`(adsbygoogle = window.adsbygoogle || []).push({
         google_ad_client: "ca-pub-9733910408335876",
         enable_page_level_ads: true,
       });`}
-        </Script> */}
+        </Script>
         <Script id="google-ad-config" strategy="beforeInteractive">
           {`window.adsbygoogle = window.adsbygoogle || [];
       var adBreak = (adConfig = function (o) {
