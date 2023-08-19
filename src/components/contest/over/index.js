@@ -21,10 +21,10 @@ export default function WinnerDashboard() {
   useEffect(() => {
     const contest = getUserContest();
     if (!contest) {
-      console.log('contest not found!');
-      // return router.push('/');
+      router.push('/');
+    } else {
+      setContest(contest);
     }
-    setContest(contest);
 
     return () => setUserContest(null);
   }, []);
