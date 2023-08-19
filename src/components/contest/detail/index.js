@@ -23,7 +23,6 @@ export default function ContestDetail() {
 
   useEffect(() => {
     if (contestId && slug) {
-      console.log('Get contest...');
       getContestById(slug, contestId).then((contest) => {
         if (!contest) {
           return router.push('/');

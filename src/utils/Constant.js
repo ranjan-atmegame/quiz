@@ -27,7 +27,8 @@ export const CREDIT = 1;
 
 export const USER_LOCATION = 'user-location';
 export const LOCATION_EXPIRY = 24 * 60 * 60;
-export const QUIZ_TIME = 600;
+// export const QUIZ_TIME = 60;
+export const QUIZ_TIME = 30;
 
 // Quiz
 export const CORRECT_SCORE = 25;

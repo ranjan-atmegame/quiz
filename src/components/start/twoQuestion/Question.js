@@ -19,12 +19,10 @@ export default function Question({
 
   const handleClick = (e, answer) => {
     e.preventDefault();
-    console.log(answer);
     if (!answered) {
       let answerClass = answer.isCorrectAnswer
         ? styles.correct
         : `${styles.incorrect} ${styles.shine} ${styles.animate__animated} ${styles.animate__shakeX}`;
-      // : `${styles.incorrect} ${styles.shine} ${styles.animate__animated} ${styles.animate__shakeX}`;
 
       e.target.className += answerClass;
 

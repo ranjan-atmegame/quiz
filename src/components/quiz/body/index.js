@@ -9,7 +9,7 @@ export default function Body({
   question,
   verifyUserAnswer,
   totalQuestions = 20,
-  questionNumber = 1,
+  // questionNumber = 1,
 }) {
   const [answered, setAnswered] = useState(false);
 
@@ -42,8 +42,8 @@ export default function Body({
         ) : (
           <>
             <div className={styles.qNumbers}>
-              Question <span className={styles.lite}>{questionNumber}</span> /{' '}
-              <span className={styles.bold}> {totalQuestions} </span>
+              Question <span className={styles.lite}>{questionIndex + 1}</span>{' '}
+              / <span className={styles.bold}> {totalQuestions} </span>
             </div>
             <h3>{question.question}</h3>
             <ul>
