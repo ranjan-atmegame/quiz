@@ -1,10 +1,20 @@
+'use client';
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-// import CoinLink from '@/components/coin/CoinLink';
 import { IMG_PATH } from '@/config';
 import styles from './header.module.css';
+import Sidebar from './Sidebar';
 
 const Header = ({ displayCoins = true }) => {
+  const [displaySidebar, setDisplaySidebar] = useState(false);
+
+  const handleSidebar = () => {
+    setDisplaySidebar((isDisplayed) => {
+      return !isDisplayed;
+    });
+  };
+
   return (
     <>
       <header className={styles.header}>
@@ -13,6 +23,7 @@ const Header = ({ displayCoins = true }) => {
             <label htmlFor="menu-control" className={styles.sidebarToggle}>
               <Image
                 src={`${IMG_PATH}/img/menu-icon.svg`}
+                onClick={handleSidebar}
                 width={24}
                 height={14}
                 title="Toggle Sidebar"
@@ -64,6 +75,8 @@ const Header = ({ displayCoins = true }) => {
             />
           </div>
         </div>
+
+        {displaySidebar && <Sidebar onClose={handleSidebar} />}
       </header>
     </>
   );
