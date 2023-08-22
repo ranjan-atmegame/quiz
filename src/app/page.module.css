@@ -19,6 +19,7 @@
   padding-top: 0;
 }
 
+
 /* .container::before {
   background: var(--secondary-glow);
   border-radius: 50%;
@@ -56,7 +57,7 @@
   overflow: hidden;
   margin-top: 16px;
   margin-bottom: 16px;
-  border-radius: 8px;
+  border-radius: 0px;
   background: transparent;
   position: relative;
 }

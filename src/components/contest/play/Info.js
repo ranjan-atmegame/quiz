@@ -1,21 +1,24 @@
 'use client';
 import { formatNumber } from '@/utils';
 import CoinIcon from '@/components/coin';
-import { stage, box, bounce } from '@/components/submit/playNow.module.css';
+import styles from './info.module.css';
 
 export default function ContestInfo({ contest }) {
   return (
     <>
-      <div className={stage}>
-        <div className={`${box} ${bounce}`}>
+      <div className={styles.info}>
+        <div className={`${styles.box}`}>
           <h3>{contest.name}</h3>
         </div>
+        <h2>
+          {`Play and Win ${formatNumber(contest.winningCoins)} `}
+          <CoinIcon className="medium" />
+        </h2>
+        {/* <p>
+          Just answer 20 {contest.name} questions and win {contest.winningCoins}{' '}
+          coins.
+        </p> */}
       </div>
-
-      <h2>
-        {`Play and Win ${formatNumber(contest.winningCoins)} `}
-        <CoinIcon className="medium" />
-      </h2>
     </>
   );
 }

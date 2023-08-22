@@ -11,8 +11,10 @@ const JoinButton = dynamic(() => import('@/components/contest/joinButton'));
 const ContestList = dynamic(() => import('@/components/contest/ContestList'));
 // import JoinButton from '../JoinButton';
 import Loader from '@/components/loader/shimmer/ContestShimmer';
+import JoinButtonOver from '../joinButton/joinButtonOver';
 // import ContestList from '@/components/home/ContestList';
 // import { GENERAL_CONTEST } from '@/utils/Constant';
+import styles from './info.module.css';
 
 export default function WinnerDashboard() {
   const [contest, setContest] = useState();
@@ -40,18 +42,22 @@ export default function WinnerDashboard() {
         mayWinCoins={contest.mayWinCoins}
         score={contest.score}
         endTime={contest.endTime}
+      >
+        <Rank
+          correctAnswer={contest.correctAnswer}
+          inCorrectAnswer={contest.inCorrectAnswer}
+          rank={contest.rank}
+        />
+      </TimeOver>
+
+      <JoinButtonOver
+        isSignedIn={false}
+        href="/"
+        onClick={() => console.log('')}
       />
 
-      <JoinButton isSignedIn={false} href="/" onClick={() => console.log('')} />
-
-      <Rank
-        correctAnswer={contest.correctAnswer}
-        inCorrectAnswer={contest.inCorrectAnswer}
-        rank={contest.rank}
-      />
-
-      <div className="quiz-contests">
-        <h2>Play More Quizzes</h2>
+      <div>
+        <h2 className={styles.listH2}>Play More Quizzes</h2>
         {<ContestList />}
       </div>
     </>

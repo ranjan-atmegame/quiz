@@ -1,0 +1,50 @@
+.lifeLine{
+    margin: 0;
+    position: relative;
+}
+
+.lifeLine ul.lifeLineWrapper{
+    display: flex;
+}
+
+.lifeLine ul.lifeLineWrapper li{
+    margin-right: 8px;
+    width: calc(25% - 16px);
+    display: flex;
+    flex-direction: column;
+}
+
+.lifeLine ul.lifeLineWrapper li:last-child{
+    margin-right: 0;
+}
+
+.lifeLine ul.lifeLineWrapper li .lifeLineList{
+    border-radius: 16px;
+    border: 2px solid #4C51AF;
+    background: #4C51AF;
+    width: 86px;
+    height: 84px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.lifeLine ul.lifeLineWrapper li .lifeLineList.disabled{
+    position: relative;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+.lifeLine ul.lifeLineWrapper li .lifeLineList.disabled .noLifeline{
+    position: absolute;
+    top: -16px;
+    left: 27px;
+    cursor: not-allowed;
+}
+
+.lifeLine ul.lifeLineWrapper li span{
+    font-size: 11px;
+}
+

@@ -89,7 +89,6 @@ export default function Timer({ onTimerOver, shouldStopTimer }) {
             ></circle>
             <path
               id="base-timer-path-remaining"
-              // stroke-dasharray="283"
               strokeDasharray={circleDasharray}
               className={`${styles.baseTimer__pathRemaining} ${
                 styles[getColor()]
@@ -104,7 +103,8 @@ export default function Timer({ onTimerOver, shouldStopTimer }) {
           </g>
         </svg>
         <span id="base-timer-label" className={styles.baseTimer__label}>
-          {seconds}
+          <span className={styles.inner}></span>
+          <span className={styles.seconds}>{seconds}</span>
         </span>
       </div>
     </div>
