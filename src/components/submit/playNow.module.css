@@ -13,6 +13,8 @@
   margin-bottom: 16px;
 }
 
+.twoBtn{display: flex; margin: 16px 0px;}
+
 .playNow h1 {
   font-size: 22px;
   font-weight: 700;
@@ -53,6 +55,15 @@
 .btn.blue{
   background: #282D93;
   font-size: 18px;
+}
+
+.twoBtn .btn.blue{
+  border-radius: 8px;
+  margin-left: 6px;
+}
+.twoBtn .btn{
+  border-radius: 8px;
+  margin-right: 6px;
 }
 .title{
   font-size: 14px;

@@ -68,6 +68,8 @@ body {
   --animate-repeat: 1
 }
 
+h2{font-size: 20px;}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;

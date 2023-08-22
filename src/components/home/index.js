@@ -5,6 +5,7 @@ import Ad from '../ad';
 import Tab from '@/components/tab';
 import { isQuizSubmitted } from '@/components/start/api';
 import ContestList from '@/components/contest/ContestList';
+import Search from '../search/search';
 
 export default function Home() {
   // const [selectedTab, setSelectedTab] = useState();
@@ -27,6 +28,7 @@ export default function Home() {
   return (
     <>
       <Ad />
+      {/* <Search /> */}
       <Tab>
         <ContestList />
       </Tab>

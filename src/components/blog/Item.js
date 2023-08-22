@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import QuizImage from '@/components/ui/Image/QuizImage';
-import styles from '@/components/contest/quizList.module.css';
+import styles from './blogList.module.css';
 
 export default function Item({ blog }) {
   return (

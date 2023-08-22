@@ -1,0 +1,30 @@
+.infoOver{
+    display: flex;
+    margin: 16px 0px;
+}
+
+.content{
+    margin-left: 16px;
+}
+.infoOver h3{
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.64);
+    font-weight: normal;
+    line-height: 16px;
+}
+
+.infoOver h2{
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.infoOver p{
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.64);
+    font-weight: normal;
+}
+
+.box img{width: 60px; height: 60px;}
+.listH2{
+    margin-bottom: 16px;
+}

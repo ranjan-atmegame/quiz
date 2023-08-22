@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
+import Image from 'next/image';
 import {
   CONTEST_TYPES,
   GENERAL_CONTEST,
@@ -19,18 +20,37 @@ export default function Tab({ children }) {
       const tabClass = tab.id === selectedTab ? styles.active : '';
 
       return (
-        <li key={tab.id}>
-          <Link href={tab.slug} className={tabClass}>
-            {tab.name}
-          </Link>
-        </li>
+        <>
+          <li key={tab.id}>
+            <Link href={tab.slug} className={tabClass}>
+              {tab.name}
+            </Link>
+          </li>
+        </>
       );
     });
   };
 
   return (
     <div className={styles.tab}>
-      <ul className={styles.contests}>{tabJSX()}</ul>
+      <ul className={styles.contests}>
+        {tabJSX()}
+        <li>
+          <Link href="#" className="">
+            Cricket
+          </Link>
+        </li>
+      </ul>
+      <div className={styles.search}>
+        <Image
+          src="/img/search.svg"
+          width="20"
+          height="20"
+          alt="Search"
+          title="Search"
+        />
+      </div>
+
       <div className={styles.tabContent}>{children}</div>
     </div>
   );

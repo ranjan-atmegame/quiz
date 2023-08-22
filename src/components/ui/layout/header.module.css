@@ -244,7 +244,7 @@
 }
 
 .sideMenu {
-  width: 360px;
+  width: 428px;
   margin: 0px auto;
   position: relative;
   top: 0;
@@ -267,7 +267,7 @@
   transform-origin: -110% 0%;
   transform: translate(-110%, 0);
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-  width: 360px;
+  width: 428px;
   overflow: hidden;
 }
 .menuOverlay {

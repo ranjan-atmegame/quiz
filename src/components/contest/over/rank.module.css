@@ -2,7 +2,9 @@
   padding: 0;
   position: relative;
   color: #fff;
-  margin-bottom: 8px;
+  margin-bottom:0px;
+  width: 100%;
+  margin-top: 30px;
 }
 
 .smListCard ul {
@@ -14,21 +16,31 @@
 }
 
 .smListCard ul li {
-  width: 23%;
   text-align: center;
-  padding: 8px;
-  min-height: 80px;
+  padding: 0px;
+  min-height: 64px;
   background: #272c93;
-  border: #4c51af solid 1px;
+  border-top: #4c51af solid 1px;
+  border-right: #4c51af solid 1px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 25%;
+}
+
+.smListCard ul li:last-child {
+  border-right: none;
+  border-radius: 0px 0px 16px 0px;
+}
+
+.smListCard ul li:first-child{
+  border-radius: 0px 0px 0px 16px;
 }
 
 .smListCard ul li h2 {
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 700;
-  line-height: 1.4;
+  line-height: 18px;
 }
 
 .smListCard ul li p {
