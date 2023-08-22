@@ -20,13 +20,11 @@ export default function Tab({ children }) {
       const tabClass = tab.id === selectedTab ? styles.active : '';
 
       return (
-        <>
-          <li key={tab.id}>
-            <Link href={tab.slug} className={tabClass}>
-              {tab.name}
-            </Link>
-          </li>
-        </>
+        <li key={tab.id}>
+          <Link href={tab.slug} className={tabClass}>
+            {tab.name}
+          </Link>
+        </li>
       );
     });
   };
