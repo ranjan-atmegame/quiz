@@ -23,7 +23,9 @@ export default function Detail({ contest }) {
         You’ve got {QUIZ_TIME} seconds to answer all questions. Answer as many
         questions as you can. Entry fee will be{' '}
         {formatNumber(contest.entryCoins)}
-        <Coin />
+        <span className={styles.spacer}>
+          <Coin />
+        </span>
       </p>
       <p className="mb-16">Join and save the coins you win! Its free & safe!</p>
     </div>

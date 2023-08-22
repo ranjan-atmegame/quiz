@@ -8,7 +8,7 @@
   display: flex;
   flex-wrap: wrap;
   flex-wrap: nowrap;
-  width: calc(100% - 62px);
+  width: calc(100% - 56px);
   margin-top: 8px;
   margin-bottom: 16px;
   background: #03003A;
@@ -52,7 +52,9 @@
   display: flex;
   flex-wrap: wrap;
   flex-wrap: nowrap;
-  min-width: 124px;
+  min-width:38%;
+  white-space: nowrap;
+  margin-right: 4px;
 }
 
 .tab ul.contests li a.active {
@@ -69,7 +71,7 @@
   width: 100%;
   border-bottom: solid 0px #4c51af;
   color: #a6b7e5;
-  padding: 10px 16px;
+  padding: 6px 12px;
   font-size: 14px;
   font-weight: 600;
   transition: .6s;
@@ -83,14 +85,19 @@
 .search{
   background: #03003A;
     border-radius: 50px;
-    width: 50px;
-    height: 50px;
+    width: 46px;
+    height: 46px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 12px;
-    margin-top: 10px;
+    margin-left: 10px;
+    margin-top: 6px;
     cursor: pointer;
+}
+
+@media only screen and (max-width:375px) {
+  .tab ul.contests li {min-width: auto;}
+  .tab ul.contests li a{padding: 6px 16px;}
 }
 
 @media only screen and (min-width:768px) {

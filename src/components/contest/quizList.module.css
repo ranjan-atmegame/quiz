@@ -64,7 +64,7 @@
   line-height: 24px;
 }
 .quizCard .cardContent .quizNameStatus h3 img {
-  margin-left: 4px;
+  margin-left: 6px;
   margin-top: -2px;
 }
 
@@ -77,7 +77,7 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  padding: 8px;
+  padding: 8px 12px;
   justify-content: space-between;
   align-items: center;
   border-top: solid 1px #4c51af;
@@ -172,3 +172,5 @@
     box-shadow: 0 0 0 5px rgba(141, 183, 247, 0.09);
   }
 }
+
+.quizCard .cardFooter span .spacer{margin-right: 4px;}

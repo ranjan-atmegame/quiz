@@ -50,7 +50,7 @@ export default function Item({ contest }) {
           <div className={styles.cardFooter}>
             <p>
               <span>
-                {entryFeeJSX}
+                <span className={styles.spacer}>{entryFeeJSX}</span>
                 <CoinIcon /> <strong>{randomNumber(5000, 6500)}</strong> Users
                 Playing
               </span>

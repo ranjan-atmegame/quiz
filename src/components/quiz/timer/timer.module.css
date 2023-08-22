@@ -1,9 +1,11 @@
 .baseTimer {
-  position: absolute;
+    position: absolute;
     width: 86px;
     height: 86px;
-    left: 150px;
-    top: -19px;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
     border-radius: 50px;
     background: #282D93;
 }
