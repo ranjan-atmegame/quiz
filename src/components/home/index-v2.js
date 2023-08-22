@@ -3,11 +3,12 @@ import Ad from '../ad';
 import Tab from '@/components/tab';
 import ContestList from '@/components/contest/ContestList';
 
-export default function Home({ tab }) {
+export default function Home() {
   return (
     <>
       <Ad />
-      <Tab tabs={tab}>
+      {/* <Search /> */}
+      <Tab>
         <ContestList />
       </Tab>
     </>

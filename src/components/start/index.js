@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import Ad from '../ad';
 import QuizRules from '../rule';
 import { getTwoQuestions } from '@/api';
-import { isQuizSubmitted, setQuizSubmitted } from './api';
+import { isQuizSubmitted, setQuizSubmitted, setDomain } from './api';
 import LoginOption from './LoginOptions';
 import TwoQuestion from './twoQuestion/Question';
 import FunFact from './FunFact';
@@ -46,6 +46,8 @@ export default function Start() {
   useEffect(() => {
     if (state.isSubmitted) {
       setQuizSubmitted();
+      //testing purpose only
+      setDomain();
       router.push(`/submit`);
     }
   }, [state.isSubmitted]);
