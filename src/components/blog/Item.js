@@ -9,7 +9,12 @@ export default function Item({ blog }) {
         <Link href={`/blog/${blog.title}`}>
           <div className={styles.cardContent}>
             <div className={styles.thumbnialImg}>
-              <QuizImage name={blog.title} imageName={blog.image} />
+              <QuizImage
+                width="80"
+                height="80"
+                name={blog.title}
+                imageName={blog.image}
+              />
             </div>
             <div className={styles.quizNameStatus}>
               <div className={styles.categoryLiveDiv}>
