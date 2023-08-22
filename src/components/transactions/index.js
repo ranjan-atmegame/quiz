@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Ad from '@/components/ad';
 import { authenticate } from '@/api/auth';
+// import CoinsHistory from './CoinsHistory';
 
 export default function Transactions() {
   const { push } = useRouter();
@@ -10,13 +11,14 @@ export default function Transactions() {
   useEffect(() => {
     const { isSignedIn } = authenticate();
     if (!isSignedIn) {
-      push('/login');
+      // push('/login');
     }
   }, []);
 
   return (
     <>
       <Ad />
+      {/* <CoinsHistory /> */}
     </>
   );
 }

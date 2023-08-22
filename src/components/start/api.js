@@ -1,5 +1,7 @@
 import { randomNumber } from '@/utils';
-import { getItemWithExpiry, setItemWithExpiry } from '@/utils/Ls';
+// import { getItemWithExpiry, setItemWithExpiry } from '@/utils/Ls';
+import { setCookies, getCookies } from '@/utils/Cookies';
+
 import { FUN_FACT, IS_SUBMITTED, IS_SUBMITTED_EXP } from '@/utils/Constant';
 
 export const getFunFact = () => {
@@ -7,7 +9,11 @@ export const getFunFact = () => {
   return FUN_FACT[index];
 };
 
+// export const setQuizSubmitted = () =>
+//   setItemWithExpiry(IS_SUBMITTED, 1, IS_SUBMITTED_EXP);
+// export const isQuizSubmitted = () =>
+//   getItemWithExpiry(IS_SUBMITTED) ? true : false;
+
 export const setQuizSubmitted = () =>
-  setItemWithExpiry(IS_SUBMITTED, 1, IS_SUBMITTED_EXP);
-export const isQuizSubmitted = () =>
-  getItemWithExpiry(IS_SUBMITTED) ? true : false;
+  setCookies(IS_SUBMITTED, 1, IS_SUBMITTED_EXP);
+export const isQuizSubmitted = () => (getCookies(IS_SUBMITTED) ? true : false);
