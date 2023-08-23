@@ -403,7 +403,8 @@
 .userDetails {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  margin-left: 12px;
 }
 
 .btn {
@@ -593,3 +594,5 @@
     width: 100%;
   }
 }
+
+.profile{display: flex;}

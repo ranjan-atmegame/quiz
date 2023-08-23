@@ -22,23 +22,25 @@ export default function Sidebar({ onClose }) {
                 </div>
                 <div className={styles.close} onClick={onClose}></div>
               </div>
-              <div className={styles.profilePic}>
-                <Icon
-                  width={71}
-                  height={71}
-                  src="https://www.atmequiz.com/img/male-user-avatar.png"
-                  title="User Avatar"
-                />
-              </div>
-              <div className={styles.userDetails}>
-                <h3>Welcome!</h3>
-                <p>play Quiz &amp; earn coins</p>
-                <Link
-                  className={`${styles.btn} ${styles.btnSmall} ${styles.shine}`}
-                  href="/login"
-                >
-                  Sign In
-                </Link>
+              <div className={styles.profile}>
+                <div className={styles.profilePic}>
+                  <Icon
+                    width={60}
+                    height={60}
+                    src="https://www.atmequiz.com/img/male-user-avatar.png"
+                    title="User Avatar"
+                  />
+                </div>
+                <div className={styles.userDetails}>
+                  <h3>Welcome!</h3>
+                  <p>play Quiz &amp; earn coins</p>
+                  <Link
+                    className={`${styles.btn} ${styles.btnSmall} ${styles.shine}`}
+                    href="/login"
+                  >
+                    Sign In
+                  </Link>
+                </div>
               </div>
             </div>
             <div className={styles.menuItems}>
