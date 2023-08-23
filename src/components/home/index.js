@@ -1,13 +1,26 @@
 'use client';
+import { useState, useEffect } from 'react';
 import Ad from '../ad';
 import Tab from '@/components/tab';
 import ContestList from '@/components/contest/ContestList';
+import Search from '../search/search';
 
-export default function Home({ tab }) {
+export default function Home({ tabs }) {
+  const [displaySearch, setDisplaySearch] = useState(false);
+  const [searchedTab, setSearchedTab] = useState(tabs);
+
+  const toggleSearch = (e) => {
+    e.preventDefault();
+    setDisplaySearch((prevState) => !prevState);
+  };
+
   return (
     <>
       <Ad />
-      <Tab tabs={tab}>
+      {displaySearch && (
+        <Search tabs={searchedTab} toggleSearch={toggleSearch} />
+      )}
+      <Tab tabs={tabs} toggleSearch={toggleSearch}>
         <ContestList />
       </Tab>
     </>

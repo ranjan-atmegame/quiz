@@ -18,9 +18,13 @@ export const GENERAL_CONTEST_LIST = 'c-list';
 export const CRICKET_CONTEST_LIST = 'i-list';
 export const GENERAL_CONTEST = 'C';
 export const CRICKET_CONTEST = 'I';
+// export const CONTEST_TYPES = [
+//   { id: GENERAL_CONTEST, name: 'Contests', slug: '/' },
+//   { id: CRICKET_CONTEST, name: 'IPL & Cricket', slug: '/cricket' },
+// ];
+
 export const CONTEST_TYPES = [
-  { id: GENERAL_CONTEST, name: 'Contests', slug: '/' },
-  { id: CRICKET_CONTEST, name: 'IPL & Cricket', slug: '/cricket' },
+  { id: GENERAL_CONTEST, image: 'tech.png', name: 'Contests', slug: '/' },
 ];
 
 export const DEBIT = 0;

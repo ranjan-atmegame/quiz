@@ -2,6 +2,20 @@ import { GENERAL_CONTEST } from '@/utils/Constant';
 import { API_URL } from '@/config';
 
 //============(A) CONTEST==============
+// 0) Fetch category
+export const getCategory = async () => {
+  const res = await fetch(`${API_URL}/api/quiz`, {
+    next: { revalidate: 6 * 60 * 60 },
+  });
+
+  const response = await res.json();
+  if (response.status !== 'success') {
+    return [];
+  }
+
+  return response.data;
+};
+
 // 1) Fetch two question
 export const getTwoQuestions = async () => {
   const res = await fetch(`${API_URL}/api/question/two-question`, {

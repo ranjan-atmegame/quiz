@@ -2,21 +2,20 @@
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import Image from 'next/image';
-import { GENERAL_CONTEST, CRICKET_CONTEST } from '@/utils/Constant';
+// import { GENERAL_CONTEST, CRICKET_CONTEST } from '@/utils/Constant';
 import styles from './tab.module.css';
 
-export default function Tab({ tabs, children }) {
+export default function Tab({ tabs, toggleSearch, children }) {
   const params = useParams();
 
   const tabJSX = () => {
-    const selectedTab =
-      params?.slug === 'cricket' ? CRICKET_CONTEST : GENERAL_CONTEST;
+    const selectedTab = params?.slug === undefined ? '/' : params.slug;
 
     return tabs.map((tab) => {
-      const tabClass = tab.id === selectedTab ? styles.active : '';
+      const tabClass = tab.slug === selectedTab ? styles.active : '';
 
       return (
-        <li key={tab.id}>
+        <li key={tab.slug}>
           <Link href={tab.slug} className={tabClass}>
             {tab.name}
           </Link>
@@ -27,14 +26,7 @@ export default function Tab({ tabs, children }) {
 
   return (
     <div className={styles.tab}>
-      <ul className={styles.contests}>
-        {tabJSX()}
-        <li>
-          <Link href="#" className="">
-            Cricket
-          </Link>
-        </li>
-      </ul>
+      <ul className={styles.contests}>{tabJSX()}</ul>
       <div className={styles.search}>
         <Image
           src="/img/search.svg"
@@ -42,6 +34,7 @@ export default function Tab({ tabs, children }) {
           height="20"
           alt="Search"
           title="Search"
+          onClick={toggleSearch}
         />
       </div>
 
