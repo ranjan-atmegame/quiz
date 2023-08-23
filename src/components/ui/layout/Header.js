@@ -5,14 +5,21 @@ import Image from 'next/image';
 import { IMG_PATH } from '@/config';
 import styles from './header.module.css';
 import Sidebar from './Sidebar';
+import ReportAnIssue from '@/components/report';
 
 const Header = ({ displayCoins = true }) => {
   const [displaySidebar, setDisplaySidebar] = useState(false);
+  const [displayReportModal, setDisplayReportModal] = useState(false);
 
   const handleSidebar = () => {
     setDisplaySidebar((isDisplayed) => {
       return !isDisplayed;
     });
+  };
+
+  const handleReportModal = () => {
+    setDisplaySidebar(false);
+    setDisplayReportModal((prevState) => !prevState);
   };
 
   return (
@@ -76,8 +83,16 @@ const Header = ({ displayCoins = true }) => {
           </div>
         </div>
 
-        {displaySidebar && <Sidebar onClose={handleSidebar} />}
+        {displaySidebar && (
+          <Sidebar
+            onClose={handleSidebar}
+            toggleReportModal={handleReportModal}
+          />
+        )}
       </header>
+      {displayReportModal && (
+        <ReportAnIssue handleReportModal={handleReportModal} />
+      )}
     </>
   );
 };

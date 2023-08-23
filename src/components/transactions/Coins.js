@@ -28,37 +28,37 @@ export default function CoinHistory() {
   //       });
   //   }, [isSignedIn, token]);
 
-  const showHistory = () => {
-    return transactions.map(
-      ({ _id, name, desc, coins, transaction, image, date }) => {
-        let tranClass = transaction
-          ? 'history-bedge earned'
-          : 'history-bedge paid';
+  // const showHistory = () => {
+  //   return transactions.map(
+  //     ({ _id, name, desc, coins, transaction, image, date }) => {
+  //       let tranClass = transaction
+  //         ? 'history-bedge earned'
+  //         : 'history-bedge paid';
 
-        image = image ? image : 'icon.png';
+  //       image = image ? image : 'icon.png';
 
-        return (
-          <div key={_id} className="history-list">
-            <div className="quiz-thumb">
-              <QuizImage name={name} imageName={image} />
-            </div>
-            <div className="quiz-name-date">
-              <h4>{name}</h4>
-              <h5>{desc}</h5>
-              <span className={tranClass}>
-                {transaction ? 'Earned' : 'Paid'}
-              </span>
-              <span> {moment(date).format('MMMM Do YYYY')}</span>
-            </div>
-            <div className="earned-paid-coins">
-              <CoinIcon />
-              {` ${formatNumber(coins)}`}
-            </div>
-          </div>
-        );
-      }
-    );
-  };
+  //       return (
+  //         <div key={_id} className="history-list">
+  //           <div className="quiz-thumb">
+  //             <QuizImage name={name} imageName={image} />
+  //           </div>
+  //           <div className="quiz-name-date">
+  //             <h4>{name}</h4>
+  //             <h5>{desc}</h5>
+  //             <span className={tranClass}>
+  //               {transaction ? 'Earned' : 'Paid'}
+  //             </span>
+  //             <span> {moment(date).format('MMMM Do YYYY')}</span>
+  //           </div>
+  //           <div className="earned-paid-coins">
+  //             <CoinIcon />
+  //             {` ${formatNumber(coins)}`}
+  //           </div>
+  //         </div>
+  //       );
+  //     }
+  //   );
+  // };
 
   const showStaticHistory = () => {
     return (

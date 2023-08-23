@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Ad from '@/components/ad';
 import { authenticate } from '@/api/auth';
-// import CoinsHistory from './CoinsHistory';
+import CoinHistory from './Coins';
 
 export default function Transactions() {
   const { push } = useRouter();
@@ -18,7 +18,7 @@ export default function Transactions() {
   return (
     <>
       <Ad />
-      {/* <CoinsHistory /> */}
+      <CoinHistory />
     </>
   );
 }
