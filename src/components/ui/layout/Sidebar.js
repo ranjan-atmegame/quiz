@@ -2,7 +2,12 @@ import Link from 'next/link';
 import Icon from '@/components/ui/Icon';
 import styles from './header.module.css';
 
-export default function Sidebar({ onClose }) {
+export default function Sidebar({ onClose, toggleReportModal }) {
+  const handleReportModal = (e) => {
+    e.preventDefault();
+    toggleReportModal();
+  };
+
   return (
     <div className={styles.sideMenu}>
       <div className={`${styles.mobileLeftMenu} ${styles.show}`}>
@@ -140,7 +145,7 @@ export default function Sidebar({ onClose }) {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/">
+                  <Link href="/" onClick={handleReportModal}>
                     <i className={styles.icon}>
                       {' '}
                       <Icon
@@ -150,7 +155,7 @@ export default function Sidebar({ onClose }) {
                         title="Report and Issue"
                       />
                     </i>
-                    Report and Issue
+                    Report an Issue
                     <i className={`${styles.arrow} ${styles.right}`}></i>
                   </Link>
                 </li>

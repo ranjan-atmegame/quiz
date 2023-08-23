@@ -6,21 +6,21 @@ import Tab from '@/components/tab';
 import Item from '../contest/Item';
 import { CRICKET_CONTEST, GENERAL_CONTEST } from '@/utils/Constant';
 import { getActiveContestByType } from '@/components/home/api';
+import Search from '../search/search';
 
-export default function Category({ tab }) {
+export default function Category({ tabs }) {
   const [contestList, setContestList] = useState();
+  const [displaySearch, setDisplaySearch] = useState(false);
+
+  const toggleSearch = (e) => {
+    e.preventDefault();
+    setDisplaySearch((prevState) => !prevState);
+  };
+
   const { slug } = useParams();
 
   useEffect(() => {
-    if (slug === 'cricket') {
-      getActiveContestByType(CRICKET_CONTEST)
-        .then((contestList) => setContestList(contestList))
-        .catch((err) => {
-          console.log(err);
-          setContestList([]);
-        });
-    } else {
-      //For testing only for production need to change
+    if (slug) {
       getActiveContestByType(GENERAL_CONTEST)
         .then((contestList) => {
           let filterContest = contestList.filter(
@@ -33,12 +33,35 @@ export default function Category({ tab }) {
           setContestList([]);
         });
     }
+    // if (slug === 'cricket') {
+    //   getActiveContestByType(CRICKET_CONTEST)
+    //     .then((contestList) => setContestList(contestList))
+    //     .catch((err) => {
+    //       console.log(err);
+    //       setContestList([]);
+    //     });
+    // } else {
+    //   //For testing only for production need to change
+    //   getActiveContestByType(GENERAL_CONTEST)
+    //     .then((contestList) => {
+    //       let filterContest = contestList.filter(
+    //         (contest) => contest.slug === slug
+    //       );
+    //       setContestList(filterContest);
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //       setContestList([]);
+    //     });
+    // }
   }, [slug]);
 
   return (
     <>
       <Ad />
-      <Tab tabs={tab}>
+      {displaySearch && <Search tabs={tabs} toggleSearch={toggleSearch} />}
+
+      <Tab tabs={tabs} toggleSearch={toggleSearch}>
         {contestList &&
           contestList.map((contest) => (
             <Item key={contest._id} contest={contest} />
