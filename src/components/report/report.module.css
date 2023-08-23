@@ -1,0 +1,93 @@
+.report{
+    width: 428px;
+    margin: 0px auto;
+    position: relative;
+    top: 0;
+    left: 0;
+    background: transparent;
+}
+
+.report .inner{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    height: 100%;
+    -webkit-font-smoothing: antialiased;
+    transform-origin: 0% 0%;
+    transform: translate(0%, 0);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    width: 428px;
+    overflow: hidden;
+    background: transparent;
+    background: rgb(0 0 0 / 70%);
+    height: 100%;
+}
+
+.wrapper{
+    background: #282D93;
+    width: 100%;
+    height: auto;
+    padding: 30px;
+    position: absolute;
+    -webkit-font-smoothing: antialiased;
+    transform-origin: 0% 0%;
+    transform: translate(0%, 0);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    overflow-y: scroll;
+    border-radius: 16px 16px 0px 0px;
+    min-height: 200px;
+    bottom: 0;
+}
+
+.wrapper h1{
+    font-size: 18px;
+}
+
+.wrapper p{
+    color: rgba(255, 255, 255, 0.64);
+    font-size: 14px;
+}
+
+.listSec{
+    margin: 16px 0px;
+}
+
+.listCheck{
+    margin-top: 16px;
+}
+
+.inputText{
+    width: 100%;
+    height: 60px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    padding: 8px 16px;
+    margin-top: 8px;
+}
+
+.lableText{
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.reportBtn{
+    height: 56px;
+    width: 100%;
+    font-size: 16px;
+    padding: 8px;
+    font-weight: 600;
+    line-height: 20px;
+    text-transform: uppercase;
+    float: right;
+    border-radius: 50px;
+    margin-top: 0px;
+    background: #fc8c1b;
+    outline: none;
+    color: #fff;
+}

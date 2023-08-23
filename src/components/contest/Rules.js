@@ -1,11 +1,12 @@
 'use client';
 import Ad from '../ad';
 import { QUIZ_TIME, TOTAL_QUESTION, CORRECT_SCORE } from '@/utils/Constant';
+import styles from './rules.module.css';
 
 export default function Rules() {
   return (
     <>
-      <section className="points-to-know">
+      <section className={styles.contentList}>
         <h1>Contest Rules!</h1>
         <ul className="mt-24">
           <li>
