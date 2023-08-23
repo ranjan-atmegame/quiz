@@ -64,11 +64,12 @@
 .inputText{
     width: 100%;
     height: 60px;
-    border: 1px solid #ddd;
+    border: 0px solid #ddd;
     border-radius: 8px;
     outline: none;
     padding: 8px 16px;
     margin-top: 8px;
+    font-size: 16px;
 }
 
 .lableText{
@@ -77,17 +78,48 @@
 }
 
 .reportBtn{
-    height: 56px;
+    height: 54px;
     width: 100%;
     font-size: 16px;
     padding: 8px;
-    font-weight: 600;
-    line-height: 20px;
-    text-transform: uppercase;
     float: right;
     border-radius: 50px;
     margin-top: 0px;
     background: #fc8c1b;
     outline: none;
     color: #fff;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 11px;
+    top: 6px;
+    background: #0E0A5F;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.close::before {
+    position: absolute;
+    left: 19px;
+    top: 11px;
+    content: " ";
+    height: 18px;
+    width: 2px;
+    background-color: #fff;
+    transform: rotate(45deg);
+}
+.close::after {
+    position: absolute;
+    left: 19px;
+    top: 11px;
+    content: " ";
+    height: 18px;
+    width: 2px;
+    background-color: #fff;
+    transform: rotate(-45deg);
 }

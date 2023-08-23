@@ -9,6 +9,7 @@ export default function ReportAnIssue() {
           <p>What kind of problem have you encountered?</p>
           <div className={styles.listSec}>
             <div className={styles.listCheck}>
+              <div className={styles.close}></div>
               <CustomeCheck
                 inputId="reportOne"
                 labelFor="reportOne"
