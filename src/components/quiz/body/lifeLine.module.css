@@ -48,3 +48,14 @@
     font-size: 11px;
 }
 
+@media only screen and (max-width:380px) {
+    .lifeLine ul.lifeLineWrapper li .lifeLineList{
+        width: 76px;
+        height: 80px;
+
+    }
+    .lifeLine ul.lifeLineWrapper li span{
+        font-size: 9px;
+    }
+}
+

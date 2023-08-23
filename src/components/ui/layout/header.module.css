@@ -62,10 +62,12 @@
 
 .header .logo nav img {
   cursor: pointer;
+  margin-top: 8px;
 }
 
 .header .logo .atmequizLogo img {
-  width: 90%;
+  width: 100%;
+  vertical-align: middle;
 }
 
 .header .headerRight {
@@ -80,14 +82,15 @@
   min-width: 80px;
   padding: 1px 8px 4px 8px;
   padding-right: 16px;
-  height: 38px;
+  height: 32px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   flex-wrap: nowrap;
-  background: #272c93 0% 0% no-repeat padding-box;
+  /* background: #272c93 0% 0% no-repeat padding-box;
   box-shadow: inset 0 3px 6px #1b2084;
-  border: 1px solid #3c419b;
+  border: 1px solid #3c419b; */
+  background: #080456;
   border-radius: 24px;
 }
 .header .headerRight .totalCoins a {
@@ -118,25 +121,27 @@
   padding-left: 8px;
   padding-top: 4px;
   font-size: 14px;
+  font-weight: bold;
+  line-height: 12px;
 }
 
 .header .headerRight .totalCoins a span span {
   width: 100%;
   display: flex;
   font-size: 10px;
-  font-weight: 500;
+  font-weight: normal;
   padding: 0;
   font-size: 10px;
 }
 
 .header .headerRight .notification {
-  width: 40px;
-  height: 40px;
+  width: 34px;
+  height: 34px;
   display: flex;
   justify-content: center;
   align-items: center;
   justify-self: end;
-  background: #2e3399;
+  background: #0e0a5f;
   border-radius: 28px;
   padding: 8px;
   margin-left: 8px;
@@ -308,7 +313,7 @@
   top: 0;
   width: calc(85%);
   height: 100%;
-  background: #272c93ff;
+  background: #272c93ff url(../../../../public/img/tiger.png) no-repeat right 4px bottom 4px;
   padding: 16px 0px;
   box-shadow: 0 0 60px #000000d4;
 }
@@ -333,7 +338,7 @@
   flex-wrap: wrap;
   background: #272c93;
   margin-top: -8px;
-  padding: 24px;
+  padding: 20px 24px;
   flex-direction: column;
   text-align: center;
 }
@@ -341,12 +346,13 @@
 .welcomeProfile h3 {
   font-size: 16px;
   font-weight: 600;
+  line-height: 18px;
 }
 
 .welcomeProfile p {
   font-size: 12px;
   font-weight: 500;
-  margin-bottom: 8px;
+  margin-bottom: 2px;
 }
 
 .welcomeProfile .btnsCloseHome {
@@ -362,43 +368,66 @@
   display: flex;
   cursor: pointer;
   position: absolute;
-  left: 0;
-  top: 0;
+  right: -16px;
+  top: -18px;
 }
 
 .welcomeProfile .btnsCloseHome .close {
-  width: 24px;
-  height: 24px;
-  position: absolute;
-  right: 0;
-  top: 0;
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  right: 12px;
+  top: 14px;
   padding: 10px;
   cursor: pointer;
+  background: #272c93;
+  padding: 10px;
+  border-radius: 50px;
+}
+
+@media (max-width: 380px) {
+  .welcomeProfile .btnsCloseHome .close {
+    right: 9px;
+    top: 14px;
+  }
 }
 
 .welcomeProfile .btnsCloseHome .close::after {
   position: absolute;
-  left: 10px;
-  top: 0;
+  left: 19px;
+  top: 11px;
   content: " ";
-  height: 24px;
-  width: 3px;
+  height: 18px;
+  width: 2px;
   background-color: #fff;
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
 
+.edit{
+  position: absolute;
+  right: 16px;
+  opacity: 0.5;
+}
+
+.edit:hover{
+  opacity: 1;
+}
+
 .welcomeProfile .btnsCloseHome .close::before {
   position: absolute;
-  left: 10px;
-  top: 0;
+  left: 19px;
+  top: 11px;
   content: " ";
-  height: 24px;
-  width: 3px;
+  height: 18px;
+  width: 2px;
   background-color: #fff;
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
+.hide{display: none;}
+.show{display: block;}
 
 .userDetails {
   display: flex;
@@ -424,15 +453,16 @@
 }
 
 .btn.btnSmall {
-  height: 34px;
-  width: 80px;
-  font-size: 16px;
-  padding: 8px;
-  font-weight: 600;
-  text-shadow: 0 1px 0 #fc8c1b;
-  line-height: 20px;
-  text-transform: uppercase;
-  margin-top: 4px;
+    height: 25px;
+    width: 80px;
+    font-size: 13px;
+    padding: 3px 8px;
+    font-weight: 600;
+    text-shadow: 0 1px 0 #fc8c1b;
+    line-height: 20px;
+    text-transform: uppercase;
+    margin-top: 4px;
+    border-radius: 50px;
 }
 
 .shine {
@@ -507,8 +537,6 @@
 }
 
 .menuItems ul li {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -516,19 +544,28 @@
 
 .menuItems ul li a {
   width: 100%;
-  padding: 16px 24px;
-  border-bottom: solid 1px #4248b2;
+  padding: 12px 24px;
+  border-bottom: solid 0px #4248b2;
+  color: #ffffffba;
 }
 
 .menuItems ul li a:hover {
-  color: #fc8c1b;
+  color: #fff;
 }
 .menuItems ul li a:hover .arrow {
-  border-color: #fc8c1b;
+  opacity: 1;
 }
 
 .menuItems ul li a i.icon {
-  margin-right: 16px;
+    margin-right: 16px;
+    display: inline-block;
+    background: #0E0A5F;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 6px;
 }
 
 .menuItems ul li a .arrow {
@@ -537,6 +574,8 @@
   margin-top: 6px;
   padding: 3px;
   float: right;
+  opacity: 0.3;
+  display: none;
 }
 
 .menuItems ul li a .right {
@@ -596,3 +635,17 @@
 }
 
 .profile{display: flex;}
+.profilePic{position: relative;}
+
+.profilePic:hover::before{
+  content:"";
+  background: #00000087 url(../../../../public/img/edit.svg) no-repeat top 17px right 20px;
+  width: 64px;
+  height: 64px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
