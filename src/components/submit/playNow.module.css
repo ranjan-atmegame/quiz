@@ -25,7 +25,7 @@
   text-align: center;
   margin-bottom: 16px;
   margin-top: 8px;
-  font-size: 14px;
+  font-size: 15px;
   color: #b6b3ff;
 }
 
@@ -266,3 +266,6 @@
   margin-top: 0px;
   margin-bottom: 8px;
 }
+
+
+.spacer{margin-left: 4px; vertical-align: middle;}
