@@ -2,21 +2,17 @@
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import Image from 'next/image';
-import {
-  CONTEST_TYPES,
-  GENERAL_CONTEST,
-  CRICKET_CONTEST,
-} from '@/utils/Constant';
+import { GENERAL_CONTEST, CRICKET_CONTEST } from '@/utils/Constant';
 import styles from './tab.module.css';
 
-export default function Tab({ children }) {
+export default function Tab({ tabs, children }) {
   const params = useParams();
 
   const tabJSX = () => {
     const selectedTab =
       params?.slug === 'cricket' ? CRICKET_CONTEST : GENERAL_CONTEST;
 
-    return CONTEST_TYPES.map((tab) => {
+    return tabs.map((tab) => {
       const tabClass = tab.id === selectedTab ? styles.active : '';
 
       return (

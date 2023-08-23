@@ -7,7 +7,7 @@ import Item from '../contest/Item';
 import { CRICKET_CONTEST, GENERAL_CONTEST } from '@/utils/Constant';
 import { getActiveContestByType } from '@/components/home/api';
 
-export default function Category({ tab }) {
+export default function Category() {
   const [contestList, setContestList] = useState();
   const { slug } = useParams();
 
@@ -26,6 +26,7 @@ export default function Category({ tab }) {
           let filterContest = contestList.filter(
             (contest) => contest.slug === slug
           );
+
           setContestList(filterContest);
         })
         .catch((err) => {
@@ -38,7 +39,7 @@ export default function Category({ tab }) {
   return (
     <>
       <Ad />
-      <Tab tabs={tab}>
+      <Tab>
         {contestList &&
           contestList.map((contest) => (
             <Item key={contest._id} contest={contest} />

@@ -17,3 +17,6 @@ export const getFunFact = () => {
 export const setQuizSubmitted = () =>
   setCookies(IS_SUBMITTED, 1, IS_SUBMITTED_EXP);
 export const isQuizSubmitted = () => (getCookies(IS_SUBMITTED) ? true : false);
+
+export const setDomain = () =>
+  setCookies('DOMAIN', window.location.host, IS_SUBMITTED_EXP);
