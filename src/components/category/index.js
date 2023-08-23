@@ -6,9 +6,17 @@ import Tab from '@/components/tab';
 import Item from '../contest/Item';
 import { CRICKET_CONTEST, GENERAL_CONTEST } from '@/utils/Constant';
 import { getActiveContestByType } from '@/components/home/api';
+import Search from '../search/search';
 
 export default function Category({ tabs }) {
   const [contestList, setContestList] = useState();
+  const [displaySearch, setDisplaySearch] = useState(false);
+
+  const toggleSearch = (e) => {
+    e.preventDefault();
+    setDisplaySearch((prevState) => !prevState);
+  };
+
   const { slug } = useParams();
 
   useEffect(() => {
@@ -51,7 +59,9 @@ export default function Category({ tabs }) {
   return (
     <>
       <Ad />
-      <Tab tabs={tabs}>
+      {displaySearch && <Search tabs={tabs} toggleSearch={toggleSearch} />}
+
+      <Tab tabs={tabs} toggleSearch={toggleSearch}>
         {contestList &&
           contestList.map((contest) => (
             <Item key={contest._id} contest={contest} />

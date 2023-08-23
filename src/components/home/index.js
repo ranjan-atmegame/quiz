@@ -7,7 +7,6 @@ import Search from '../search/search';
 
 export default function Home({ tabs }) {
   const [displaySearch, setDisplaySearch] = useState(false);
-  const [searchedTab, setSearchedTab] = useState(tabs);
 
   const toggleSearch = (e) => {
     e.preventDefault();
@@ -17,9 +16,7 @@ export default function Home({ tabs }) {
   return (
     <>
       <Ad />
-      {displaySearch && (
-        <Search tabs={searchedTab} toggleSearch={toggleSearch} />
-      )}
+      {displaySearch && <Search tabs={tabs} toggleSearch={toggleSearch} />}
       <Tab tabs={tabs} toggleSearch={toggleSearch}>
         <ContestList />
       </Tab>
