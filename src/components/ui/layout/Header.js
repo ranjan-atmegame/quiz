@@ -1,15 +1,17 @@
 'use client';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { IMG_PATH } from '@/config';
 import styles from './header.module.css';
 import Sidebar from './Sidebar';
 import ReportAnIssue from '@/components/report';
+import UserContext from '@/context/AuthProvider';
 
 const Header = ({ displayCoins = true }) => {
   const [displaySidebar, setDisplaySidebar] = useState(false);
   const [displayReportModal, setDisplayReportModal] = useState(false);
+  const { isSignedIn, user, signOut } = useContext(UserContext);
 
   const handleSidebar = () => {
     setDisplaySidebar((isDisplayed) => {
@@ -21,6 +23,8 @@ const Header = ({ displayCoins = true }) => {
     setDisplaySidebar(false);
     setDisplayReportModal((prevState) => !prevState);
   };
+
+  console.log({ isSignedIn, user });
 
   return (
     <>
@@ -53,7 +57,7 @@ const Header = ({ displayCoins = true }) => {
         <div className={styles.headerRight}>
           {displayCoins && (
             <div className={styles.totalCoins}>
-              <Link href={'/'}>
+              <Link href={isSignedIn ? '/coin-history' : '/login'}>
                 <Image
                   width={24}
                   height={24}
@@ -65,7 +69,7 @@ const Header = ({ displayCoins = true }) => {
                 />
                 {/* <CoinLink /> */}
                 <span>
-                  200
+                  {isSignedIn ? user.coins : 200}
                   <span>Coins</span>
                 </span>
               </Link>
@@ -85,6 +89,9 @@ const Header = ({ displayCoins = true }) => {
 
         {displaySidebar && (
           <Sidebar
+            user={user}
+            isSignedIn={isSignedIn}
+            onSignOut={signOut}
             onClose={handleSidebar}
             toggleReportModal={handleReportModal}
           />

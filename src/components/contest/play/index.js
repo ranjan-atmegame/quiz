@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useRouter, useParams, useSearchParams } from 'next/navigation';
 
 import ContestInfo from './Info';
@@ -7,14 +7,13 @@ import Quiz from '@/components/quiz';
 import { DEBIT } from '@/utils/Constant';
 
 import { getGuestUserRankAndCoins, getUserRankAndCoins } from '@/api';
-import { authenticate, updateUser as updateUserState } from '@/api/auth';
-import { getContestQuizById, updateUserContest } from '../api';
-// import {
-//   getContestQuizById,
-//   updateUserContest,
-//   playQuiz,
-//   playGuestQuiz,
-// } from './api';
+import UserContext from '@/context/AuthProvider';
+import {
+  getContestQuizById,
+  updateUserContest,
+  playQuiz,
+  playGuestQuiz,
+} from '../api';
 
 // import Loader from '@/components/loader/shimmer/ContestShimmer';
 
@@ -24,6 +23,7 @@ export default function Play() {
   const searchParams = useSearchParams();
   const [contest, setContest] = useState(null);
   const [contestOver, setContestOver] = useState(false);
+  const { isSignedIn, user, token, updateUser } = useContext(UserContext);
 
   //=== AUTH TEST
   //   const { isSignedIn, user, token, updateUser } = useContext(UserContext);
@@ -32,10 +32,10 @@ export default function Play() {
   // const isSignedIn = false;
   // const user = { id: 1, name: 'Ranjan' };
   // const token = null;
-  const updateUser = (data) => {
-    console.log('Update user: ');
-    console.log(data);
-  };
+  // const updateUser = (data) => {
+  //   console.log('Update user: ');
+  //   console.log(data);
+  // };
   //=======END
 
   const { slug } = params;
@@ -54,6 +54,9 @@ export default function Play() {
           return router.push('/');
         }
         setContest(contest);
+
+        // a) Add user transaction
+        handleTransaction(contest);
       });
 
       //   getContestQuizById(contestId).then((contest) => {
@@ -76,7 +79,6 @@ export default function Play() {
 
   // 1) Add user transaction
   const handleTransaction = (contest) => {
-    const { isSignedIn, user, token } = authenticate();
     if (user.coins < contest.entryCoins) {
       alert(`You don't have coin to play.`);
       return router.push('/');
@@ -114,7 +116,6 @@ export default function Play() {
   };
 
   const submitQuiz = async ({ score, correctAnswer, inCorrectAnswer }) => {
-    const { isSignedIn, user, token } = authenticate();
     let rank, prizeList;
     if (isSignedIn) {
       // Register user

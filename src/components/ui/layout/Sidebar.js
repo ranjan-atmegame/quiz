@@ -2,9 +2,22 @@ import Link from 'next/link';
 import Icon from '@/components/ui/Icon';
 import styles from './header.module.css';
 
-export default function Sidebar({ onClose, toggleReportModal }) {
+export default function Sidebar({
+  onClose,
+  toggleReportModal,
+  isSignedIn,
+  user,
+  onSignOut,
+}) {
   const handleReportModal = (e) => {
     e.preventDefault();
+    toggleReportModal();
+    onClose();
+  };
+
+  const handleSignout = (e) => {
+    e.preventDefault();
+    onSignOut();
     toggleReportModal();
   };
 
@@ -39,12 +52,29 @@ export default function Sidebar({ onClose, toggleReportModal }) {
                 <div className={styles.userDetails}>
                   <h3>Welcome!</h3>
                   <p>play Quiz &amp; earn coins</p>
-                  <Link
+                  {/* <Link
                     className={`${styles.btn} ${styles.btnSmall} ${styles.shine}`}
                     href="/login"
                   >
                     Sign In
-                  </Link>
+                  </Link> */}
+
+                  {!isSignedIn ? (
+                    <Link
+                      className={`${styles.btn} ${styles.btnSmall} ${styles.shine}`}
+                      href="/login"
+                    >
+                      Sign In
+                    </Link>
+                  ) : (
+                    <Link
+                      className={`${styles.btn} ${styles.btnSmall} ${styles.shine}`}
+                      onClick={handleSignout}
+                      href=""
+                    >
+                      Logout
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>

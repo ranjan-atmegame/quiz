@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Ad from '../ad';
 import Tab from '@/components/tab';
 import ContestList from '@/components/contest/ContestList';

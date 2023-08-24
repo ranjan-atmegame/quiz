@@ -6,7 +6,7 @@ export const setCookies = (name, value, expires = DEFAULT_EXPIRES) => {
   const secure = process.env.ENV === 'PROD' ? true : false;
 
   value = JSON.stringify(value);
-  Cookies.set(name, value, { secure });
+  Cookies.set(name, value, { secure, expires });
 };
 
 export const getAllCookies = () => Cookies.get();
