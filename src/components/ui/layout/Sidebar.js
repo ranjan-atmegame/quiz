@@ -18,9 +18,9 @@ export default function Sidebar({
   const handleSignout = (e) => {
     e.preventDefault();
     onSignOut();
-    toggleReportModal();
   };
 
+  const userName = isSignedIn ? user.name : 'Guest User';
   return (
     <div className={styles.sideMenu}>
       <div className={`${styles.mobileLeftMenu} ${styles.show}`}>
@@ -51,16 +51,9 @@ export default function Sidebar({
                 </div>
                 <div className={styles.userDetails}>
                   <h3>
-                    <span className={styles.hide}>Welcome!</span> Mithilesh
-                    Thakur
+                    <span className={styles.hide}>Welcome!</span> {userName}
                   </h3>
                   <p>play Quiz &amp; earn coins</p>
-                  {/* <Link
-                    className={`${styles.btn} ${styles.btnSmall} ${styles.shine}`}
-                    href="/login"
-                  >
-                    Sign In
-                  </Link> */}
 
                   {!isSignedIn ? (
                     <Link

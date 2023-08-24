@@ -1,6 +1,6 @@
+import dynamic from 'next/dynamic';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
-import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import QuizRules from '@/components/rule';
 import styles from './login.module.css';
@@ -11,9 +11,7 @@ const Layout = dynamic(() => import('@/components/ui/layout'));
 export default function Page() {
   const jsonString = cookies().get(JWT)?.value;
   const auth = jsonString && JSON.parse(jsonString);
-  console.log(auth);
   if (auth?.isSignedIn) {
-    console.log('SignedIn User...');
     redirect('/');
   }
 

@@ -21,10 +21,11 @@ const Header = ({ displayCoins = true }) => {
 
   const handleReportModal = () => {
     setDisplaySidebar(false);
+    console.log('toggle Report modal');
     setDisplayReportModal((prevState) => !prevState);
   };
 
-  console.log({ isSignedIn, user });
+  console.log(displayReportModal);
 
   return (
     <>
