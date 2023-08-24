@@ -7,12 +7,17 @@ import styles from './login.module.css';
 import GoogleLogin from '@/components/auth/google';
 import { JWT } from '@/utils/Constant';
 const Layout = dynamic(() => import('@/components/ui/layout'));
+import { isServer } from '@/utils';
 
 export default function Page() {
   const jsonString = cookies().get(JWT)?.value;
   const auth = jsonString && JSON.parse(jsonString);
   if (auth?.isSignedIn) {
     redirect('/');
+  }
+
+  if (!isServer()) {
+    process.env.NEXTAUTH_URL = window.location.origin;
   }
 
   return (
