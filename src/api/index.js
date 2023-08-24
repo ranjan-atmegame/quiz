@@ -160,3 +160,40 @@ export const addTransaction = async (token, data) => {
     console.log(error.message);
   }
 };
+
+// 6) Report an Issue
+export const reportAnIssue = async (data) => {
+  try {
+    const res = await fetch(`${API_URL}/api/issue`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(data),
+    });
+    const response = await res.json();
+
+    if (response.status !== 'success') {
+      return false;
+    }
+
+    // return response.data
+    return true;
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+export const reportIssue = async (data) => {
+  try {
+    const response = await axios.post(`/issue`, data);
+    if (response.status === 200) {
+      return response.data;
+    }
+
+    return getCommonError();
+  } catch (error) {
+    console.log(error.message);
+  }
+};
