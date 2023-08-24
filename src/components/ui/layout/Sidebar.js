@@ -28,7 +28,7 @@ export default function Sidebar({
           <div className={`${styles.menuItemContainer}`}>
             <div className={styles.welcomeProfile}>
               <div className={styles.btnsCloseHome}>
-                <div className={styles.tigerIcon}>
+                {/* <div className={styles.tigerIcon}>
                   <Link href="/">
                     <Icon
                       src="https://www.atmequiz.com/img/aq-icon.png"
@@ -37,20 +37,23 @@ export default function Sidebar({
                       height={40}
                     />
                   </Link>
-                </div>
+                </div> */}
                 <div className={styles.close} onClick={onClose}></div>
               </div>
               <div className={styles.profile}>
                 <div className={styles.profilePic}>
                   <Icon
-                    width={60}
-                    height={60}
+                    width={64}
+                    height={64}
                     src="https://www.atmequiz.com/img/male-user-avatar.png"
                     title="User Avatar"
                   />
                 </div>
                 <div className={styles.userDetails}>
-                  <h3>Welcome!</h3>
+                  <h3>
+                    <span className={styles.hide}>Welcome!</span> Mithilesh
+                    Thakur
+                  </h3>
                   <p>play Quiz &amp; earn coins</p>
                   {/* <Link
                     className={`${styles.btn} ${styles.btnSmall} ${styles.shine}`}
@@ -87,7 +90,7 @@ export default function Sidebar({
                       <Icon
                         width={23}
                         height={21}
-                        src="https://www.atmequiz.com/img/contest-rules.svg"
+                        src="/img/contestRules.svg"
                         title="Contest Rules"
                       />
                     </i>
@@ -102,7 +105,7 @@ export default function Sidebar({
                       <Icon
                         width={23}
                         height={21}
-                        src="https://www.atmequiz.com/img/coin-history.svg"
+                        src="/img/coinHistory.svg"
                         title="Coin History"
                       />
                     </i>
@@ -117,7 +120,7 @@ export default function Sidebar({
                       <Icon
                         width={23}
                         height={21}
-                        src="https://www.atmequiz.com/img/coin-history.svg"
+                        src="/img/blog.svg"
                         title="Coin History"
                       />
                     </i>
@@ -136,7 +139,7 @@ export default function Sidebar({
                       <Icon
                         width={23}
                         height={21}
-                        src="https://www.atmequiz.com/img/about-us.svg"
+                        src="/img/aboutUs.svg"
                         title="About Us"
                       />
                     </i>
@@ -154,7 +157,7 @@ export default function Sidebar({
                       <Icon
                         width={23}
                         height={21}
-                        src="https://www.atmequiz.com/img/contact-us.svg"
+                        src="/img/contactUs.svg"
                         title=" Contact Us"
                       />
                     </i>
@@ -169,7 +172,7 @@ export default function Sidebar({
                       <Icon
                         width={23}
                         height={21}
-                        src="https://www.atmequiz.com/img/report-issue.svg"
+                        src="/img/flagIcon.svg"
                         title="Report and Issue"
                       />
                     </i>

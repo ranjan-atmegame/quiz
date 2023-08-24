@@ -1,0 +1,91 @@
+.coinHistory {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top:24px;
+    width: 100%;
+    position: relative;
+    align-content: flex-start;
+    min-height: 400px;
+}  
+
+.coinHistory h1 {
+    padding-bottom: 10px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.coinHistory .historyList {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    border-bottom: solid 1px #ffffff21;
+    align-items: center;
+    padding-top: 8px;
+    padding-bottom: 16px;
+    font-weight: 600;
+}
+
+.spaceTop{
+    margin-top: 4px;
+}
+
+.coinHistory .historyList:last-child {border-bottom: solid 0px #ffffff21;}
+
+.coinHistory .historyList .quizThumb {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+}
+
+.coinHistory .historyList .quizNameDate {
+    width: 55%;
+    padding-left: 16px;
+}
+
+.coinHistory .historyList .quizNameDate h4 {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.coinHistory .historyList .quizNameDate h5 {
+    font-weight: 500;
+    font-size: 13px;
+}
+.coinHistory .historyList .quizNameDate span{
+    color: rgba(255, 255, 255, 0.60);
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.coinHistory .historyList .historyBedge {
+    font-weight: 500;
+    border-radius: 8px;
+    padding: 1px 8px;
+    width: 45px;
+    color: #dfe1fc;
+    font-size: 10px;
+}
+.coinHistory .historyList .historyBedge span {
+    color: #dfe1fc;
+    font-size: 10px;
+}
+.coinHistory .historyList .historyBedge.earned {
+    color: #1fca83;
+    background: #bafceb;
+}
+
+
+.coinHistory .historyList .historyBedge.paid {
+    color: #de5353;
+    background: #ffcbcb
+}
+
+.coinHistory .historyList img {
+    vertical-align: middle;
+    border-style: none;
+}
+
+.coinHistory .historyList .earnedPaidCoins {
+    width: 25%;
+    text-align: right;
+}

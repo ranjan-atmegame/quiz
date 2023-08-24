@@ -1,0 +1,57 @@
+
+.checkboxCustom, .radioCustom {
+    opacity: 0;
+    position: absolute;   
+}
+
+.checkboxCustom, .checkboxCustomLabel, .radioCustom, .radioCustomLabel {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.checkboxCustomLabel, .radioCustomLabel {
+    position: relative;
+    font-size: 14px;
+}
+
+.checkboxCustom + .checkboxCustomLabel:before, .radioCustom + .radioCustomLabel:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 12px;
+    height: 12px;
+    padding: 2px;
+    margin-right: 10px;
+    text-align: center;
+    background-color: #fff;
+    border: 2px solid rgb(255, 255, 255, 0.40);
+    border-radius: 4px;
+}
+
+.checkboxCustom:checked + .checkboxCustomLabel:before {
+    content: url('/img/inputCheck.svg');
+    font-family: 'FontAwesome';
+    background: #40189D;
+    color: #fff;
+}
+
+.radioCustom + .radioCustomLabel:before {
+    border-radius: 50%;
+    background: #282d93;
+}
+
+.radioCustom:checked + .radioCustomLabel:before {
+    content: " ";
+    font-family: 'FontAwesome';
+    color: #bbb;
+    background: #fff;
+    border: 7px solid #0E0A5F;
+    width: 4px;
+    height: 4px;
+}
+
+.checkboxCustom:focus + .checkboxCustomLabel, .radioCustom:focus + .radioCustomLabel {
+  outline: 0px solid #ddd; /* focus style */
+}

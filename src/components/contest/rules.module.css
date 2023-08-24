@@ -1,0 +1,95 @@
+.contentList{
+    padding: 24px 8px 0px 8px;
+    color: #fff;
+}
+
+.contentList h1{
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 32px;
+    position: relative;
+    text-align: center;
+}
+
+.contentList h1::before{
+    content: "";
+    height: 3px;
+    background: #FF7E26;
+    width: 80px;
+    position: absolute;
+    top: 38px;
+    left: 120px;
+}
+
+.contentList ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.contentList ul li{
+    line-height: 1.4;
+    padding-bottom: 24px;
+    padding-left: 24px;
+    position: relative;
+    font-size: 15px;
+    font-weight: 400;
+    color: #a8a5ff;
+}
+
+.contentList ul li:before {
+    content: "";
+    display: flex;
+    position: absolute;
+    top: 7px;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #a8a5ff;
+}
+
+.contentList ul li:after {
+    content: "";
+    display: flex;
+    position: absolute;
+    top: 3px;
+    left: 0px;
+    width: 5px;
+    height: 14px;
+    border: solid #a8a5ff;
+    border-width: 0;
+    transform: rotate(45deg);
+}
+
+
+.contentList ul li ul li{
+    padding-left: 24px;
+    margin-top: 20px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.contentList ul li ul li:before {
+    content: "";
+    display: flex;
+    position: absolute;
+    top: 7px;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #a8a5ff;
+}
+
+.contentList ul li ul li:after {
+    content: "";
+    display: flex;
+    position: absolute;
+    top: 3px;
+    left: 7px;
+    width: 5px;
+    height: 14px;
+    border: solid #c8cbff;
+    border-width: 0px;
+    transform: rotate(45deg);
+}
+
