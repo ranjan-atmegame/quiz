@@ -15,6 +15,7 @@
   margin-bottom: 12px;
   width: 100%;
   min-height: 146px;
+  background: #1f237e;
 }
 
 .quizCard .cardContent {
@@ -80,7 +81,7 @@
   padding: 8px 12px;
   justify-content: space-between;
   align-items: center;
-  border-top: solid 1px #4c51af;
+  border-top: solid 1px #4c51af8c;
   font-size: 12px;
 }
 
@@ -119,7 +120,7 @@
 
 .btn.btnSmall {
   height: 34px;
-  width: 80px;
+  width: 100px;
   font-size: 16px;
   padding: 8px;
   font-weight: 600;

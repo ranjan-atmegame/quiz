@@ -129,8 +129,8 @@
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
-  /* background: #282D93 url('../../../public/img/cardBG.svg') no-repeat top 0px left -6px; */
-  background: #282d93;
+  background: #282D93 url('/img/cardBG.svg') no-repeat top 0px left -6px;
+  /* background: #282d93; */
   border-radius: 16px;
   padding: 40px 8px;
   min-height: 320px;

@@ -37,10 +37,10 @@ const Header = ({ displayCoins = true, auth: { user, isSignedIn } }) => {
           <nav>
             <label htmlFor="menu-control" className={styles.sidebarToggle}>
               <Image
-                src={`${IMG_PATH}/img/menu-icon.svg`}
+                src={`/img/hamburger.svg`}
                 onClick={handleSidebar}
-                width={24}
-                height={14}
+                width={36}
+                height={24}
                 title="Toggle Sidebar"
                 alt="Toggle Sidebar"
                 priority={true}
@@ -49,8 +49,8 @@ const Header = ({ displayCoins = true, auth: { user, isSignedIn } }) => {
           </nav>
           <Link className={styles.atmequizLogo} href="/">
             <Image
-              width={119}
-              height={30}
+              width={132}
+              height={34}
               src={`${IMG_PATH}/logo.png`}
               alt="Play Online Quiz Contest win Coin - AtmeQuiz"
               title="Play Online Quiz Contest win Coin - AtmeQuiz"

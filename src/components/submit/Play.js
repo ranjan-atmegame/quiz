@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import { updateUser } from '@/api/auth';
 import styles from './playNow.module.css';
+import Lottie from '../animation/Lottie';
 
 export default function Play() {
   useEffect(() => {
@@ -14,7 +15,7 @@ export default function Play() {
       <div className={styles.stage}>
         <div className={`${styles.box} ${styles.bounce}`}></div>
       </div>
-
+      <Lottie size="lottie" src={'/animation/CoinsAnimation.json'} />
       <h1>You have got 200 coins</h1>
 
       <p>
