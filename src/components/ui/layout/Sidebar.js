@@ -20,7 +20,7 @@ export default function Sidebar({
     onSignOut();
   };
 
-  const userName = isSignedIn ? user.name : 'Guest User';
+  const userName = isSignedIn ? user.name : 'Guest';
   return (
     <div className={styles.sideMenu}>
       <div className={`${styles.mobileLeftMenu} ${styles.show}`}>
@@ -51,29 +51,26 @@ export default function Sidebar({
                 </div>
                 <div className={styles.userDetails}>
                   <h3>
-                    <span className={styles.hide}>Welcome!</span>
-                    <span
-                      className={styles.contentEditible}
-                      contenteditable="true"
-                    >
-                      Mithilesh Thakur
-                    </span>
-                    <Link className={styles.edit} href="#">
-                      <Icon
-                        width={20}
-                        height={20}
-                        src="/img/edit.svg"
-                        title="Edit"
-                      />
-                    </Link>
+                    <span className={styles.hide}>Welcome!</span> {userName}
                   </h3>
                   <p>play Quiz &amp; earn coins</p>
-                  <Link
-                    className={`${styles.btn} ${styles.btnSmall} ${styles.shine}`}
-                    href="/login"
-                  >
-                    Sign In
-                  </Link>
+
+                  {!isSignedIn ? (
+                    <Link
+                      className={`${styles.btn} ${styles.btnSmall} ${styles.shine}`}
+                      href="/login"
+                    >
+                      Sign In
+                    </Link>
+                  ) : (
+                    <Link
+                      className={`${styles.btn} ${styles.btnSmall} ${styles.shine}`}
+                      onClick={handleSignout}
+                      href=""
+                    >
+                      Logout
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>
@@ -250,23 +247,6 @@ export default function Sidebar({
                   </Link>
                 </li>
               </ul>
-            </div>
-            <div className={styles.termCondition}>
-              <Link
-                href="https://www.atmegame.com/terms-condition/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Terms & Conditions
-              </Link>
-              <span className={styles.spacerTwo}>|</span>
-              <Link
-                href="https://www.atmegame.com/privacy-policy/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Privacy Policy
-              </Link>
             </div>
           </div>
           <div className={`${styles.menuOverlay}`}></div>

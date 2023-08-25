@@ -1,9 +1,9 @@
-import { cookies } from 'next/headers';
 import dynamic from 'next/dynamic';
 const Layout = dynamic(() => import('@/components/ui/layout'));
 const Category = dynamic(() => import('@/components/category'));
 import { getCategory } from '@/api';
-import { CONTEST_TYPES, CRICKET_SUBDOMAIN } from '@/utils/Constant';
+import { CONTEST_TYPES } from '@/utils/Constant';
+// import { CONTEST_TYPES, CRICKET_SUBDOMAIN } from '@/utils/Constant';
 
 export default async function QuizLayout() {
   // 2) Verify domain is cricket subdomain or not

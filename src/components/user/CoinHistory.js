@@ -1,12 +1,10 @@
 'use client';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { fetchUserTransactions } from '@/api';
-import UserContext from '@/context/AuthProvider';
 import History from './History';
 import styles from './coinsHistory.module.css';
 
-export default function CoinHistory() {
-  const { token, isSignedIn } = useContext(UserContext);
+export default function CoinHistory({ auth: { isSignedIn, token } }) {
   const [transactions, setTransactions] = useState();
 
   useEffect(() => {

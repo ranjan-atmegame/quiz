@@ -1,15 +1,13 @@
 'use client';
-import { useEffect, useContext } from 'react';
+import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSession, signIn } from 'next-auth/react';
 import Image from 'next/image';
-import { updateUserLogin, generateToken } from '../api';
-import UserContext from '@/context/AuthProvider';
+import { updateUserLogin, generateToken, saveAuth } from '../api';
 
 export default function Component({ className }) {
   const router = useRouter();
   const { data: session } = useSession();
-  const { updateAuth } = useContext(UserContext);
 
   useEffect(() => {
     if (session?.user) {
@@ -17,7 +15,7 @@ export default function Component({ className }) {
       const token = generateToken(user);
       updateUserLogin(user, token)
         .then((response) => {
-          updateAuth({
+          saveAuth({
             user: response.user,
             token: response.token,
             isSignedIn: response.isSignedIn,

@@ -1,17 +1,24 @@
 'use client';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
+import { signOut } from 'next-auth/react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { IMG_PATH } from '@/config';
 import styles from './header.module.css';
 import Sidebar from './Sidebar';
-import ReportAnIssue from '@/components/report';
-import UserContext from '@/context/AuthProvider';
 
-const Header = ({ displayCoins = true }) => {
+import ReportAnIssue from '@/components/report';
+import { removeAuth } from '@/components/auth/api';
+import { DEFAULT_COIN } from '@/utils/Constant';
+
+const Header = ({ displayCoins = true, auth: { user, isSignedIn } }) => {
   const [displaySidebar, setDisplaySidebar] = useState(false);
   const [displayReportModal, setDisplayReportModal] = useState(false);
-  const { isSignedIn, user, signOut } = useContext(UserContext);
+
+  const signOutUser = function fun() {
+    removeAuth();
+    signOut();
+  };
 
   const handleSidebar = () => {
     setDisplaySidebar((isDisplayed) => {
@@ -21,11 +28,8 @@ const Header = ({ displayCoins = true }) => {
 
   const handleReportModal = () => {
     setDisplaySidebar(false);
-    console.log('toggle Report modal');
     setDisplayReportModal((prevState) => !prevState);
   };
-
-  console.log(displayReportModal);
 
   return (
     <>
@@ -70,7 +74,7 @@ const Header = ({ displayCoins = true }) => {
                 />
                 {/* <CoinLink /> */}
                 <span>
-                  {isSignedIn ? user.coins : 200}
+                  {isSignedIn ? user.coins : DEFAULT_COIN}
                   <span>Coins</span>
                 </span>
               </Link>
@@ -92,7 +96,7 @@ const Header = ({ displayCoins = true }) => {
           <Sidebar
             user={user}
             isSignedIn={isSignedIn}
-            onSignOut={signOut}
+            onSignOut={signOutUser}
             onClose={handleSidebar}
             toggleReportModal={handleReportModal}
           />
