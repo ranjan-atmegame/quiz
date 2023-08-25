@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import Ad from '../ad';
 import QuizRules from '../rule';
 import { getTwoQuestions } from '@/api';
-import { isQuizSubmitted, setQuizSubmitted, setDomain } from './api';
+import { setQuizSubmitted, setDomain } from './api';
 import LoginOption from './LoginOptions';
 import TwoQuestion from './twoQuestion/Question';
 import FunFact from './FunFact';
@@ -19,18 +19,13 @@ export default function Start() {
   });
 
   useEffect(() => {
-    const isSubmitted = isQuizSubmitted();
-    if (isSubmitted) {
-      return router.push('/');
-    }
-
     getTwoQuestions()
       .then((response) => {
         if (response.length) {
           setState((prevState) => {
             return {
               ...prevState,
-              isSubmitted,
+              // isSubmitted,
               questions: response,
               question: response[prevState.questionIndex],
             };

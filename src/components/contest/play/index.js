@@ -1,13 +1,11 @@
 'use client';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter, useParams, useSearchParams } from 'next/navigation';
-
 import ContestInfo from './Info';
 import Quiz from '@/components/quiz';
 import { DEBIT } from '@/utils/Constant';
-
+import { updateUser } from '@/components/auth/api';
 import { getGuestUserRankAndCoins, getUserRankAndCoins } from '@/api';
-import UserContext from '@/context/AuthProvider';
 import {
   getContestQuizById,
   updateUserContest,
@@ -15,36 +13,15 @@ import {
   playGuestQuiz,
 } from '../api';
 
-// import Loader from '@/components/loader/shimmer/ContestShimmer';
-
-export default function Play() {
+export default function Play({ auth: { isSignedIn, user, token } }) {
   const router = useRouter();
   const params = useParams();
   const searchParams = useSearchParams();
   const [contest, setContest] = useState(null);
   const [contestOver, setContestOver] = useState(false);
-  const { isSignedIn, user, token, updateUser } = useContext(UserContext);
-
-  //=== AUTH TEST
-  //   const { isSignedIn, user, token, updateUser } = useContext(UserContext);
-  // const [auth, setAuth] = useState(null);
-  //  Testing purpose
-  // const isSignedIn = false;
-  // const user = { id: 1, name: 'Ranjan' };
-  // const token = null;
-  // const updateUser = (data) => {
-  //   console.log('Update user: ');
-  //   console.log(data);
-  // };
-  //=======END
 
   const { slug } = params;
   const contestId = searchParams.get('contestId');
-
-  // useEffect(() => {
-  //   const auth = authenticate();
-  //   setAuth(auth);
-  // }, []);
 
   useEffect(() => {
     if (contestId) {
@@ -58,16 +35,6 @@ export default function Play() {
         // a) Add user transaction
         handleTransaction(contest);
       });
-
-      //   getContestQuizById(contestId).then((contest) => {
-      //     if (!contest) {
-      //       return router.push('/');
-      //     }
-      //     setContest(contest);
-
-      //     // a) Add user transaction
-      //     handleTransaction(contest);
-      //   });
     }
   }, [contestId]);
 
@@ -144,15 +111,6 @@ export default function Play() {
       rank,
       mayWinCoins,
     });
-
-    // //For testing only
-    // updateUserState({
-    //   score,
-    //   correctAnswer,
-    //   inCorrectAnswer,
-    //   rank,
-    //   mayWinCoins,
-    // });
 
     setContestOver(true);
   };

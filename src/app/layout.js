@@ -1,7 +1,5 @@
-// 'use client';
 import Script from 'next/script';
 import SessionProvider from '@/context/Provider';
-import { Provider } from '@/context/AuthProvider';
 import './globals.css';
 
 export const metadata = {
@@ -64,11 +62,8 @@ export default function RootLayout({ session, children }) {
       </head>
       <body>
         <SessionProvider session={session} basePath="/api/auth">
-          <Provider>{children}</Provider>
+          {children}
         </SessionProvider>
-        {/* <SessionProvider session={session} basePath="/api/auth"> */}
-        {/* {children} */}
-        {/* </SessionProvider> */}
       </body>
     </html>
   );

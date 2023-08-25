@@ -1,24 +1,23 @@
 import dynamic from 'next/dynamic';
-import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import QuizRules from '@/components/rule';
 import styles from './login.module.css';
 import GoogleLogin from '@/components/auth/google';
-import { JWT } from '@/utils/Constant';
+import { getAuth } from '../auth';
 const Layout = dynamic(() => import('@/components/ui/layout'));
-import { isServer } from '@/utils';
+// import { isServer } from '@/utils';
 
 export default function Page() {
-  const jsonString = cookies().get(JWT)?.value;
-  const auth = jsonString && JSON.parse(jsonString);
-  if (auth?.isSignedIn) {
+  const auth = getAuth();
+  if (auth.isSignedIn) {
     redirect('/');
   }
 
-  if (!isServer()) {
-    process.env.NEXTAUTH_URL = window.location.origin;
-  }
+  // process.env.NEXTAUTH_URL = 'http://localhost:3000';
+  // if (!isServer()) {
+  //   process.env.NEXTAUTH_URL = window.location.origin;
+  // }
 
   return (
     <Layout displayCoins={false}>

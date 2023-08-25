@@ -1,23 +1,17 @@
 'use client';
 import dynamic from 'next/dynamic';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter, useParams, useSearchParams } from 'next/navigation';
-// import Detail from './Detail';
-// import Ad from '@/components/ad';
-// import JoinButton from '../joinButton';
 import { getContestById } from '@/components/home/api';
-import UserContext from '@/context/AuthProvider';
-
 const Detail = dynamic(() => import('./Detail'));
 const Ad = dynamic(() => import('@/components/ad'));
 const JoinButton = dynamic(() => import('../joinButton'));
 
-export default function ContestDetail() {
+export default function ContestDetail({ auth: { isSignedIn, user } }) {
   const router = useRouter();
   const params = useParams();
   const searchParams = useSearchParams();
   const [contest, setContest] = useState(null);
-  const { isSignedIn, user } = useContext(UserContext);
 
   const contestId = searchParams.get('contestId');
   const { slug } = params;
