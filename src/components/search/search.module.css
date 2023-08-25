@@ -149,7 +149,9 @@
 
 .category ul li a span{
     font-size: 12px;
-    padding-top: 2px;
+    padding-top: 8px;
+    line-height: 16px;
+    display: inline-block;
 }
 
 .gameList{
@@ -208,6 +210,7 @@
 .quizTxt p{
     color: rgba(255, 255, 255, 0.60);
     font-size: 14px;
+    margin-top: 4px;
 }
 
 

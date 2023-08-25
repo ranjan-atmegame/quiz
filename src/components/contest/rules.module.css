@@ -18,7 +18,7 @@
     width: 80px;
     position: absolute;
     top: 38px;
-    left: 120px;
+    left: 39%;
 }
 
 .contentList ul{
@@ -42,8 +42,8 @@
     position: absolute;
     top: 7px;
     left: 0;
-    width: 10px;
-    height: 10px;
+    width: 9px;
+    height: 9px;
     border-radius: 50%;
     background: #a8a5ff;
 }

@@ -17,6 +17,7 @@
   background-color: #0E0A5F;
   overflow: hidden;
   padding-top: 0;
+  z-index: 2;
 }
 
 
