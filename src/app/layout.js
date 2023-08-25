@@ -1,11 +1,15 @@
+// 'use client';
 import Script from 'next/script';
+import SessionProvider from '@/context/Provider';
+import { Provider } from '@/context/AuthProvider';
 import './globals.css';
+
 export const metadata = {
   title: 'AtmeQuiz',
   description: 'Play online Quiz',
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ session, children }) {
   return (
     <html lang="en">
       <head>
@@ -58,7 +62,14 @@ export default function RootLayout({ children }) {
       })(window, document, "script", "dataLayer", "GTM-NVVJCR6");`}
         </Script>
       </head>
-      <body>{children}</body>
+      <body>
+        <SessionProvider session={session} basePath="/api/auth">
+          <Provider>{children}</Provider>
+        </SessionProvider>
+        {/* <SessionProvider session={session} basePath="/api/auth"> */}
+        {/* {children} */}
+        {/* </SessionProvider> */}
+      </body>
     </html>
   );
 }

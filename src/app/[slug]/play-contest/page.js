@@ -4,7 +4,7 @@ const Play = dynamic(() => import('@/components/contest/play'));
 
 export default function Page() {
   return (
-    <Layout>
+    <Layout isHeader={false}>
       <Play />
     </Layout>
   );

@@ -1,6 +1,7 @@
 import CustomeCheck from '../ui/custome-check/customeCheck';
 import styles from './report.module.css';
-export default function ReportAnIssue() {
+
+export default function ReportAnIssue({ handleReportModal }) {
   return (
     <div className={styles.report}>
       <div className={styles.inner}>
@@ -9,7 +10,7 @@ export default function ReportAnIssue() {
           <p>What kind of problem have you encountered?</p>
           <div className={styles.listSec}>
             <div className={styles.listCheck}>
-              <div className={styles.close}></div>
+              <div className={styles.close} onClick={handleReportModal}></div>
               <CustomeCheck
                 inputId="reportOne"
                 labelFor="reportOne"

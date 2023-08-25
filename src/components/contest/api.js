@@ -1,8 +1,12 @@
-import { getContestById } from '@/api';
-// import { getContestById, addTransaction } from '@/api';
+import { getContestById, addTransaction } from '@/api';
 import { USER_CONTEST, COIN_HISTORY } from '@/utils/Constant';
 // import { setCookies, getCookies } from '@/utils/Cookies';
-import { setItemWithExpiry, getItemWithExpiry } from '@/utils/Ls';
+import {
+  setItemWithExpiry,
+  getItemWithExpiry,
+  setItem,
+  getItem,
+} from '@/utils/Ls';
 
 // CURRENT USER CONTEST
 export const getUserContest = () => getItemWithExpiry(USER_CONTEST);
@@ -54,15 +58,17 @@ export const updateUserContest = (data) => {
 
 // c) User: Play Contest, add Transaction and deduct coins
 export const playQuiz = async (token, transaction) => {
-  //   return await addTransaction(token, transaction);
+  return await addTransaction(token, transaction);
 };
 
 // c) Guest: Play Contest, add Transaction and deduct coins
 export const playGuestQuiz = (data) => {
   data.createdAt = new Date().toISOString();
-  let transactions = getCookies(COIN_HISTORY);
+  // let transactions = getCookies(COIN_HISTORY);
+  let transactions = getItem(COIN_HISTORY);
   if (!transactions) {
-    return setCookies(COIN_HISTORY, [data]);
+    return setItem(COIN_HISTORY, [data]);
+    // return setCookies(COIN_HISTORY, [data]);
   }
 
   if (transactions.length >= 10) {
@@ -70,12 +76,13 @@ export const playGuestQuiz = (data) => {
   }
 
   transactions = [data, ...transactions];
-  setCookies(COIN_HISTORY, transactions);
+  // setCookies(COIN_HISTORY, transactions);
+  setItem(COIN_HISTORY, transactions);
 };
 
 export const updateUserCoins = async (token, transaction) => {
-  //   return addTransaction(transaction).then((user) => {
-  //     saveAuth({ isSignedIn, token, user });
-  //     return user;
-  //   });
+  // return addTransaction(transaction).then((user) => {
+  //   saveAuth({ isSignedIn, token, user });
+  //   return user;
+  // });
 };

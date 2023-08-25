@@ -1,11 +1,9 @@
-// const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 import { v4 as uuidv4 } from 'uuid';
-// import { updateExternalLogin } from '@/api';
+import { updateExternalLogin } from '@/api';
 import { getLocation } from '@/utils/Location';
 import { JWT, DEFAULT_COIN } from '@/utils/Constant';
-// import { SECRET_KEY } from '@/config';
 import { getCookies, removeCookies, setCookies } from '@/utils/Cookies';
-// import { getItem, setItem, removeItem } from '@/utils/Ls';
 
 const getGuestUser = () => {
   return {
@@ -30,17 +28,6 @@ export const saveAuth = (data) => {
 
 export const removeAuth = () => removeCookies(JWT);
 
-// export const authenticate = () => {
-//   const jwt = getItem(JWT);
-//   return jwt ? jwt : getGuestUser();
-// };
-
-// export const saveAuth = (data) => {
-//   setItem(JWT, data);
-// };
-
-// export const removeAuth = () => removeItem(JWT);
-
 export const updateUserLogin = async ({ email, name, image }, tokenId) => {
   const location = await getLocation();
   const response = await updateExternalLogin(
@@ -58,14 +45,7 @@ export const updateUserLogin = async ({ email, name, image }, tokenId) => {
   return response;
 };
 
-// Update user===========================
-export const updateUser = (data) => {
-  const auth = authenticate();
-  auth.user = { ...auth.user, ...data };
-  saveAuth(auth);
-  return auth;
-};
-
 export const generateToken = (user) => {
-  // return jwt.sign({ email: user.email }, SECRET_KEY);
+  const SECRET_KEY = 'atmequiz@1234567890#';
+  return jwt.sign({ email: user.email }, SECRET_KEY);
 };

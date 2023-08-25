@@ -96,3 +96,104 @@ export const getUserRankAndCoins = async (contestId, token, data) => {
     console.log(error.message);
   }
 };
+
+// 4) Update user login
+export const updateExternalLogin = async (user, token) => {
+  return fetch(`${API_URL}/api/auth/glogin`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(user),
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => {
+      console.log(err);
+      return { status: 500, error: 'Something went wrong' };
+    });
+};
+
+// 5) Get user coins history
+export const fetchUserTransactions = async (token) => {
+  try {
+    const res = await fetch(`${API_URL}/api/users/transactions`, {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const response = await res.json();
+
+    if (response.status !== 'success') {
+      return false;
+    }
+
+    return response.data;
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+// 6) Add user transaction
+export const addTransaction = async (token, data) => {
+  try {
+    const res = await fetch(`${API_URL}/api/transactions`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(data),
+    });
+    const response = await res.json();
+
+    if (response.status !== 'success') {
+      return false;
+    }
+
+    // return response.data
+    return true;
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+// 6) Report an Issue
+export const reportAnIssue = async (data) => {
+  try {
+    const res = await fetch(`${API_URL}/api/issue`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(data),
+    });
+    const response = await res.json();
+
+    if (response.status !== 'success') {
+      return false;
+    }
+
+    // return response.data
+    return true;
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+export const reportIssue = async (data) => {
+  try {
+    const response = await axios.post(`/issue`, data);
+    if (response.status === 200) {
+      return response.data;
+    }
+
+    return getCommonError();
+  } catch (error) {
+    console.log(error.message);
+  }
+};

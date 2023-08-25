@@ -1,22 +1,23 @@
 'use client';
 import dynamic from 'next/dynamic';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useRouter, useParams, useSearchParams } from 'next/navigation';
 // import Detail from './Detail';
 // import Ad from '@/components/ad';
 // import JoinButton from '../joinButton';
+import { getContestById } from '@/components/home/api';
+import UserContext from '@/context/AuthProvider';
 
 const Detail = dynamic(() => import('./Detail'));
 const Ad = dynamic(() => import('@/components/ad'));
 const JoinButton = dynamic(() => import('../joinButton'));
-
-import { getContestById } from '@/components/home/api';
 
 export default function ContestDetail() {
   const router = useRouter();
   const params = useParams();
   const searchParams = useSearchParams();
   const [contest, setContest] = useState(null);
+  const { isSignedIn, user } = useContext(UserContext);
 
   const contestId = searchParams.get('contestId');
   const { slug } = params;
@@ -31,10 +32,6 @@ export default function ContestDetail() {
       });
     }
   }, [contestId, slug]);
-
-  // For testing purpose only
-  const isSignedIn = false;
-  const user = { id: 1, name: 'Ranjan', coins: 200 };
 
   const handleClick = (e) => {
     if (user.coins < contest.entryCoins) {

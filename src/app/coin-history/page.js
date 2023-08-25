@@ -1,19 +1,20 @@
 import dynamic from 'next/dynamic';
-import styles from './coinsHistory.module.css';
-import HistoryList from './HistoryList';
+import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
+import { JWT } from '@/utils/Constant';
 const Layout = dynamic(() => import('@/components/ui/layout'));
-const Transactions = dynamic(() => import('@/components/transactions'));
+const CoinHistory = dynamic(() => import('@/components/user/CoinHistory'));
 
 export default function Page() {
+  const jsonString = cookies().get(JWT)?.value;
+  const auth = jsonString && JSON.parse(jsonString);
+  if (!auth?.isSignedIn) {
+    redirect('/login');
+  }
+
   return (
     <Layout>
-      <section className={styles.coinHistory}>
-        {/* <Transactions /> */}
-        <h1 className={styles.headingH1}>Coins History</h1>
-        <HistoryList />
-        <HistoryList />
-        <HistoryList />
-      </section>
+      <CoinHistory />
     </Layout>
   );
 }

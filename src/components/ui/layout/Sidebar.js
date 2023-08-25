@@ -2,12 +2,25 @@ import Link from 'next/link';
 import Icon from '@/components/ui/Icon';
 import styles from './header.module.css';
 
-export default function Sidebar({ onClose, toggleReportModal }) {
+export default function Sidebar({
+  onClose,
+  toggleReportModal,
+  isSignedIn,
+  user,
+  onSignOut,
+}) {
   const handleReportModal = (e) => {
     e.preventDefault();
     toggleReportModal();
+    onClose();
   };
 
+  const handleSignout = (e) => {
+    e.preventDefault();
+    onSignOut();
+  };
+
+  const userName = isSignedIn ? user.name : 'Guest User';
   return (
     <div className={styles.sideMenu}>
       <div className={`${styles.mobileLeftMenu} ${styles.show}`}>
