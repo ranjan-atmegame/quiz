@@ -103,7 +103,7 @@
 }
 
 .btn {
-  background: #fc8c1b;
+  background: #f27c2c;
   padding: 16px;
   height: 56px;
   width: 100%;
@@ -124,7 +124,7 @@
   font-size: 16px;
   padding: 8px;
   font-weight: 600;
-  text-shadow: 0 1px 0 #fc8c1b;
+  text-shadow: 0 1px 0 #f27c2c;
   line-height: 20px;
   text-transform: uppercase;
   float: right;
@@ -148,7 +148,7 @@
   color: #fff;
   background: #55e6c1;
   border-radius: 8px;
-  margin-right: 4px;
+  margin-right: 6px;
   -webkit-animation: glowing 1s infinite;
   animation: glowing 1s infinite;
   -webkit-box-shadow: 0 0 2px 3px #55e6c1;
