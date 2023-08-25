@@ -51,26 +51,29 @@ export default function Sidebar({
                 </div>
                 <div className={styles.userDetails}>
                   <h3>
-                    <span className={styles.hide}>Welcome!</span> {userName}
+                    <span className={styles.hide}>Welcome!</span>
+                    <span
+                      className={styles.contentEditible}
+                      contenteditable="true"
+                    >
+                      Mithilesh Thakur
+                    </span>
+                    <Link className={styles.edit} href="#">
+                      <Icon
+                        width={20}
+                        height={20}
+                        src="/img/edit.svg"
+                        title="Edit"
+                      />
+                    </Link>
                   </h3>
                   <p>play Quiz &amp; earn coins</p>
-
-                  {!isSignedIn ? (
-                    <Link
-                      className={`${styles.btn} ${styles.btnSmall} ${styles.shine}`}
-                      href="/login"
-                    >
-                      Sign In
-                    </Link>
-                  ) : (
-                    <Link
-                      className={`${styles.btn} ${styles.btnSmall} ${styles.shine}`}
-                      onClick={handleSignout}
-                      href=""
-                    >
-                      Logout
-                    </Link>
-                  )}
+                  <Link
+                    className={`${styles.btn} ${styles.btnSmall} ${styles.shine}`}
+                    href="/login"
+                  >
+                    Sign In
+                  </Link>
                 </div>
               </div>
             </div>
@@ -247,6 +250,23 @@ export default function Sidebar({
                   </Link>
                 </li>
               </ul>
+            </div>
+            <div className={styles.termCondition}>
+              <Link
+                href="https://www.atmegame.com/terms-condition/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Terms & Conditions
+              </Link>
+              <span className={styles.spacerTwo}>|</span>
+              <Link
+                href="https://www.atmegame.com/privacy-policy/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Privacy Policy
+              </Link>
             </div>
           </div>
           <div className={`${styles.menuOverlay}`}></div>
