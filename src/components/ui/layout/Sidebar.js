@@ -20,7 +20,7 @@ export default function Sidebar({
     onSignOut();
   };
 
-  const userName = isSignedIn ? user.name : 'Guest User';
+  const userName = isSignedIn ? user.name : 'Guest';
   return (
     <div className={styles.sideMenu}>
       <div className={`${styles.mobileLeftMenu} ${styles.show}`}>

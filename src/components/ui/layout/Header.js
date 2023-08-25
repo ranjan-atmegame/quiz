@@ -9,6 +9,7 @@ import Sidebar from './Sidebar';
 
 import ReportAnIssue from '@/components/report';
 import { removeAuth } from '@/components/auth/api';
+import { DEFAULT_COIN } from '@/utils/Constant';
 
 const Header = ({ displayCoins = true, auth: { user, isSignedIn } }) => {
   const [displaySidebar, setDisplaySidebar] = useState(false);
@@ -73,7 +74,7 @@ const Header = ({ displayCoins = true, auth: { user, isSignedIn } }) => {
                 />
                 {/* <CoinLink /> */}
                 <span>
-                  {isSignedIn ? user.coins : 200}
+                  {isSignedIn ? user.coins : DEFAULT_COIN}
                   <span>Coins</span>
                 </span>
               </Link>
