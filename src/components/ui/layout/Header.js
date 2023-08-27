@@ -85,7 +85,7 @@ const Header = ({ displayCoins = true, auth }) => {
                 />
                 {/* <CoinLink /> */}
                 <span>
-                  {auth.isSignedIn ? user.coins : DEFAULT_COIN}
+                  {user.coins}
                   <span>Coins</span>
                 </span>
               </Link>
