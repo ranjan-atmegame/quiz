@@ -30,6 +30,7 @@ export default function History({ transaction }) {
       </div>
       <div className={styles.quizNameDate}>
         <h4>{transaction.name}</h4>
+        <h5>{transaction.desc}</h5>
         <span> {moment(transaction.date).format('MMMM Do YYYY')}</span>
       </div>
       <div className={styles.earnedPaidCoins}>

@@ -9,12 +9,17 @@ import {
   TOTAL_QUESTION,
 } from '@/utils/Constant';
 import Score from './body/Score';
+import { authenticate } from '@/api/auth';
 
 export default function Quiz({
   contest: {
     questionSet: { questionSet },
+    quizImage,
+    name,
+    quizId,
   },
   submitQuiz,
+  // auth,
 }) {
   const [question, setQuestion] = useState();
   const [state, setState] = useState({
@@ -23,6 +28,8 @@ export default function Quiz({
     inCorrectAnswer: 0,
     score: 0,
   });
+  const [shouldStopTimer, setShouldStopTimer] = useState(false);
+  const auth = authenticate();
 
   useEffect(() => {
     if (!questionSet.length) {
@@ -73,6 +80,9 @@ export default function Quiz({
     }
   };
 
+  const onStopTimer = () => setShouldStopTimer(true);
+  const restartTimer = () => setShouldStopTimer(false);
+
   return (
     <Card>
       <Header
@@ -81,13 +91,20 @@ export default function Quiz({
         totalQuestions={TOTAL_QUESTION}
         questionNumber={state.questionIndex + 1}
       >
-        <Timer onTimerOver={onTimerOver} shouldStopTimer={false} />
+        <Timer onTimerOver={onTimerOver} shouldStopTimer={shouldStopTimer} />
       </Header>
 
       <Body
+        quizId={quizId}
+        quizName={name}
+        quizImage={quizImage}
         question={question}
         verifyUserAnswer={verifyUserAnswer}
+        setQuestion={setQuestion}
         questionIndex={state.questionIndex}
+        onStopTimer={onStopTimer}
+        restartTimer={restartTimer}
+        auth={auth}
       />
       <Score score={state.score} />
     </Card>

@@ -10,8 +10,11 @@ import Sidebar from './Sidebar';
 import ReportAnIssue from '@/components/report';
 import { removeAuth } from '@/components/auth/api';
 import { DEFAULT_COIN } from '@/utils/Constant';
+import { authenticate } from '@/api/auth';
+import { isServer } from '@/utils';
 
-const Header = ({ displayCoins = true, auth: { user, isSignedIn } }) => {
+// const Header = ({ displayCoins = true, auth: { user, isSignedIn } }) => {
+const Header = ({ displayCoins = true, auth }) => {
   const [displaySidebar, setDisplaySidebar] = useState(false);
   const [displayReportModal, setDisplayReportModal] = useState(false);
 
@@ -30,6 +33,14 @@ const Header = ({ displayCoins = true, auth: { user, isSignedIn } }) => {
     setDisplaySidebar(false);
     setDisplayReportModal((prevState) => !prevState);
   };
+
+  let user = null;
+  if (isServer()) {
+    user = auth.user;
+  } else {
+    const auth = authenticate();
+    user = auth.user;
+  }
 
   return (
     <>
@@ -62,7 +73,7 @@ const Header = ({ displayCoins = true, auth: { user, isSignedIn } }) => {
         <div className={styles.headerRight}>
           {displayCoins && (
             <div className={styles.totalCoins}>
-              <Link href={isSignedIn ? '/coin-history' : '/login'}>
+              <Link href={auth.isSignedIn ? '/coin-history' : '/login'}>
                 <Image
                   width={24}
                   height={24}
@@ -74,7 +85,7 @@ const Header = ({ displayCoins = true, auth: { user, isSignedIn } }) => {
                 />
                 {/* <CoinLink /> */}
                 <span>
-                  {isSignedIn ? user.coins : DEFAULT_COIN}
+                  {auth.isSignedIn ? user.coins : DEFAULT_COIN}
                   <span>Coins</span>
                 </span>
               </Link>
@@ -95,7 +106,7 @@ const Header = ({ displayCoins = true, auth: { user, isSignedIn } }) => {
         {displaySidebar && (
           <Sidebar
             user={user}
-            isSignedIn={isSignedIn}
+            isSignedIn={auth.isSignedIn}
             onSignOut={signOutUser}
             onClose={handleSidebar}
             toggleReportModal={handleReportModal}

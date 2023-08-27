@@ -122,7 +122,11 @@ export default function Play({ auth: { isSignedIn, user, token } }) {
   return (
     <>
       <ContestInfo contest={contest} />
-      <Quiz contest={contest} submitQuiz={submitQuiz} />
+      <Quiz
+        contest={contest}
+        submitQuiz={submitQuiz}
+        auth={{ isSignedIn, user, token }}
+      />
     </>
   );
 }

@@ -16,3 +16,18 @@ export const randomNumber = (min, max) => {
 
 // Is client or server
 export const isServer = () => typeof window === 'undefined';
+
+export const showRewardAd = (callback) => {
+  console.log('Display reward ad');
+
+  const insElement = document.createElement('script');
+  insElement.setAttribute('data-ad-client', 'ca-pub-9733910408335876');
+  insElement.setAttribute('data-ad-slot', '6560622696');
+  insElement.setAttribute('data-ad-format', 'auto');
+  insElement.setAttribute('class', 'adsbygoogle');
+  insElement.setAttribute('data-full-width-responsive', 'true');
+  insElement.style.display = 'block';
+  document.head.appendChild(insElement);
+
+  window.rewardAd(callback);
+};
