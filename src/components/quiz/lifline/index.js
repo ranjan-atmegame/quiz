@@ -17,7 +17,7 @@ import { addTransaction } from '@/api';
 import { showRewardAd } from '@/utils';
 import { updateUser } from '@/api/auth';
 
-import styles from './lifeline.module.css';
+import styles from './lifeLine.module.css';
 
 export default function LifeLine({
   auth: { isSignedIn, user, token },
