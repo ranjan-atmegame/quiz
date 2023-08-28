@@ -7,6 +7,7 @@ import { firebaseCloudMessaging } from '@/utils/Firebase';
 import { API_URL } from '@/config';
 import { getLocation } from '@/utils/Location';
 import { isMobile } from 'react-device-detect';
+import { subscribeTokenToTopic } from './api';
 
 export const subscribe = () => {
   // Event listener that listens for the push notification event in the background
@@ -27,6 +28,7 @@ export const subscribe = () => {
         // API CALL
         const SITE_URL = window.location.origin.toString();
         getLocation().then(({ countryCode }) => {
+          subscribeTokenToTopic(token);
           fetch(`${API_URL}/api/notification`, {
             method: 'POST',
             body: JSON.stringify({
