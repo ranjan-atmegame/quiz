@@ -87,7 +87,7 @@ export default function Body({
       let answer = lifelineAnswer.find((answer) => answer._id === answerId);
       if (answer) {
         return maxPercentageAnswer._id === answerId
-          ? `prediction-correct`
+          ? `predictionCorrect`
           : `prediction`;
       }
     }
@@ -116,7 +116,7 @@ export default function Body({
           )}
           {lifelineClass !== 'hide2' && (
             <button
-              className={`${yourAnswerClass} ${lifelineClass}`}
+              className={`${yourAnswerClass} ${lifelineClass} ${styles.flipQuestion}`}
               onClick={(e) => handleClick(e, option)}
             >
               {option.answer}

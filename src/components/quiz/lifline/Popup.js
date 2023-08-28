@@ -3,7 +3,7 @@ import Image from 'next/image';
 import CoinIcon from '@/components/coin';
 import { LIFELINE_OPTIONS, LIFELINE_COINS_VALUE } from '@/utils/Constant';
 import { IMG_PATH } from '@/config';
-import styles from '@/components/submit/playNow.module.css';
+import styles from './popup.module.css';
 
 export default function Popup({
   lifelineOption,
@@ -16,53 +16,46 @@ export default function Popup({
   );
 
   return (
-    <div className="popup use-coins-free-lifeline">
-      <div className="popup-header">
-        <div className="quiz-thumb">
-          <Image
-            src={`${IMG_PATH}/img/${image}`}
-            title={`${name} quiz thumbnail`}
-            alt={`${name} quiz thumbnail`}
-            width={20}
-            height={21}
-          />
-        </div>
-        <Link className="close-btn" href="" onClick={hideBuyOption}></Link>
-        <h2>Use {name} Lifeline</h2>
-        <p className="mb-24 mt-8">{description}</p>
-      </div>
-
-      <div className="free-coins-btns">
-        <Link
-          href=""
-          className={`${styles.btn} ${styles.shine} ${styles.animated} ${styles.bounceIn}`}
-          onClick={(e) => handleLifeLine(e, lifeline, true)}
-        >
-          Use for Free
-        </Link>
-
-        {/* <Link
-              href=""
-              onClick={(e) => handleLifeLine(e, lifeline, true)}
-              className="btn shine"
-            >
-              Use for Free
-            </Link> */}
-
-        {user.coins >= LIFELINE_COINS_VALUE && (
-          <>
-            <span>OR</span>
+    <div className={styles.report}>
+      <div className={styles.inner}>
+        <div className={styles.wrapper}>
+          <div className={styles.lifelineIcon}>
+            <Image
+              src={`${IMG_PATH}/img/${image}`}
+              title={`${name} quiz thumbnail`}
+              alt={`${name} quiz thumbnail`}
+              width={36}
+              height={36}
+            />
+          </div>
+          <Link className={styles.close} href="" onClick={hideBuyOption}></Link>
+          <h2>Use {name} Lifeline</h2>
+          <p>{description}</p>
+          <div className={styles.lifeLineBtns}>
             <Link
               href=""
-              //   className="btn pulse btn-secondary"
-              className={`${styles.btn} ${styles.shine} ${styles.animated} ${styles.bounceIn}`}
-              onClick={(e) => handleLifeLine(e, lifeline)}
+              className={`${styles.btn}`}
+              onClick={(e) => handleLifeLine(e, lifeline, true)}
             >
-              Use For {`${LIFELINE_COINS_VALUE} `}
-              <CoinIcon />
+              Use for Free
             </Link>
-          </>
-        )}
+
+            {user.coins >= LIFELINE_COINS_VALUE && (
+              <>
+                <span className={styles.or}>OR</span>
+                <Link
+                  href=""
+                  //   className="btn pulse btn-secondary"
+                  className={`${styles.btn} ${styles.blue}`}
+                  onClick={(e) => handleLifeLine(e, lifeline)}
+                >
+                  Use For {`${LIFELINE_COINS_VALUE} `}
+                  <CoinIcon />
+                </Link>
+              </>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -99,7 +99,7 @@
 
 .quizCard .cardFooter p span img {
   vertical-align: text-bottom;
-  margin-right: 10px;
+  margin-right: 6px;
 }
 
 .btn {
@@ -120,7 +120,7 @@
 
 .btn.btnSmall {
   height: 34px;
-  width: 100px;
+  width: 96px;
   font-size: 16px;
   padding: 8px;
   font-weight: 600;

@@ -79,7 +79,7 @@
   width: 100%;
   border-bottom: solid 0px #4c51af;
   color: #a6b7e5;
-  padding: 6px 12px;
+  padding: 8px 15px;
   font-size: 14px;
   font-weight: 600;
   transition: .6s;
@@ -92,7 +92,7 @@
   flex-wrap: wrap;
 }
 .search{
-  background: #03003A;
+  background: #070255;
     border-radius: 50px;
     width: 40px;
     height: 40px;
