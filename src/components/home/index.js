@@ -29,7 +29,7 @@ export default function Home({ tabs }) {
 
     if ('serviceWorker' in navigator)
       window.addEventListener('load', () =>
-        navigator.serviceWorker.register('/js/service-worker.js').then(
+        navigator.serviceWorker.register('/js/sw.js').then(
           (registration) =>
             console.log(
               'Service Worker registration successful with scope: ',
