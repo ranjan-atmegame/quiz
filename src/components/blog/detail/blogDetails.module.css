@@ -38,11 +38,14 @@
 .social ul{display: flex;}
 .social ul li{margin-left: 16px;}
 .blogDetails p{
-    font-size: 14px;
+    font-size: 15px;
+    line-height: 24px;
     margin: 8px 0px 16px 0px;
+    color: rgba(255, 255, 255, 0.84);
 }
 
 .blogDetails h3{
     font-size: 14px;
     font-weight: bold;
+    color: rgba(255, 255, 255, 0.84);
 }

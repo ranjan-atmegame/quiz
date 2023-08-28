@@ -6,12 +6,16 @@ import { BLOG_LIST } from '../data/blog';
 import styles from './blogDetails.module.css';
 import Link from 'next/link';
 import Icon from '@/components/ui/Icon';
+import SingleQuestion from '@/components/singleQuestion/singleQuestion';
+import EmptySingleQuestion from '@/components/singleQuestion/emptySingleQuestion';
 
 export default function Detail() {
   const blog = BLOG_LIST[0];
   return (
     <>
       <Ad />
+      {/* <SingleQuestion /> */}
+      <EmptySingleQuestion />
       <div className={styles.blogDetails}>
         <div className={styles.imgBox}>
           <QuizImage
