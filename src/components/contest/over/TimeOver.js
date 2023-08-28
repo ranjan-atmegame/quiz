@@ -20,13 +20,19 @@ export default function TimeOver({ mayWinCoins, score, endTime, children }) {
         /> */}
         <Lottie size="winningCup" src={'/animation/winningCup.json'} />
         <div>
-          <h1>Time is over!</h1>
-          <div className={styles.wellPlayed}>Well Played</div>
-          <p>
+          <h1>Time is over! Well Played</h1>
+          <div className={styles.wellPlayed}>
+            Your score is: <span className={styles.good}>{score}</span>
+          </div>
+          <span> </span>
+          <p className={styles.smText}>Winner announcement will be @ 4:45 PM</p>
+          <p className={styles.smText}>
             Based on your current score, you can win{' '}
-            <span className={`${styles.animate__fadeIn} ${styles.pulse}`}>
+            <span>
               <strong>{mayWinCoins} </strong>
-              <CoinIcon className="medium" />
+              <span className={`${styles.animate__fadeIn} ${styles.pulse}`}>
+                <CoinIcon className="medium" />
+              </span>
             </span>
           </p>
 
@@ -42,6 +48,7 @@ export default function TimeOver({ mayWinCoins, score, endTime, children }) {
         </div> */}
         {children}
       </div>
+      <div className={styles.claimCoins}>Join AtmeQuiz to claim your coins</div>
     </div>
   );
 }

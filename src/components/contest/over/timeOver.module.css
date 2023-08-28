@@ -14,7 +14,7 @@
     width: 100%;
     background: #282D93 url(../../../../public/img/cardBG.svg) no-repeat top 0px left -6px;
     border-radius: 16px;
-    padding: 40px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
     min-height: 320px;
     background-size: contain;
     text-align: center;
@@ -22,9 +22,9 @@
 }
 
 .timeOver .card h1 {
-  color: rgba(255, 255, 255, 0.70);
+  color: rgba(255, 255, 255, 0.74);
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 700;
   line-height: 24px;
@@ -33,10 +33,18 @@
 .wellPlayed{
   color: #FFF;
   text-align: center;
-  font-size: 22px;
+  font-size: 26px;
   font-style: normal;
   font-weight: 700;
   line-height: 24px;
+  margin-bottom: 8px;
+}
+
+.claimCoins{
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 16px;
 }
 
 .timeOver .card p {
@@ -46,6 +54,26 @@
   font-style: normal;
   font-weight: 400;
   margin-top: 8px;
+}
+
+.timeOver .card p.smText{
+  font-size: 13px;
+  margin-top: 0;
+}
+.good{
+  color: #5FFF9F;
+  font-size: 26px;
+  vertical-align: middle;
+}
+.average{
+  color:#f27c2c;
+  font-size: 26px;
+  vertical-align: middle;
+}
+.bad{
+  color:#FF5050;
+  font-size: 26px;
+  vertical-align: middle;
 }
 .timeOver .card p img{vertical-align: middle; margin-left: 4px;}
 
@@ -104,4 +132,18 @@
 .smCoins {
   vertical-align: top;
   padding-left: 3px;
+}
+
+@media only screen and (max-width:380px) {
+
+  .timeOver .card p {
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-width:360px) {
+
+  .timeOver .card p {
+    font-size: 9px;
+  }
 }

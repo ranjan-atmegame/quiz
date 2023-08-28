@@ -1,6 +1,8 @@
 .infoOver{
     display: flex;
     margin: 16px 0px;
+    justify-content: center;
+    text-align: center;
 }
 
 .content{
@@ -11,6 +13,7 @@
     color: rgba(255, 255, 255, 0.64);
     font-weight: normal;
     line-height: 16px;
+    margin-bottom: 4px;
 }
 
 .infoOver h2{

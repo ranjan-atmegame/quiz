@@ -6,27 +6,31 @@
   color: #fff;
   position: relative;
   border-radius: 16px;
-  background: #282D93;
-  margin-top: 16px;
-  padding: 32px;
+  background: #1f237e;
+  margin-top: 8px;
+  padding: 16px 30px 8px 30px;
   min-height: 200px;
   margin-bottom: 16px;
 }
 
-.twoBtn{display: flex; margin: 16px 0px;}
+.twoBtn{
+  display: flex; 
+  margin: 8px 0px;
+}
 
 .playNow h1 {
   font-size: 22px;
   font-weight: 700;
-  margin-top: 16px;
+  margin-top: 10px;
 }
 
 .playNow p {
   text-align: center;
-  margin-bottom: 16px;
-  margin-top: 8px;
+  margin-bottom: 12px;
+  margin-top: 2px;
   font-size: 15px;
   color: #b6b3ff;
+  line-height: 22px;
 }
 
 .coins {
@@ -34,7 +38,7 @@
 }
 
 .btn {
-  background: #fc8c1b;
+  background: #f27c2c;
   padding:0px  16px;
   height: 56px;
   width: 100%;
@@ -267,5 +271,6 @@
   margin-bottom: 8px;
 }
 
-
 .spacer{margin-left: 4px; vertical-align: middle;}
+
+

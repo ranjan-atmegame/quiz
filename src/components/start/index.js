@@ -8,6 +8,7 @@ import { setQuizSubmitted, setDomain } from './api';
 import LoginOption from './LoginOptions';
 import TwoQuestion from './twoQuestion/Question';
 import FunFact from './FunFact';
+import BonusModal from '../bonusModal/bonusModal';
 
 export default function Start() {
   const router = useRouter();
@@ -72,6 +73,7 @@ export default function Start() {
       />
       <FunFact />
       <LoginOption />
+      {/* <BonusModal /> */}
       <QuizRules />
     </>
   );

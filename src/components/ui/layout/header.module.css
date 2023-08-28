@@ -398,12 +398,6 @@
   border-radius: 50px;
 }
 
-@media (max-width: 380px) {
-  .welcomeProfile .btnsCloseHome .close {
-    right: 9px;
-    top: 14px;
-  }
-}
 
 .welcomeProfile .btnsCloseHome .close::after {
   position: absolute;

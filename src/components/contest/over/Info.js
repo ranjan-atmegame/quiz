@@ -14,18 +14,18 @@ export default function ContestInfo({ contest }) {
       </div> */}
 
       <div className={styles.infoOver}>
-        <div className={`${styles.box}`}>
+        {/* <div className={`${styles.box}`}>
           <QuizImage imageName={contest.quizImage} name={contest.name} />
-        </div>
+        </div> */}
         <div className={styles.content}>
           <h3>{contest.name}</h3>
           <h2>
             {`Play and Win ${formatNumber(contest.winningCoins)} `}
             <CoinIcon className="medium" />
           </h2>
-          <p>
+          {/* <p>
             Winner announcement will be <strong>@ 12:15</strong> PM
-          </p>
+          </p> */}
         </div>
       </div>
     </>

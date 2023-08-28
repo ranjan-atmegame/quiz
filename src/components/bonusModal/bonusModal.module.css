@@ -1,0 +1,143 @@
+.report{
+    width: 428px;
+    margin: 0px auto;
+    position: relative;
+    top: 0;
+    left: 0;
+    background: transparent;
+}
+
+.report .inner{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    height: 100%;
+    -webkit-font-smoothing: antialiased;
+    transform-origin: 0% 0%;
+    transform: translate(0%, 0);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    width: 428px;
+    overflow: hidden;
+    background: transparent;
+    background: rgb(0 0 0 / 70%);
+    height: 100%;
+}
+
+.wrapper{
+    background: #282D93;
+    background: #282D93 url(/img/cardBG.svg) no-repeat top 0px left -6px;
+    width:calc(100% - 60px);
+    height: auto;
+    padding: 30px;
+    position: absolute;
+    -webkit-font-smoothing: antialiased;
+    transform-origin: 0% 0%;
+    transform: translate(0%, 0);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    border-radius: 16px;
+    min-height: 300px;
+    top: 25%;
+    margin: 0px 30px;
+    text-align: center;
+}
+
+.wrapper h2{
+    font-size: 34px;
+    color:#5FFF9F;
+    padding-top: 0px;
+}
+
+.wrapper h2.wrong{
+    font-size: 34px;
+    color:#FF5050;
+    padding-top: 0px;
+}
+.wrapper h3{
+    font-size: 22px;
+    color:#fff;
+    line-height: 24px;
+}
+
+.close {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 6px;
+    top: 6px;
+    /* background: #0E0A5F; */
+    background: #282d93;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.close::before {
+    position: absolute;
+    left: 19px;
+    top: 11px;
+    content: " ";
+    height: 18px;
+    width: 2px;
+    background-color: #fff;
+    transform: rotate(45deg);
+}
+
+.close::after {
+    position: absolute;
+    left: 19px;
+    top: 11px;
+    content: " ";
+    height: 18px;
+    width: 2px;
+    background-color: #fff;
+    transform: rotate(-45deg);
+}
+
+.wrapper p{
+    color: rgba(255, 255, 255, 0.64);
+    font-size: 16px;
+}
+
+.listSec{
+    margin: 16px 0px;
+}
+
+.listCheck{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.lableText{
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.reportBtn{
+    height: 52px;
+    width:200px;
+    font-size: 22px;
+    padding: 0px;
+    float: right;
+    border-radius: 50px;
+    margin-top: 0px;
+    background: #fc8c1b;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.reportBtn img{
+    margin-right: 8px;
+    margin-left:-6px;
+}

@@ -1,9 +1,10 @@
 import Mobile from './Mobile';
-import { ad } from '@/app/page.module.css';
+import { ad, sponsored } from '@/app/page.module.css';
 
 export default function Ad() {
   return (
     <div className={ad}>
+      <span className={sponsored}>SPONSORED</span>
       <Mobile />
     </div>
   );
