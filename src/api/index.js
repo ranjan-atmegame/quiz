@@ -161,7 +161,18 @@ export const addTransaction = async (token, data) => {
   }
 };
 
-// 6) Report an Issue
+// 7) Get question by quizId
+export const getQuestionByQuizId = async (quizId) => {
+  const res = await fetch(`${API_URL}/api/question/quizId/${quizId}`);
+  const response = await res.json();
+  if (response.status !== 'success') {
+    return false;
+  }
+
+  return response.data;
+};
+
+// 8) Report an Issue
 export const reportAnIssue = async (data) => {
   try {
     const res = await fetch(`${API_URL}/api/issue`, {

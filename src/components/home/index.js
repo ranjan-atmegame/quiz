@@ -2,8 +2,9 @@
 import { useState } from 'react';
 import Ad from '../ad';
 import Tab from '@/components/tab';
-import ContestList from '@/components/contest/ContestList';
 import Search from '../search/search';
+import ContestList from '@/components/contest/ContestList';
+import PushNotificationLayout from '@/components/notification';
 
 export default function Home({ tabs }) {
   const [displaySearch, setDisplaySearch] = useState(false);
@@ -17,9 +18,11 @@ export default function Home({ tabs }) {
     <>
       <Ad />
       {displaySearch && <Search tabs={tabs} toggleSearch={toggleSearch} />}
-      <Tab tabs={tabs} toggleSearch={toggleSearch}>
-        <ContestList />
-      </Tab>
+      <PushNotificationLayout>
+        <Tab tabs={tabs} toggleSearch={toggleSearch}>
+          <ContestList />
+        </Tab>
+      </PushNotificationLayout>
     </>
   );
 }

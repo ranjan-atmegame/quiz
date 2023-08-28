@@ -1,6 +1,4 @@
 import Link from 'next/link';
-// import { useContext } from 'react';
-// import UserContext from '@/context/user';
 import {
   btn,
   shine,
@@ -10,8 +8,7 @@ import {
 } from '@/components/submit/playNow.module.css';
 
 export default function Join({ isSignedIn, href, onClick }) {
-  //   const { isSignedIn } = useContext(UserContext);
-
+  const playBtnClass = isSignedIn ? '' : blue;
   return (
     <>
       {!isSignedIn && (
@@ -24,7 +21,7 @@ export default function Join({ isSignedIn, href, onClick }) {
       )}
 
       <Link
-        className={`${btn} ${blue} ${shine} ${animated} ${bounceIn}`}
+        className={`${btn} ${playBtnClass} ${shine} ${animated} ${bounceIn}`}
         href={href}
         onClick={onClick}
       >
