@@ -13,7 +13,10 @@
   margin-bottom: 16px;
 }
 
-.twoBtn{display: flex; margin: 16px 0px;}
+.twoBtn{
+  display: flex; 
+  margin: 8px 0px;
+}
 
 .playNow h1 {
   font-size: 22px;
@@ -269,3 +272,5 @@
 }
 
 .spacer{margin-left: 4px; vertical-align: middle;}
+
+
