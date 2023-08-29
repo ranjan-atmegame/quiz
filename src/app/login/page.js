@@ -8,6 +8,13 @@ import { getAuth } from '../auth';
 const Layout = dynamic(() => import('@/components/ui/layout'));
 // import { isServer } from '@/utils';
 
+export const metadata = {
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
+
 export default function Page() {
   const auth = getAuth();
   if (auth.isSignedIn) {

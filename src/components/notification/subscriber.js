@@ -28,7 +28,6 @@ export const subscribe = () => {
         // API CALL
         const SITE_URL = window.location.origin.toString();
         getLocation().then(({ countryCode }) => {
-          subscribeTokenToTopic(token);
           fetch(`${API_URL}/api/notification`, {
             method: 'POST',
             body: JSON.stringify({
@@ -41,6 +40,10 @@ export const subscribe = () => {
             headers: {
               'Content-Type': 'application/json',
             },
+          }).then((response) => {
+            if (response.status === 201) {
+              subscribeTokenToTopic(token);
+            }
           });
         });
       }

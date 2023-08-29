@@ -10,8 +10,8 @@ export default function QuizImage({
   return (
     <Image
       src={`${IMG_PATH}/img/${imageName}`}
-      alt={name}
-      title={name}
+      alt={`Play ${name} Online Quiz`}
+      title={`Play ${name} Online Quiz`}
       width={width}
       height={height}
       priority={true}

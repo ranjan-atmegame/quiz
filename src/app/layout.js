@@ -11,6 +11,14 @@ export default function RootLayout({ session, children }) {
   return (
     <html lang="en">
       <head>
+        <meta httpEquiv="content-language" content="en-us" />
+        <meta httpEquiv="content-type" content="text/html;charset=UTF-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="copyright"
+          content="Copyright © 2023 by Apay Marketing Private Limited, All rights reserved."
+        />
+
         <Script
           async
           crossorigin="anonymous"
