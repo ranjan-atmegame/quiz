@@ -7,6 +7,13 @@ const Home = dynamic(() => import('@/components/home'));
 const Layout = dynamic(() => import('@/components/ui/layout'));
 
 export const metadata = {
+  title:
+    'Play Quiz and Win Coins, Online G. K Question-Answer Quiz Contest : AtmeQuiz.com',
+  description:
+    'Play online quiz contest and check your GK while contest also win coins. Online GK quiz questions answer are from different categories like histroy, cricket and politics, choose your favorite quiz category',
+  keywords: [
+    'Education, Online Quiz,  Play Quiz, Win Coin, GK, Question Answer',
+  ],
   metadataBase: new URL('https://www.atmequiz.com'),
   alternates: {
     canonical: '/',

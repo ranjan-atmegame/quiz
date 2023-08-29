@@ -5,6 +5,9 @@ const Layout = dynamic(() => import('@/components/ui/layout'));
 const CoinHistory = dynamic(() => import('@/components/user/CoinHistory'));
 
 export const metadata = {
+  title: 'Coin History : AtmeQuiz.com',
+  description: 'Check your coin history that you have won',
+  keywords: ['Coin History, Online Quiz, AtmeQuiz'],
   robots: {
     index: false,
     follow: true,
