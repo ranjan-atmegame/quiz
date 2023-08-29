@@ -15,6 +15,7 @@ import JoinButtonOver from '../joinButton/joinButtonOver';
 // import ContestList from '@/components/home/ContestList';
 // import { GENERAL_CONTEST } from '@/utils/Constant';
 import styles from './info.module.css';
+import EmptyTimeOver from './emptyTimeOver';
 
 export default function WinnerDashboard() {
   const [contest, setContest] = useState();
@@ -38,6 +39,7 @@ export default function WinnerDashboard() {
   return (
     <>
       <ContestInfo contest={contest} />
+      {/* <EmptyTimeOver /> */}
       <TimeOver
         mayWinCoins={contest.mayWinCoins}
         score={contest.score}

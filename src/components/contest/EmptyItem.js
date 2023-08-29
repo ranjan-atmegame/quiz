@@ -5,9 +5,11 @@ export default function EmptyItem() {
     <>
       <div className={styles.quizList}>
         <div className={styles.quizCard}>
-          <div className={styles.cardContent}>
-            <div className={styles.thumbnialImg}>&nbsp;</div>
-            <div className={styles.quizNameStatus}>
+          <div className={`${styles.cardContent}`}>
+            <div className={`${styles.thumbnialImg} ${styles.shine}`}>
+              &nbsp;
+            </div>
+            <div className={`${styles.quizNameStatus}`}>
               <div className={styles.categoryLiveDiv}>
                 <span className={styles.categories}>&nbsp;</span>
               </div>
@@ -15,7 +17,7 @@ export default function EmptyItem() {
               <p>&nbsp;</p>
             </div>
           </div>
-          <div className={styles.cardFooter}>
+          <div className={`${styles.cardFooter} ${styles.shine}`}>
             <p>&nbsp;</p>
           </div>
         </div>
