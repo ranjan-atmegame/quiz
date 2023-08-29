@@ -89,6 +89,8 @@ export default function Body({
         return maxPercentageAnswer._id === answerId
           ? `predictionCorrect`
           : `prediction`;
+        // : `flipQuestion`;
+        // : `fifty50`;
       }
     }
   };
@@ -116,7 +118,7 @@ export default function Body({
           )}
           {lifelineClass !== 'hide2' && (
             <button
-              className={`${yourAnswerClass} ${lifelineClass} ${styles.flipQuestion}`}
+              className={`${yourAnswerClass} ${lifelineClass}`}
               onClick={(e) => handleClick(e, option)}
             >
               {option.answer}
