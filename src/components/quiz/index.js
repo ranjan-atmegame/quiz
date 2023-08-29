@@ -10,6 +10,7 @@ import {
 } from '@/utils/Constant';
 import Score from './body/Score';
 import { authenticate } from '@/api/auth';
+// import EmptyQuiz from './emptyQuiz';
 
 export default function Quiz({
   contest: {
@@ -84,29 +85,32 @@ export default function Quiz({
   const restartTimer = () => setShouldStopTimer(false);
 
   return (
-    <Card>
-      <Header
-        correctAnswer={state.correctAnswer}
-        inCorrectAnswer={state.inCorrectAnswer}
-        totalQuestions={TOTAL_QUESTION}
-        questionNumber={state.questionIndex + 1}
-      >
-        <Timer onTimerOver={onTimerOver} shouldStopTimer={shouldStopTimer} />
-      </Header>
+    <>
+      {/* <EmptyQuiz /> */}
+      <Card>
+        <Header
+          correctAnswer={state.correctAnswer}
+          inCorrectAnswer={state.inCorrectAnswer}
+          totalQuestions={TOTAL_QUESTION}
+          questionNumber={state.questionIndex + 1}
+        >
+          <Timer onTimerOver={onTimerOver} shouldStopTimer={shouldStopTimer} />
+        </Header>
 
-      <Body
-        quizId={quizId}
-        quizName={name}
-        quizImage={quizImage}
-        question={question}
-        verifyUserAnswer={verifyUserAnswer}
-        setQuestion={setQuestion}
-        questionIndex={state.questionIndex}
-        onStopTimer={onStopTimer}
-        restartTimer={restartTimer}
-        auth={auth}
-      />
-      <Score score={state.score} />
-    </Card>
+        <Body
+          quizId={quizId}
+          quizName={name}
+          quizImage={quizImage}
+          question={question}
+          verifyUserAnswer={verifyUserAnswer}
+          setQuestion={setQuestion}
+          questionIndex={state.questionIndex}
+          onStopTimer={onStopTimer}
+          restartTimer={restartTimer}
+          auth={auth}
+        />
+        <Score score={state.score} />
+      </Card>
+    </>
   );
 }
