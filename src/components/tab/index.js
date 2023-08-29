@@ -16,7 +16,7 @@ export default function Tab({ tabs, toggleSearch, children }) {
 
       return (
         <li key={tab.slug}>
-          <Link href={tab.slug} className={tabClass}>
+          <Link href={`${tab.slug}-quiz`} className={tabClass}>
             {tab.name}
           </Link>
         </li>

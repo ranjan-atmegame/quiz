@@ -7,7 +7,8 @@ import { QUIZ_LIST } from './category';
 // import { CONTEST_TYPES, CRICKET_SUBDOMAIN } from '@/utils/Constant';
 
 export async function generateMetadata({ params, searchParams }, parent) {
-  const contestName = QUIZ_LIST[params.slug].name;
+  const slug = params.slug.replace('-quiz', '');
+  const contestName = QUIZ_LIST[slug].name;
   return {
     title: `Play ${contestName} Quiz Questions with Answers, Online ${contestName} G.K. Contest : AtmeQuiz.com`,
 
