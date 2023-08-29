@@ -9,7 +9,7 @@ import LoginOption from './LoginOptions';
 import TwoQuestion from './twoQuestion/Question';
 import FunFact from './FunFact';
 import BonusModal from '../bonusModal/bonusModal';
-// import EmptyStart from './emptyStart';
+import EmptyStart from './emptyStart';
 
 export default function Start() {
   const router = useRouter();
