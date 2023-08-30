@@ -82,14 +82,13 @@ export default function Start() {
   const handleBonusCoins = (e) => {
     e.preventDefault();
     const { user } = authenticate();
-    console.log(user);
 
     showRewardAd((result) => {
       if (result?.status) {
-        console.log('update user coins...');
         updateUser({ coins: user.coins + BONUS_COINS });
       }
     });
+    setState((prevState) => ({ ...prevState, isBonusModal: false }));
   };
 
   return (
