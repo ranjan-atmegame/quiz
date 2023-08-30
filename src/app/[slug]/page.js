@@ -8,7 +8,7 @@ import { QUIZ_LIST } from './category';
 
 export async function generateMetadata({ params, searchParams }, parent) {
   const slug = params.slug.replace('-quiz', '');
-  const contestName = QUIZ_LIST[slug].name;
+  const contestName = QUIZ_LIST[slug]?.name;
   return {
     title: `Play ${contestName} Quiz Questions with Answers, Online ${contestName} G.K. Contest : AtmeQuiz.com`,
 
