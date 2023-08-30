@@ -10,6 +10,7 @@ import TwoQuestion from './twoQuestion/Question';
 import FunFact from './FunFact';
 import BonusModal from '../bonusModal/bonusModal';
 import EmptyStart from './emptyStart';
+import { getLocation } from '@/utils/Location';
 
 export default function Start() {
   const router = useRouter();
@@ -21,6 +22,7 @@ export default function Start() {
   });
 
   useEffect(() => {
+    getLocation();
     getTwoQuestions()
       .then((response) => {
         if (response.length) {

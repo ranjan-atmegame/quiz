@@ -76,6 +76,9 @@ const _getContestListFromDBByType = async (type) => {
     return [];
   }
 
+  // Filter contest list by country
+  // contestList = filterContestByCountry(contestList);
+
   // format endTime and winningCoins
   // contestList = _formatContest(contestList);
 
@@ -128,4 +131,11 @@ export const getContestQuizById = async (contestId) => {
   }
 
   return await _getContestFromDBById(contestId);
+};
+
+const filterContestByCountry = (contestList) => {
+  //
+  const result = contestList.filter((contest) => {
+    //
+  });
 };

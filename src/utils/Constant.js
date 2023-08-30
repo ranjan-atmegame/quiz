@@ -31,7 +31,8 @@ export const DEBIT = 0;
 export const CREDIT = 1;
 
 export const USER_LOCATION = 'user-location';
-export const LOCATION_EXPIRY = 24 * 60 * 60;
+export const LOCATION_EXPIRY = 30;
+// export const LOCATION_EXPIRY = 24 * 60 * 60;
 // export const QUIZ_TIME = 60;
 export const QUIZ_TIME = 300;
 

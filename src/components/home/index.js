@@ -5,6 +5,7 @@ import Tab from '@/components/tab';
 import Search from '../search/search';
 import ContestList from '@/components/contest/ContestList';
 import { subscribe } from '@/components/notification/subscriber';
+import { setCookies } from '@/utils/Cookies';
 
 // import PushNotificationLayout from '@/co mponents/notification';
 
@@ -24,6 +25,7 @@ export default function Home({ tabs }) {
         )
       );
 
+    setCookies('allowed', tabs);
     subscribe();
   }, []);
 

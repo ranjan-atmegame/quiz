@@ -20,31 +20,32 @@ export const subscribe = () => {
   // Calls the getMessage() function if the token is there
   async function setToken() {
     try {
+      const location = getLocation();
       const token = await firebaseCloudMessaging.init();
+
       if (token) {
         console.log('token', token);
         getMessage();
 
         // API CALL
         const SITE_URL = window.location.origin.toString();
-        getLocation().then(({ countryCode }) => {
-          fetch(`${API_URL}/api/notification`, {
-            method: 'POST',
-            body: JSON.stringify({
-              userId: token,
-              domain: SITE_URL,
-              url: SITE_URL,
-              deviceId: isMobile ? 1 : 0,
-              countryCode: countryCode,
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }).then((response) => {
-            if (response.status === 201) {
-              subscribeTokenToTopic(token);
-            }
-          });
+
+        fetch(`${API_URL}/api/notification`, {
+          method: 'POST',
+          body: JSON.stringify({
+            userId: token,
+            domain: SITE_URL,
+            url: SITE_URL,
+            deviceId: isMobile ? 1 : 0,
+            countryCode: location.countryCode,
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }).then((response) => {
+          if (response.status === 201) {
+            subscribeTokenToTopic(token);
+          }
         });
       }
     } catch (error) {
