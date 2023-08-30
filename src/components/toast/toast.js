@@ -1,5 +1,5 @@
 import styles from './toast.module.css';
-const Toast = () => {
+const Toast = ({ message }) => {
   //   function myFunction() {
   //     var x = document.getElementById('snackbar');
   //     x.className = 'show';
@@ -10,9 +10,7 @@ const Toast = () => {
 
   return (
     <>
-      <div className={`${styles.toast} ${styles.show}`}>
-        Some text some message..
-      </div>
+      <div className={`${styles.toast} ${styles.show}`}>{message}</div>
     </>
   );
 };
