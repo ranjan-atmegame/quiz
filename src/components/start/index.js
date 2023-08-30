@@ -57,8 +57,6 @@ export default function Start() {
   }, [state.isSubmitted]);
 
   const verifyUserAnswer = (isCorrect) => {
-    console.log({ isCorrect });
-
     setState((prevState) => {
       if (state.questionIndex >= 1) {
         return { ...prevState, isSubmitted: true };
