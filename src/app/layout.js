@@ -7,6 +7,8 @@ export const metadata = {
   description: 'Play online Quiz',
 };
 
+export const dynamic = 'force-dynamic';
+
 export default function RootLayout({ session, children }) {
   return (
     <html lang="en">
