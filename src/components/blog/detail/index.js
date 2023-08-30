@@ -8,6 +8,7 @@ import Link from 'next/link';
 import Icon from '@/components/ui/Icon';
 import SingleQuestion from '@/components/singleQuestion/singleQuestion';
 import EmptySingleQuestion from '@/components/singleQuestion/emptySingleQuestion';
+import Toast from '@/components/toast/toast';
 
 export default function Detail() {
   const blog = BLOG_LIST[0];
@@ -16,6 +17,7 @@ export default function Detail() {
       <Ad />
       {/* <SingleQuestion /> */}
       <EmptySingleQuestion />
+      <Toast />
       <div className={styles.blogDetails}>
         <div className={styles.imgBox}>
           <QuizImage

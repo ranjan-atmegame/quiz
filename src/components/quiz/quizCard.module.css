@@ -132,13 +132,13 @@
   background: #1f237e url('/img/cardBG.svg') no-repeat top 0px left -6px;
   /* background: #282d93; */
   border-radius: 16px;
-  padding: 24px 8px 16px 8px;
+  padding: 24px 8px 24px 8px;
   min-height: 280px;
   background-size: contain;
 }
 
 .qaOptions h3 {
-  padding: 8px 0px;
+  padding: 12px 0px;
   padding-top: 4px;
   text-align: center;
   line-height: 20px;
@@ -183,7 +183,7 @@
   box-shadow: 0 1px 3px #2a2f98;
   /* background: #f0f4ff 0% 0% no-repeat padding-box;
   box-shadow: inset 0 0 4px #212583, 0 1px 3px #2a2f98; */
-  border: 1px solid #272c93;
+  border: 0px solid #272c93;
   border-radius: 8px;
   cursor: pointer;
 }
@@ -312,14 +312,14 @@ background-position: 75% 0
 .qaOptions ul li button.correct {
   -webkit-box-shadow: 0 1px 3px #2a2f98;
   box-shadow: 0 1px 3px #2a2f98;
-  background: #31d2a9 0% 0% no-repeat padding-box;
+  background: #a0c8be 0% 0% no-repeat padding-box;
   /* -webkit-box-shadow: inset 0 0 4px #212583, 0 1px 3px #2a2f98;
   box-shadow: inset 0 0 4px #212583, 0 1px 3px #2a2f98; */
-  border: 1px solid #31d2a9;
+  border: 0px solid #31d2a9;
   color: #fff;
-  text-shadow: 0 1px 0 #23c39a;
+  /* text-shadow: 0 1px 0 #23c39a; */
   width: 100%;
-  height: 58px;
+  height: 54px;
 }
 
 .qaOptions ul li button.incorrect {
@@ -328,11 +328,10 @@ background-position: 75% 0
   background: #ef4242 0% 0% no-repeat padding-box;
   /* -webkit-box-shadow: inset 0 0 4px #4d0505, 0 1px 3px #2a2f98;
   box-shadow: inset 0 0 4px #4d0505, 0 1px 3px #2a2f98;*/
-  border: 1px solid #de5353;
+  border: 0px solid #de5353;
   color: #fff;
-  text-shadow: 0 1px 0 #de5353;
   width: 100%;
-  height: 58px;
+  height: 54px;
 }
 
 

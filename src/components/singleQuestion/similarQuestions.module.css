@@ -88,6 +88,15 @@
     }
   }
 
+  ul.emptySimilar{
+    padding: 0;
+  }
+
+  ul.emptySimilar li a{
+    display: block;
+    width: 100%;
+  }
+
   
 
   
