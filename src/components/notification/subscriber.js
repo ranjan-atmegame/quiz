@@ -44,7 +44,8 @@ export const subscribe = () => {
           },
         }).then((response) => {
           if (response.status === 201) {
-            subscribeTokenToTopic(token);
+            console.log('Subscribed...');
+            // subscribeTokenToTopic(token);
           }
         });
       }
