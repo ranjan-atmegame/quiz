@@ -7,7 +7,7 @@ import { firebaseCloudMessaging } from '@/utils/Firebase';
 import { API_URL } from '@/config';
 import { getLocation } from '@/utils/Location';
 import { isMobile } from 'react-device-detect';
-import { subscribeTokenToTopic } from './api';
+// import { subscribeTokenToTopic } from './api';
 
 export const subscribe = () => {
   // Event listener that listens for the push notification event in the background
@@ -28,26 +28,26 @@ export const subscribe = () => {
         getMessage();
 
         // API CALL
-        const SITE_URL = window.location.origin.toString();
+        // const SITE_URL = window.location.origin.toString();
 
-        fetch(`${API_URL}/api/notification`, {
-          method: 'POST',
-          body: JSON.stringify({
-            userId: token,
-            domain: SITE_URL,
-            url: SITE_URL,
-            deviceId: isMobile ? 1 : 0,
-            countryCode: location.countryCode,
-          }),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }).then((response) => {
-          if (response.status === 201) {
-            console.log('Subscribed...');
-            // subscribeTokenToTopic(token);
-          }
-        });
+        // fetch(`${API_URL}/api/notification`, {
+        //   method: 'POST',
+        //   body: JSON.stringify({
+        //     userId: token,
+        //     domain: SITE_URL,
+        //     url: SITE_URL,
+        //     deviceId: isMobile ? 1 : 0,
+        //     countryCode: location.countryCode,
+        //   }),
+        //   headers: {
+        //     'Content-Type': 'application/json',
+        //   },
+        // }).then((response) => {
+        //   if (response.status === 201) {
+        //     console.log('Subscribed...');
+        //     // subscribeTokenToTopic(token);
+        //   }
+        // });
       }
     } catch (error) {
       console.log('HERE...');
