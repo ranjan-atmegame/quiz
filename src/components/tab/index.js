@@ -26,7 +26,12 @@ export default function Tab({ tabs, toggleSearch, children }) {
 
   return (
     <div className={styles.tab}>
-      <ul className={styles.contests}>{tabJSX()}</ul>
+      <ul
+        className={styles.contests}
+        data-flickity-options='{ "wrapAround": true }'
+      >
+        {tabJSX()}
+      </ul>
       <div className={styles.search}>
         <Image
           src="/img/search.svg"
