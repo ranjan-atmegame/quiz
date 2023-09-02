@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic';
+import { getAuth } from '../auth';
 const Layout = dynamic(() => import('@/components/ui/layout'));
 const Submit = dynamic(() => import('@/components/submit'));
 
@@ -14,9 +15,11 @@ export const metadata = {
 };
 
 export default function Page() {
+  const auth = getAuth();
+
   return (
     <Layout isHeader={false}>
-      <Submit />
+      <Submit auth={auth} />
     </Layout>
   );
 }

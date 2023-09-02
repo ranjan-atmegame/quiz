@@ -4,14 +4,18 @@ import { useRouter } from 'next/navigation';
 import Ad from '../ad';
 import QuizRules from '../rule';
 import { getTwoQuestions } from '@/api';
+import { showRewardAd } from '@/utils';
 import { setQuizSubmitted, setDomain } from './api';
+import { authenticate, updateUser } from '@/api/auth';
 import LoginOption from './LoginOptions';
 import TwoQuestion from './twoQuestion/Question';
 import FunFact from './FunFact';
 import BonusModal from '../bonusModal/bonusModal';
 import EmptyStart from './emptyStart';
 import { getLocation } from '@/utils/Location';
+import Toast from '../toast/toast';
 
+const BONUS_COINS = 100;
 export default function Start() {
   const router = useRouter();
   const [state, setState] = useState({
@@ -19,6 +23,7 @@ export default function Start() {
     question: null,
     questionIndex: 0,
     isSubmitted: false,
+    isBonusModal: false,
   });
 
   useEffect(() => {
@@ -51,19 +56,37 @@ export default function Start() {
     }
   }, [state.isSubmitted]);
 
-  const verifyUserAnswer = () => {
+  const verifyUserAnswer = (isCorrect) => {
     setState((prevState) => {
       if (state.questionIndex >= 1) {
         return { ...prevState, isSubmitted: true };
       } else {
         return {
           ...prevState,
+          isBonusModal: !isCorrect,
           question: prevState.questions[prevState.questionIndex + 1],
           questionIndex: prevState.questionIndex + 1,
         };
         // update in LS
       }
     });
+  };
+
+  const closeBonusModal = (e) => {
+    e.preventDefault();
+    setState((prevState) => ({ ...prevState, isBonusModal: false }));
+  };
+
+  const handleBonusCoins = (e) => {
+    e.preventDefault();
+    const { user } = authenticate();
+
+    showRewardAd((result) => {
+      if (result?.status) {
+        updateUser({ coins: user.coins + BONUS_COINS });
+      }
+    });
+    setState((prevState) => ({ ...prevState, isBonusModal: false }));
   };
 
   return (
@@ -77,8 +100,11 @@ export default function Start() {
       />
       <FunFact />
       <LoginOption />
-      {/* <BonusModal /> */}
+      {state.isBonusModal && (
+        <BonusModal onClose={closeBonusModal} handleClick={handleBonusCoins} />
+      )}
       <QuizRules />
+      {/* <Toast message="Subscribed successfully." /> */}
     </>
   );
 }
