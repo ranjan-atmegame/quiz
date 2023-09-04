@@ -6,6 +6,7 @@ import { getContestById } from '@/components/home/api';
 import Modal from '@/components/bonusModal/Modal';
 import { authenticate, updateUser } from '@/api/auth';
 import { showRewardAd } from '@/utils';
+import { BONUS_COINS } from '@/utils/Constant';
 const Detail = dynamic(() => import('./Detail'));
 const Ad = dynamic(() => import('@/components/ad'));
 const JoinButton = dynamic(() => import('../joinButton'));
