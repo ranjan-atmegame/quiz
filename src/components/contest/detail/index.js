@@ -77,7 +77,11 @@ export default function ContestDetail({ auth: { isSignedIn, user } }) {
       />
       <Ad />
       {displayModal && (
-        <Modal onClose={closeBonusModal} handleClick={onModalOk} />
+        <Modal
+          onClose={closeBonusModal}
+          handleClick={onModalOk}
+          message={`You don't have enough coins to play this contest.`}
+        />
       )}
     </>
   );

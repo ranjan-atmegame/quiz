@@ -24,6 +24,7 @@ export default function Join({ isSignedIn, href, onClick }) {
         className={`${btn} ${playBtnClass} ${shine} ${animated} ${bounceIn}`}
         href={href}
         onClick={onClick}
+        prefetch={true}
       >
         {isSignedIn ? 'Play' : 'Play as Guest'}
       </Link>
