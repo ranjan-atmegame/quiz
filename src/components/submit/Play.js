@@ -14,6 +14,7 @@ export default function Play({ user }) {
     let coins = getCookies(REWARD_COINS);
     coins = coins ? +coins : 0;
     updateCoins(coins);
+    setRewardedCoins(coins);
 
     return () => removeCookies(REWARD_COINS);
   }, []);

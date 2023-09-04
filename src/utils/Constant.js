@@ -39,13 +39,12 @@ export const CREDIT = 1;
 export const USER_LOCATION = 'user-location';
 export const LOCATION_EXPIRY = 30;
 // export const LOCATION_EXPIRY = 24 * 60 * 60;
-// export const QUIZ_TIME = 60;
-export const QUIZ_TIME = 300;
+export const QUIZ_TIME = 60;
 
 // Quiz
 export const CORRECT_SCORE = 25;
 export const INCORRECT_SCORE = -10;
-export const TOTAL_QUESTION = 5;
+export const TOTAL_QUESTION = 20;
 
 //Lifeline===
 export const LIFELINE_FIFTY_FIFTY = 'fiftyfifty';
