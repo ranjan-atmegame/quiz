@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useParams } from 'next/navigation';
 // import { GENERAL_CONTEST, CRICKET_CONTEST } from '@/utils/Constant';
 import styles from './tab.module.css';
+import EmptyTab from './emptyTab';
 
 export default function Tab({ tabs, isLoading, toggleSearch, children }) {
   const params = useParams();
@@ -29,6 +30,7 @@ export default function Tab({ tabs, isLoading, toggleSearch, children }) {
   return (
     <div className={styles.tab}>
       <ul className={styles.contests}>{!isLoading && tabJSX()}</ul>
+      {/* <EmptyTab /> */}
       <div className={styles.search}>
         <Image
           src="/img/search.svg"
