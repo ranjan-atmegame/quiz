@@ -283,3 +283,14 @@
   width: 100%;
   border-radius: 6px;
 }
+
+.emptyImg{
+  width: 70px;
+  height: 70px;
+  background: #22278b;
+  border-radius: 16px;
+}
+
+.emptyVisibility{
+  visibility: hidden;
+}
