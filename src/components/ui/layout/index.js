@@ -13,10 +13,12 @@ export default function Layout({
   const auth = getAuth();
 
   return (
-    <div className={container}>
-      {isHeader && <Header displayCoins={displayCoins} auth={auth} />}
-      {children}
-      {isFooter && <Footer displayLogo={displayFooterLogo} />}
+    <div>
+      <div className={container}>
+        {isHeader && <Header displayCoins={displayCoins} auth={auth} />}
+        {children}
+        {isFooter && <Footer displayLogo={displayFooterLogo} />}
+      </div>
     </div>
   );
 }
