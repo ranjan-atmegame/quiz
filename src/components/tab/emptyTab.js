@@ -2,7 +2,7 @@ import styles from './tab.module.css';
 import Link from 'next/link';
 const EmptyTab = () => {
   return (
-    <ul className={styles.contests}>
+    <>
       <li key="0" className={styles.shine}>
         <Link href="">
           <span className={styles.emptyList}>Contests</span>
@@ -28,7 +28,7 @@ const EmptyTab = () => {
           <span className={styles.emptyList}>BIRDS AND ANIMALS</span>
         </Link>
       </li>
-    </ul>
+    </>
   );
 };
 

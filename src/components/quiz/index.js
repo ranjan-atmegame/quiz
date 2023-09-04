@@ -10,7 +10,6 @@ import {
 } from '@/utils/Constant';
 import Score from './body/Score';
 import { authenticate } from '@/api/auth';
-// import EmptyQuiz from './emptyQuiz';
 
 export default function Quiz({
   contest: {
@@ -86,7 +85,6 @@ export default function Quiz({
 
   return (
     <>
-      {/* <EmptyQuiz /> */}
       <Card>
         <Header
           correctAnswer={state.correctAnswer}

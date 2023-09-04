@@ -6,6 +6,7 @@ import Quiz from '@/components/quiz';
 import { DEBIT } from '@/utils/Constant';
 import { updateUser } from '@/components/auth/api';
 import { getGuestUserRankAndCoins, getUserRankAndCoins } from '@/api';
+import EmptyQuiz from '@/components/quiz/emptyQuiz';
 import {
   getContestQuizById,
   updateUserContest,
@@ -116,7 +117,7 @@ export default function Play({ auth: { isSignedIn, user, token } }) {
   };
 
   if (!contest) {
-    return '';
+    return <EmptyQuiz />;
   }
 
   return (

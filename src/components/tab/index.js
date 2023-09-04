@@ -29,7 +29,9 @@ export default function Tab({ tabs, isLoading, toggleSearch, children }) {
 
   return (
     <div className={styles.tab}>
-      <ul className={styles.contests}>{!isLoading && tabJSX()}</ul>
+      <ul className={styles.contests}>
+        {!isLoading ? tabJSX() : <EmptyTab />}
+      </ul>
       {/* <EmptyTab /> */}
       <div className={styles.search}>
         <Image

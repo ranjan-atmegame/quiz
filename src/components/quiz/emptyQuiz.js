@@ -1,10 +1,20 @@
-import EmptyLifeLine from './lifline/emptyLifeline';
+// import EmptyLifeLine from './lifline/emptyLifeline';
 import quizCardStyles from './quizCard.module.css';
 import timerStyles from './timer/timer.module.css';
 const styles = { ...quizCardStyles, ...timerStyles };
 const EmptyQuiz = () => {
   return (
     <>
+      <div className={styles.info}>
+        <div className={`${styles.box}`}>
+          <h3>&nbsp;</h3>
+        </div>
+        <h2>&nbsp;</h2>
+        {/* <p>
+          Just answer 20 {contest.name} questions and win {contest.winningCoins}{' '}
+          coins.
+        </p> */}
+      </div>
       <div className={`${styles.info}`}>
         <div>
           <h3 className={styles.shine}>&nbsp;</h3>
@@ -54,7 +64,7 @@ const EmptyQuiz = () => {
               </li>
             </ul>
 
-            <EmptyLifeLine />
+            {/* <EmptyLifeLine /> */}
           </>
         </div>
       </div>
