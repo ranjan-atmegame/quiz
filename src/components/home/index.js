@@ -5,12 +5,13 @@ import Tab from '@/components/tab';
 import Search from '../search/search';
 import ContestList from '@/components/contest/ContestList';
 import { subscribe } from '@/components/notification/subscriber';
-import { setCookies } from '@/utils/Cookies';
+import useCategory from '@/hooks/useCategory';
 
 // import PushNotificationLayout from '@/co mponents/notification';
 
 export default function Home({ tabs }) {
   const [displaySearch, setDisplaySearch] = useState(false);
+  const [category, isLoading] = useCategory();
 
   useEffect(() => {
     if ('serviceWorker' in navigator)
@@ -25,7 +26,6 @@ export default function Home({ tabs }) {
         )
       );
 
-    setCookies('allowed', tabs);
     subscribe();
   }, []);
 
@@ -37,9 +37,13 @@ export default function Home({ tabs }) {
   return (
     <>
       <Ad />
-      {displaySearch && <Search tabs={tabs} toggleSearch={toggleSearch} />}
+      {displaySearch && <Search tabs={category} toggleSearch={toggleSearch} />}
       {/* <PushNotificationLayout> */}
-      <Tab tabs={tabs} toggleSearch={toggleSearch}>
+      <Tab
+        tabs={category ? category : tabs}
+        isLoading={isLoading}
+        toggleSearch={toggleSearch}
+      >
         <ContestList />
       </Tab>
       {/* </PushNotificationLayout> */}

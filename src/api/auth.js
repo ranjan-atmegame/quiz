@@ -66,6 +66,14 @@ export const updateUser = (data) => {
   return auth;
 };
 
+export const updateCoins = (coins) => {
+  const auth = authenticate();
+  const updatedCoins = auth.user.coins + coins;
+  auth.user = { ...auth.user, coins: updatedCoins };
+  saveAuth(auth);
+  return updateCoins;
+};
+
 export const generateToken = (user) => {
   // return jwt.sign({ email: user.email }, SECRET_KEY);
 };

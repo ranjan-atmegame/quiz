@@ -1,22 +1,24 @@
 'use client';
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
 import Image from 'next/image';
+import { useParams } from 'next/navigation';
 // import { GENERAL_CONTEST, CRICKET_CONTEST } from '@/utils/Constant';
 import styles from './tab.module.css';
 
-export default function Tab({ tabs, toggleSearch, children }) {
+export default function Tab({ tabs, isLoading, toggleSearch, children }) {
   const params = useParams();
 
   const tabJSX = () => {
     const selectedTab = params?.slug === undefined ? '/' : params.slug;
 
     return tabs.map((tab) => {
-      const tabClass = tab.slug === selectedTab ? styles.active : '';
+      const tabSlug = tab.slug === '/' ? tab.slug : `${tab.slug}-quiz`;
+      const tabClass = tabSlug === selectedTab ? styles.active : '';
+      const href = tab.slug === '/' ? tab.slug : `${tab.slug}-quiz`;
 
       return (
         <li key={tab.slug}>
-          <Link href={`${tab.slug}-quiz`} className={tabClass}>
+          <Link href={href} className={tabClass}>
             {tab.name}
           </Link>
         </li>
@@ -26,12 +28,7 @@ export default function Tab({ tabs, toggleSearch, children }) {
 
   return (
     <div className={styles.tab}>
-      <ul
-        className={styles.contests}
-        data-flickity-options='{ "wrapAround": true }'
-      >
-        {tabJSX()}
-      </ul>
+      <ul className={styles.contests}>{!isLoading && tabJSX()}</ul>
       <div className={styles.search}>
         <Image
           src="/img/search.svg"

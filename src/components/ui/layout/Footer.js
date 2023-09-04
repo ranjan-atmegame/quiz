@@ -1,42 +1,60 @@
+'use client';
 import Link from 'next/link';
 import Image from 'next/image';
 import { IMG_PATH } from '@/config';
+import { getCookies } from '@/utils/Cookies';
 import styles from './footer.module.css';
+import { USER_LOCATION } from '@/utils/Constant';
+import { useEffect, useState } from 'react';
+import { getLocation } from '@/utils/Location';
 
-export default function Footer() {
+export default function Footer({ displayLogo = false }) {
+  const [countryCode, setCountryCode] = useState();
+
+  useEffect(() => {
+    getLocation().then(({ countryCode }) => setCountryCode(countryCode));
+  }, []);
+
   return (
     <>
       <div className={styles.madeWithLove}>
-        <div className={styles.logo}>
-          <Link className={styles.atmequizLogo} href="/">
+        {displayLogo && (
+          <div className={styles.logo}>
+            <Link className={styles.atmequizLogo} href="/">
+              <Image
+                src={`${IMG_PATH}/logo.png`}
+                width={133}
+                height={34}
+                alt="Play Online Quiz Contest win Coin - AtmeQuiz"
+                title="Play Online Quiz Contest win Coin - AtmeQuiz"
+                // priority={true}
+              />
+            </Link>
+          </div>
+        )}
+
+        {countryCode === 'IN' && (
+          <>
+            Made with{' '}
             <Image
-              src={`${IMG_PATH}/logo.png`}
-              width={133}
-              height={34}
-              alt="Play Online Quiz Contest win Coin - AtmeQuiz"
-              title="Play Online Quiz Contest win Coin - AtmeQuiz"
+              width={12}
+              height={11}
+              src={`${IMG_PATH}/img/heart-icon.svg`}
+              title="Heart"
+              alt="Heart"
+              // priority={true}
+            />{' '}
+            in India{' '}
+            <Image
+              width={14}
+              height={9}
+              src={`${IMG_PATH}/img/india-flag-icon.svg`}
+              title="India Flag"
+              alt="India Flag"
               // priority={true}
             />
-          </Link>
-        </div>
-        Made with{' '}
-        <Image
-          width={12}
-          height={11}
-          src={`${IMG_PATH}/img/heart-icon.svg`}
-          title="Heart"
-          alt="Heart"
-          // priority={true}
-        />{' '}
-        in India{' '}
-        <Image
-          width={14}
-          height={9}
-          src={`${IMG_PATH}/img/india-flag-icon.svg`}
-          title="India Flag"
-          alt="India Flag"
-          // priority={true}
-        />
+          </>
+        )}
       </div>
     </>
   );

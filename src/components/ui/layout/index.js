@@ -7,6 +7,7 @@ export default function Layout({
   isHeader = true,
   isFooter = true,
   displayCoins = true,
+  displayFooterLogo = false,
   children,
 }) {
   const auth = getAuth();
@@ -15,7 +16,7 @@ export default function Layout({
     <div className={container}>
       {isHeader && <Header displayCoins={displayCoins} auth={auth} />}
       {children}
-      {isFooter && <Footer />}
+      {isFooter && <Footer displayLogo={displayFooterLogo} />}
     </div>
   );
 }

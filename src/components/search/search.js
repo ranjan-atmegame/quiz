@@ -76,7 +76,7 @@ const Search = ({ tabs, toggleSearch }) => {
             <ul>
               {category.map((tab) => (
                 <li key={tab.name}>
-                  <Link href={`${tab.slug}`}>
+                  <Link href={tab.slug === '/' ? tab.slug : `${tab.slug}-quiz`}>
                     <div className={styles.box}>
                       <QuizImage
                         imageName={tab.image}

@@ -63,7 +63,7 @@ export default function Page() {
           key="desc"
         />
       </Head>
-      <Layout isHeader={false}>
+      <Layout isHeader={false} displayFooterLogo={true}>
         <Start />
       </Layout>
     </>

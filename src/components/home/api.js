@@ -5,6 +5,7 @@ import {
   CRICKET_CONTEST_LIST,
   CONTEST_FETCH_AT,
   CRICKET_FETCH_AT,
+  ALLOWED_CATEGORY_SLUG,
 } from '@/utils/Constant';
 import {
   setItem,
@@ -15,6 +16,7 @@ import {
 import { getContestListByType } from '@/api';
 import { formatNumber } from '@/utils';
 import { getQuizEndTime } from '@/utils/DateTime';
+import { getCookies } from '@/utils/Cookies';
 
 // 0) SET AND GET NEXT FETCH FROM LOCAL STORAGE
 const _setNextFetch = (fetchAtKey, nextFetchAt) =>
@@ -69,15 +71,15 @@ const _isValidNextFetch = (fetchAtKey) => {
 
 // 5) Fetch active contest from DB
 const _getContestListFromDBByType = async (type) => {
-  console.log('Fetch from DB');
   const [contestListKey, fetchAtKey] = _getContestTypeKeys(type);
+
   let contestList = await getContestListByType(type);
   if (!contestList.length) {
     return [];
   }
 
   // Filter contest list by country
-  // contestList = filterContestByCountry(contestList);
+  contestList = filterContestByCountry(contestList);
 
   // format endTime and winningCoins
   // contestList = _formatContest(contestList);
@@ -134,8 +136,10 @@ export const getContestQuizById = async (contestId) => {
 };
 
 const filterContestByCountry = (contestList) => {
-  //
-  const result = contestList.filter((contest) => {
-    //
-  });
+  const allowedCategorySlug = getCookies(ALLOWED_CATEGORY_SLUG);
+  const result = contestList.filter((contest) =>
+    allowedCategorySlug.includes(contest.slug)
+  );
+
+  return result;
 };
