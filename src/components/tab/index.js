@@ -1,11 +1,11 @@
 'use client';
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
 import Image from 'next/image';
+import { useParams } from 'next/navigation';
 // import { GENERAL_CONTEST, CRICKET_CONTEST } from '@/utils/Constant';
 import styles from './tab.module.css';
 
-export default function Tab({ tabs, toggleSearch, children }) {
+export default function Tab({ tabs, isLoading, toggleSearch, children }) {
   const params = useParams();
 
   const tabJSX = () => {
@@ -26,7 +26,7 @@ export default function Tab({ tabs, toggleSearch, children }) {
 
   return (
     <div className={styles.tab}>
-      <ul className={styles.contests}>{tabJSX()}</ul>
+      <ul className={styles.contests}>{!isLoading && tabJSX()}</ul>
       <div className={styles.search}>
         <Image
           src="/img/search.svg"

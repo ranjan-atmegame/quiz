@@ -11,11 +11,13 @@ import LoginOption from './LoginOptions';
 import TwoQuestion from './twoQuestion/Question';
 import FunFact from './FunFact';
 import BonusModal from '../bonusModal/bonusModal';
+import { useSession } from 'next-auth/react';
 import EmptyStart from './emptyStart';
 import { getLocation } from '@/utils/Location';
 import Toast from '../toast/toast';
+import { getCookies, setCookies } from '@/utils/Cookies';
+import { BONUS_COINS, REWARD_COINS } from '@/utils/Constant';
 
-const BONUS_COINS = 100;
 export default function Start() {
   const router = useRouter();
   const [state, setState] = useState({
@@ -24,7 +26,9 @@ export default function Start() {
     questionIndex: 0,
     isSubmitted: false,
     isBonusModal: false,
+    displayedOnce: false,
   });
+  const { status } = useSession();
 
   useEffect(() => {
     getLocation();
@@ -48,18 +52,30 @@ export default function Start() {
   }, []);
 
   useEffect(() => {
-    if (state.isSubmitted) {
+    if (state.isSubmitted && !state.isBonusModal) {
       setQuizSubmitted();
       //testing purpose only
       setDomain();
       router.push(`/submit`);
     }
-  }, [state.isSubmitted]);
+  }, [state.isSubmitted, state.isBonusModal]);
+
+  const addRewardCoins = (coins) => {
+    const rewardCoins = getCookies(REWARD_COINS);
+    const sum = rewardCoins ? rewardCoins + coins : coins;
+    setCookies(REWARD_COINS, sum);
+  };
 
   const verifyUserAnswer = (isCorrect) => {
+    if (isCorrect) {
+      addRewardCoins(BONUS_COINS);
+    }
+
     setState((prevState) => {
       if (state.questionIndex >= 1) {
-        return { ...prevState, isSubmitted: true };
+        const isBonusModal =
+          !prevState.displayedOnce && !isCorrect ? true : false;
+        return { ...prevState, isBonusModal, isSubmitted: true };
       } else {
         return {
           ...prevState,
@@ -74,7 +90,11 @@ export default function Start() {
 
   const closeBonusModal = (e) => {
     e.preventDefault();
-    setState((prevState) => ({ ...prevState, isBonusModal: false }));
+    setState((prevState) => ({
+      ...prevState,
+      displayedOnce: true,
+      isBonusModal: false,
+    }));
   };
 
   const handleBonusCoins = (e) => {
@@ -84,9 +104,14 @@ export default function Start() {
     showRewardAd((result) => {
       if (result?.status) {
         updateUser({ coins: user.coins + BONUS_COINS });
+        addRewardCoins(BONUS_COINS);
       }
     });
-    setState((prevState) => ({ ...prevState, isBonusModal: false }));
+    setState((prevState) => ({
+      ...prevState,
+      displayedOnce: true,
+      isBonusModal: false,
+    }));
   };
 
   return (
@@ -99,8 +124,8 @@ export default function Start() {
         questionIndex={state.questionIndex}
       />
       <FunFact />
-      <LoginOption />
-      {state.isBonusModal && (
+      {status === 'authenticated' && <LoginOption />}
+      {!state.displayedOnce && state.isBonusModal && (
         <BonusModal onClose={closeBonusModal} handleClick={handleBonusCoins} />
       )}
       <QuizRules />

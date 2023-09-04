@@ -30,7 +30,7 @@ export default function Body({
 }) {
   const [lifeline, setLifeline] = useState({
     lifeline: null,
-    hideLifeline: false,
+    hideLifeline: true,
     lifelineAnswer: [],
     usedLifeline: [],
   });

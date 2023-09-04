@@ -2,7 +2,8 @@
 export const CRICKET_SUBDOMAIN = 'cricketguru.atmequiz.com';
 
 export const DEFAULT_SCORE = 0;
-export const DEFAULT_COIN = 200;
+// export const DEFAULT_COIN = 200;
+export const DEFAULT_COIN = 0;
 export const DEFAULT_EXPIRES = 30;
 
 export const JWT = 'jwt';
@@ -18,6 +19,11 @@ export const GENERAL_CONTEST_LIST = 'c-list';
 export const CRICKET_CONTEST_LIST = 'i-list';
 export const GENERAL_CONTEST = 'C';
 export const CRICKET_CONTEST = 'I';
+
+export const BONUS_COINS = 100;
+export const REWARD_COINS = 'reward-coins';
+export const ALLOWED_CATEGORY = 'allowed-category';
+export const ALLOWED_CATEGORY_SLUG = 'allowed-category-slug';
 // export const CONTEST_TYPES = [
 //   { id: GENERAL_CONTEST, name: 'Contests', slug: '/' },
 //   { id: CRICKET_CONTEST, name: 'IPL & Cricket', slug: '/cricket' },
