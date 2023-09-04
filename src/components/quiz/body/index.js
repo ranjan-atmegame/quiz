@@ -87,8 +87,8 @@ export default function Body({
       let answer = lifelineAnswer.find((answer) => answer._id === answerId);
       if (answer) {
         return maxPercentageAnswer._id === answerId
-          ? `predictionCorrect`
-          : `prediction`;
+          ? styles.predictionCorrect
+          : styles.prediction;
         // : `flipQuestion`;
         // : `fifty50`;
       }

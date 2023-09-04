@@ -3,12 +3,12 @@ import { formatNumber } from '@/utils';
 import { QUIZ_TIME } from '@/utils/Constant';
 import QuizImage from '@/components/ui/Image/QuizImage';
 import styles from '@/components/submit/playNow.module.css';
-import EmptyDetail from './emptyDetail';
+// import EmptyDetail from './emptyDetail';
 
 export default function Detail({ contest }) {
   return (
     <>
-      <EmptyDetail />
+      {/* <EmptyDetail /> */}
       <div className={styles.playNow}>
         <div className={styles.stage}>
           <div className={`${styles.box} ${styles.bounce}`}>
