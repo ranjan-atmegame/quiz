@@ -23,9 +23,11 @@ export default function Category({ tabs }) {
     if (slug) {
       getActiveContestByType(GENERAL_CONTEST)
         .then((contestList) => {
-          let filterContest = contestList.filter(
-            (contest) => contest.slug === slug
-          );
+          let filterContest = contestList.filter((contest) => {
+            const contestSlug =
+              contest.slug === '/' ? contest.slug : `${contest.slug}-quiz`;
+            return contestSlug === slug;
+          });
           setContestList(filterContest);
         })
         .catch((err) => {
