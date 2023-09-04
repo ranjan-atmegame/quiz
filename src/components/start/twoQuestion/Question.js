@@ -40,28 +40,21 @@ export default function Question({
       <Instruction />
       <div className={styles.body}>
         <div className={styles.qaOptions}>
-          {!question ? (
-            <Loader />
-          ) : (
-            <>
-              <QuestionNumber questionNumber={questionIndex + 1} />
-              <h3>{question.question}</h3>
-              <ul>
-                {question.answerOptions.map((option) => {
-                  const correctClass =
-                    answered && option.isCorrectAnswer ? styles.correct : '';
-                  return (
-                    <li
-                      key={option._id}
-                      onClick={(e) => handleClick(e, option)}
-                    >
-                      <button className={correctClass}>{option.answer}</button>
-                    </li>
-                  );
-                })}
-              </ul>
-            </>
-          )}
+          <>
+            <QuestionNumber questionNumber={questionIndex + 1} />
+            <h3>{question.question}</h3>
+            <ul>
+              {question.answerOptions.map((option) => {
+                const correctClass =
+                  answered && option.isCorrectAnswer ? styles.correct : '';
+                return (
+                  <li key={option._id} onClick={(e) => handleClick(e, option)}>
+                    <button className={correctClass}>{option.answer}</button>
+                  </li>
+                );
+              })}
+            </ul>
+          </>
         </div>
       </div>
     </>

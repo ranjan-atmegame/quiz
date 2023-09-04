@@ -117,13 +117,19 @@ export default function Start() {
   return (
     <>
       <Ad />
-      {/* <EmptyStart /> */}
-      <TwoQuestion
-        question={state.question}
-        verifyUserAnswer={verifyUserAnswer}
-        questionIndex={state.questionIndex}
-      />
-      <FunFact />
+      {state.question ? (
+        <>
+          <TwoQuestion
+            question={state.question}
+            verifyUserAnswer={verifyUserAnswer}
+            questionIndex={state.questionIndex}
+          />
+          <FunFact />
+        </>
+      ) : (
+        <EmptyStart />
+      )}
+
       {status === 'authenticated' && <LoginOption />}
       {!state.displayedOnce && state.isBonusModal && (
         <BonusModal onClose={closeBonusModal} handleClick={handleBonusCoins} />

@@ -13,7 +13,6 @@ export default function useCategory() {
   const [category, setCategory] = useState();
 
   const getQuizCategory = async () => {
-    // const countryCode = 'US';
     const { countryCode } = getCookies(USER_LOCATION);
     const categoryList = await getCategory();
 

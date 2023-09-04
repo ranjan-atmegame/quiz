@@ -12,11 +12,13 @@ export default function Tab({ tabs, isLoading, toggleSearch, children }) {
     const selectedTab = params?.slug === undefined ? '/' : params.slug;
 
     return tabs.map((tab) => {
-      const tabClass = tab.slug === selectedTab ? styles.active : '';
+      const tabSlug = tab.slug === '/' ? tab.slug : `${tab.slug}-quiz`;
+      const tabClass = tabSlug === selectedTab ? styles.active : '';
+      const href = tab.slug === '/' ? tab.slug : `${tab.slug}-quiz`;
 
       return (
         <li key={tab.slug}>
-          <Link href={`${tab.slug}-quiz`} className={tabClass}>
+          <Link href={href} className={tabClass}>
             {tab.name}
           </Link>
         </li>
