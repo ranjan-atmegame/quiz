@@ -61,7 +61,7 @@ export default function Body({
         ? `${styles.correct}`
         : `${styles.incorrect} ${styles.shine} ${styles.animate__animated} ${styles.animate__shakeX}`;
 
-      e.target.className += answerClass;
+      e.target.className += ` ${answerClass}`;
 
       setAnswered(true);
       setTimeout(() => {
@@ -79,7 +79,7 @@ export default function Body({
     }
 
     if (selectedLifeline === LIFELINE_FIFTY_FIFTY) {
-      return lifelineAnswer.indexOf(answerId) !== -1 ? '' : 'hide2';
+      return lifelineAnswer.indexOf(answerId) !== -1 ? '' : 'hide';
     } else if (selectedLifeline === LIFELINE_AUDIENCE_POLL) {
       const maxPercentageAnswer = lifelineAnswer.reduce((prev, current) =>
         prev.percentage > current.percentage ? prev : current
@@ -92,6 +92,8 @@ export default function Body({
         // : `flipQuestion`;
         // : `fifty50`;
       }
+    } else if (selectedLifeline === LIFELINE_FLIP_QUESTION) {
+      return styles.flipQuestion;
     }
   };
 
@@ -110,13 +112,12 @@ export default function Body({
 
       return (
         <li key={option._id} id={option.option}>
-          {lifelineClass === 'hide2' && (
+          {lifelineClass === 'hide' ? (
             <button
-              className={`${yourAnswerClass}`}
+              className={`${yourAnswerClass} ${styles.fifty50}`}
               onClick={(e) => e.preventDefault()}
             ></button>
-          )}
-          {lifelineClass !== 'hide2' && (
+          ) : (
             <button
               className={`${yourAnswerClass} ${lifelineClass}`}
               onClick={(e) => handleClick(e, option)}
@@ -126,6 +127,25 @@ export default function Body({
           )}
         </li>
       );
+
+      // return (
+      //   <li key={option._id} id={option.option}>
+      //     {lifelineClass === 'hide2' && (
+      //       <button
+      //         className={`${yourAnswerClass}`}
+      //         onClick={(e) => e.preventDefault()}
+      //       ></button>
+      //     )}
+      //     {lifelineClass !== 'hide2' && (
+      //       <button
+      //         className={`${yourAnswerClass} ${lifelineClass}`}
+      //         onClick={(e) => handleClick(e, option)}
+      //       >
+      //         {option.answer}
+      //       </button>
+      //     )}
+      //   </li>
+      // );
     });
   };
 
