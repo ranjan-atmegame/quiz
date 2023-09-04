@@ -30,7 +30,7 @@ export default function Question({
         setAnswered(true);
         setTimeout(() => {
           verifyUserAnswer(answer.isCorrectAnswer);
-        }, 1000);
+        }, 500);
       }, 300);
     }
   };

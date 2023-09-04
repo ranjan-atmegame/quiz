@@ -14,7 +14,7 @@ import BonusModal from '../bonusModal/bonusModal';
 import { useSession } from 'next-auth/react';
 import EmptyStart from './emptyStart';
 import { getLocation } from '@/utils/Location';
-import Toast from '../toast/toast';
+// import Toast from '../toast/toast';
 import { getCookies, setCookies } from '@/utils/Cookies';
 import { BONUS_COINS, REWARD_COINS } from '@/utils/Constant';
 
@@ -99,11 +99,11 @@ export default function Start() {
 
   const handleBonusCoins = (e) => {
     e.preventDefault();
-    const { user } = authenticate();
+    // const { user } = authenticate();
 
     showRewardAd((result) => {
       if (result?.status) {
-        updateUser({ coins: user.coins + BONUS_COINS });
+        // updateUser({ coins: user.coins + BONUS_COINS });
         addRewardCoins(BONUS_COINS);
       }
     });
@@ -130,7 +130,7 @@ export default function Start() {
         <EmptyStart />
       )}
 
-      {status === 'authenticated' && <LoginOption />}
+      {status !== 'authenticated' && <LoginOption />}
       {!state.displayedOnce && state.isBonusModal && (
         <BonusModal onClose={closeBonusModal} handleClick={handleBonusCoins} />
       )}
