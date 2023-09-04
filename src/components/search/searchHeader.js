@@ -7,8 +7,8 @@ const SearchHeader = () => {
       <div className={styles.back}>
         <Image
           src="img/back_arrow.svg"
-          width="30"
-          height="30"
+          width="24"
+          height="24"
           alt="Back"
           title="Back"
         />

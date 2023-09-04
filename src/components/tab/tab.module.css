@@ -18,6 +18,8 @@
   /* border: 6px solid #03003A; */
   border-right: 1px solid #282d93;
   margin-left: -12px;
+  -webkit-overflow-scrolling: auto;
+-webkit-overflow-scrolling: touch;
 }
 
 
