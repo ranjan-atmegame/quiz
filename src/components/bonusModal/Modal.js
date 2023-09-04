@@ -2,7 +2,7 @@ import CustomeCheck from '../ui/custome-check/customeCheck';
 import styles from './bonusModal.module.css';
 import Image from 'next/image';
 
-export default function Modal({ onClose, handleClick }) {
+export default function Modal({ onClose, handleClick, message }) {
   return (
     <div className={styles.report}>
       <div className={styles.inner}>
@@ -14,16 +14,17 @@ export default function Modal({ onClose, handleClick }) {
             height={74}
             alt="Get More Coins"
           /> */}
-          {/* <Image
+          <Image
             src="/img/wrong_coinsBox.svg"
             width={70}
             height={74}
             alt="Get More Coins"
-          /> */}
+          />
           {/* <h2>Great!</h2> */}
-          {/* <h2 className={styles.wrong}>Ooops!</h2> */}
-          <h3>Insufficient Coins</h3>
-          <p>You don't have enough coins to play.</p>
+          <h2 className={styles.wrong}>Ooops!</h2>
+          <h3></h3>
+          <p>{message}</p>
+
           <div className={styles.lisBonusModaltSec}>
             <div className={styles.listCheck}>
               <button className={styles.reportBtn} onClick={handleClick}>
@@ -36,6 +37,7 @@ export default function Modal({ onClose, handleClick }) {
                 Continue
               </button>
             </div>
+            <p>Click on video ad to get 100 reward coins.</p>
           </div>
         </div>
       </div>

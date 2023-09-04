@@ -6,11 +6,11 @@ import QuizRules from '../rule';
 import { getTwoQuestions } from '@/api';
 import { showRewardAd } from '@/utils';
 import { setQuizSubmitted, setDomain } from './api';
-import { authenticate, updateUser } from '@/api/auth';
+// import { authenticate, updateUser } from '@/api/auth';
 import LoginOption from './LoginOptions';
 import TwoQuestion from './twoQuestion/Question';
 import FunFact from './FunFact';
-import BonusModal from '../bonusModal/bonusModal';
+import Modal from '../bonusModal/Modal';
 import { useSession } from 'next-auth/react';
 import EmptyStart from './emptyStart';
 import { getLocation } from '@/utils/Location';
@@ -132,7 +132,11 @@ export default function Start() {
 
       {status !== 'authenticated' && <LoginOption />}
       {!state.displayedOnce && state.isBonusModal && (
-        <BonusModal onClose={closeBonusModal} handleClick={handleBonusCoins} />
+        <Modal
+          onClose={closeBonusModal}
+          handleClick={handleBonusCoins}
+          message={`Incorrect Answer`}
+        />
       )}
       <QuizRules />
       {/* <Toast message="Subscribed successfully." /> */}

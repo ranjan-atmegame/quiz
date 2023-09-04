@@ -34,6 +34,7 @@ export default function Play({ user }) {
       <Link
         className={`${styles.btn} ${styles.shine} ${styles.animated} ${styles.bounceIn}`}
         href="/"
+        prefetch={true}
       >
         Play Now
       </Link>

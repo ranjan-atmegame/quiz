@@ -21,7 +21,7 @@ export default function Popup({
         <div className={styles.wrapper}>
           <div className={styles.lifelineIcon}>
             <Image
-              src={`${IMG_PATH}/img/${image}`}
+              src={`/img/${image}`}
               title={`${name} quiz thumbnail`}
               alt={`${name} quiz thumbnail`}
               width={36}
