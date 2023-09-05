@@ -21,7 +21,7 @@ export default function Modal({ onClose, handleClick, message }) {
             alt="Get More Coins"
           />
           {/* <h2>Great!</h2> */}
-          <h2 className={styles.wrong}>Ooops!</h2>
+          <h2 className={styles.wrong}>Oops!</h2>
           <h3></h3>
           <p>{message}</p>
 
@@ -37,7 +37,9 @@ export default function Modal({ onClose, handleClick, message }) {
                 Continue
               </button>
             </div>
-            <p>Click on video ad to get 100 reward coins.</p>
+            <p className={styles.bottomTxt}>
+              Click on video ad to get 100 reward coins.
+            </p>
           </div>
         </div>
       </div>

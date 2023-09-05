@@ -1,5 +1,5 @@
 
-.toast {
+.toast{
     visibility: hidden;
     max-width: 265px;
     min-width: 265px;
@@ -10,12 +10,22 @@
     border-radius: 2px;
     padding: 16px;
     position: fixed;
-    z-index: 1;
+    z-index: 4;
     left: 50%;
     bottom: 30px;
     font-size: 14px;
     border-radius: 8px;
+  }
 
+  .toast.success{
+    background: #0c935c;
+  }
+
+  .toast.warning{
+    background: #f27c2c;
+  }
+  .toast.error{
+    background: #ff3535;
   }
   
   .toast.show {

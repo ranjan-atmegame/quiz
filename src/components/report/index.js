@@ -122,6 +122,7 @@ export default function Report({ handleReportModal, onDismiss }) {
                     placeholder=""
                     cols="40"
                     rows="3"
+                    className={styles.inputText}
                     onChange={(e) =>
                       setState((prevState) => ({
                         ...prevState,

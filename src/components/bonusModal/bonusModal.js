@@ -21,7 +21,7 @@ export default function BonusModal({ onClose, handleClick }) {
             alt="Get More Coins"
           /> */}
           <h2>Great!</h2>
-          {/* <h2 className={styles.wrong}>Ooops!</h2> */}
+          {/* <h2 className={styles.wrong}>Oops!</h2> */}
           <h3>You Won 200 Coins </h3>
           <p>Watch video to win more 100 coins</p>
           <div className={styles.lisBonusModaltSec}>

@@ -64,11 +64,14 @@
 .inputText{
     width: 100%;
     height: 60px;
-    border: 0px solid #ddd;
     border-radius: 8px;
     outline: none;
     padding: 8px 16px;
     margin-top: 8px;
+    font-size: 16px;
+    background: #17136f;
+    border: 2px solid #656cff;
+    color: #fff;
     font-size: 16px;
 }
 
