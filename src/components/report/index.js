@@ -78,8 +78,6 @@ export default function Report({ handleReportModal, onDismiss }) {
     ));
   };
 
-  const { success, error } = state;
-
   return (
     <>
       <div className={styles.report}>
