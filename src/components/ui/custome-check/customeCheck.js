@@ -8,8 +8,9 @@ const CustomeCheck = (props) => {
     inputClass,
     labelClass,
     inputValue,
+    labelText,
+    onClick,
   } = props;
-
   return (
     //For radio
     // "radioCustom" this is a class for radio
@@ -25,9 +26,11 @@ const CustomeCheck = (props) => {
           className={styles[inputClass]}
           name={inputName}
           type={inputType}
+          value={inputValue}
+          onClick={onClick}
         />
         <label htmlFor={labelFor} className={styles[labelClass]}>
-          {inputValue}
+          {labelText}
         </label>
       </div>
 
