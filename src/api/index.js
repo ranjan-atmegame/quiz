@@ -1,6 +1,5 @@
 import { GENERAL_CONTEST } from '@/utils/Constant';
 import { API_URL } from '@/config';
-
 //============(A) CONTEST==============
 // 0) Fetch category
 export const getCategory = async () => {
@@ -179,12 +178,11 @@ export const reportAnIssue = async (data) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
+        // Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(data),
     });
     const response = await res.json();
-
     if (response.status !== 'success') {
       return false;
     }
@@ -196,15 +194,20 @@ export const reportAnIssue = async (data) => {
   }
 };
 
-export const reportIssue = async (data) => {
+export const getIssueList = async () => {
   try {
-    const response = await axios.post(`/issue`, data);
-    if (response.status === 200) {
-      return response.data;
+    // const res = await fetch(`${API_URL}/api/issue`, {
+    //   next: { revalidate: 24 * 60 * 60 },
+    // });
+
+    const res = await fetch(`${API_URL}/api/issue`);
+    const response = await res.json();
+    if (response.status !== 'success') {
+      return [];
     }
 
-    return getCommonError();
+    return response.result;
   } catch (error) {
-    console.log(error.message);
+    return [];
   }
 };

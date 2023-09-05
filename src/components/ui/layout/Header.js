@@ -6,10 +6,8 @@ import Image from 'next/image';
 import { IMG_PATH } from '@/config';
 import styles from './header.module.css';
 import Sidebar from './Sidebar';
-
 import ReportAnIssue from '@/components/report';
 import { removeAuth } from '@/components/auth/api';
-import { DEFAULT_COIN } from '@/utils/Constant';
 import { authenticate } from '@/api/auth';
 import { isServer } from '@/utils';
 
