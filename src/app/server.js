@@ -19,11 +19,11 @@ export const getRobot = () => {
 };
 
 export const getCategoryList = async () => {
-  // let location = cookies().get(USER_LOCATION)?.value;
-  // location = location ? JSON.parse(location) : 'IN';
-
   //Testing...
-  const location = { countryCode: 'US' };
+  // const location = { countryCode: 'US' };
+
+  let location = cookies().get(USER_LOCATION)?.value;
+  location = location ? JSON.parse(location) : 'IN';
 
   const categoryList = await getCategory();
   return categoryList.filter((category) =>
