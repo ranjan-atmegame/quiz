@@ -1,18 +1,20 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Ad from '../ad';
-import { BLOG_LIST } from './data/blog';
 import Item from './Item';
+import { getBlogList } from '@/api';
 
 export default function Blog() {
   const [blogList, setBlogList] = useState();
 
   useEffect(() => {
-    setBlogList(BLOG_LIST);
+    getBlogList().then((response) => {
+      setBlogList(response.blogs);
+    });
   }, []);
 
   const blogListJSX = () => {
-    return blogList.map((blog) => <Item key={blog.id} blog={blog} />);
+    return blogList.map((blog) => <Item key={blog._id} blog={blog} />);
   };
 
   return (

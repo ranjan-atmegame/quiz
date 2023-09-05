@@ -194,6 +194,7 @@ export const reportAnIssue = async (data) => {
   }
 };
 
+// 9)
 export const getIssueList = async () => {
   try {
     // const res = await fetch(`${API_URL}/api/issue`, {
@@ -207,6 +208,36 @@ export const getIssueList = async () => {
     }
 
     return response.result;
+  } catch (error) {
+    return [];
+  }
+};
+
+// 10) Fetch list of blog
+export const getBlogList = async () => {
+  try {
+    const res = await fetch(`${API_URL}/api/blogs`);
+    const response = await res.json();
+    if (response.status !== 'success') {
+      return [];
+    }
+
+    return response.data;
+  } catch (error) {
+    return [];
+  }
+};
+
+// 11) Fetch blog by id
+export const getBlogBySlug = async (slug) => {
+  try {
+    const res = await fetch(`${API_URL}/api/blogs/${slug}`);
+    const response = await res.json();
+    if (response.status !== 'success') {
+      return [];
+    }
+
+    return response.data;
   } catch (error) {
     return [];
   }
