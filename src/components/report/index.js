@@ -87,7 +87,6 @@ export default function Report({ handleReportModal, onDismiss }) {
           <div className={styles.wrapper}>
             <h1>Report an Issue</h1>
             <p>What kind of problem have you encountered?</p>
-            {success && <p>{success}</p>}
 
             <div className={styles.listSec}>
               <div className={styles.listCheck}>
