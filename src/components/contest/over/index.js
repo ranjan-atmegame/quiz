@@ -7,7 +7,7 @@ import Rank from './Rank';
 
 import ContestInfo from './Info';
 import TimeOver from './TimeOver';
-const JoinButton = dynamic(() => import('@/components/contest/joinButton'));
+// const JoinButton = dynamic(() => import('@/components/contest/joinButton'));
 const ContestList = dynamic(() => import('@/components/contest/ContestList'));
 // import JoinButton from '../JoinButton';
 import Loader from '@/components/loader/shimmer/ContestShimmer';

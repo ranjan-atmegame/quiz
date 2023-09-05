@@ -210,7 +210,7 @@ export default function Body({
             )}
 
             <div className={styles.lifeLine} onClick={toggleLifeline}>
-              Use LifeLine
+              {lifeline.hideLifeline ? 'Use LifeLine' : 'Close'}
             </div>
           </>
         )}

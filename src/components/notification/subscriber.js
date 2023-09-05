@@ -9,6 +9,55 @@ import { getLocation } from '@/utils/Location';
 import { isMobile } from 'react-device-detect';
 // import { subscribeTokenToTopic } from './api';
 
+export const pushNotification = () => {
+  return getLocation()
+    .then((response) => {
+      const { countryCode } = response;
+      const messaging = getMessaging();
+      return getToken(messaging, {
+        vapidKey: process.env.NEXT_PUBLIC_FIREBASE_VAPIDKEY,
+      })
+        .then((currentToken) => {
+          if (currentToken) {
+            console.log('Token : ', currentToken);
+            // fetch(`${API_URL}/notification`, {
+            //   method: 'POST',
+            //   body: JSON.stringify({
+            //     regid: currentToken,
+            //     domain: SITE_URL,
+            //     url: SITE_URL,
+            //     deviceid: isMobile ? 1 : 0,
+            //     country: countryCode,
+            //   }),
+            //   headers: {
+            //     'Content-Type': 'application/json',
+            //   },
+            // });
+
+            return true;
+          } else {
+            // Show permission request UI
+            console.log(
+              'No registration token available. Request permission to generate one.'
+            );
+          }
+
+          return false;
+        })
+        .catch((err) => {
+          // console.log('An error occurred while retrieving token. ', err);
+          return false;
+        });
+      onMessage(messaging, (payload) => {
+        console.log('Message received. ', payload);
+      });
+    })
+    .catch((error) => {
+      console.log(firebase);
+      console.log(error);
+    });
+};
+
 export const subscribe = () => {
   // Event listener that listens for the push notification event in the background
   if ('serviceWorker' in navigator) {
@@ -48,10 +97,16 @@ export const subscribe = () => {
         //     // subscribeTokenToTopic(token);
         //   }
         // });
+
+        return true;
       }
+
+      return false;
     } catch (error) {
       console.log('HERE...');
       console.log(error);
+
+      return false;
     }
   }
 
@@ -82,5 +137,5 @@ export const subscribe = () => {
     // });
   }
 
-  setToken();
+  return setToken();
 };

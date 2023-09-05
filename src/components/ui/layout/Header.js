@@ -10,15 +10,38 @@ import ReportAnIssue from '@/components/report';
 import { removeAuth } from '@/components/auth/api';
 import { authenticate } from '@/api/auth';
 import { isServer } from '@/utils';
+import {
+  // subscribe,
+  pushNotification,
+} from '@/components/notification/subscriber';
+import Toast from '@/components/toast/toast';
 
 // const Header = ({ displayCoins = true, auth: { user, isSignedIn } }) => {
 const Header = ({ displayCoins = true, auth }) => {
   const [displaySidebar, setDisplaySidebar] = useState(false);
   const [displayReportModal, setDisplayReportModal] = useState(false);
+  const [toast, setToast] = useState({
+    display: false,
+    message: '',
+  });
 
   const signOutUser = function fun() {
     removeAuth();
     signOut();
+  };
+
+  const handleSubscribe = () => {
+    pushNotification().then((response) => {
+      if (!response) {
+        return setToast({
+          display: true,
+          message:
+            'The notification permission was not granted and blocked instead.',
+        });
+      }
+
+      return setToast({ display: true, message: 'Subscribed Successfully.' });
+    });
   };
 
   const handleSidebar = () => {
@@ -97,6 +120,7 @@ const Header = ({ displayCoins = true, auth }) => {
               title="Notifications"
               alt="Notifications"
               priority={true}
+              onClick={handleSubscribe}
             />
           </div>
         </div>
@@ -114,6 +138,7 @@ const Header = ({ displayCoins = true, auth }) => {
       {displayReportModal && (
         <ReportAnIssue handleReportModal={handleReportModal} />
       )}
+      {toast.display && <Toast message={toast.message} />}
     </>
   );
 };

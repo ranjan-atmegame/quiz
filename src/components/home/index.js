@@ -6,12 +6,14 @@ import Search from '../search/search';
 import ContestList from '@/components/contest/ContestList';
 import { subscribe } from '@/components/notification/subscriber';
 import useCategory from '@/hooks/useCategory';
+import RewardIcon from '../rewardIcon';
 
 // import PushNotificationLayout from '@/co mponents/notification';
 
 export default function Home({ tabs }) {
   const [displaySearch, setDisplaySearch] = useState(false);
   const [category, isLoading] = useCategory();
+  const [displayReward, setDisplayReward] = useState(true);
 
   useEffect(() => {
     if ('serviceWorker' in navigator)
@@ -46,6 +48,7 @@ export default function Home({ tabs }) {
       >
         <ContestList />
       </Tab>
+      {displayReward && <RewardIcon setDisplay={setDisplayReward} />}
       {/* </PushNotificationLayout> */}
     </>
   );

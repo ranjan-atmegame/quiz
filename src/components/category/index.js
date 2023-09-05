@@ -11,6 +11,7 @@ import Search from '../search/search';
 export default function Category({ tabs }) {
   const [contestList, setContestList] = useState();
   const [displaySearch, setDisplaySearch] = useState(false);
+  const [filterTab, setFilterTab] = useState(tabs);
 
   const toggleSearch = (e) => {
     e.preventDefault();
@@ -21,6 +22,20 @@ export default function Category({ tabs }) {
 
   useEffect(() => {
     if (slug) {
+      // For testing purpose only
+      let firstTab = null;
+      const tabOrder = filterTab.filter((tab) => {
+        const contestSlug = slug === '/' ? tab.slug : `${tab.slug}-quiz`;
+        if (contestSlug !== slug) {
+          return true;
+        }
+
+        firstTab = tab;
+        return false;
+      });
+      setFilterTab([firstTab, ...tabOrder]);
+      //==
+
       getActiveContestByType(GENERAL_CONTEST)
         .then((contestList) => {
           let filterContest = contestList.filter((contest) => {
@@ -63,7 +78,7 @@ export default function Category({ tabs }) {
       <Ad />
       {displaySearch && <Search tabs={tabs} toggleSearch={toggleSearch} />}
 
-      <Tab tabs={tabs} toggleSearch={toggleSearch}>
+      <Tab tabs={filterTab} toggleSearch={toggleSearch}>
         {contestList &&
           contestList.map((contest) => (
             <Item key={contest._id} contest={contest} />
