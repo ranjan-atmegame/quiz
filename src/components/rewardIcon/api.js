@@ -1,8 +1,8 @@
 import { showRewardAd } from '@/utils';
 import { updateCoins } from '@/api/auth';
-import { DEFAULT_COIN } from '@/utils/Constant';
+import { BONUS_COINS } from '@/utils/Constant';
 
-export const updateRewardCoins = () => {
+export const updateRewardCoins = (coins = BONUS_COINS) => {
   showRewardAd((result) => {
     if (result?.status === 'viewed') {
       //
@@ -11,6 +11,6 @@ export const updateRewardCoins = () => {
       // displayAd();
     }
 
-    updateCoins(DEFAULT_COIN);
+    updateCoins(coins);
   });
 };
