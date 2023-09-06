@@ -70,7 +70,6 @@ export const updateCoins = (coins) => {
   const auth = authenticate();
   const updatedCoins = auth.user.coins + coins;
   auth.user = { ...auth.user, coins: updatedCoins };
-  console.log({ user: auth.user, coins });
   saveAuth(auth);
   return updateCoins;
 };
