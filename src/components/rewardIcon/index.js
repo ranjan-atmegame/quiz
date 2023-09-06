@@ -1,9 +1,13 @@
 import Image from 'next/image';
 import { updateRewardCoins } from './api';
+import { updateCoins } from '@/api/auth';
+import { BONUS_COINS } from '@/utils/Constant';
 
 export default function RewardIcon({ setDisplay }) {
   const updateReward = () => {
+    console.log('update Rewards...');
     updateRewardCoins();
+    updateCoins(BONUS_COINS);
     setDisplay(false);
   };
 
