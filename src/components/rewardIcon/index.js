@@ -1,13 +1,26 @@
 import Image from 'next/image';
-import { updateRewardCoins } from './api';
+import { showRewardAd } from '@/utils';
 import { updateCoins } from '@/api/auth';
 import { BONUS_COINS } from '@/utils/Constant';
+// import { updateRewardCoins } from './api';
 
 export default function RewardIcon({ setDisplay }) {
+  // const updateReward = () => {
+  //   updateRewardCoins();
+  //   setDisplay(false);
+  // };
+
   const updateReward = () => {
-    updateRewardCoins();
-    updateCoins(BONUS_COINS);
-    setDisplay(false);
+    showRewardAd((result) => {
+      console.log('Testing reward Ad: ');
+      console.log(result);
+      if (result?.status === 'filled') {
+      } else {
+        displayAd();
+      }
+
+      updateCoins(BONUS_COINS);
+    });
   };
 
   return (

@@ -10,6 +10,9 @@ import {
 } from '@/utils/Constant';
 import Score from './body/Score';
 import { authenticate } from '@/api/auth';
+import TimerModal from '../bonusModal/TimerModal';
+import { showRewardAd } from '@/utils';
+import RewardTimer from './timer/RewardTimer';
 
 export default function Quiz({
   contest: {
@@ -29,6 +32,12 @@ export default function Quiz({
     score: 0,
   });
   const [shouldStopTimer, setShouldStopTimer] = useState(false);
+  const [timerRewardState, setTimerRewardState] = useState({
+    isUsed: false,
+    display: false,
+    rewarded: false,
+  });
+
   const auth = authenticate();
 
   useEffect(() => {
@@ -43,7 +52,17 @@ export default function Quiz({
   }, [state.questionIndex]);
 
   // 1 Timer functions
-  const onTimerOver = () => {
+  const onTimerOver = (force = false) => {
+    // verify if question left display modal for display ad and get 15 seconds
+    if (
+      !force &&
+      !timerRewardState.isUsed &&
+      state.correctAnswer + state.inCorrectAnswer < TOTAL_QUESTION
+    ) {
+      setTimerRewardState((prevState) => ({ ...prevState, display: true }));
+      return false;
+    }
+
     submitQuiz({
       score: state.score,
       correctAnswer: state.correctAnswer,
@@ -83,6 +102,29 @@ export default function Quiz({
   const onStopTimer = () => setShouldStopTimer(true);
   const restartTimer = () => setShouldStopTimer(false);
 
+  const closeTimerModal = () => {
+    onTimerOver(true);
+  };
+
+  const handleReward = () => {
+    //display ad and give 15 sec
+    showRewardAd((result) => {
+      console.log('Testing reward Ad: ');
+      console.log(result);
+      if (result?.status === 'filled') {
+      } else {
+        displayAd();
+      }
+
+      // set timer value to 15 seconds
+      setTimerRewardState({
+        isUsed: true,
+        rewarded: true,
+        display: false,
+      });
+    });
+  };
+
   return (
     <>
       <Card>
@@ -92,7 +134,19 @@ export default function Quiz({
           totalQuestions={TOTAL_QUESTION}
           questionNumber={state.questionIndex + 1}
         >
-          <Timer onTimerOver={onTimerOver} shouldStopTimer={shouldStopTimer} />
+          {/* <Timer
+            onTimerOver={onTimerOver}
+            shouldStopTimer={shouldStopTimer}
+            rewarded={timerRewardState.rewarded}
+          /> */}
+          {timerRewardState.rewarded ? (
+            <RewardTimer onTimerOver={onTimerOver} shouldStopTimer={false} />
+          ) : (
+            <Timer
+              onTimerOver={onTimerOver}
+              shouldStopTimer={shouldStopTimer}
+            />
+          )}
         </Header>
 
         <Body
@@ -108,6 +162,9 @@ export default function Quiz({
           auth={auth}
         />
         <Score score={state.score} />
+        {timerRewardState.display && (
+          <TimerModal onClose={closeTimerModal} handleClick={handleReward} />
+        )}
       </Card>
     </>
   );
