@@ -1,6 +1,12 @@
 import Script from 'next/script';
 import SessionProvider from '@/context/Provider';
 import './globals.css';
+import { Poppins } from 'next/font/google';
+
+const poppins = Poppins({
+  weight: '400',
+  subsets: ['latin'],
+});
 
 export const metadata = {
   title: 'AtmeQuiz',
@@ -11,7 +17,7 @@ export const dynamic = 'force-dynamic';
 
 export default function RootLayout({ session, children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={poppins.className}>
       <head>
         <meta httpEquiv="content-language" content="en-us" />
         <meta httpEquiv="content-type" content="text/html;charset=UTF-8" />
