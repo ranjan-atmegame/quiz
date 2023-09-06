@@ -51,15 +51,17 @@ export default async function Page() {
     redirect('/start');
   }
 
-  // 2) Get allowed category
-  let allowedCategory = cookies().get(ALLOWED_CATEGORY)?.value;
-  allowedCategory = allowedCategory
-    ? JSON.parse(allowedCategory)
-    : CONTEST_TYPES;
+  // // 2) Get allowed category
+  // let allowedCategory = cookies().get(ALLOWED_CATEGORY)?.value;
+  // allowedCategory = allowedCategory
+  //   ? JSON.parse(allowedCategory)
+  //   : CONTEST_TYPES;
+
+  // console.log({ allowedCategory });
 
   return (
     <Layout>
-      <Home tabs={allowedCategory} />
+      <Home />
     </Layout>
   );
 }

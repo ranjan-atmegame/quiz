@@ -71,7 +71,6 @@ export const updateCoins = (coins) => {
   const updatedCoins = auth.user.coins + coins;
   auth.user = { ...auth.user, coins: updatedCoins };
   saveAuth(auth);
-  return updateCoins;
 };
 
 export const generateToken = (user) => {

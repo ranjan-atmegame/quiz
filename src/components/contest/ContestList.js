@@ -4,19 +4,28 @@ import { getActiveContestByType } from '@/components/home/api';
 import EmptyItem from './EmptyItem';
 import { GENERAL_CONTEST } from '@/utils/Constant';
 
-export default function ContestList({ selectedTab = GENERAL_CONTEST }) {
+export default function ContestList() {
   const [contestList, setContestList] = useState();
 
+  // useEffect(() => {
+  //   if (selectedTab) {
+  //     getActiveContestByType(selectedTab)
+  //       .then((contestList) => setContestList(contestList))
+  //       .catch((err) => {
+  //         console.log(err);
+  //         setContestList([]);
+  //       });
+  //   }
+  // }, [selectedTab]);
+
   useEffect(() => {
-    if (selectedTab) {
-      getActiveContestByType(selectedTab)
-        .then((contestList) => setContestList(contestList))
-        .catch((err) => {
-          console.log(err);
-          setContestList([]);
-        });
-    }
-  }, [selectedTab]);
+    getActiveContestByType(GENERAL_CONTEST)
+      .then((contestList) => setContestList(contestList))
+      .catch((err) => {
+        console.log(err);
+        setContestList([]);
+      });
+  }, []);
 
   if (!contestList) {
     return (

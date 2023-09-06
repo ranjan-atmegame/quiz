@@ -13,10 +13,11 @@ import {
   setItemWithExpiry,
   getItemWithExpiry,
 } from '@/utils/Ls';
-import { getContestListByType } from '@/api';
+import { getContestListByType, getCategory } from '@/api';
 import { formatNumber } from '@/utils';
 import { getQuizEndTime } from '@/utils/DateTime';
-import { getCookies } from '@/utils/Cookies';
+import { getCookies, setCookies } from '@/utils/Cookies';
+import { getLocation } from '@/utils/Location';
 
 // 0) SET AND GET NEXT FETCH FROM LOCAL STORAGE
 const _setNextFetch = (fetchAtKey, nextFetchAt) =>
@@ -40,7 +41,6 @@ const _getContestFromLS = async (type) => {
     return false;
   }
 
-  console.log('Fetch from local');
   return await getItemByKey(contestListKey);
 };
 
@@ -73,13 +73,19 @@ const _isValidNextFetch = (fetchAtKey) => {
 const _getContestListFromDBByType = async (type) => {
   const [contestListKey, fetchAtKey] = _getContestTypeKeys(type);
 
-  let contestList = await getContestListByType(type);
+  // let contestList = await getContestListByType(type);
+  let [contestList, location] = await Promise.all([
+    getContestListByType(type),
+    getLocation(),
+  ]);
+
   if (!contestList.length) {
     return [];
   }
 
   // Filter contest list by country
-  contestList = filterContestByCountry(contestList);
+  // contestList = filterContestByCountry(contestList);
+  contestList = await fetchAllowedCategory(contestList, location.countryCode);
 
   // format endTime and winningCoins
   // contestList = _formatContest(contestList);
@@ -103,6 +109,7 @@ const _formatContest = (contestList) => {
 export const getActiveContestByType = async (contestType) => {
   const contestList = await _getContestFromLS(contestType);
   if (contestList?.length) {
+    console.log('Fetch from local');
     return contestList;
   }
 
@@ -125,21 +132,33 @@ export const getContestById = async (slug, contestId) => {
   return contestList.find((contest) => contest._id === contestId);
 };
 
-// 103) Fetch contest by quiz id
-export const getContestQuizById = async (contestId) => {
-  const contest = await _getContestFromLSById(contestId);
-  if (contest) {
-    return contest;
+const getAllowedCategorySlug = async () => {
+  let allowedCategory = getCookies(ALLOWED_CATEGORY_SLUG);
+
+  if (allowedCategory?.length) {
+    return allowedCategory;
   }
 
-  return await _getContestFromDBById(contestId);
+  let [categoryList, location] = await Promise.all([
+    getCategory(),
+    getLocation(),
+  ]);
+
+  let allowedCategorySlug = [];
+  for (let category of categoryList) {
+    if (!category?.country || category.country === location.countryCode) {
+      allowedCategorySlug.push(category.slug);
+    }
+  }
+
+  setCookies(ALLOWED_CATEGORY_SLUG, allowedCategorySlug);
+  return allowedCategorySlug;
 };
 
-const filterContestByCountry = (contestList) => {
-  const allowedCategorySlug = getCookies(ALLOWED_CATEGORY_SLUG);
-  const result = contestList.filter((contest) =>
+const fetchAllowedCategory = async (contestList, countryCode) => {
+  const allowedCategorySlug = await getAllowedCategorySlug();
+
+  return contestList.filter((contest) =>
     allowedCategorySlug.includes(contest.slug)
   );
-
-  return result;
 };

@@ -7,9 +7,13 @@ import Modal from '@/components/bonusModal/Modal';
 import { authenticate, updateUser } from '@/api/auth';
 import { showRewardAd } from '@/utils';
 import { BONUS_COINS } from '@/utils/Constant';
+import Prize from '@/components/prize';
 const Detail = dynamic(() => import('./Detail'));
 const Ad = dynamic(() => import('@/components/ad'));
 const JoinButton = dynamic(() => import('../joinButton'));
+const PrizeAndIssueButton = dynamic(() =>
+  import('../joinButton/PrizeAndIssueButton')
+);
 
 export default function ContestDetail({ auth: { isSignedIn, user } }) {
   const router = useRouter();
@@ -17,6 +21,7 @@ export default function ContestDetail({ auth: { isSignedIn, user } }) {
   const searchParams = useSearchParams();
   const [contest, setContest] = useState(null);
   const [displayModal, setDisplayModal] = useState(false);
+  const [displayPrize, setDisplayPrize] = useState(false);
 
   const contestId = searchParams.get('contestId');
   const { slug } = params;
@@ -63,6 +68,11 @@ export default function ContestDetail({ auth: { isSignedIn, user } }) {
     setDisplayModal(false);
   };
 
+  const togglePrize = (e) => {
+    e.preventDefault();
+    setDisplayPrize((prevState) => !prevState);
+  };
+
   if (!contest) {
     return '';
   }
@@ -76,6 +86,11 @@ export default function ContestDetail({ auth: { isSignedIn, user } }) {
         onClick={handleClick}
       />
       <Ad />
+      <PrizeAndIssueButton showPrizes={togglePrize} />
+      {displayPrize && (
+        <Prize prizeId={contest.prizeId} onDismiss={togglePrize} />
+      )}
+
       {displayModal && (
         <Modal
           onClose={closeBonusModal}
