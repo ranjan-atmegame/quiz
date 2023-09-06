@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useSession } from 'next-auth/react';
 import { useParams } from 'next/navigation';
 import {
   twoBtn,
@@ -9,8 +10,9 @@ import {
   bounceIn,
 } from '@/components/submit/playNow.module.css';
 
-export default function JoinButtonOver({ isSignedIn, href, onClick }) {
+export default function JoinButtonOver() {
   const params = useParams();
+  const { status } = useSession();
 
   const displayGuestButton = () => {
     return (
@@ -24,8 +26,7 @@ export default function JoinButtonOver({ isSignedIn, href, onClick }) {
 
         <Link
           className={`${btn} ${blue} ${shine} ${animated} ${bounceIn}`}
-          href={href}
-          onClick={onClick}
+          href="/"
         >
           Play as Guest
         </Link>
@@ -43,13 +44,14 @@ export default function JoinButtonOver({ isSignedIn, href, onClick }) {
         <Link
           className={`${btn} ${blue} ${shine} ${animated} ${bounceIn}`}
           href={`${window.location.origin}/${params.slug}/join-contest/${window.location.search}`}
-          onClick={onClick}
         >
-          Replay
+          Play Again
         </Link>
       </div>
     );
   };
 
-  return !isSignedIn ? displayGuestButton() : displayUserButton();
+  return status === 'authenticated'
+    ? displayUserButton()
+    : displayGuestButton();
 }

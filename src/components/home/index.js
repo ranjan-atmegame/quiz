@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Ad from '../ad';
 import Tab from '@/components/tab';
 import Search from '../search/search';
@@ -10,9 +10,9 @@ import RewardIcon from '../rewardIcon';
 
 // import PushNotificationLayout from '@/co mponents/notification';
 
-export default function Home({ tabs }) {
+export default function Home() {
+  const [category, isCategoryLoading] = useCategory();
   const [displaySearch, setDisplaySearch] = useState(false);
-  const [category, isLoading] = useCategory();
   const [displayReward, setDisplayReward] = useState(true);
 
   useEffect(() => {
@@ -42,8 +42,8 @@ export default function Home({ tabs }) {
       {displaySearch && <Search tabs={category} toggleSearch={toggleSearch} />}
       {/* <PushNotificationLayout> */}
       <Tab
-        tabs={category ? category : tabs}
-        isLoading={isLoading}
+        tabs={category}
+        isLoading={isCategoryLoading}
         toggleSearch={toggleSearch}
       >
         <ContestList />

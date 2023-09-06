@@ -2,10 +2,10 @@
 import { useState, useEffect } from 'react';
 import { getCategory } from '@/api';
 import { getCookies, setCookies } from '@/utils/Cookies';
+import { getLocation } from '@/utils/Location';
 import {
   ALLOWED_CATEGORY,
   ALLOWED_CATEGORY_SLUG,
-  USER_LOCATION,
   CONTEST_TYPES,
 } from '@/utils/Constant';
 
@@ -13,13 +13,15 @@ export default function useCategory() {
   const [category, setCategory] = useState();
 
   const getQuizCategory = async () => {
-    const { countryCode } = getCookies(USER_LOCATION);
-    const categoryList = await getCategory();
+    let [categoryList, location] = await Promise.all([
+      getCategory(),
+      getLocation(),
+    ]);
 
     let allowedCategory = [];
     let allowedCategorySlug = [];
     for (let category of categoryList) {
-      if (!category?.country || category.country === countryCode) {
+      if (!category?.country || category.country === location.countryCode) {
         allowedCategory.push(category);
         allowedCategorySlug.push(category.slug);
       }

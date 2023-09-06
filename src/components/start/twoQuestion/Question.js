@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
-import Button from '@/components/ui/Button';
-import Loader from '@/components/loader/shimmer/ContestShimmer';
+// import Button from '@/components/ui/Button';
+// import Loader from '@/components/loader/shimmer/ContestShimmer';
 import styles from '@/components/quiz/quizCard.module.css';
 import Instruction from '../Instruction';
 import QuestionNumber from './questionNumber';
@@ -30,7 +30,7 @@ export default function Question({
         setAnswered(true);
         setTimeout(() => {
           verifyUserAnswer(answer.isCorrectAnswer);
-        }, 500);
+        }, 100);
       }, 300);
     }
   };

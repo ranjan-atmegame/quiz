@@ -32,7 +32,6 @@ export default function Tab({ tabs, isLoading, toggleSearch, children }) {
       <ul className={styles.contests}>
         {!isLoading ? tabJSX() : <EmptyTab />}
       </ul>
-      {/* <EmptyTab /> */}
       <div className={styles.search}>
         <Image
           src="/img/search.svg"
