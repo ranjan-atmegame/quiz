@@ -61,7 +61,6 @@ export default async function Page() {
 
   return (
     <Layout>
-      {/* <Home tabs={allowedCategory} /> */}
       <Home />
     </Layout>
   );

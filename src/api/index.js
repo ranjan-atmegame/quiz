@@ -242,3 +242,18 @@ export const getBlogBySlug = async (slug) => {
     return [];
   }
 };
+
+// 12) Fetch prize list by id
+export const getPrizeListById = async (id) => {
+  try {
+    const res = await fetch(`${API_URL}/api/prize/${id}`);
+    const response = await res.json();
+    if (response.status !== 'success') {
+      return [];
+    }
+
+    return response.data.data;
+  } catch (error) {
+    return [];
+  }
+};
