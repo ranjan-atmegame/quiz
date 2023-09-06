@@ -112,15 +112,16 @@ export default function Quiz({
       console.log(result);
       if (result?.status === 'viewed') {
         // set timer value to 15 seconds
-        setTimerRewardState({
-          isUsed: true,
-          rewarded: true,
-          display: false,
-        });
       } else {
         console.log('DISPLAY AD');
         displayAd();
       }
+
+      setTimerRewardState({
+        isUsed: true,
+        rewarded: true,
+        display: false,
+      });
     });
   };
 

@@ -1,7 +1,5 @@
-import { cookies } from 'next/headers';
 import dynamic from 'next/dynamic';
 import { redirect } from 'next/navigation';
-import { CONTEST_TYPES, ALLOWED_CATEGORY } from '@/utils/Constant';
 import { isSubmitted } from './auth';
 import { getRobot } from './server';
 const Home = dynamic(() => import('@/components/home'));
@@ -50,14 +48,6 @@ export default async function Page() {
   if (!isSubmitted()) {
     redirect('/start');
   }
-
-  // // 2) Get allowed category
-  // let allowedCategory = cookies().get(ALLOWED_CATEGORY)?.value;
-  // allowedCategory = allowedCategory
-  //   ? JSON.parse(allowedCategory)
-  //   : CONTEST_TYPES;
-
-  // console.log({ allowedCategory });
 
   return (
     <Layout>

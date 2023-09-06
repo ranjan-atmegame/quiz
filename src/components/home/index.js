@@ -7,11 +7,12 @@ import ContestList from '@/components/contest/ContestList';
 import { subscribe } from '@/components/notification/subscriber';
 import useCategory from '@/hooks/useCategory';
 import RewardIcon from '../rewardIcon';
-
+import useDevice from '@/hooks/useDevice';
 // import PushNotificationLayout from '@/co mponents/notification';
 
 export default function Home() {
   const [category, isCategoryLoading] = useCategory();
+  const [isMobile, isLoading] = useDevice();
   const [displaySearch, setDisplaySearch] = useState(false);
   const [displayReward, setDisplayReward] = useState(true);
 
@@ -48,7 +49,9 @@ export default function Home() {
       >
         <ContestList />
       </Tab>
-      {displayReward && <RewardIcon setDisplay={setDisplayReward} />}
+      {isMobile && displayReward && (
+        <RewardIcon setDisplay={setDisplayReward} />
+      )}
       {/* </PushNotificationLayout> */}
     </>
   );
