@@ -24,7 +24,7 @@ export default function Play({ user }) {
       <div className={styles.stage}>
         <div className={`${styles.box} ${styles.bounce}`}></div>
       </div>
-      <Lottie size="lottieCoinsSM" src={'/animation/CoinsAnimation.json'} />
+      <Lottie size="lottieCoinsSM" src={'/animation/coinsAnimation.json'} />
       <h1>You have got {rewardedCoins ? rewardedCoins : 0} coins</h1>
 
       <p>

@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { signOut } from 'next-auth/react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -24,6 +24,14 @@ const Header = ({ displayCoins = true, auth }) => {
     display: false,
     message: '',
   });
+
+  useEffect(() => {
+    if (displaySidebar) {
+      document.querySelector('body').style.overflow = 'hidden';
+    } else {
+      document.querySelector('body').style.overflow = '';
+    }
+  }, [displaySidebar]);
 
   const signOutUser = function fun() {
     removeAuth();
