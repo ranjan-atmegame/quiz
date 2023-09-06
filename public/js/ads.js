@@ -36,7 +36,7 @@ function ad_initialise() {
   }
 }
 
-function displayAd() {
+function displayAd(callback) {
   if (shouldShowAdOnPlay) {
     adBreak({
       type: 'next', // ad shows at start of next level
@@ -46,6 +46,7 @@ function displayAd() {
       }, // You may also want to mute the game's sound.
       afterAd: () => {
         resetGameStatus();
+        callback({ status: 'viewed' });
       }, // resume the game flow.
     });
     console.log('ads loading');
@@ -115,6 +116,7 @@ function rewardAd(_back) {
           // _back({ status: placementInfo.breakStatus });
           if (placementInfo.breakStatus !== 'viewed') {
             this.playExcitationVideo2(_back);
+            _back && _back({ status: 'na' });
           } else {
             isRewardDisplayed = 1;
             _back && _back({ status: 'viewed' });

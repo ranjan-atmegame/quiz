@@ -106,22 +106,31 @@ export default function Quiz({
     onTimerOver(true);
   };
 
+  const rewardOnSuccess = () =>
+    setTimerRewardState({
+      isUsed: true,
+      rewarded: true,
+      display: false,
+    });
+
+  const rewardOnError = () =>
+    setTimerRewardState({
+      isUsed: true,
+      rewarded: false,
+      display: false,
+    });
+
   const handleReward = () => {
     //display ad and give 15 sec
     showRewardAd((result) => {
       console.log(result);
       if (result?.status === 'viewed') {
-        // set timer value to 15 seconds
+        rewardOnSuccess();
       } else {
-        console.log('DISPLAY AD');
-        displayAd();
+        displayAd((result) => {
+          result?.status === 'viewed' ? rewardOnSuccess() : rewardOnError();
+        });
       }
-
-      setTimerRewardState({
-        isUsed: true,
-        rewarded: true,
-        display: false,
-      });
     });
   };
 
