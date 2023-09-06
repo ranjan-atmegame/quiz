@@ -38,6 +38,7 @@ export default function ContestDetail({ auth: { isSignedIn, user } }) {
   }, [contestId, slug]);
 
   const handleClick = (e) => {
+    const { user } = authenticate();
     if (user.coins < contest.entryCoins) {
       e.preventDefault();
       setDisplayModal(true);
