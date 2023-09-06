@@ -109,19 +109,18 @@ export default function Quiz({
   const handleReward = () => {
     //display ad and give 15 sec
     showRewardAd((result) => {
-      console.log('Testing reward Ad: ');
       console.log(result);
-      if (result?.status === 'filled') {
+      if (result?.status === 'viewed') {
+        // set timer value to 15 seconds
+        setTimerRewardState({
+          isUsed: true,
+          rewarded: true,
+          display: false,
+        });
       } else {
+        console.log('DISPLAY AD');
         displayAd();
       }
-
-      // set timer value to 15 seconds
-      setTimerRewardState({
-        isUsed: true,
-        rewarded: true,
-        display: false,
-      });
     });
   };
 

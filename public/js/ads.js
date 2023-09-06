@@ -98,7 +98,7 @@ function rewardAd(_back) {
       },
       adViewed: () => {
         console.log('--- Ã¥Â¹Â¿Ã¥â€˜Å Ã¦â€™Â­Ã¦â€Â¾Ã¥Â®Å’Ã¦Â¯â€¢ ------');
-        _back && _back({ type: '3' });
+        _back && _back({ status: 'viewed' });
       },
 
       adBreakDone: (placementInfo) => {
@@ -115,7 +115,7 @@ function rewardAd(_back) {
             isRewardDisplayed = 1;
           }
         } catch (e) {
-          _back && _back({ type: '3' });
+          _back && _back({ status: 'error' });
         }
       },
     });
