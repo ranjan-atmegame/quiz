@@ -95,10 +95,12 @@ function rewardAd(_back) {
         console.log(
           '--- Ã§â€Â¨Ã¦Ë†Â·Ã¦ÂÂÃ¥â€°ÂÃ¥â€¦Â³Ã©â€”Â­Ã¥Â¹Â¿Ã¥â€˜Å  ------'
         );
+        console.log('Dismiss');
       },
       adViewed: () => {
         console.log('--- Ã¥Â¹Â¿Ã¥â€˜Å Ã¦â€™Â­Ã¦â€Â¾Ã¥Â®Å’Ã¦Â¯â€¢ ------');
-        _back && _back({ status: 'viewed' });
+        // _back && _back({ status: 'viewed' });
+        console.log('View');
       },
 
       adBreakDone: (placementInfo) => {
@@ -108,11 +110,14 @@ function rewardAd(_back) {
         );
 
         try {
-          _back({ status: placementInfo.breakStatus });
+          console.log('AdBreakDon: ');
+          console.log(placementInfo);
+          // _back({ status: placementInfo.breakStatus });
           if (placementInfo.breakStatus !== 'viewed') {
             this.playExcitationVideo2(_back);
           } else {
             isRewardDisplayed = 1;
+            _back && _back({ status: 'viewed' });
           }
         } catch (e) {
           _back && _back({ status: 'error' });
