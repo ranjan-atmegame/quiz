@@ -13,8 +13,9 @@ import {
   playQuiz,
   playGuestQuiz,
 } from '../api';
+import { authenticate } from '@/api/auth';
 
-export default function Play({ auth: { isSignedIn, user, token } }) {
+export default function Play({ auth: { isSignedIn, token } }) {
   const router = useRouter();
   const params = useParams();
   const searchParams = useSearchParams();
@@ -47,6 +48,7 @@ export default function Play({ auth: { isSignedIn, user, token } }) {
 
   // 1) Add user transaction
   const handleTransaction = (contest) => {
+    const { user } = authenticate();
     if (user.coins < contest.entryCoins) {
       alert(`You don't have coin to play.`);
       return router.push('/');
@@ -84,6 +86,7 @@ export default function Play({ auth: { isSignedIn, user, token } }) {
   };
 
   const submitQuiz = async ({ score, correctAnswer, inCorrectAnswer }) => {
+    const { user } = authenticate();
     let rank, prizeList;
     if (isSignedIn) {
       // Register user
@@ -123,11 +126,7 @@ export default function Play({ auth: { isSignedIn, user, token } }) {
   return (
     <>
       <ContestInfo contest={contest} />
-      <Quiz
-        contest={contest}
-        submitQuiz={submitQuiz}
-        auth={{ isSignedIn, user, token }}
-      />
+      <Quiz contest={contest} submitQuiz={submitQuiz} />
     </>
   );
 }
