@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { signOut } from 'next-auth/react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -17,7 +18,8 @@ import {
 import Toast from '@/components/toast/toast';
 
 // const Header = ({ displayCoins = true, auth: { user, isSignedIn } }) => {
-const Header = ({ displayCoins = true, auth }) => {
+const Header = ({ displayCoins = true, auth, isBackButton = false }) => {
+  const router = useRouter();
   const [displaySidebar, setDisplaySidebar] = useState(false);
   const [displayReportModal, setDisplayReportModal] = useState(false);
   const [toast, setToast] = useState({
@@ -63,6 +65,38 @@ const Header = ({ displayCoins = true, auth }) => {
     setDisplayReportModal((prevState) => !prevState);
   };
 
+  const logoJSX = () => {
+    return !isBackButton ? (
+      <nav>
+        <label htmlFor="menu-control" className={styles.sidebarToggle}>
+          <Image
+            src={`/img/hamburger.svg`}
+            onClick={handleSidebar}
+            width={36}
+            height={24}
+            title="Toggle Sidebar"
+            alt="Toggle Sidebar"
+            priority={true}
+          />
+        </label>
+      </nav>
+    ) : (
+      <nav>
+        <label htmlFor="menu-control" className={styles.sidebarToggle}>
+          <Image
+            src={`/img/back_arrow.svg`}
+            width={36}
+            height={24}
+            title="Toggle Sidebar"
+            alt="Toggle Sidebar"
+            priority={true}
+            onClick={(e) => router.back()}
+          />
+        </label>
+      </nav>
+    );
+  };
+
   let user = null;
   if (isServer()) {
     user = auth.user;
@@ -75,19 +109,7 @@ const Header = ({ displayCoins = true, auth }) => {
     <>
       <header className={styles.header}>
         <div className={styles.logo}>
-          <nav>
-            <label htmlFor="menu-control" className={styles.sidebarToggle}>
-              <Image
-                src={`/img/hamburger.svg`}
-                onClick={handleSidebar}
-                width={36}
-                height={24}
-                title="Toggle Sidebar"
-                alt="Toggle Sidebar"
-                priority={true}
-              />
-            </label>
-          </nav>
+          {logoJSX()}
           <Link className={styles.atmequizLogo} href="/">
             <Image
               width={132}

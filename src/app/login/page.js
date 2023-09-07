@@ -31,7 +31,7 @@ export default function Page() {
   // }
 
   return (
-    <Layout displayCoins={false}>
+    <Layout displayCoins={false} isBackButton={true}>
       <div className={styles.login}>
         <div className={styles.inner}>
           <h3>Login now & Play Quiz</h3>

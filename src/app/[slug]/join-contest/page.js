@@ -17,5 +17,5 @@ export const metadata = {
 export default function Page() {
   const auth = getAuth();
 
-  return <Layout>{<ContestDetail auth={auth} />}</Layout>;
+  return <Layout isBackButton={true}>{<ContestDetail auth={auth} />}</Layout>;
 }
