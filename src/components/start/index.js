@@ -38,7 +38,6 @@ export default function Start() {
           setState((prevState) => {
             return {
               ...prevState,
-              // isSubmitted,
               questions: response,
               question: response[prevState.questionIndex],
             };
@@ -71,31 +70,41 @@ export default function Start() {
       addRewardCoins(BONUS_COINS);
     }
 
-    setState((prevState) => {
-      if (state.questionIndex >= 1) {
-        const isBonusModal =
-          !prevState.displayedOnce && !isCorrect ? true : false;
-        // return { ...prevState, isBonusModal, isSubmitted: true };
-        return { ...prevState, isBonusModal };
-      } else {
+    if (state.questionIndex >= 1) {
+      setState((prevState) => ({
+        ...prevState,
+        isSubmitted: isCorrect || prevState.displayedOnce,
+        isBonusModal: !prevState.displayedOnce && !isCorrect ? true : false,
+      }));
+    } else {
+      setState((prevState) => {
         return {
           ...prevState,
           isBonusModal: !isCorrect,
           question: prevState.questions[prevState.questionIndex + 1],
           questionIndex: prevState.questionIndex + 1,
         };
-        // update in LS
-      }
-    });
+      });
+    }
   };
 
   const closeBonusModal = (e) => {
     e.preventDefault();
-    setState((prevState) => ({
-      ...prevState,
-      displayedOnce: true,
-      isBonusModal: false,
-    }));
+
+    if (state.questionIndex > 1) {
+      setState((prevState) => ({
+        ...prevState,
+        displayedOnce: true,
+        isBonusModal: false,
+        isSubmitted: true,
+      }));
+    } else {
+      setState((prevState) => ({
+        ...prevState,
+        displayedOnce: true,
+        isBonusModal: false,
+      }));
+    }
   };
 
   const handleBonusCoins = (e) => {
@@ -112,7 +121,7 @@ export default function Start() {
         ...prevState,
         displayedOnce: true,
         isBonusModal: false,
-        isSubmitted: true,
+        isSubmitted: false,
       }));
     });
     // setState((prevState) => ({
