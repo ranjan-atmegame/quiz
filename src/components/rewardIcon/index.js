@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { showRewardAd } from '@/utils';
 import { updateCoins } from '@/api/auth';
 import { BONUS_COINS } from '@/utils/Constant';
+import styles from './rewardIcon.module.css';
 // import { updateRewardCoins } from './api';
 
 export default function RewardIcon({ setDisplay }) {
@@ -25,21 +26,16 @@ export default function RewardIcon({ setDisplay }) {
 
   return (
     <div
+      className={`${styles.floatingIcon} ${styles.floatingIcon}`}
       onClick={updateReward}
-      style={{
-        position: 'fixed',
-        top: '89%',
-        right: '5px',
-        cursor: 'pointer',
-      }}
     >
-      <Image
-        src="/img/2bicon.png"
+      {/* <Image
+        src="/img/freeCoins.svg"
         alt="free coins"
         title="free coins"
-        height={72}
-        width={72}
-      />
+        height={86}
+        width={86}
+      /> */}
     </div>
   );
 }
