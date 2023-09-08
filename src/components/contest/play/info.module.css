@@ -7,3 +7,17 @@
 .info h2{ font-size: 22px;}
 .info h3{font-size: 14px; color: rgba(255, 255, 255, 0.64);}
 .info p{color: rgba(255, 255, 255, 0.64); font-size: 14px;}
+
+.sound{
+    position: absolute;
+    right: 12px;
+    top: 10px;
+    cursor: pointer;
+    background: url(/img/volume-high.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+  }
+
+  .sound.noSound{
+    background: url(/img/volume-slash.svg) no-repeat;
+  }
