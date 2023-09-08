@@ -15,9 +15,9 @@ export default function Tab({ tabs, isLoading, toggleSearch, children }) {
   const categoryRef = useRef();
 
   useEffect(() => {
-    categoryRef.current.addEventListener('mousedown', startDragging, false);
-    categoryRef.current.addEventListener('mouseup', stopDragging, false);
-    categoryRef.current.addEventListener('mouseleave', stopDragging, false);
+    parentRef.current.addEventListener('mousedown', startDragging, false);
+    parentRef.current.addEventListener('mouseup', stopDragging, false);
+    parentRef.current.addEventListener('mouseleave', stopDragging, false);
 
     parentRef.current.addEventListener('mousemove', moveCategory);
   }, []);
@@ -29,11 +29,16 @@ export default function Tab({ tabs, isLoading, toggleSearch, children }) {
     }
 
     const x = e.pageX - parentRef.current.offsetLeft;
-    const scroll = x - startX;
-    parentRef.current.scrollLeft = scroll;
+    const walk = (x - startX) * 2; //scroll-fast
+    parentRef.current.scrollLeft = scrollLeft - walk;
+    console.log(walk);
 
-    console.log('Move: ');
-    console.log({ pageX: e.pageX, x, scrollLeft, scroll });
+    // const x = e.pageX - parentRef.current.offsetLeft;
+    // const scroll = x - startX;
+    // parentRef.current.scrollLeft = scroll;
+
+    // console.log('Move: ');
+    // console.log({ pageX: e.pageX, x, scrollLeft, scroll });
   };
 
   const startDragging = (e) => {
@@ -43,8 +48,6 @@ export default function Tab({ tabs, isLoading, toggleSearch, children }) {
     mouseDown = true;
     startX = e.pageX - parentRef.current.offsetLeft;
     scrollLeft = parentRef.current.scrollLeft;
-
-    console.log({ parent: parentRef.current });
 
     // console.log({
     //   startX,
@@ -78,23 +81,47 @@ export default function Tab({ tabs, isLoading, toggleSearch, children }) {
     });
   };
 
-  return (
-    <div className={styles.tab} ref={parentRef} style={{ overflowX: 'hidden' }}>
-      <ul className={styles.contests} ref={categoryRef}>
-        {!isLoading ? tabJSX() : <EmptyTab />}
-      </ul>
-      <div className={styles.search}>
-        <Image
-          src="/img/search.svg"
-          width="20"
-          height="20"
-          alt="Search"
-          title="Search"
-          onClick={toggleSearch}
-        />
-      </div>
+  // return (
+  //   <div className={`${styles.tab} ${styles.draggable}`} ref={parentRef}>
+  //     <ul className={styles.contests} ref={categoryRef}>
+  //       {!isLoading ? tabJSX() : <EmptyTab />}
+  //     </ul>
+  //     <div className={styles.search}>
+  //       <Image
+  //         src="/img/search.svg"
+  //         width="20"
+  //         height="20"
+  //         alt="Search"
+  //         title="Search"
+  //         onClick={toggleSearch}
+  //       />
+  //     </div>
 
-      <div className={styles.tabContent}>{children}</div>
-    </div>
+  //     <div className={styles.tabContent}>{children}</div>
+  //   </div>
+  // );
+
+  return (
+    <>
+      <div className={`${styles.tab} ${styles.draggable}`} ref={parentRef}>
+        <ul className={styles.contests} ref={categoryRef}>
+          {!isLoading ? tabJSX() : <EmptyTab />}
+        </ul>
+      </div>
+      <div className={`${styles.tab}`}>
+        <div className={styles.search}>
+          <Image
+            src="/img/search.svg"
+            width="20"
+            height="20"
+            alt="Search"
+            title="Search"
+            onClick={toggleSearch}
+          />
+        </div>
+
+        <div className={styles.tabContent}>{children}</div>
+      </div>
+    </>
   );
 }
