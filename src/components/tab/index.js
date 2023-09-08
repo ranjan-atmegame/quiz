@@ -31,35 +31,17 @@ export default function Tab({ tabs, isLoading, toggleSearch, children }) {
     const x = e.pageX - parentRef.current.offsetLeft;
     const walk = (x - startX) * 2; //scroll-fast
     parentRef.current.scrollLeft = scrollLeft - walk;
-    console.log(walk);
-
-    // const x = e.pageX - parentRef.current.offsetLeft;
-    // const scroll = x - startX;
-    // parentRef.current.scrollLeft = scroll;
-
-    // console.log('Move: ');
-    // console.log({ pageX: e.pageX, x, scrollLeft, scroll });
   };
 
   const startDragging = (e) => {
     e.preventDefault();
-    console.log('start dragging....');
-
     mouseDown = true;
     startX = e.pageX - parentRef.current.offsetLeft;
     scrollLeft = parentRef.current.scrollLeft;
-
-    // console.log({
-    //   startX,
-    //   pageX: e.pageX,
-    //   offsetLeft: parentRef.current.offsetLeft,
-    //   scrollLeft: parentRef.current.scrollLeft,
-    // });
   };
 
   const stopDragging = (e) => {
     e.preventDefault();
-    console.log('stop dragging....');
     mouseDown = false;
   };
 
