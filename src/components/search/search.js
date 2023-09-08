@@ -1,16 +1,29 @@
-import { useState, useEffect } from 'react';
+'use client';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import QuizImage from '../ui/Image/QuizImage';
 import { searchCategoryByName } from './api';
 import styles from './search.module.css';
 
+let mouseDown = false;
+let startX, scrollLeft;
 const Search = ({ tabs, toggleSearch }) => {
   const [state, setState] = useState({
     searchTerm: '',
     selectedTab: null,
     contestList: null,
   });
+
+  const parentRef = useRef();
+  const categoryRef = useRef();
+
+  useEffect(() => {
+    parentRef.current.addEventListener('mousedown', startDragging, false);
+    parentRef.current.addEventListener('mouseup', stopDragging, false);
+    parentRef.current.addEventListener('mouseleave', stopDragging, false);
+    parentRef.current.addEventListener('mousemove', moveCategory);
+  }, []);
 
   useEffect(() => {
     searchCategoryByName(state.searchTerm)
@@ -23,6 +36,29 @@ const Search = ({ tabs, toggleSearch }) => {
         setContestList([]);
       });
   }, [state.searchTerm]);
+
+  const moveCategory = (e) => {
+    e.preventDefault();
+    if (!mouseDown) {
+      return;
+    }
+
+    const x = e.pageX - parentRef.current.offsetLeft;
+    const walk = (x - startX) * 2; //scroll-fast
+    parentRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const startDragging = (e) => {
+    e.preventDefault();
+    mouseDown = true;
+    startX = e.pageX - parentRef.current.offsetLeft;
+    scrollLeft = parentRef.current.scrollLeft;
+  };
+
+  const stopDragging = (e) => {
+    e.preventDefault();
+    mouseDown = false;
+  };
 
   const searchTab = (searchTab) => {
     return tabs.filter((tab) => tab.name.toLowerCase().includes(searchTab));
@@ -72,8 +108,12 @@ const Search = ({ tabs, toggleSearch }) => {
               />
             </div>
           </div>
-          <div className={styles.category}>
-            <ul>
+          <div
+            className={`${styles.category}`}
+            ref={parentRef}
+            style={{ overflowX: 'hidden' }}
+          >
+            <ul ref={categoryRef}>
               {category.map((tab) => (
                 <li key={tab.name}>
                   <Link href={tab.slug === '/' ? tab.slug : `${tab.slug}-quiz`}>

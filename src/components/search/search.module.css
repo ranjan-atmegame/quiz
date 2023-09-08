@@ -1,251 +1,245 @@
-.search{
-    width: 428px;
-    margin: 0px auto;
-    position: relative;
-    top: 0;
-    left: 0;
-    background: re;
+.search {
+  width: 428px;
+  margin: 0px auto;
+  position: relative;
+  top: 0;
+  left: 0;
+  background: re;
 }
 
-.inner{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 2;
-    max-width: 100%;
-    margin: 0 auto;
-    display: flex;
-    height: 100%;
-    -webkit-font-smoothing: antialiased;
-    transform-origin: 0% 0%;
-    transform: translate(0%, 0);
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-    width: 428px;
-    overflow: hidden;
-    background: transparent;
+.inner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  transform-origin: 0% 0%;
+  transform: translate(0%, 0);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  width: 428px;
+  overflow: hidden;
+  background: transparent;
 }
 
-.wrapper{
-    background: #282D93;
-    width: 100%;
-    height: 100%;
-    padding: 16px;
-    position: relative;
-    -webkit-font-smoothing: antialiased;
-    transform-origin: 0% 0%;
-    transform: translate(0%, 0);
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-    
+.wrapper {
+  background: #282d93;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  transform-origin: 0% 0%;
+  transform: translate(0%, 0);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
 
-.searchHeader{
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
+.searchHeader {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
 }
-.back{
-    margin-right: 12px;
-    cursor: pointer;
-    background: #070255a8;
-    height: 42px;
-    width: 42px;
-    border-radius: 50px;
-    padding: 6px;
+.back {
+  margin-right: 12px;
+  cursor: pointer;
+  background: #070255a8;
+  height: 42px;
+  width: 42px;
+  border-radius: 50px;
+  padding: 6px;
 }
-.searchInput{
-    width: 100%;
-    position: relative;
+.searchInput {
+  width: 100%;
+  position: relative;
 }
-.input{
-    border-radius: 90px;
-    border: 1px solid #E3E5E8;
-    background: #FFF url(../../../public/img/searcg_gray.svg) no-repeat top 11px left 18px;
-    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.05);
-    height: 46px;
-    padding: 0px 50px;
-    width: 100%;
-    outline: none;
+.input {
+  border-radius: 90px;
+  border: 1px solid #e3e5e8;
+  background: #fff url(../../../public/img/searcg_gray.svg) no-repeat top 11px
+    left 18px;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.05);
+  height: 46px;
+  padding: 0px 50px;
+  width: 100%;
+  outline: none;
 }
 
-.input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: #737B8C;
-    opacity: 1; /* Firefox */
-    font-size: 16px;
-  }
-  
-  .input:-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: #737B8C;
-    font-size: 16px;
-  }
-  
-  .input::-ms-input-placeholder { /* Microsoft Edge */
-    color: #737B8C;
-    font-size: 16px;
-  }
+.input::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #737b8c;
+  opacity: 1; /* Firefox */
+  font-size: 16px;
+}
 
-  .close{
-    position: absolute;
-    right: 16px;
-    top: 16px;
-    cursor: pointer;
-  }
+.input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #737b8c;
+  font-size: 16px;
+}
 
-  .category{
-    padding: 0;
-  }
+.input::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #737b8c;
+  font-size: 16px;
+}
 
-.category ul{
-    display: flex;
-    flex-direction: row;
-    overflow-x: auto;
-  }
+.close {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  cursor: pointer;
+}
 
-   
+.category {
+  padding: 0;
+}
+
+.category ul {
+  display: flex;
+  flex-direction: row;
+  /* overflow-x: auto; */
+}
+
 /* width */
 .category ul::-webkit-scrollbar {
-    width: 0px;
-    height: 0px;
-  }
-  
-  /* Track */
-  .category ul::-webkit-scrollbar-track {
-    background:transparent; 
-    width: 0px;
-    height: 0px;
-  }
-   
-  /* Handle */
-  .category ul::-webkit-scrollbar-thumb {
-    background:transparent; 
-    width: 0px;
-    height: 0px;
-  }
-  
-  /* Handle on hover */
-  .category ul::-webkit-scrollbar-thumb:hover {
-    background: #ccc; 
-    width: 0px;
-    height: 0px;
-    cursor: pointer;
-    border-radius: 20px;
-  }
-
-  .category ul li{
-    width: 76px;
-    margin-right: 12px;
-    text-align: center;
-  }
-
-
-
-.category ul li a .box{
-    border-radius: 16px;
-    background: #fff;
-    border: 1px solid #FFF;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 76px;
-    height: 76px;
-
+  width: 0px;
+  height: 0px;
 }
 
-.category ul li a span{
-    font-size: 12px;
-    padding-top: 8px;
-    line-height: 16px;
-    display: inline-block;
+/* Track */
+.category ul::-webkit-scrollbar-track {
+  background: transparent;
+  width: 0px;
+  height: 0px;
 }
 
-.gameList{
-    padding: 0;
+/* Handle */
+.category ul::-webkit-scrollbar-thumb {
+  background: transparent;
+  width: 0px;
+  height: 0px;
 }
 
-.gameList .listingHeader{
-    margin-top: 30px;
-    margin-bottom: 16px;
+/* Handle on hover */
+.category ul::-webkit-scrollbar-thumb:hover {
+  background: #ccc;
+  width: 0px;
+  height: 0px;
+  cursor: pointer;
+  border-radius: 20px;
 }
 
-.gameList .listingHeader h1{
-    color: rgba(241, 238, 255, 0.84);
-    font-size: 22px;
+.category ul li {
+  width: 76px;
+  margin-right: 12px;
+  text-align: center;
 }
 
-.gameList .listingHeader p{
-    color: rgba(255, 255, 255, 0.64);
-    font-size: 16px;
-    line-height: 18px;
+.category ul li a .box {
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
 }
 
-.gameList .listBody ul{
-    margin: 0;
+.category ul li a span {
+  font-size: 12px;
+  padding-top: 8px;
+  line-height: 16px;
+  display: inline-block;
 }
 
-.gameList .listBody ul li a{
-    display: flex;
-    border-bottom: 1px solid rgba(178, 222, 225, 0.16);
-    padding-bottom: 10px;
-    padding-top: 10px;
+.gameList {
+  padding: 0;
 }
 
-.gameList .listBody ul li a .box{
-    border-radius: 12px;
-    background: #fff;
-    border: 1px solid #FFF;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 64px;
-    height: 64px;
+.gameList .listingHeader {
+  margin-top: 30px;
+  margin-bottom: 16px;
 }
 
-.quizTxt{
-    margin-left: 16px;
+.gameList .listingHeader h1 {
+  color: rgba(241, 238, 255, 0.84);
+  font-size: 22px;
 }
 
-.quizTxt h2{
-    font-size: 15px;
-    color: #fff;
-    padding-top: 4px;
+.gameList .listingHeader p {
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 16px;
+  line-height: 18px;
 }
 
-.quizTxt p{
-    color: rgba(255, 255, 255, 0.60);
-    font-size: 14px;
-    margin-top: 4px;
+.gameList .listBody ul {
+  margin: 0;
 }
 
+.gameList .listBody ul li a {
+  display: flex;
+  border-bottom: 1px solid rgba(178, 222, 225, 0.16);
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
 
-  .gameList .listBody ul{
-    overflow-y: scroll;
-    max-height: 50vh;
-  }
-  .gameList .listBody ul::-webkit-scrollbar {
-    width: 10px;
-    border-radius: 4px;
-  }
-  
-  /* Track */
-  .gameList .listBody ul::-webkit-scrollbar-track {
-    background: #070255a8; 
-    border-radius: 4px;
-  }
-   
-  /* Handle */
-  .gameList .listBody ul::-webkit-scrollbar-thumb {
-    background: #a6b7e5; 
-    border-radius: 4px;
-  }
-  
-  /* Handle on hover */
-  .gameList .listBody ul::-webkit-scrollbar-thumb:hover {
-    background: #a6b7e5; 
-    border-radius: 4px;
-  }
+.gameList .listBody ul li a .box {
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+}
 
+.quizTxt {
+  margin-left: 16px;
+}
 
+.quizTxt h2 {
+  font-size: 15px;
+  color: #fff;
+  padding-top: 4px;
+}
 
+.quizTxt p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  margin-top: 4px;
+}
 
+.gameList .listBody ul {
+  overflow-y: scroll;
+  max-height: 50vh;
+}
+.gameList .listBody ul::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 4px;
+}
+
+/* Track */
+.gameList .listBody ul::-webkit-scrollbar-track {
+  background: #070255a8;
+  border-radius: 4px;
+}
+
+/* Handle */
+.gameList .listBody ul::-webkit-scrollbar-thumb {
+  background: #a6b7e5;
+  border-radius: 4px;
+}
+
+/* Handle on hover */
+.gameList .listBody ul::-webkit-scrollbar-thumb:hover {
+  background: #a6b7e5;
+  border-radius: 4px;
+}
