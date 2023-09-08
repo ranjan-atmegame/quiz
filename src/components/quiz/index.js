@@ -22,7 +22,6 @@ export default function Quiz({
     quizId,
   },
   submitQuiz,
-  // auth,
 }) {
   const [question, setQuestion] = useState();
   const [state, setState] = useState({
@@ -63,6 +62,7 @@ export default function Quiz({
       return false;
     }
 
+    console.log('Submit Quiz and close modal');
     submitQuiz({
       score: state.score,
       correctAnswer: state.correctAnswer,

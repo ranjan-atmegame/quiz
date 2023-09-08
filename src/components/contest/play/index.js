@@ -89,7 +89,7 @@ export default function Play({ auth: { isSignedIn, token } }) {
     const { user } = authenticate();
     let rank, prizeList;
     if (isSignedIn) {
-      // Register user
+      // Logged in user
       const response = await getUserRankAndCoins(contestId, token, {
         prizeId: contest.prizeId,
         score,

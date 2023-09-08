@@ -114,12 +114,19 @@ function rewardAd(_back) {
           console.log('AdBreakDon: ');
           console.log(placementInfo);
           // _back({ status: placementInfo.breakStatus });
-          if (placementInfo.breakStatus !== 'viewed') {
-            this.playExcitationVideo2(_back);
-            _back && _back({ status: 'na' });
-          } else {
-            isRewardDisplayed = 1;
+          if (placementInfo.breakStatus)
+            if (placementInfo.breakStatus !== 'viewed') {
+              // this.playExcitationVideo2(_back);
+            } else {
+              isRewardDisplayed = 1;
+            }
+
+          // Ad callback on success
+          const adViewedStatus = ['viewed', 'filled'];
+          if (adViewedStatus.includes(placementInfo.breakStatus)) {
             _back && _back({ status: 'viewed' });
+          } else {
+            _back && _back({ status: 'na' });
           }
         } catch (e) {
           _back && _back({ status: 'error' });
