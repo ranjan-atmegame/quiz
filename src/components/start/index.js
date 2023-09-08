@@ -75,7 +75,8 @@ export default function Start() {
       if (state.questionIndex >= 1) {
         const isBonusModal =
           !prevState.displayedOnce && !isCorrect ? true : false;
-        return { ...prevState, isBonusModal, isSubmitted: true };
+        // return { ...prevState, isBonusModal, isSubmitted: true };
+        return { ...prevState, isBonusModal };
       } else {
         return {
           ...prevState,
@@ -106,12 +107,19 @@ export default function Start() {
         // updateUser({ coins: user.coins + BONUS_COINS });
         addRewardCoins(BONUS_COINS);
       }
+
+      setState((prevState) => ({
+        ...prevState,
+        displayedOnce: true,
+        isBonusModal: false,
+        isSubmitted: true,
+      }));
     });
-    setState((prevState) => ({
-      ...prevState,
-      displayedOnce: true,
-      isBonusModal: false,
-    }));
+    // setState((prevState) => ({
+    //   ...prevState,
+    //   displayedOnce: true,
+    //   isBonusModal: false,
+    // }));
   };
 
   return (
