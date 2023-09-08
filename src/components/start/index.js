@@ -71,12 +71,10 @@ export default function Start() {
     }
 
     if (state.questionIndex >= 1) {
-      const isBonusModal =
-        !prevState.displayedOnce && !isCorrect ? true : false;
       setState((prevState) => ({
         ...prevState,
-        isBonusModal,
         isSubmitted: isCorrect,
+        isBonusModal: !prevState.displayedOnce && !isCorrect ? true : false,
       }));
     } else {
       setState((prevState) => {
