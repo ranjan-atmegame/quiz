@@ -300,15 +300,29 @@
   width: 100%;
   height: 100%;
 }
-
-.mobiContainer {
-  position: fixed;
+.overlay{
+  position: relative;
   z-index: -1;
   right: 0;
   top: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 9, 18, 0.74);
+  -webkit-font-smoothing: antialiased;
+  transform-origin: -110% 0%;
+  transform: translate(-110%, 0);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+
+}
+
+.mobiContainer {
+  position: fixed;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  width: calc(85%);
+  height: 100%;
+  /* background: rgba(0, 9, 18, 0.74); */
   -webkit-font-smoothing: antialiased;
   transform-origin: -110% 0%;
   transform: translate(-110%, 0);
@@ -328,18 +342,20 @@
   z-index: -1;
   right: 0;
   top: 0;
-  width: calc(85%);
+  width: 100%;
   height: 100%;
   background: #272c93ff url(../../../../public/img/tiger.png) no-repeat right 4px bottom 4px;
   padding: 16px 0px;
   box-shadow: 0 0 60px #000000d4;
 }
 
-.menuOverlay.show {
+.overlay.show {
   transform: translate(0%, 0);
+  transition: transform 0.9s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
-.menuOverlay.hide {
-  transform: translate(-100%, 0);
+.overlay.hide {
+ transform: translate(-110%, 0);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
 .mobiContainer.show {
   transform: translate(0%, 0);

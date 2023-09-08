@@ -85,12 +85,13 @@ export default function Tab({ tabs, isLoading, toggleSearch, children }) {
 
   return (
     <>
-      <div className={`${styles.tab} ${styles.draggable}`} ref={parentRef}>
-        <ul className={styles.contests} ref={categoryRef}>
-          {!isLoading ? tabJSX() : <EmptyTab />}
-        </ul>
-      </div>
       <div className={`${styles.tab}`}>
+        <div className={styles.draggable} ref={parentRef}>
+          <ul className={styles.contests} ref={categoryRef}>
+            {!isLoading ? tabJSX() : <EmptyTab />}
+          </ul>
+        </div>
+
         <div className={styles.search}>
           <Image
             src="/img/search.svg"
@@ -104,6 +105,7 @@ export default function Tab({ tabs, isLoading, toggleSearch, children }) {
 
         <div className={styles.tabContent}>{children}</div>
       </div>
+      <div className={`${styles.tab}`}></div>
     </>
   );
 }
