@@ -107,6 +107,7 @@ export default function Play({ auth: { isSignedIn, token } }) {
       prizeList = response.prize;
     }
 
+    setContestOver(true);
     let mayWinCoins = calculateCoinsByScore(rank, prizeList);
     updateUserContest({
       score,
@@ -115,8 +116,6 @@ export default function Play({ auth: { isSignedIn, token } }) {
       rank,
       mayWinCoins,
     });
-
-    setContestOver(true);
   };
 
   if (!contest) {
