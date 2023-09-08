@@ -8,31 +8,37 @@
   display: flex;
   flex-wrap: wrap;
   flex-wrap: nowrap;
-  width: calc(100% - 40px);
-  margin-top: 8px;
-  margin-bottom: 16px;
+  width:100%;
+  margin-top: 0px;
+  margin-bottom: 0px;
   /* background: #03003A; */
   border-radius: 8px;
   padding: 0px;
-  /* overflow-x: auto; */
+  overflow-x: auto;
   /* border: 6px solid #03003A; */
-  border-right: 1px solid #282d93;
-  margin-left: -12px;
+  border-right: 0px solid #282d93;
+  margin-left: 0px;
   -webkit-overflow-scrolling: auto;
   -webkit-overflow-scrolling: touch;
 }
 
 .draggable {
   position: relative;
-  width: 100%;
+  width: calc(100% - 40px);
   overflow-x: hidden;
   overflow-y: hidden;
   white-space: nowrap;
   transition: all 0.2s;
-  transform: scale(0.98);
-  will-change: transform;
+  /* transform: scale(0.98);
+  will-change: transform; */
   user-select: none;
   cursor: pointer;
+  border-right: 1px solid #282d93;
+  position: relative;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  border-radius: 0px 8px 8px 0px;
+  margin-left: -12px;
 }
 
 /* width */
@@ -127,6 +133,9 @@
 }
 
 @media only screen and (min-width: 768px) {
+  .tab ul.contests {
+    overflow-x: unset;
+  }
   /* width */
   .tab ul.contests::-webkit-scrollbar {
     width: 0px;

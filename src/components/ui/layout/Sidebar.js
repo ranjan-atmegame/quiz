@@ -24,6 +24,10 @@ export default function Sidebar({
   return (
     <div className={styles.sideMenu}>
       <div className={`${styles.mobileLeftMenu} ${styles.show}`}>
+        <div
+          className={`${styles.overlay} ${styles.show}`}
+          onClick={onClose}
+        ></div>
         <div className={`${styles.mobiContainer} ${styles.show}`}>
           <div className={`${styles.menuItemContainer}`}>
             <div className={styles.welcomeProfile}>
