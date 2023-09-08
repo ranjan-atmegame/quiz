@@ -73,6 +73,7 @@ export default function Start() {
     if (state.questionIndex >= 1) {
       setState((prevState) => ({
         ...prevState,
+        questionIndex: prevState.questionIndex + 1,
         isSubmitted: isCorrect || prevState.displayedOnce,
         isBonusModal: !prevState.displayedOnce && !isCorrect ? true : false,
       }));
@@ -91,7 +92,6 @@ export default function Start() {
   const closeBonusModal = (e) => {
     e.preventDefault();
 
-    console.log(state);
     if (state.questionIndex > 1) {
       setState((prevState) => ({
         ...prevState,
@@ -112,20 +112,17 @@ export default function Start() {
     e.preventDefault();
     const questionIndex = state.questionIndex;
 
-    console.log(state);
     showRewardAd((result) => {
       if (result?.status) {
         // updateUser({ coins: user.coins + BONUS_COINS });
         addRewardCoins(BONUS_COINS);
       }
 
-      console.log({ questionIndex });
-
       setState((prevState) => ({
         ...prevState,
         isBonusModal: false,
         displayedOnce: true,
-        isSubmitted: questionIndex >= 1,
+        isSubmitted: questionIndex > 1,
       }));
     }, questionIndex);
   };
