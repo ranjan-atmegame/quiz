@@ -15,7 +15,7 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <Layout>
+    <Layout isBackButton={true}>
       <ContestRules />
     </Layout>
   );

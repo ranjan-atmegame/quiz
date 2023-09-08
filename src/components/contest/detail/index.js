@@ -15,7 +15,7 @@ const PrizeAndIssueButton = dynamic(() =>
   import('../joinButton/PrizeAndIssueButton')
 );
 
-export default function ContestDetail({ auth: { isSignedIn, user } }) {
+export default function ContestDetail({ auth: { isSignedIn } }) {
   const router = useRouter();
   const params = useParams();
   const searchParams = useSearchParams();
@@ -38,6 +38,7 @@ export default function ContestDetail({ auth: { isSignedIn, user } }) {
   }, [contestId, slug]);
 
   const handleClick = (e) => {
+    const { user } = authenticate();
     if (user.coins < contest.entryCoins) {
       e.preventDefault();
       setDisplayModal(true);

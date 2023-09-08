@@ -22,7 +22,6 @@ export default function Quiz({
     quizId,
   },
   submitQuiz,
-  // auth,
 }) {
   const [question, setQuestion] = useState();
   const [state, setState] = useState({
@@ -63,6 +62,7 @@ export default function Quiz({
       return false;
     }
 
+    console.log('Submit Quiz and close modal');
     submitQuiz({
       score: state.score,
       correctAnswer: state.correctAnswer,
@@ -106,20 +106,30 @@ export default function Quiz({
     onTimerOver(true);
   };
 
+  const rewardOnSuccess = () =>
+    setTimerRewardState({
+      isUsed: true,
+      rewarded: true,
+      display: false,
+    });
+
+  const rewardOnError = () =>
+    setTimerRewardState({
+      isUsed: true,
+      rewarded: false,
+      display: false,
+    });
+
   const handleReward = () => {
     //display ad and give 15 sec
     showRewardAd((result) => {
       console.log(result);
       if (result?.status === 'viewed') {
-        // set timer value to 15 seconds
-        setTimerRewardState({
-          isUsed: true,
-          rewarded: true,
-          display: false,
-        });
+        rewardOnSuccess();
       } else {
-        console.log('DISPLAY AD');
-        displayAd();
+        displayAd((result) => {
+          result?.status === 'viewed' ? rewardOnSuccess() : rewardOnError();
+        });
       }
     });
   };

@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import { showRewardAd } from '@/utils';
 import { updateCoins } from '@/api/auth';

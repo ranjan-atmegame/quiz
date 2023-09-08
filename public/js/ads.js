@@ -36,7 +36,7 @@ function ad_initialise() {
   }
 }
 
-function displayAd() {
+function displayAd(callback) {
   if (shouldShowAdOnPlay) {
     adBreak({
       type: 'next', // ad shows at start of next level
@@ -46,6 +46,7 @@ function displayAd() {
       }, // You may also want to mute the game's sound.
       afterAd: () => {
         resetGameStatus();
+        callback({ status: 'viewed' });
       }, // resume the game flow.
     });
     console.log('ads loading');
@@ -95,10 +96,12 @@ function rewardAd(_back) {
         console.log(
           '--- Ã§â€Â¨Ã¦Ë†Â·Ã¦ÂÂÃ¥â€°ÂÃ¥â€¦Â³Ã©â€”Â­Ã¥Â¹Â¿Ã¥â€˜Å  ------'
         );
+        console.log('Dismiss');
       },
       adViewed: () => {
         console.log('--- Ã¥Â¹Â¿Ã¥â€˜Å Ã¦â€™Â­Ã¦â€Â¾Ã¥Â®Å’Ã¦Â¯â€¢ ------');
-        _back && _back({ status: 'viewed' });
+        // _back && _back({ status: 'viewed' });
+        console.log('View');
       },
 
       adBreakDone: (placementInfo) => {
@@ -108,11 +111,22 @@ function rewardAd(_back) {
         );
 
         try {
-          _back({ status: placementInfo.breakStatus });
-          if (placementInfo.breakStatus !== 'viewed') {
-            this.playExcitationVideo2(_back);
+          console.log('AdBreakDon: ');
+          console.log(placementInfo);
+          // _back({ status: placementInfo.breakStatus });
+          if (placementInfo.breakStatus)
+            if (placementInfo.breakStatus !== 'viewed') {
+              // this.playExcitationVideo2(_back);
+            } else {
+              isRewardDisplayed = 1;
+            }
+
+          // Ad callback on success
+          const adViewedStatus = ['viewed', 'filled'];
+          if (adViewedStatus.includes(placementInfo.breakStatus)) {
+            _back && _back({ status: 'viewed' });
           } else {
-            isRewardDisplayed = 1;
+            _back && _back({ status: 'na' });
           }
         } catch (e) {
           _back && _back({ status: 'error' });
