@@ -73,7 +73,7 @@ export default function Start() {
     if (state.questionIndex >= 1) {
       setState((prevState) => ({
         ...prevState,
-        isSubmitted: isCorrect,
+        isSubmitted: isCorrect || prevState.displayedOnce,
         isBonusModal: !prevState.displayedOnce && !isCorrect ? true : false,
       }));
     } else {
