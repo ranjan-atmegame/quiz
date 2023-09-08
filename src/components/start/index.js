@@ -71,11 +71,13 @@ export default function Start() {
     }
 
     if (state.questionIndex >= 1) {
-      setState((prevState) => {
-        const isBonusModal =
-          !prevState.displayedOnce && !isCorrect ? true : false;
-        return { ...prevState, isBonusModal, isSubmitted: !isBonusModal };
-      });
+      const isBonusModal =
+        !prevState.displayedOnce && !isCorrect ? true : false;
+      setState((prevState) => ({
+        ...prevState,
+        isBonusModal,
+        isSubmitted: isCorrect,
+      }));
     } else {
       setState((prevState) => {
         return {
@@ -121,7 +123,7 @@ export default function Start() {
         ...prevState,
         displayedOnce: true,
         isBonusModal: false,
-        isSubmitted: true,
+        isSubmitted: false,
       }));
     });
     // setState((prevState) => ({
