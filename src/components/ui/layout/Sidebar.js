@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Icon from '@/components/ui/Icon';
 import styles from './header.module.css';
+import { clearStorage } from '@/api/auth';
 
 export default function Sidebar({
   onClose,
@@ -18,6 +19,7 @@ export default function Sidebar({
   const handleSignout = (e) => {
     e.preventDefault();
     onSignOut();
+    clearStorage();
   };
 
   const userName = isSignedIn ? user.name : 'Guest';

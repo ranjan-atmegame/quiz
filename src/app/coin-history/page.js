@@ -21,7 +21,7 @@ export default function Page() {
   }
 
   return (
-    <Layout>
+    <Layout isBackButton={true}>
       <CoinHistory auth={auth} />
     </Layout>
   );

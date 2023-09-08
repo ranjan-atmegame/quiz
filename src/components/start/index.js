@@ -109,8 +109,6 @@ export default function Start() {
 
   const handleBonusCoins = (e) => {
     e.preventDefault();
-    // const { user } = authenticate();
-
     showRewardAd((result) => {
       if (result?.status) {
         // updateUser({ coins: user.coins + BONUS_COINS });
@@ -124,11 +122,6 @@ export default function Start() {
         isSubmitted: false,
       }));
     });
-    // setState((prevState) => ({
-    //   ...prevState,
-    //   displayedOnce: true,
-    //   isBonusModal: false,
-    // }));
   };
 
   return (
