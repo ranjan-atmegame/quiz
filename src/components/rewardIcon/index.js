@@ -26,17 +26,14 @@ export default function RewardIcon({ setDisplay }) {
   };
 
   return (
-    <div
-      className={`${styles.floatingIcon} ${styles.floatingIcon}`}
-      onClick={updateReward}
-    >
-      {/* <Image
-        src="/img/freeCoins.svg"
+    <div className={`${styles.floatingIcon}`} onClick={updateReward}>
+      <Image
+        src="/img/freeCoins7.svg"
         alt="free coins"
         title="free coins"
-        height={86}
-        width={86}
-      /> */}
+        height={76}
+        width={76}
+      />
     </div>
   );
 }
