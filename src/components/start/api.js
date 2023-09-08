@@ -9,11 +9,6 @@ export const getFunFact = () => {
   return FUN_FACT[index];
 };
 
-// export const setQuizSubmitted = () =>
-//   setItemWithExpiry(IS_SUBMITTED, 1, IS_SUBMITTED_EXP);
-// export const isQuizSubmitted = () =>
-//   getItemWithExpiry(IS_SUBMITTED) ? true : false;
-
 export const setQuizSubmitted = () =>
   setCookies(IS_SUBMITTED, 1, IS_SUBMITTED_EXP);
 export const isQuizSubmitted = () => (getCookies(IS_SUBMITTED) ? true : false);
