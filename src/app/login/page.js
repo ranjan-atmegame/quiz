@@ -5,8 +5,8 @@ import QuizRules from '@/components/rule';
 import styles from './login.module.css';
 import GoogleLogin from '@/components/auth/google';
 import { getAuth } from '../auth';
+import { headers } from 'next/headers';
 const Layout = dynamic(() => import('@/components/ui/layout'));
-// import { isServer } from '@/utils';
 
 export const metadata = {
   title: 'Online Quiz Contest Login : AtmeQuiz.com',
@@ -24,6 +24,15 @@ export default function Page() {
   if (auth.isSignedIn) {
     redirect('/');
   }
+
+  const headerList = headers();
+  const host = headerList.headers.host;
+
+  const protocol = host.includes('localhost') ? 'http://' : 'https://';
+  process.env.NEXTAUTH_URL = `${protocol}${headerList.headers.host}`;
+  console.log(process.env.NEXTAUTH_URL);
+  // if (headerList.headers.host) {
+  // }
 
   // process.env.NEXTAUTH_URL = 'http://localhost:3000';
   // if (!isServer()) {
