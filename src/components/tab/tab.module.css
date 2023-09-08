@@ -109,6 +109,9 @@
 .tabContent {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  text-align: left;
+  width: 100%;
 }
 .search {
   background: #070255;

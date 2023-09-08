@@ -3,6 +3,7 @@ import Item from '@/components/contest/Item';
 import { getActiveContestByType } from '@/components/home/api';
 import EmptyItem from './EmptyItem';
 import { GENERAL_CONTEST } from '@/utils/Constant';
+import Image from 'next/image';
 
 export default function ContestList() {
   const [contestList, setContestList] = useState();
@@ -42,5 +43,13 @@ export default function ContestList() {
 
   return contestList.map((contest) => (
     <Item key={contest._id} contest={contest} />
+
+    // <Image
+    //   src="/img/quizNot-found.svg"
+    //   width={210}
+    //   height={165}
+    //   alt="Quoz not found"
+    //   style={{ margin: '20px 0px' }}
+    // />
   ));
 }
