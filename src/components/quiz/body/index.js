@@ -176,7 +176,7 @@ export default function Body({
 
   return (
     <div className={styles.body}>
-      <div className={styles.qaOptions}>
+      <div className={`${styles.qaOptions} ${styles.cardSpacer}`}>
         {!question ? (
           <Loader />
         ) : (
