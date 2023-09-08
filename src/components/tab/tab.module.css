@@ -12,16 +12,28 @@
   margin-top: 8px;
   margin-bottom: 16px;
   /* background: #03003A; */
-  border-radius:8px;
+  border-radius: 8px;
   padding: 0px;
-  overflow-x: auto;
+  /* overflow-x: auto; */
   /* border: 6px solid #03003A; */
   border-right: 1px solid #282d93;
   margin-left: -12px;
   -webkit-overflow-scrolling: auto;
--webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
 }
 
+.draggable {
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  white-space: nowrap;
+  transition: all 0.2s;
+  transform: scale(0.98);
+  will-change: transform;
+  user-select: none;
+  cursor: pointer;
+}
 
 /* width */
 .tab ul.contests::-webkit-scrollbar {
@@ -31,40 +43,39 @@
 
 /* Track */
 .tab ul.contests::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: #f1f1f1;
   width: 0px;
   height: 0;
 }
- 
+
 /* Handle */
 .tab ul.contests::-webkit-scrollbar-thumb {
-  background: #fff; 
+  background: #fff;
   width: 0px;
   height: 0;
 }
 
 /* Handle on hover */
 .tab ul.contests::-webkit-scrollbar-thumb:hover {
-  background: #fff; 
+  background: #fff;
   width: 0px;
   height: 0;
 }
-
 
 .tab ul.contests li {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   flex-wrap: nowrap;
-  min-width:auto;
+  min-width: auto;
   white-space: nowrap;
   margin-right: 6px;
 }
 
-.tab ul.contests li:first-child{
+.tab ul.contests li:first-child {
   margin-left: 12px;
 }
-.tab ul.contests li:last-child{
+.tab ul.contests li:last-child {
   margin-right: 0px;
 }
 .tab ul.contests li a.active {
@@ -84,7 +95,7 @@
   padding: 8px 15px;
   font-size: 14px;
   font-weight: 600;
-  transition: .6s;
+  transition: 0.6s;
   border-radius: 8px;
   border: 1px solid #282d93;
 }
@@ -93,57 +104,58 @@
   display: flex;
   flex-wrap: wrap;
 }
-.search{
+.search {
   background: #070255;
-    border-radius: 50px;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 10px;
-    margin-top: 6px;
-    cursor: pointer;
-}
-
-@media only screen and (max-width:375px) {
-  .tab ul.contests li {min-width: auto;}
-  .tab ul.contests li a{padding: 6px 16px;}
-}
-
-@media only screen and (min-width:768px) {
-  
-/* width */
-.tab ul.contests::-webkit-scrollbar {
-  width: 0px;
-  height: 0px;
-}
-
-/* Track */
-.tab ul.contests::-webkit-scrollbar-track {
-  background:transparent; 
-  width: 0px;
-  height: 0px;
-}
- 
-/* Handle */
-.tab ul.contests::-webkit-scrollbar-thumb {
-  background:transparent; 
-  width: 0px;
-  height: 0px;
-}
-
-/* Handle on hover */
-.tab ul.contests::-webkit-scrollbar-thumb:hover {
-  background: #ccc; 
-  width: 0px;
-  height: 0px;
+  border-radius: 50px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  margin-top: 6px;
   cursor: pointer;
-  border-radius: 20px;
 }
 
+@media only screen and (max-width: 375px) {
+  .tab ul.contests li {
+    min-width: auto;
+  }
+  .tab ul.contests li a {
+    padding: 6px 16px;
+  }
 }
 
+@media only screen and (min-width: 768px) {
+  /* width */
+  .tab ul.contests::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+  }
+
+  /* Track */
+  .tab ul.contests::-webkit-scrollbar-track {
+    background: transparent;
+    width: 0px;
+    height: 0px;
+  }
+
+  /* Handle */
+  .tab ul.contests::-webkit-scrollbar-thumb {
+    background: transparent;
+    width: 0px;
+    height: 0px;
+  }
+
+  /* Handle on hover */
+  .tab ul.contests::-webkit-scrollbar-thumb:hover {
+    background: #ccc;
+    width: 0px;
+    height: 0px;
+    cursor: pointer;
+    border-radius: 20px;
+  }
+}
 
 .shine {
   position: relative;
@@ -203,6 +215,6 @@
   }
 }
 
-.emptyList{
+.emptyList {
   visibility: hidden;
 }
