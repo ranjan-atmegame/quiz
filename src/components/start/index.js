@@ -115,12 +115,27 @@ export default function Start() {
         addRewardCoins(BONUS_COINS);
       }
 
-      setState((prevState) => ({
-        ...prevState,
-        displayedOnce: true,
-        isBonusModal: false,
-        isSubmitted: false,
-      }));
+      if (state.questionIndex > 1) {
+        setState((prevState) => ({
+          ...prevState,
+          displayedOnce: true,
+          isBonusModal: false,
+          isSubmitted: true,
+        }));
+      } else {
+        setState((prevState) => ({
+          ...prevState,
+          displayedOnce: true,
+          isBonusModal: false,
+        }));
+      }
+
+      // setState((prevState) => ({
+      //   ...prevState,
+      //   displayedOnce: true,
+      //   isBonusModal: false,
+      //   isSubmitted: false,
+      // }));
     });
   };
 
