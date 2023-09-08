@@ -1,35 +1,19 @@
 .floatingIcon{
     position: fixed;
-    right: 16px;
-    bottom: 16px;
+    right: 8px;
+    bottom: 8px;
     z-index: 2001;
     border-radius: 50px;
-    height: 96px;
-    width: 96px;
+    height: 76px;
+    width: 76px;
     box-shadow: 0px 0px 28px #000;
     cursor: pointer;
 }
 
 
-.floatingIcon::before {
-    content: '';
-    display: block;
-    width: 96px;
-    height: 96px;
-    color: #fff;
-     /*background: #f27c2c url(/img/freeCoins.svg) no-repeat;
-    background: #f27c2c url(/img/getFreeCoins.png) no-repeat; 
-    background: #f27c2c url(/img/freeCoins2.svg) no-repeat;*/
-    background: #f27c2c url(/img/freeCoins4.svg) no-repeat;
-    border-radius: 50px;
-    margin-right: 6px;
-    -webkit-animation: glowing 1s infinite;
-    animation: glowing 1s infinite;
-    -webkit-box-shadow: 0 0 2px 3px #f27c2c;
-    box-shadow: 0 0 2px 3px #f27c2c;
-  }
+
   
-  
+/*   
   @keyframes glowing {
     0% {
       -webkit-box-shadow: 0 0 0 0 #f27c2c;
@@ -46,4 +30,4 @@
     .floatingIcon{
         display: none;
     }
-}
+} */

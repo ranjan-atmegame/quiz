@@ -96,12 +96,14 @@
 
 .category {
   padding: 0;
+  margin-left: -16px;
+  width: calc(100% + 32px);
 }
 
 .category ul {
   display: flex;
   flex-direction: row;
-  /* overflow-x: auto; */
+  overflow-x: auto;
 }
 
 /* width */
@@ -135,8 +137,12 @@
 
 .category ul li {
   width: 76px;
-  margin-right: 12px;
+  margin-left: 12px;
   text-align: center;
+}
+
+.category ul li:first-child{
+  margin-left: 16px;
 }
 
 .category ul li a .box {
@@ -243,3 +249,10 @@
   background: #a6b7e5;
   border-radius: 4px;
 }
+
+@media (min-width:768px){
+  .category ul{
+    overflow-x: unset;
+  }
+}
+
