@@ -3,12 +3,11 @@ import { CONTEST_TYPES, CRICKET_SUBDOMAIN } from '@/utils/Constant';
 export const LOCATION_API = 'https://pro.ip-api.com/json?key=iZun9ZnnZf8crvL';
 
 const API_LIST = {
-  PROD: process.env.API_URL,
-  TEST: process.env.TEST_API_URL,
-  DEV: process.env.DEV_API_URL,
+  PROD: process.env.NEXT_PUBLIC_API_URL,
+  TEST: process.env.NEXT_PUBLIC_TEST_API_URL,
+  DEV: process.env.NEXT_PUBLIC_DEV_API_URL,
 };
-
-export const API_URL = API_LIST[process.env.ENV];
+export const API_URL = API_LIST[process.env.NEXT_PUBLIC_ENV];
 export const IMG_PATH = 'https://www.atmequiz.com';
 export const SECRET_KEY = 'atmequiz@1234567890#';
 
