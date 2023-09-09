@@ -30,14 +30,6 @@ export default function Page() {
 
   const protocol = host.includes('localhost') ? 'http://' : 'https://';
   process.env.NEXTAUTH_URL = `${protocol}${headerList.headers.host}`;
-  console.log(process.env.NEXTAUTH_URL);
-  // if (headerList.headers.host) {
-  // }
-
-  // process.env.NEXTAUTH_URL = 'http://localhost:3000';
-  // if (!isServer()) {
-  //   process.env.NEXTAUTH_URL = window.location.origin;
-  // }
 
   return (
     <Layout displayCoins={false} isBackButton={true}>
