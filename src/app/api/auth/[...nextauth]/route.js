@@ -3,12 +3,19 @@ import GoogleProvider from 'next-auth/providers/google';
 
 const handler = NextAuth({
   providers: [
+    // GoogleProvider({
+    //   clientId:
+    //     '1084991661541-5c175c0bl50ivtbc641ik8mj65koi5cv.apps.googleusercontent.com',
+    //   clientSecret: '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',
+    // }),
+
     GoogleProvider({
       clientId:
-        '1084991661541-5c175c0bl50ivtbc641ik8mj65koi5cv.apps.googleusercontent.com',
-      clientSecret: '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',
+        '642956286698-e0vmvj5417iar00j9aj08f428n4ncke9.apps.googleusercontent.com',
+      clientSecret: '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',
     }),
   ],
+
   callbacks: {
     async jwt({ token, account }) {
       // Persist the OAuth access_token to the token right after signin
