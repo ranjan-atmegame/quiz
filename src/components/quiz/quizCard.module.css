@@ -82,7 +82,7 @@
     bottom: 42px;
     border-radius: 50px;
     border: 4px solid #0E0A5F;
-    background: #fc8c1b;
+    background: #f27c2c;
     padding: 6px 24px;
     text-transform: uppercase;
     font-size: 14px;
@@ -135,6 +135,11 @@
   padding: 24px 8px 24px 8px;
   min-height: 240px;
   background-size: contain;
+}
+
+.qaOptions.cardSpacer{
+  min-height:320px;
+  padding: 24px 8px 34px 8px;
 }
 
 .qaOptions h3 {
@@ -214,11 +219,46 @@
 
 
 .qaOptions ul li button.prediction {
-  background:linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgb(108 115 255) 50%);
+  background:linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(108, 115, 255, 1) 50%);
   color: #fff;
-  -webkit-animation: prediction 2s linear;
-  animation: prediction 2s linear;
-  background-size: 200% 100%
+  -webkit-animation: prediction 2s ease;
+  animation: prediction 2s ease;
+  background-size: 200% 100%;
+}
+
+.qaOptions ul li button.prediction.twentyFive{
+  background-size: 50% 100%;
+}
+
+.qaOptions ul li button.prediction.fifty{
+  background-size: 100% 100%;
+}
+
+.qaOptions ul li button.prediction.sixty{
+  background-size: 160% 100%;
+}
+
+.qaOptions ul li button.prediction.seventyFive{
+  background-size: 175% 100%;
+}
+
+.qaOptions ul li button.prediction.eighty{
+  background-size: 180% 100%;
+}
+.qaOptions ul li button.prediction.eightyFive{
+  background-size: 185% 100%;
+}
+
+.qaOptions ul li button.prediction.ninety{
+  background-size: 190% 100%;
+}
+
+.qaOptions ul li button.prediction.ninetyFive{
+  background-size: 195% 100%;
+}
+
+.qaOptions ul li button.prediction.hundred{
+  background-size: 200% 100%;
 }
 
 .qaOptions ul li button.predictionCorrect {
@@ -233,34 +273,40 @@
 
 @-webkit-keyframes prediction {
   0% {
-      background-position: 0 0
+    background-size: 200% 0
   }
 
   25% {
-    background-position: 25% 0
+    background-size: 175% 0
 }
 
 50% {
-  background-position: 50% 0
+  background-size: 100% 0
 }
 
 75% {
-  background-position: 75% 0
+  background-position: 50% 0
 }
 
   100% {
-      background-position: 100% 0
+      background-position: 0% 0
   }
 }
 
 @keyframes prediction {
   0% {
-      background-position: 0 0
+      background-position: 200% 0
+  }
+  1100% {
+    background-position: 100% 0
+}
+  150% {
+      background-position: 50% 0
   }
 
   100% {
-      background-position: 100% 0
-  }
+    background-position: 0% 0
+}
 }
 
 @-webkit-keyframes prediction-correct {
@@ -552,4 +598,6 @@ background-position: 75% 0
   -webkit-animation-name: shakeX;
   animation-name: shakeX;
 }
+
+
 

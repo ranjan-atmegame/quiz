@@ -42,7 +42,7 @@ const EmptyQuiz = () => {
       </div>
 
       <div className={styles.body}>
-        <div className={styles.qaOptions}>
+        <div className={`${styles.qaOptions} ${styles.cardSpacer}`}>
           <>
             <div className={styles.qNumbers}>
               &nbsp;<span className={styles.lite}>&nbsp;</span>{' '}

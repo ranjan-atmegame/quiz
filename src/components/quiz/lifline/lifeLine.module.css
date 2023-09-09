@@ -1,10 +1,10 @@
 .lifeLine{
     margin: 0;
-    position: absolute;
-    bottom: 84px;
+    position: relative;
     background: #1f237e;
     width: 100%;
-    padding-top: 25px;
+    padding-top: 16px;
+    margin-bottom: 0px;
 }
 
 .lifeLine ul.lifeLineWrapper{
