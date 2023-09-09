@@ -27,6 +27,7 @@ export default function Start() {
     isSubmitted: false,
     isBonusModal: false,
     displayedOnce: false,
+    lastQuestion: false,
   });
   const { status } = useSession();
 
@@ -73,7 +74,8 @@ export default function Start() {
     if (state.questionIndex >= 1) {
       setState((prevState) => ({
         ...prevState,
-        questionIndex: prevState.questionIndex + 1,
+        lastQuestion: true,
+        // questionIndex: prevState.questionIndex + 1,
         isSubmitted: isCorrect || prevState.displayedOnce,
         isBonusModal: !prevState.displayedOnce && !isCorrect ? true : false,
       }));
@@ -92,7 +94,7 @@ export default function Start() {
   const closeBonusModal = (e) => {
     e.preventDefault();
 
-    if (state.questionIndex > 1) {
+    if (state.lastQuestion) {
       setState((prevState) => ({
         ...prevState,
         displayedOnce: true,
@@ -122,7 +124,7 @@ export default function Start() {
         ...prevState,
         isBonusModal: false,
         displayedOnce: true,
-        isSubmitted: questionIndex > 1,
+        isSubmitted: state.lastQuestion,
       }));
     }, questionIndex);
   };
