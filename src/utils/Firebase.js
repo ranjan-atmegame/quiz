@@ -13,7 +13,7 @@ const firebaseCloudMessaging = {
         storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
         messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
         appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
-        vapidKey: process.env.NEXT_PUBLIC_FIREBASE_VAPIDKEY,
+        measurementId: env.NEXT_PUBLIC_FIREBASE_MEASERMENT_ID,
       });
 
       // Initialize the Firebase app with the credentials
@@ -29,12 +29,12 @@ const firebaseCloudMessaging = {
 
       try {
         const messaging = getMessaging();
-        const tokenInLocalForage = await localforage.getItem('fcm_token');
+        // const tokenInLocalForage = await localforage.getItem('fcm_token');
 
-        // Return the token if it is alredy in our local storage
-        if (tokenInLocalForage !== null) {
-          return tokenInLocalForage;
-        }
+        // // Return the token if it is alredy in our local storage
+        // if (tokenInLocalForage !== null) {
+        //   return tokenInLocalForage;
+        // }
 
         // Request the push notification permission from browser
         const status = await Notification.requestPermission();
