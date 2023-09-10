@@ -12,9 +12,13 @@ export const saveNotification = (data) => {
 
 export const subscribeTokenToTopic = (token, topic = 'atmequiz-v1') => {
   fetch(`https://iid.googleapis.com/iid/v1/${token}/rel/topics/${topic}`, {
+    method: 'POST',
     headers: {
+      'content-type': 'application/json',
       Authorization:
         'key=AAAAp23dzN4:APA91bEidU9wv6dGFOVlkDNSrlMolNLBDI-RkRKhH7d4EQHIc_28OhQPtaNt-QK7DFZWHDp8tKAhX8YwN2fHFZpFFodDX5LyPoteIK4ymmplVcMpgw4LHm89UsFZltNVQW6JEpmX-p3y',
+      'cache-control': 'no-cache',
+      'postman-token': '6a9dace2-b6e0-8211-199f-bc3caa4dacc8',
     },
   })
     .then((response) => {

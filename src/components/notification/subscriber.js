@@ -8,6 +8,7 @@ import { API_URL } from '@/config';
 import { getLocation } from '@/utils/Location';
 import { isMobile } from 'react-device-detect';
 // import { subscribeTokenToTopic } from './api';
+import { subscribeTokenToTopic } from './api';
 
 export const pushNotification = () => {
   return getLocation()
@@ -20,19 +21,27 @@ export const pushNotification = () => {
         .then((currentToken) => {
           if (currentToken) {
             console.log('Token : ', currentToken);
-            // fetch(`${API_URL}/notification`, {
-            //   method: 'POST',
-            //   body: JSON.stringify({
-            //     regid: currentToken,
-            //     domain: SITE_URL,
-            //     url: SITE_URL,
-            //     deviceid: isMobile ? 1 : 0,
-            //     country: countryCode,
-            //   }),
-            //   headers: {
-            //     'Content-Type': 'application/json',
-            //   },
-            // });
+            fetch(`${API_URL}/notification`, {
+              method: 'POST',
+              body: JSON.stringify({
+                regid: currentToken,
+                domain: SITE_URL,
+                url: SITE_URL,
+                deviceid: isMobile ? 1 : 0,
+                country: countryCode,
+              }),
+              headers: {
+                'Content-Type': 'application/json',
+              },
+            })
+              .then((response) => response.json())
+              .then((response) => {
+                if (response.statusCode === 201) {
+                  subscribeTokenToTopic(currentToken);
+                } else {
+                  console.log('Aleady registered.');
+                }
+              });
 
             return true;
           } else {
@@ -53,7 +62,6 @@ export const pushNotification = () => {
       });
     })
     .catch((error) => {
-      console.log(firebase);
       console.log(error);
     });
 };
@@ -69,7 +77,7 @@ export const subscribe = () => {
   // Calls the getMessage() function if the token is there
   async function setToken() {
     try {
-      const location = getLocation();
+      const { countryCode } = await getLocation();
       const token = await firebaseCloudMessaging.init();
 
       if (token) {
@@ -77,26 +85,27 @@ export const subscribe = () => {
         getMessage();
 
         // API CALL
-        // const SITE_URL = window.location.origin.toString();
-
-        // fetch(`${API_URL}/api/notification`, {
-        //   method: 'POST',
-        //   body: JSON.stringify({
-        //     userId: token,
-        //     domain: SITE_URL,
-        //     url: SITE_URL,
-        //     deviceId: isMobile ? 1 : 0,
-        //     countryCode: location.countryCode,
-        //   }),
-        //   headers: {
-        //     'Content-Type': 'application/json',
-        //   },
-        // }).then((response) => {
-        //   if (response.status === 201) {
-        //     console.log('Subscribed...');
-        //     // subscribeTokenToTopic(token);
-        //   }
-        // });
+        const SITE_URL = window.location.origin.toString();
+        fetch(`${API_URL}/api/notification`, {
+          method: 'POST',
+          body: JSON.stringify({
+            userId: token,
+            domain: SITE_URL,
+            url: SITE_URL,
+            deviceId: isMobile ? 1 : 0,
+            countryCode: countryCode,
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }).then((response) => {
+          if (response.status === 201) {
+            console.log('Subscribed');
+            subscribeTokenToTopic(token);
+          } else {
+            console.log('Already subscribed!');
+          }
+        });
 
         return true;
       }
