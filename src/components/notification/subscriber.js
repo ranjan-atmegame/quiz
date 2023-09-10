@@ -43,7 +43,7 @@ export const pushNotification = async () => {
     });
 
     if (token) {
-      console.log({ token });
+      console.log('token', token);
       return await saveToTopic(token);
     }
   } catch (error) {
