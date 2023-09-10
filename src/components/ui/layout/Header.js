@@ -42,15 +42,7 @@ const Header = ({ displayCoins = true, auth, isBackButton = false }) => {
 
   const handleSubscribe = () => {
     pushNotification().then((response) => {
-      if (!response) {
-        return setToast({
-          display: true,
-          message:
-            'The notification permission was not granted and blocked instead.',
-        });
-      }
-
-      return setToast({ display: true, message: 'Subscribed Successfully.' });
+      return setToast({ display: true, message: response.message });
     });
   };
 

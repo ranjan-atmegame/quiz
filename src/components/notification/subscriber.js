@@ -1,69 +1,59 @@
 'use client';
-// import * as firebase from 'firebase/app';
-// import 'firebase/messaging';
 import { getMessaging, getToken, onMessage } from 'firebase/messaging';
 import { firebaseCloudMessaging } from '@/utils/Firebase';
-// import { ToastContainer, toast } from 'react-toastify';
 import { API_URL } from '@/config';
 import { getLocation } from '@/utils/Location';
 import { isMobile } from 'react-device-detect';
-// import { subscribeTokenToTopic } from './api';
-import { subscribeTokenToTopic } from './api';
 
-export const pushNotification = () => {
-  return getLocation()
-    .then((response) => {
-      const { countryCode } = response;
-      const messaging = getMessaging();
-      return getToken(messaging, {
-        vapidKey: process.env.NEXT_PUBLIC_FIREBASE_VAPIDKEY,
-      })
-        .then((currentToken) => {
-          if (currentToken) {
-            console.log('Token : ', currentToken);
-            fetch(`${API_URL}/notification`, {
-              method: 'POST',
-              body: JSON.stringify({
-                regid: currentToken,
-                domain: SITE_URL,
-                url: SITE_URL,
-                deviceid: isMobile ? 1 : 0,
-                country: countryCode,
-              }),
-              headers: {
-                'Content-Type': 'application/json',
-              },
-            })
-              .then((response) => response.json())
-              .then((response) => {
-                if (response.statusCode === 201) {
-                  subscribeTokenToTopic(currentToken);
-                } else {
-                  console.log('Aleady registered.');
-                }
-              });
+// export const pushNotification = () => {
+//   const messaging = getMessaging();
+//   return getToken(messaging, {
+//     vapidKey: process.env.NEXT_PUBLIC_FIREBASE_VAPIDKEY,
+//   })
+//     .then((currentToken) => {
+//       if (currentToken) {
+//         console.log('Token : ', currentToken);
+//         return saveToTopic(currentToken);
+//       }
 
-            return true;
-          } else {
-            // Show permission request UI
-            console.log(
-              'No registration token available. Request permission to generate one.'
-            );
-          }
+//       return {
+//         status: 'error',
+//         message:
+//           'The notification permission was not granted and blocked instead..',
+//       };
+//     })
+//     .catch((err) => {
+//       return {
+//         status: 'error',
+//         message:
+//           'The notification permission was not granted and blocked instead..',
+//       };
+//     });
 
-          return false;
-        })
-        .catch((err) => {
-          // console.log('An error occurred while retrieving token. ', err);
-          return false;
-        });
-      onMessage(messaging, (payload) => {
-        console.log('Message received. ', payload);
-      });
-    })
-    .catch((error) => {
-      console.log(error);
+//   // onMessage(messaging, (payload) => {
+//   //   console.log('Message received. ', payload);
+//   // });
+// };
+
+export const pushNotification = async () => {
+  try {
+    const messaging = getMessaging();
+    const token = await getToken(messaging, {
+      vapidKey: process.env.NEXT_PUBLIC_FIREBASE_VAPIDKEY,
     });
+
+    if (token) {
+      console.log({ token });
+      return await saveToTopic(token);
+    }
+  } catch (error) {
+    console.log(error);
+    return {
+      status: 'error',
+      message:
+        'The notification permission was not granted and blocked instead..',
+    };
+  }
 };
 
 export const subscribe = () => {
@@ -77,45 +67,21 @@ export const subscribe = () => {
   // Calls the getMessage() function if the token is there
   async function setToken() {
     try {
-      const { countryCode } = await getLocation();
       const token = await firebaseCloudMessaging.init();
 
       if (token) {
         console.log('token', token);
         getMessage();
 
-        // API CALL
-        const SITE_URL = window.location.origin.toString();
-        fetch(`${API_URL}/api/notification`, {
-          method: 'POST',
-          body: JSON.stringify({
-            userId: token,
-            domain: SITE_URL,
-            url: SITE_URL,
-            deviceId: isMobile ? 1 : 0,
-            countryCode: countryCode,
-          }),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }).then((response) => {
-          if (response.status === 201) {
-            console.log('Subscribed');
-            subscribeTokenToTopic(token);
-          } else {
-            console.log('Already subscribed!');
-          }
-        });
-
-        return true;
+        await saveToTopic(token);
+      } else {
+        console.log(
+          'No registration token available. Request permission to generate one.'
+        );
       }
-
-      return false;
     } catch (error) {
       console.log('HERE...');
       console.log(error);
-
-      return false;
     }
   }
 
@@ -146,5 +112,38 @@ export const subscribe = () => {
     // });
   }
 
-  return setToken();
+  setToken();
+};
+
+export const saveToTopic = async (token) => {
+  // API CALL
+  const { countryCode } = await getLocation();
+  const SITE_URL = window.location.origin.toString();
+
+  let response = await fetch(`${API_URL}/api/notification`, {
+    method: 'POST',
+    body: JSON.stringify({
+      userId: token,
+      domain: SITE_URL,
+      url: SITE_URL,
+      deviceId: isMobile ? 'm' : 'd',
+      countryCode: countryCode,
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  response = await response.json();
+
+  if (response.status === 'success') {
+    return {
+      status: 'success',
+      message: 'User subscribed successfully.',
+    };
+  }
+
+  return {
+    status: 'fail',
+    message: 'User already subscribed.',
+  };
 };
