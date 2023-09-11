@@ -10,6 +10,8 @@ import {
 } from '@/utils/Constant';
 // import { SECRET_KEY } from '@/config';
 import { getCookies, removeCookies, setCookies } from '@/utils/Cookies';
+import { addTransaction } from '@/api';
+
 // import { getItem, setItem, removeItem } from '@/utils/Ls';
 
 const getGuestUser = () => {
@@ -79,6 +81,15 @@ export const updateUser = (data) => {
 
 export const updateCoins = (coins) => {
   const auth = authenticate();
+  if (auth.isSignedIn) {
+    addTransaction(auth.token, {
+      name: 'Reward Coins',
+      coins: coins,
+      transaction: CREDIT,
+      image: '',
+    }).then((user) => user);
+  }
+
   const updatedCoins = auth.user.coins + coins;
   auth.user = { ...auth.user, coins: updatedCoins };
   saveAuth(auth);
