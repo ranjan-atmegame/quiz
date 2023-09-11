@@ -18,6 +18,8 @@ import { formatNumber } from '@/utils';
 import { getQuizEndTime } from '@/utils/DateTime';
 import { getCookies, setCookies } from '@/utils/Cookies';
 import { getLocation } from '@/utils/Location';
+import { removeItem } from '@/utils/Ls';
+import moment from 'moment';
 
 // 0) SET AND GET NEXT FETCH FROM LOCAL STORAGE
 const _setNextFetch = (fetchAtKey, nextFetchAt) =>
@@ -38,7 +40,8 @@ const _getContestFromLS = async (type) => {
   const [contestListKey, fetchAtKey] = _getContestTypeKeys(type);
   if (!_isValidNextFetch(fetchAtKey)) {
     console.log('NO DATA');
-    return false;
+    removeItem(contestListKey);
+    return [];
   }
 
   return await getItemByKey(contestListKey);
@@ -58,9 +61,9 @@ const _isValidNextFetch = (fetchAtKey) => {
   const nextFetchAt = _getNextFetch(fetchAtKey);
 
   const currentTime = new Date().getTime();
-  const lastFetchAt = new Date(nextFetchAt).getTime();
+  const nextFetchTime = new Date(nextFetchAt).getTime();
 
-  return currentTime > lastFetchAt;
+  return currentTime < nextFetchTime;
 };
 
 // 4) Verify is contest expiry
@@ -90,7 +93,11 @@ const _getContestListFromDBByType = async (type) => {
   // format endTime and winningCoins
   // contestList = _formatContest(contestList);
 
-  const endTime = contestList[0].endTime;
+  // const endTime = contestList[0].endTime;
+  const endTime = moment(contestList[0].endTime)
+    .subtract(1, 'minutes')
+    .toDate();
+
   _setNextFetch(fetchAtKey, endTime);
   setItemWithExpiry(contestListKey, contestList);
   return contestList;

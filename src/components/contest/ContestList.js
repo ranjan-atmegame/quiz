@@ -3,10 +3,22 @@ import Item from '@/components/contest/Item';
 import { getActiveContestByType } from '@/components/home/api';
 import EmptyItem from './EmptyItem';
 import { GENERAL_CONTEST } from '@/utils/Constant';
-import Image from 'next/image';
+// import Image from 'next/image';
 
 export default function ContestList() {
   const [contestList, setContestList] = useState();
+
+  const filterContest = (contestArr) => {
+    const contestNames = [];
+    return contestArr.filter((contest) => {
+      const shouldReturn = !contestNames.includes(contest.name);
+      if (!contestNames.includes(contest.name)) {
+        contestNames.push(contest.name);
+      }
+
+      return shouldReturn;
+    });
+  };
 
   // useEffect(() => {
   //   if (selectedTab) {
@@ -21,7 +33,10 @@ export default function ContestList() {
 
   useEffect(() => {
     getActiveContestByType(GENERAL_CONTEST)
-      .then((contestList) => setContestList(contestList))
+      .then((contestList) => {
+        const contestArr = filterContest(contestList);
+        setContestList(contestArr);
+      })
       .catch((err) => {
         console.log(err);
         setContestList([]);
