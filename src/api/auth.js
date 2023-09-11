@@ -2,7 +2,12 @@
 import { v4 as uuidv4 } from 'uuid';
 // import { updateExternalLogin } from '@/api';
 import { getLocation } from '@/utils/Location';
-import { JWT, DEFAULT_COIN, IS_SUBMITTED } from '@/utils/Constant';
+import {
+  JWT,
+  DEFAULT_COIN,
+  IS_SUBMITTED,
+  REWARD_COINS,
+} from '@/utils/Constant';
 // import { SECRET_KEY } from '@/config';
 import { getCookies, removeCookies, setCookies } from '@/utils/Cookies';
 // import { getItem, setItem, removeItem } from '@/utils/Ls';
@@ -44,6 +49,7 @@ export const removeAuth = () => removeCookies(JWT);
 export const clearStorage = () => {
   removeAuth();
   removeCookies(IS_SUBMITTED);
+  removeCookies(REWARD_COINS);
 };
 
 export const updateUserLogin = async ({ email, name, image }, tokenId) => {

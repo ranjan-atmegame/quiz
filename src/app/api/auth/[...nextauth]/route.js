@@ -3,17 +3,26 @@ import GoogleProvider from 'next-auth/providers/google';
 
 const handler = NextAuth({
   providers: [
+    // //TEST
     // GoogleProvider({
     //   clientId:
     //     '1084991661541-5c175c0bl50ivtbc641ik8mj65koi5cv.apps.googleusercontent.com',
     //   clientSecret: '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',
     // }),
 
+    // PUBLISHER
     GoogleProvider({
       clientId:
-        '642956286698-e0vmvj5417iar00j9aj08f428n4ncke9.apps.googleusercontent.com',
-      clientSecret: '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',
+        '642956286698-1m44b7r7hblqs3tf37jvid2q4vqbtrnn.apps.googleusercontent.com',
+      clientSecret: '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',
     }),
+
+    //PRODUCTION
+    // GoogleProvider({
+    //   clientId:
+    //     '642956286698-e0vmvj5417iar00j9aj08f428n4ncke9.apps.googleusercontent.com',
+    //   clientSecret: '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',
+    // }),
   ],
 
   callbacks: {

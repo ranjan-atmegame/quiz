@@ -20,12 +20,11 @@ export default function Component({ className }) {
             token: response.token,
             isSignedIn: response.isSignedIn,
           });
-
-          router.push('/');
         })
         .catch((error) => {
           console.log(error);
         });
+      router.push('/');
     }
   }, [session]);
 
