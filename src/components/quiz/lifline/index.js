@@ -13,10 +13,8 @@ import {
 
 import Popup from './Popup';
 import { getLifeLine } from './api';
-import { addTransaction } from '@/api';
 import { showRewardAd } from '@/utils';
-import { updateUser } from '@/api/auth';
-
+import { updateUserCoins } from '@/api/auth';
 import styles from './lifeLine.module.css';
 
 export default function LifeLine({
@@ -140,21 +138,16 @@ export default function LifeLine({
       });
     }
 
-    // const { user } = getUser();
-    // const { contest } = this.props;
     const { name } = findLifelineByName(lifeline);
+    const transaction = {
+      name: quizName,
+      desc: `${name} lifeline used`,
+      coins: LIFELINE_COINS_VALUE,
+      transaction: DEBIT,
+      image: quizImage,
+    };
 
-    if (isSignedIn) {
-      addTransaction(token, {
-        name: quizName,
-        desc: `${name} lifeline used`,
-        coins: LIFELINE_COINS_VALUE,
-        transaction: DEBIT,
-        image: quizImage,
-      });
-    }
-    updateUser({ coins: user.coins - LIFELINE_COINS_VALUE });
-
+    updateUserCoins(transaction);
     return updateState(lifeline);
   };
 

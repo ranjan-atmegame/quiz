@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import { showRewardAd } from '@/utils';
-import { updateCoins } from '@/api/auth';
+import { updateRewardCoins } from '@/api/auth';
 import { BONUS_COINS } from '@/utils/Constant';
 import styles from './rewardIcon.module.css';
 // import { updateRewardCoins } from './api';
@@ -21,7 +21,7 @@ export default function RewardIcon({ setDisplay }) {
         displayAd();
       }
 
-      updateCoins(BONUS_COINS);
+      updateRewardCoins(BONUS_COINS);
     });
   };
 

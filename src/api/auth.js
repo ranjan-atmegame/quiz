@@ -7,6 +7,7 @@ import {
   DEFAULT_COIN,
   IS_SUBMITTED,
   REWARD_COINS,
+  CREDIT,
 } from '@/utils/Constant';
 // import { SECRET_KEY } from '@/config';
 import { getCookies, removeCookies, setCookies } from '@/utils/Cookies';
@@ -79,7 +80,29 @@ export const updateUser = (data) => {
   return auth;
 };
 
-export const updateCoins = (coins) => {
+// update user coins
+export const updateUserCoins = (data) => {
+  const auth = authenticate();
+  const transactionType = +data.transaction;
+  if (!transactionType && auth.user.coins < data.coins) {
+    return false;
+  }
+
+  if (auth.isSignedIn) {
+    addTransaction(auth.token, data);
+  }
+
+  // update
+  const updatedCoins = transactionType
+    ? auth.user.coins + data.coins
+    : auth.user.coins - data.coins;
+
+  auth.user = { ...auth.user, coins: updatedCoins };
+  saveAuth(auth);
+};
+
+// This is reward coins
+export const updateRewardCoins = (coins) => {
   const auth = authenticate();
   if (auth.isSignedIn) {
     addTransaction(auth.token, {

@@ -5,7 +5,7 @@ import styles from './playNow.module.css';
 import Lottie from '../animation/Lottie';
 import { getCookies, removeCookies } from '@/utils/Cookies';
 import { REWARD_COINS } from '@/utils/Constant';
-import { updateCoins } from '@/api/auth';
+import { updateRewardCoins } from '@/api/auth';
 
 export default function Play({ user }) {
   const [rewardedCoins, setRewardedCoins] = useState();
@@ -13,7 +13,7 @@ export default function Play({ user }) {
   useEffect(() => {
     let coins = getCookies(REWARD_COINS);
     coins = coins ? +coins : 0;
-    updateCoins(coins);
+    updateRewardCoins(coins);
     setRewardedCoins(coins);
 
     return () => removeCookies(REWARD_COINS);

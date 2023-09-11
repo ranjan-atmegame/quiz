@@ -4,16 +4,10 @@ import { useRouter, useParams, useSearchParams } from 'next/navigation';
 import ContestInfo from './Info';
 import Quiz from '@/components/quiz';
 import { DEBIT } from '@/utils/Constant';
-import { updateUser } from '@/components/auth/api';
 import { getGuestUserRankAndCoins, getUserRankAndCoins } from '@/api';
 import EmptyQuiz from '@/components/quiz/emptyQuiz';
-import {
-  getContestQuizById,
-  updateUserContest,
-  playQuiz,
-  playGuestQuiz,
-} from '../api';
-import { authenticate } from '@/api/auth';
+import { getContestQuizById, updateUserContest } from '../api';
+import { authenticate, updateUserCoins } from '@/api/auth';
 
 export default function Play({ auth: { isSignedIn, token } }) {
   const router = useRouter();
@@ -49,32 +43,20 @@ export default function Play({ auth: { isSignedIn, token } }) {
   // 1) Add user transaction
   const handleTransaction = (contest) => {
     const { user } = authenticate();
-    if (user.coins < contest.entryCoins) {
+    const entryCoins = contest.entryCoins;
+    if (user.coins < entryCoins) {
       alert(`You don't have coin to play.`);
       return router.push('/');
     }
 
     const transaction = {
       name: contest.name,
-      coins: contest.entryCoins,
+      coins: entryCoins,
       transaction: DEBIT,
       image: contest.quizImage,
     };
 
-    if (!isSignedIn) {
-      playGuestQuiz(transaction);
-      return updateUser({ coins: user.coins - transaction.coins });
-    }
-
-    playQuiz(token, transaction).then((response) => {
-      if (!response) {
-        alert('Something went wrong!');
-        return router.push('/');
-      }
-
-      const coins = user.coins - transaction.coins;
-      updateUser({ coins });
-    });
+    updateUserCoins(transaction);
   };
 
   const calculateCoinsByScore = (rank, prizeList) => {

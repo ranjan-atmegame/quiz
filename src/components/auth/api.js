@@ -64,9 +64,9 @@ export const generateToken = (user) => {
 };
 
 // Update user===========================
-export const updateUser = (data) => {
-  const auth = authenticate();
-  auth.user = { ...auth.user, ...data };
-  saveAuth(auth);
-  return auth;
-};
+// export const updateUser = (data) => {
+//   const auth = authenticate();
+//   auth.user = { ...auth.user, ...data };
+//   saveAuth(auth);
+//   return auth;
+// };
