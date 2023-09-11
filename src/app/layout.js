@@ -78,6 +78,11 @@ export default function RootLayout({ session, children }) {
         f.parentNode.insertBefore(j, f);
       })(window, document, "script", "dataLayer", "GTM-NVVJCR6");`}
         </Script>
+
+        <Script
+          async
+          src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"
+        ></Script>
       </head>
       <body>
         <SessionProvider session={session} basePath="/api/auth">
