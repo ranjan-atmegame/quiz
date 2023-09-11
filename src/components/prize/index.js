@@ -22,22 +22,22 @@ export default function PrizeList({ prizeId, onDismiss }) {
         index === 0 ? (
           <>
             <span>{`Rank ${rank.from}`}</span>
-            <span>
+            <span className={styles.bolder}>
               {rank.coins} <Coin />
             </span>
           </>
         ) : (
           <>
             <span>{`Rank ${rank.from} - ${rank.to}`}</span>
-            <span>
+            <span className={styles.bolder}>
               {rank.coins} <Coin />
             </span>
           </>
         );
 
       return (
-        <div className={styles.listCheck} key={rank._id}>
-          <div>{rankJSX}</div>
+        <div className={`${styles.listCheck} ${styles.rakList}`} key={rank._id}>
+          <div className={styles.between}>{rankJSX}</div>
         </div>
       );
     });
@@ -50,8 +50,8 @@ export default function PrizeList({ prizeId, onDismiss }) {
           <div className={styles.wrapper}>
             <h1>Prize Rank List</h1>
 
-            <div className={styles.listSec}>
-              <div className={styles.listCheck}>
+            <div className={`${styles.listSec} ${styles.spacer}`}>
+              <div className={`${styles.listCheck}`}>
                 <div className={styles.close} onClick={onDismiss}></div>
               </div>
 
