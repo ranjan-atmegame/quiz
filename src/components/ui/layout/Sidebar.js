@@ -57,9 +57,24 @@ export default function Sidebar({
                 </div>
                 <div className={styles.userDetails}>
                   <h3>
-                    <span className={styles.hide}>Welcome!</span> {userName}
+                    <span contenteditable="true" className={styles.hide}>
+                      Welcome!
+                    </span>{' '}
+                    <span
+                      className={styles.contenteditable}
+                      contenteditable="true"
+                    >
+                      {userName}
+                    </span>
+                    <Icon
+                      width={18}
+                      height={18}
+                      src="/img/edit.svg"
+                      title="Edit"
+                      iconClass={styles.editText}
+                    />
                   </h3>
-                  <p>play Quiz &amp; earn coins</p>
+                  <p>Play Quiz &amp; earn coins</p>
 
                   {!isSignedIn ? (
                     <Link

@@ -38,7 +38,6 @@
     transform-origin: 0% 0%;
     transform: translate(0%, 0);
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-    overflow-y: scroll;
     border-radius: 16px 16px 0px 0px;
     min-height: 200px;
     bottom: 0;
@@ -125,4 +124,31 @@
     width: 2px;
     background-color: #fff;
     transform: rotate(-45deg);
+}
+
+.rakList{
+    border-bottom: solid 1px #4c51af8c;
+    padding-bottom: 16px;
+}
+
+.between{
+    display: flex;
+    justify-content: space-between;
+}
+
+.rakList:last-child{
+    border-bottom: none;
+}
+
+.spacer{
+    margin-top: 24px;
+}
+
+.bolder{
+    font-weight: bold;
+}
+
+.bolder img{
+    vertical-align: top;
+    margin-top: 4px;
 }
