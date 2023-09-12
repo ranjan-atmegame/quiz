@@ -11,7 +11,9 @@ googletag.cmd.push(function () {
   if (rewardedSlot) {
     rewardedSlot.addService(googletag.pubads());
 
+    console.log('addEventListener: rewardedSlotReady');
     googletag.pubads().addEventListener('rewardedSlotReady', function (event) {
+      console.log('rewardedSlotReady=============');
       document.getElementById('watchAdButton').onclick = function () {
         event.makeRewardedVisible();
         displayModal();
