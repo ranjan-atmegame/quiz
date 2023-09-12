@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import { getRobot } from '../server';
+import { getRobot } from '../../server';
 const BlogDetail = dynamic(() => import('@/components/blog/detail'));
 const Layout = dynamic(() => import('@/components/ui/layout'));
 
