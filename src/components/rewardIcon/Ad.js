@@ -1,13 +1,21 @@
 'use client';
+import { useEffect, useRef } from 'react';
 import styles from './pub.module.css';
 
 export default function Ad() {
+  const modalRef = useRef();
+  useEffect(() => {
+    if (modalRef.current) {
+      modalRef.current.setAttribute('data-type', 'reward');
+    }
+  }, []);
+
   const dismissAd = () => {
     dismissRewardedAd();
   };
 
   return (
-    <div id="modal" className={styles.modal}>
+    <div id="modal" className={styles.modal} ref={modalRef}>
       <div className={styles.modalDialog}>
         <p id="modalMessage"></p>
 
