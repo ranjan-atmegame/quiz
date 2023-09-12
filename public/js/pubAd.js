@@ -7,13 +7,14 @@ googletag.cmd.push(function () {
     googletag.enums.OutOfPageFormat.REWARDED
   );
 
+  console.log({ rewardedSlot });
   // Slot returns null if the page or device does not support rewarded ads.
   if (rewardedSlot) {
     rewardedSlot.addService(googletag.pubads());
 
     console.log('addEventListener: rewardedSlotReady');
     googletag.pubads().addEventListener('rewardedSlotReady', function (event) {
-      console.log('rewardedSlotReady=============');
+      console.log('rewardedSlotReady');
       document.getElementById('watchAdButton').onclick = function () {
         event.makeRewardedVisible();
         displayModal();
