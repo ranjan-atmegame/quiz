@@ -17,15 +17,21 @@ googletag.cmd.push(function () {
     console.log('END=========================');
     googletag.pubads()?.addEventListener('rewardedSlotReady', function (event) {
       console.log('rewardedSlotReady');
+      const displayAdButton = document.getElementById('watchAdButton');
+      console.log({ displayAdButton });
+
+      displayAdButton?.onclick = function () {
+        console.log('display ad on Button click.')
+        event.makeRewardedVisible();
+        displayModal();
+      }
       // document.getElementById('watchAdButton').onclick = function () {
       //   event.makeRewardedVisible();
       //   displayModal();
       // };
 
-      event.makeRewardedVisible();
-      displayModal();
 
-      // displayModal('reward', 'Watch an ad to receive a special reward?');
+      displayModal('reward', 'Watch an ad to receive a special reward?');
     });
 
     googletag

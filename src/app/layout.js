@@ -83,7 +83,7 @@ export default function RootLayout({ session, children }) {
           async
           src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"
         ></Script>
-        <Script async src="/js/publisherAd.js"></Script>
+        <Script async src="/js/publisherAdd.js"></Script>
       </head>
       <body>
         <SessionProvider session={session} basePath="/api/auth">
