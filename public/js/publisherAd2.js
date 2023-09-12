@@ -1,6 +1,7 @@
 googletag = window.googletag || { cmd: [] };
 
-var rewardedSlot;
+let rewardedSlot;
+let adEvent = null;
 googletag.cmd.push(function () {
   rewardedSlot = googletag.defineOutOfPageSlot(
     '/21619656201/Atmegame_RewardedNew',
@@ -17,24 +18,28 @@ googletag.cmd.push(function () {
     console.log('END=========================');
     googletag.pubads()?.addEventListener('rewardedSlotReady', function (event) {
       console.log('rewardedSlotReady');
-      const displayAdButton = document.getElementById('watchAdButton');
-      console.log({ displayAdButton });
+      adEvent = event;
 
-      if (displayAdButton) {
-        displayAdButton.onclick = function () {
-          console.log('display ad on Button click.');
-          event.makeRewardedVisible();
-          displayModal();
-        };
-      } else {
-        console.log('button not found');
-      }
+      // 1) Display Ad on Button Click
+      // const displayAdButton = document.getElementById('watchAdButton');
+      // console.log({ displayAdButton });
+
+      // if (displayAdButton) {
+      //   displayAdButton.onclick = function () {
+      //     console.log('display ad on Button click.');
+      //     event.makeRewardedVisible();
+      //     displayModal();
+      //   };
+      // } else {
+      //   console.log('button not found');
+      // }
+
       // document.getElementById('watchAdButton').onclick = function () {
       //   event.makeRewardedVisible();
       //   displayModal();
       // };
 
-      displayModal('reward', 'Watch an ad to receive a special reward?');
+      // displayModal('reward', 'Watch an ad to receive a special reward?');
     });
 
     googletag
@@ -73,4 +78,9 @@ function displayModal(type, message) {
     document.getElementById('modalMessage').textContent = message;
     modal.setAttribute('data-type', type);
   }
+}
+
+function rewardAdX() {
+  adEvent.makeRewardedVisible();
+  displayModal();
 }
