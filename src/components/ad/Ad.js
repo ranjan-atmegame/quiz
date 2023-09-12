@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import Script from 'next/script';
 import GPTAd from './GPTAd';
 
 const GoogleAdd = () => {
