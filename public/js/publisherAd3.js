@@ -8,16 +8,11 @@ googletag.cmd.push(function () {
     googletag.enums.OutOfPageFormat.REWARDED
   );
 
-  console.log({ rewardedSlot });
   // Slot returns null if the page or device does not support rewarded ads.
   if (rewardedSlot) {
     rewardedSlot.addService(googletag.pubads());
 
-    console.log('addEventListener: rewardedSlotReady');
-    console.log(googletag.pubads());
-    console.log('END=========================');
     googletag.pubads()?.addEventListener('rewardedSlotReady', function (event) {
-      console.log('rewardedSlotReady');
       adEvent = event;
 
       // 1) Display Ad on Button Click
