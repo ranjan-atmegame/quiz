@@ -19,6 +19,9 @@ export async function generateMetadata({ params, searchParams }, parent) {
     metadataBase: new URL('https://www.atmequiz.com'),
     alternates: {
       canonical,
+      languages: {
+        'en-US': '/en-US',
+      },
     },
     robots,
     openGraph: {
