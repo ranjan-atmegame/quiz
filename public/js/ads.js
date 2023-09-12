@@ -111,8 +111,8 @@ function rewardAd(_back) {
         );
 
         try {
-          console.log('AdBreakDon: ');
-          console.log(placementInfo);
+          // console.log('AdBreakDon: ');
+          // console.log(placementInfo);
           // _back({ status: placementInfo.breakStatus });
           if (placementInfo.breakStatus)
             if (placementInfo.breakStatus !== 'viewed') {

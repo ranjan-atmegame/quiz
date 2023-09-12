@@ -1,4 +1,5 @@
 'use client';
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { showRewardAd } from '@/utils';
 import { updateRewardCoins } from '@/api/auth';
@@ -7,6 +8,7 @@ import styles from './rewardIcon.module.css';
 // import { updateRewardCoins } from './api';
 
 export default function RewardIcon({ setDisplay }) {
+  const router = useRouter();
   // const updateReward = () => {
   //   updateRewardCoins();
   //   setDisplay(false);
@@ -20,6 +22,7 @@ export default function RewardIcon({ setDisplay }) {
       }
 
       updateRewardCoins(BONUS_COINS);
+      router.refresh();
     });
   };
 
