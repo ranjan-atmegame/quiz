@@ -21,17 +21,6 @@ export async function generateMetadata({ params, searchParams }, parent) {
   };
 }
 
-export const metadata = {
-  title: 'Online Quiz Contest Login : AtmeQuiz.com',
-  description:
-    'Login to Play online quiz contest game that tests your knowledge.',
-  keywords: ['Login Online Quiz , Bollywood Quiz Contes, AtmeQuiz'],
-  robots: {
-    index: false,
-    follow: true,
-  },
-};
-
 export default function Page() {
   const auth = getAuth();
   if (auth.isSignedIn) {
