@@ -2,13 +2,17 @@
 import styles from './pub.module.css';
 
 export default function Ad() {
+  const dismissAd = () => {
+    dismissRewardedAd();
+  };
+
   return (
     <div id="modal" className={styles.modal}>
       <div className={styles.modalDialog}>
         <p id="modalMessage"></p>
 
         <span className={styles.grantButtons}>
-          <input type="button" onClick={dismissRewardedAd} value="Close" />
+          <input type="button" onClick={dismissAd} value="Close" />
         </span>
 
         <span className={styles.rewardButtons}>
@@ -16,7 +20,7 @@ export default function Ad() {
             <input type="button" id="watchAdButton" value="Yes" />
           </div>
           <div>
-            <input type="button" value="No" onClick={dismissRewardedAd} />
+            <input type="button" value="No" onClick={dismissAd} />
           </div>
         </span>
       </div>
