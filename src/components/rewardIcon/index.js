@@ -13,17 +13,14 @@ export default function RewardIcon({ setDisplay }) {
   // };
 
   const updateReward = () => {
-    rewardAdX();
+    showRewardAd((result) => {
+      console.log(result);
+      if (result?.status !== 'viewed') {
+        rewardAdX();
+      }
 
-    // showRewardAd((result) => {
-    //   console.log('Testing reward Ad: ');
-    //   console.log(result);
-    //   if (result?.status !== 'viewed') {
-    //     displayAd();
-    //   }
-
-    //   updateRewardCoins(BONUS_COINS);
-    // });
+      updateRewardCoins(BONUS_COINS);
+    });
   };
 
   return (
