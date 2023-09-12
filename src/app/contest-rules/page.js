@@ -4,7 +4,7 @@ const Layout = dynamic(() => import('@/components/ui/layout'));
 const ContestRules = dynamic(() => import('@/components/contest/Rules'));
 
 export async function generateMetadata({ params, searchParams }, parent) {
-  const robots = getRobot(true);
+  const { robots, canonical } = getRobot(true);
 
   return {
     title: 'Contest Rules To Play Online Quiz Games : AtmeQuiz.com',
@@ -12,6 +12,9 @@ export async function generateMetadata({ params, searchParams }, parent) {
       'Go through the contest rules to before play online quizzes on AtmeQuiz.com. Check here the Quiz contest rules before going ahead and participating in AtmeQuiz contests. ',
     keywords: ['Quiz Content, Onlien Quiz, AtmeQuiz'],
     robots,
+    alternates: {
+      canonical,
+    },
   };
 }
 

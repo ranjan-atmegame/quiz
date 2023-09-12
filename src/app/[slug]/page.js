@@ -9,7 +9,7 @@ import { getRobot } from '../server';
 // import { CONTEST_TYPES, CRICKET_SUBDOMAIN } from '@/utils/Constant';
 
 export async function generateMetadata({ params, searchParams }, parent) {
-  const robots = getRobot();
+  const { robots, canonical } = getRobot();
   const slug = params.slug.replace('-quiz', '');
   let quizList = cookies().get(ALLOWED_CATEGORY)?.value;
   quizList = quizList ? JSON.parse(quizList) : [];
@@ -25,6 +25,9 @@ export async function generateMetadata({ params, searchParams }, parent) {
       `${contestName}, Online Quiz, Play Quiz, Win Coin, GK, Question Answer`,
     ],
     robots,
+    alternates: {
+      canonical,
+    },
   };
 }
 

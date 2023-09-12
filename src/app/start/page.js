@@ -7,7 +7,7 @@ const Start = dynamic(() => import('@/components/start'));
 const Layout = dynamic(() => import('@/components/ui/layout'));
 
 export async function generateMetadata({ params, searchParams }, parent) {
-  const robots = getRobot(true);
+  const { robots, canonical } = getRobot(true);
 
   return {
     title:
@@ -20,12 +20,12 @@ export async function generateMetadata({ params, searchParams }, parent) {
     metadataBase: new URL('https://www.atmequiz.com'),
     alternates: {
       canonical: '/',
-      languages: {
-        'en-US': '/en-US',
-      },
     },
     authors: [{ name: 'Apay Marketing Private Limited' }],
     robots,
+    alternates: {
+      canonical,
+    },
     openGraph: {
       type: 'website',
       title: 'Play Online Quiz Contest &amp; Win Coin, AtmeQuiz.com',

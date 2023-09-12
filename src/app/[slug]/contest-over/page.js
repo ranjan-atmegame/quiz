@@ -4,7 +4,7 @@ const Layout = dynamic(() => import('@/components/ui/layout'));
 const ContestOver = dynamic(() => import('@/components/contest/over'));
 
 export async function generateMetadata({ params, searchParams }, parent) {
-  const robots = getRobot();
+  const { robots, canonical } = getRobot();
 
   return {
     title: 'Thanku- Online Sports Quiz Contest Over : AtmeQuiz.com',
@@ -12,6 +12,9 @@ export async function generateMetadata({ params, searchParams }, parent) {
       'Play online sports quiz contest game that tests your knowledge.',
     keywords: ['Online Quiz , Bollywood Quiz Contes, AtmeQuiz'],
     robots,
+    alternates: {
+      canonical,
+    },
   };
 }
 

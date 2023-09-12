@@ -4,10 +4,13 @@ const BlogDetail = dynamic(() => import('@/components/blog/detail'));
 const Layout = dynamic(() => import('@/components/ui/layout'));
 
 export async function generateMetadata({ params, searchParams }, parent) {
-  const robots = getRobot(1);
+  const { robots, canonical } = getRobot(1);
 
   return {
     robots,
+    alternates: {
+      canonical,
+    },
   };
 }
 

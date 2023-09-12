@@ -3,21 +3,42 @@ import { cookies } from 'next/headers';
 import { USER_LOCATION } from '@/utils/Constant';
 import { getCategory } from '@/api';
 
+// export const getRobot = (indexPages) => {
+//   const headerList = headers();
+//   const canonicalUrl = headerList.referer;
+//   if (!headerList.headers.host.includes('www')) {
+//     return { index: false, follow: false };
+//   }
+
+//   if (indexPages) {
+//     return { index: true, follow: true };
+//   }
+
+//   return { index: false, follow: true };
+// };
+
 export const getRobot = (indexPages) => {
   const headerList = headers();
+  const canonical = headerList.referer;
+
   if (!headerList.headers.host.includes('www')) {
-    return { index: false, follow: false };
+    return {
+      robots: { index: false, follow: false },
+      canonical,
+    };
   }
 
   if (indexPages) {
-    return { index: true, follow: true };
+    return {
+      robots: { index: true, follow: true },
+      canonical,
+    };
   }
 
-  return { index: false, follow: true };
-};
-
-export const getCanonicalUrl = (indexPages) => {
-  return '/';
+  return {
+    robots: { index: false, follow: true },
+    canonical,
+  };
 };
 
 export const getCategoryList = async () => {

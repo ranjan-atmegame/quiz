@@ -6,13 +6,16 @@ const Layout = dynamic(() => import('@/components/ui/layout'));
 const CoinHistory = dynamic(() => import('@/components/user/CoinHistory'));
 
 export async function generateMetadata({ params, searchParams }, parent) {
-  const robots = getRobot();
+  const { robots, canonical } = getRobot();
 
   return {
     title: 'Coin History : AtmeQuiz.com',
     description: 'Check your coin history that you have won',
     keywords: ['Coin History, Online Quiz, AtmeQuiz'],
     robots,
+    alternates: {
+      canonical,
+    },
   };
 }
 

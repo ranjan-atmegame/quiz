@@ -1,12 +1,12 @@
 import dynamic from 'next/dynamic';
 import { redirect } from 'next/navigation';
 import { isSubmitted } from './auth';
-import { getRobot } from './server';
+import { getRobot, getCanonicalUrl } from './server';
 const Home = dynamic(() => import('@/components/home'));
 const Layout = dynamic(() => import('@/components/ui/layout'));
 
 export async function generateMetadata({ params, searchParams }, parent) {
-  const robots = getRobot(true);
+  const { robots, canonical } = getRobot(true);
 
   return {
     title:
@@ -18,7 +18,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
     ],
     metadataBase: new URL('https://www.atmequiz.com'),
     alternates: {
-      canonical: '/',
+      canonical,
     },
     robots,
     openGraph: {
