@@ -9,7 +9,6 @@ import useCategory from '@/hooks/useCategory';
 import RewardIcon from '../rewardIcon';
 import useDevice from '@/hooks/useDevice';
 // import PushNotificationLayout from '@/co mponents/notification';
-import PublisherAd from '@/components/rewardIcon/Ad';
 
 export default function Home() {
   const [category, isCategoryLoading] = useCategory();
@@ -40,7 +39,6 @@ export default function Home() {
 
   return (
     <>
-      <PublisherAd />
       <Ad />
       {displaySearch && <Search tabs={category} toggleSearch={toggleSearch} />}
       {/* <PushNotificationLayout> */}
