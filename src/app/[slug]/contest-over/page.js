@@ -15,13 +15,6 @@ export async function generateMetadata({ params, searchParams }, parent) {
   };
 }
 
-export const metadata = {
-  robots: {
-    index: false,
-    follow: true,
-  },
-};
-
 export default function Page() {
   return (
     <Layout>

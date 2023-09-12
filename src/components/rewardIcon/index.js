@@ -16,8 +16,7 @@ export default function RewardIcon({ setDisplay }) {
     showRewardAd((result) => {
       console.log('Testing reward Ad: ');
       console.log(result);
-      if (result?.status === 'filled') {
-      } else {
+      if (result?.status !== 'viewed') {
         displayAd();
       }
 
