@@ -3,19 +3,17 @@ import { cookies } from 'next/headers';
 import { USER_LOCATION } from '@/utils/Constant';
 import { getCategory } from '@/api';
 
-export const getRobot = () => {
-  const headerList = headers();
-  const robots = {
-    index: true,
-    follow: true,
-  };
+export const getRobot = (indexPages) => {
+  // const headerList = headers();
+  // if (!headerList.headers.host.includes('www')) {
+  //   return { index: false, follow: false };
+  // }
 
-  if (!headerList.headers.host.includes('www')) {
-    robots.index = false;
-    robots.follow = false;
+  if (indexPages) {
+    return { index: true, follow: true };
   }
 
-  return robots;
+  return { index: false, follow: true };
 };
 
 export const getCategoryList = async () => {

@@ -6,7 +6,7 @@ const Home = dynamic(() => import('@/components/home'));
 const Layout = dynamic(() => import('@/components/ui/layout'));
 
 export async function generateMetadata({ params, searchParams }, parent) {
-  const robots = getRobot();
+  const robots = getRobot(true);
 
   return {
     title:

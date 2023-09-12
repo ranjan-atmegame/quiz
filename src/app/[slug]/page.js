@@ -3,11 +3,13 @@ const Layout = dynamic(() => import('@/components/ui/layout'));
 const Category = dynamic(() => import('@/components/category'));
 import { ALLOWED_CATEGORY, CONTEST_TYPES } from '@/utils/Constant';
 import { cookies } from 'next/headers';
+import { getRobot } from '../server';
 // import { getCategory } from '@/api';
 // import { QUIZ_LIST } from './category';
 // import { CONTEST_TYPES, CRICKET_SUBDOMAIN } from '@/utils/Constant';
 
 export async function generateMetadata({ params, searchParams }, parent) {
+  const robots = getRobot();
   const slug = params.slug.replace('-quiz', '');
   let quizList = cookies().get(ALLOWED_CATEGORY)?.value;
   quizList = quizList ? JSON.parse(quizList) : [];
@@ -22,6 +24,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
     keywords: [
       `${contestName}, Online Quiz, Play Quiz, Win Coin, GK, Question Answer`,
     ],
+    robots,
   };
 }
 

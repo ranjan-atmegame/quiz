@@ -60,7 +60,7 @@ export default function Play({ auth: { isSignedIn, token } }) {
   };
 
   const calculateCoinsByScore = (rank, prizeList) => {
-    const { coins } = prizeList.rank.find(
+    const { coins } = prizeList?.rank.find(
       (prizeRank) => prizeRank.from <= rank && prizeRank.to >= rank
     );
 

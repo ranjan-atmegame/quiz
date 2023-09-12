@@ -5,8 +5,21 @@ import QuizRules from '@/components/rule';
 import styles from './login.module.css';
 import GoogleLogin from '@/components/auth/google';
 import { getAuth } from '../auth';
+import { getRobot } from '../server';
 import { headers } from 'next/headers';
 const Layout = dynamic(() => import('@/components/ui/layout'));
+
+export async function generateMetadata({ params, searchParams }, parent) {
+  const robots = getRobot();
+
+  return {
+    title: 'Online Quiz Contest Login : AtmeQuiz.com',
+    description:
+      'Login to Play online quiz contest game that tests your knowledge.',
+    keywords: ['Login Online Quiz , Bollywood Quiz Contes, AtmeQuiz'],
+    robots,
+  };
+}
 
 export const metadata = {
   title: 'Online Quiz Contest Login : AtmeQuiz.com',

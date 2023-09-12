@@ -1,18 +1,20 @@
 import dynamic from 'next/dynamic';
 import { redirect } from 'next/navigation';
 import { getAuth } from '../auth';
+import { getRobot } from '../server';
 const Layout = dynamic(() => import('@/components/ui/layout'));
 const CoinHistory = dynamic(() => import('@/components/user/CoinHistory'));
 
-export const metadata = {
-  title: 'Coin History : AtmeQuiz.com',
-  description: 'Check your coin history that you have won',
-  keywords: ['Coin History, Online Quiz, AtmeQuiz'],
-  robots: {
-    index: false,
-    follow: true,
-  },
-};
+export async function generateMetadata({ params, searchParams }, parent) {
+  const robots = getRobot();
+
+  return {
+    title: 'Coin History : AtmeQuiz.com',
+    description: 'Check your coin history that you have won',
+    keywords: ['Coin History, Online Quiz, AtmeQuiz'],
+    robots,
+  };
+}
 
 export default function Page() {
   const auth = getAuth();
