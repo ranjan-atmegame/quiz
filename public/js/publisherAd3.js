@@ -81,6 +81,7 @@ function displayModal(type, message) {
 }
 
 function rewardAdX() {
+  console.log('rewardAdX called...');
   adEvent.makeRewardedVisible();
   displayModal();
 }
