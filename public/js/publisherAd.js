@@ -17,12 +17,15 @@ googletag.cmd.push(function () {
     console.log('END=========================');
     googletag.pubads()?.addEventListener('rewardedSlotReady', function (event) {
       console.log('rewardedSlotReady');
-      document.getElementById('watchAdButton').onclick = function () {
-        event.makeRewardedVisible();
-        displayModal();
-      };
+      // document.getElementById('watchAdButton').onclick = function () {
+      //   event.makeRewardedVisible();
+      //   displayModal();
+      // };
 
-      displayModal('reward', 'Watch an ad to receive a special reward?');
+      event.makeRewardedVisible();
+      displayModal();
+
+      // displayModal('reward', 'Watch an ad to receive a special reward?');
     });
 
     googletag
