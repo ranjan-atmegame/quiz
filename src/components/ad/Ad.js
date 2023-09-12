@@ -34,7 +34,7 @@ const GoogleAdd = () => {
     });
   };
 
-  if (isAdUnfilled) {
+  if (['PROD', 'TEST'].includes(process.env.ENV) && isAdUnfilled) {
     return <GPTAd />;
   }
 

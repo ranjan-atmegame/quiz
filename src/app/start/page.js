@@ -18,13 +18,11 @@ export async function generateMetadata({ params, searchParams }, parent) {
       'Education, Online Quiz,  Play Quiz, Win Coin, GK, Question Answer',
     ],
     metadataBase: new URL('https://www.atmequiz.com'),
-    alternates: {
-      canonical: '/',
-    },
     authors: [{ name: 'Apay Marketing Private Limited' }],
     robots,
     alternates: {
       canonical,
+      languages: {},
     },
     openGraph: {
       type: 'website',
