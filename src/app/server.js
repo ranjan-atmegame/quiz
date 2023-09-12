@@ -19,7 +19,7 @@ import { getCategory } from '@/api';
 
 export const getRobot = (indexPages) => {
   const headerList = headers();
-  const canonical = headerList.referer;
+  const canonical = headerList.headers.referer;
 
   if (!headerList.headers.host.includes('www')) {
     return {
