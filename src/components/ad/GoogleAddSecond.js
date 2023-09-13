@@ -1,45 +1,28 @@
 import { useEffect, useRef } from 'react';
 
-const GoogleAddSecond = () => {
+export default function TestGoogleSeconds() {
   const adRef = useRef();
 
   useEffect(() => {
-    const addDivClassName = 'gpt-passback-' + new Date().valueOf();
-    // const addDivClassName = 'div-gpt-ad-1694591154579-0';
-    let hiddenElement = document.createElement('input');
-    hiddenElement.type = 'hidden';
-    hiddenElement.id = 'addDivClass';
-    hiddenElement.value = addDivClassName;
-    adRef.current.appendChild(hiddenElement);
+    const addDivClassName = adRef.current.getAttribute('class');
 
-    // let addScript = document.createElement('script');
-    // addScript.src = 'https://securepubads.g.doubleclick.net/tag/js/gpt.js';
-    // addScript.async = true;
-    // adRef.current.appendChild(addScript);
-
-    let addDiv = document.createElement('div');
-    // addDiv.id = "gpt-passback";
-    addDiv.id = addDivClassName;
-    addDiv.style.width = '300px';
-    addDiv.style.height = '250px';
-
-    let divAddScript = document.createElement('script');
-    divAddScript.src = '/js/secondAdScript-v2.js';
-
-    addDiv.appendChild(divAddScript);
-    adRef.current.appendChild(addDiv);
-
-    return () => {
-      console.log(addDivClassName);
-
-      const element = document.getElementById(addDivClassName);
-      console.log(element);
-      element?.remove();
-      console.log('removed');
-    };
+    window.googletag = window.googletag || { cmd: [] };
+    window.googletag.cmd.push(function () {
+      window.googletag
+        .defineSlot('/21619656201/Atmequiz_Filled', [300, 250], addDivClassName)
+        .addService(window.googletag.pubads());
+      window.googletag.enableServices();
+      window.googletag.display(addDivClassName);
+    });
   }, []);
 
-  return <div ref={adRef} style={{ width: '100%' }}></div>;
-};
-
-export default GoogleAddSecond;
+  return (
+    <div style={{ width: '100%' }}>
+      <div
+        ref={adRef}
+        className={'gpt-passback-' + new Date().valueOf()}
+        style={{ minWidth: '336px', minHeight: '280px' }}
+      ></div>
+    </div>
+  );
+}
