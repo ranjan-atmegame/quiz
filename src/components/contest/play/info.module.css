@@ -13,11 +13,21 @@
     right: 12px;
     top: 10px;
     cursor: pointer;
-    background: url(/img/volume-high.svg) no-repeat;
-    width: 24px;
-    height: 24px;
+    background: #090551  url(/img/volume-high-white.svg) no-repeat top 8px left 8px;
+    width: 40px;
+    height: 40px;
+    padding: 6px;
+    border-radius: 30px;
   }
 
   .sound.noSound{
-    background: url(/img/volume-slash.svg) no-repeat;
+    background: #090551 url(/img/volume-slash-white.svg)no-repeat top 8px left 8px;
+  }
+
+  @media (max-width: 768px) {
+    .sound{
+      top: -16px;
+      right: 8px;
+    }
+
   }
