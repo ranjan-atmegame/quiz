@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import Ad from '../ad';
 import Tab from '@/components/tab';
 import Search from '../search/search';

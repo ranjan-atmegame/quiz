@@ -23,6 +23,7 @@ export default function RewardIcon({ setDisplay }) {
 
       updateRewardCoins(BONUS_COINS);
       router.refresh();
+      setDisplay(false);
     });
   };
 
