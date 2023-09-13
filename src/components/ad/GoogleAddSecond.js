@@ -6,7 +6,8 @@ export default function GoogleAddSecond() {
   const adRef = useRef();
 
   useEffect(() => {
-    const addDivClassName = 'gpt-passback-' + new Date().valueOf();
+    // const addDivClassName = 'gpt-passback-' + new Date().valueOf();
+    const addDivClassName = 'div-gpt-ad-1694591154579-0';
     let hiddenElement = document.createElement('input');
     hiddenElement.type = 'hidden';
     hiddenElement.id = 'addDivClass';
@@ -19,8 +20,7 @@ export default function GoogleAddSecond() {
     adRef.current.appendChild(addScript);
 
     let addDiv = document.createElement('div');
-    // addDiv.id = "gpt-passback";
-    addDiv.id = 'div-gpt-ad-1694591154579-0';
+    addDiv.id = 'gpt-passback';
     addDiv.style.minWidth = '336px';
     addDiv.style.minHeight = '280px';
 
