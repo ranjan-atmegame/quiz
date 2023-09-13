@@ -69,6 +69,7 @@ initializeRewardAdX();
 function dismissRewardedAd() {
   googletag.destroySlots([rewardedSlot]);
 
+  console.log('destroyed...');
   initializeRewardAdX();
 }
 

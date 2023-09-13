@@ -16,15 +16,17 @@ export default function RewardIcon({ setDisplay }) {
   // };
 
   const updateReward = () => {
-    showRewardAd((result) => {
-      if (result?.status !== 'viewed') {
-        rewardAdX();
-      }
+    rewardAdX();
 
-      updateRewardCoins(BONUS_COINS);
-      // router.refresh();
-      setDisplay();
-    });
+    // showRewardAd((result) => {
+    //   if (result?.status !== 'viewed') {
+    //     rewardAdX();
+    //   }
+
+    //   updateRewardCoins(BONUS_COINS);
+    //   // router.refresh();
+    //   setDisplay();
+    // });
   };
 
   return (
