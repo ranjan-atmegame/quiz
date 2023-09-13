@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Script from 'next/script';
-import GPTAd from './GPTAd';
+// import GPTAd from './GPTAd';
+import RewardAdX from './RewardXAd';
 
 const GoogleAdd = () => {
   const [isAdUnfilled, setIsAdUnfilled] = useState(false);
@@ -35,7 +36,7 @@ const GoogleAdd = () => {
   };
 
   if (['PROD', 'TEST'].includes(process.env.ENV) && isAdUnfilled) {
-    return <GPTAd />;
+    return <RewardAdX />;
   }
 
   return (
