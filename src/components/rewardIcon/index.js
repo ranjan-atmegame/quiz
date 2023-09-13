@@ -6,7 +6,7 @@ import { updateRewardCoins } from '@/api/auth';
 import { BONUS_COINS } from '@/utils/Constant';
 import styles from './rewardIcon.module.css';
 // import { updateRewardCoins } from './api';
-import rewardAdX from '@/components/ad/GPTAd';
+// import rewardAdX from '@/components/ad/GPTAd';
 
 export default function RewardIcon({ setDisplay }) {
   // const router = useRouter();
