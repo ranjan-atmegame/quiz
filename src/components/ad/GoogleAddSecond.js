@@ -3,8 +3,8 @@ import React, { useEffect, useRef } from 'react';
 const GoogleAddSecond = () => {
   const adRef = useRef();
   useEffect(() => {
-    // const addDivClassName = 'gpt-passback-' + new Date().valueOf();
-    const addDivClassName = 'div-gpt-ad-1694591154579-0';
+    const addDivClassName = 'gpt-passback-' + new Date().valueOf();
+    // const addDivClassName = 'div-gpt-ad-1694591154579-0';
     let hiddenElement = document.createElement('input');
     hiddenElement.type = 'hidden';
     hiddenElement.id = 'addDivClass';
