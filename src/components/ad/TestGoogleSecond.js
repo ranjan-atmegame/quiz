@@ -23,6 +23,11 @@ export default function TestGoogleSeconds() {
 
     addDiv.appendChild(divAddScript);
     adRef.current.appendChild(addDiv);
+
+    return () => {
+      const item = document.querySelector(`${addDiv.id}`);
+      item.remove();
+    };
   }, []);
 
   return <div ref={adRef} style={{ width: '100%' }}></div>;
