@@ -1,9 +1,17 @@
-import Script from 'next/script';
+import { useEffect } from 'react';
 
 export default function GPTAd() {
+  useEffect(() => {
+    // <!-- /21619656201/Atmequiz_Filled -->
+    googletag.cmd.push(function () {
+      googletag.display('div-gpt-ad-1694591154579-0');
+    });
+  }, []);
+
   return (
-    <div id="div-gpt-ad-1694172802398-0">
-      <Script src="./gptScript.js"></Script>
-    </div>
+    <div
+      id="div-gpt-ad-1694591154579-0"
+      style="min-width: 336px; min-height: 280px;"
+    ></div>
   );
 }
