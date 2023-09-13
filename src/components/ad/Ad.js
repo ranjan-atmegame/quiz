@@ -50,7 +50,8 @@ const GoogleAdd = () => {
         className="adsbygoogle"
         style={{ display: 'block' }}
         data-ad-client="ca-pub-9733910408335876"
-        data-ad-slot="7826881212"
+        // data-ad-slot="7826881212"
+        data-ad-slot="78268812129099u098090"
         data-ad-format="auto"
         data-full-width-responsive="true"
       ></ins>
