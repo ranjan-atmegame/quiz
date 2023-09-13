@@ -5,14 +5,15 @@ export default function TestGoogleSeconds() {
 
   useEffect(() => {
     const addDivClassName = adRef.current.getAttribute('class');
+    console.log('add loaded in case of unfilled');
 
-    window.googletag = window.googletag || { cmd: [] };
-    window.googletag.cmd.push(function () {
-      window.googletag
+    googletag = googletag || { cmd: [] };
+    googletag.cmd.push(function () {
+      googletag
         .defineSlot('/21619656201/Atmequiz_Filled', [300, 250], addDivClassName)
-        .addService(window.googletag.pubads());
-      window.googletag.enableServices();
-      window.googletag.display(addDivClassName);
+        .addService(googletag.pubads());
+      googletag.enableServices();
+      googletag.display(addDivClassName);
     });
   }, []);
 
