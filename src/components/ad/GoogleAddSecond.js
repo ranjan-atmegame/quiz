@@ -2,14 +2,16 @@ import React, { useEffect, useRef } from 'react';
 // import { saveAddReport } from "../api";
 // import { SECOND_ADD } from "../constants";
 
-const GoogleAddSecond = () => {
+export default function GoogleAddSecond() {
   const adRef = useRef();
+
   useEffect(() => {
-    const addDivClassName = 'gpt-passback-' + new Date().valueOf();
+    // const addDivClassName = 'gpt-passback-' + new Date().valueOf();
     let hiddenElement = document.createElement('input');
     hiddenElement.type = 'hidden';
     hiddenElement.id = 'addDivClass';
-    hiddenElement.value = addDivClassName;
+    // hiddenElement.value = addDivClassName;
+    hiddenElement.value = 'div-gpt-ad-1694591154579-0';
     adRef.current.appendChild(hiddenElement);
 
     let addScript = document.createElement('script');
@@ -20,8 +22,8 @@ const GoogleAddSecond = () => {
     let addDiv = document.createElement('div');
     // addDiv.id = "gpt-passback";
     addDiv.id = addDivClassName;
-    addDiv.style.width = '300px';
-    addDiv.style.height = '250px';
+    addDiv.style.minWidth = '336px';
+    addDiv.style.minHeight = '280px';
 
     let divAddScript = document.createElement('script');
     divAddScript.src = '/js/secondAdScript.js';
@@ -33,6 +35,4 @@ const GoogleAddSecond = () => {
   }, []);
 
   return <div ref={adRef} style={{ width: '100%' }}></div>;
-};
-
-export default GoogleAddSecond;
+}
