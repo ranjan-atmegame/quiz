@@ -127,9 +127,12 @@ export default function Quiz({
       if (result?.status === 'viewed') {
         rewardOnSuccess();
       } else {
-        displayAd((result) => {
-          result?.status === 'viewed' ? rewardOnSuccess() : rewardOnError();
-        });
+        rewardAdX();
+        rewardOnSuccess();
+
+        // displayAd((result) => {
+        //   result?.status === 'viewed' ? rewardOnSuccess() : rewardOnError();
+        // });
       }
     });
   };
