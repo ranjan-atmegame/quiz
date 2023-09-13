@@ -129,30 +129,12 @@ export default function LifeLine({
 
     if (isFree) {
       console.log('SHOW REWARD AD!');
-      rewardAdX();
+      return showRewardAd((result) => {
+        if (result?.status) {
+          return updateState(lifeline);
+        }
+      });
     }
-
-    // if (isFree) {
-    //   console.log('SHOW REWARD AD!');
-    //   showRewardAd((result) => {
-    //     console.log(result);
-    //     if (result?.status !== 'viewed') {
-    //       rewardAdX();
-    //     }
-
-    //     return updateState(lifeline);
-    //     // router.refresh();
-    //     // setDisplay();
-    //   });
-
-    //   // return updateState(lifeline);
-    //   // return showRewardAd((result) => {
-    //   //   console.log(result);
-    //   //   if (result?.status) {
-    //   //     return updateState(lifeline);
-    //   //   }
-    //   // });
-    // }
 
     const { name } = findLifelineByName(lifeline);
     const transaction = {
