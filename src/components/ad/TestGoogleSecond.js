@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-const GoogleAddSecond = () => {
+export default function TestGoogleSeconds() {
   const adRef = useRef();
 
   useEffect(() => {
@@ -11,11 +11,6 @@ const GoogleAddSecond = () => {
     hiddenElement.id = 'addDivClass';
     hiddenElement.value = addDivClassName;
     adRef.current.appendChild(hiddenElement);
-
-    // let addScript = document.createElement('script');
-    // addScript.src = 'https://securepubads.g.doubleclick.net/tag/js/gpt.js';
-    // addScript.async = true;
-    // adRef.current.appendChild(addScript);
 
     let addDiv = document.createElement('div');
     // addDiv.id = "gpt-passback";
@@ -31,6 +26,4 @@ const GoogleAddSecond = () => {
   }, []);
 
   return <div ref={adRef} style={{ width: '100%' }}></div>;
-};
-
-export default GoogleAddSecond;
+}
