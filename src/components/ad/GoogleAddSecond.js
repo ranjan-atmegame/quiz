@@ -28,6 +28,15 @@ const GoogleAddSecond = () => {
 
     addDiv.appendChild(divAddScript);
     adRef.current.appendChild(addDiv);
+
+    return () => {
+      console.log(addDivClassName);
+
+      const element = document.getElementById(addDivClassName);
+      console.log(element);
+      element.remove();
+      console.log('removed');
+    };
   }, []);
 
   return <div ref={adRef} style={{ width: '100%' }}></div>;
