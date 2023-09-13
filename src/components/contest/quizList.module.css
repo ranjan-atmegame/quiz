@@ -28,11 +28,17 @@
 .quizCard .cardContent .thumbnialImg {
   display: flex;
   flex-wrap: wrap;
-  width: 80px;
+  width: 76px;
+  background: #fff;
+  border-radius: 16px;
+  height: 76px;
+  justify-content: center;
+  align-items: center;
+  min-width: 76px;
 }
 
 .quizCard .cardContent .thumbnialImg img {
-  width: 70px;
+  width: 60px;
 }
 
 .quizCard .cardContent .quizNameStatus {
