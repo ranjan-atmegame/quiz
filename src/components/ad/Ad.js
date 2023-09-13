@@ -36,7 +36,11 @@ const GoogleAdd = () => {
     });
   };
 
+  console.log({ isAdUnfilled });
+  console.log(process.env.ENV);
   if (['PROD', 'TEST'].includes(process.env.ENV) && isAdUnfilled) {
+    return <GPTAd />;
+  } else if (isAdUnfilled) {
     return <GPTAd />;
   }
 
