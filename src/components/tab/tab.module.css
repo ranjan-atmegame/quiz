@@ -41,6 +41,14 @@
   margin-left: -12px;
 }
 
+.draggable {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tab ul.contests {
+  -webkit-tap-highlight-color: transparent;
+}
+
 /* width */
 .tab ul.contests::-webkit-scrollbar {
   width: 0px;

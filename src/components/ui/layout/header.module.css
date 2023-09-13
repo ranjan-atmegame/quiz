@@ -278,7 +278,7 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 2;
+  z-index: 2004;
   max-width: 100%;
   margin: 0 auto;
   display: -webkit-box;
@@ -302,7 +302,7 @@
 }
 .overlay{
   position: relative;
-  z-index: -1;
+  z-index: 2005;
   right: 0;
   top: 0;
   width: 100%;
@@ -317,7 +317,7 @@
 
 .mobiContainer {
   position: fixed;
-  z-index: -1;
+  z-index: 2007;
   left: 0;
   top: 0;
   width: calc(85%);
@@ -716,6 +716,8 @@
   cursor: pointer;
   border:1px solid #272c93ff;
   margin-right: 4px;
+  max-height: 20px;
+  overflow: hidden;
 }
 
 .contenteditable:focus{

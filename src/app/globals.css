@@ -177,3 +177,21 @@ ul {
     background: #0e0a5f;
   }
 }
+
+
+*:focus {
+  outline: none;
+}
+
+:focus-visible, :focus-within{
+  outline: none;
+}
+
+/* input,
+textarea,
+button,
+select,
+a {
+    -webkit-tap-highlight-color: transparent;
+} */
+
