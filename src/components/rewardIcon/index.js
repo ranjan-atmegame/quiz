@@ -8,7 +8,7 @@ import styles from './rewardIcon.module.css';
 // import { updateRewardCoins } from './api';
 
 export default function RewardIcon({ setDisplay }) {
-  const router = useRouter();
+  // const router = useRouter();
   // const updateReward = () => {
   //   updateRewardCoins();
   //   setDisplay(false);
@@ -22,8 +22,8 @@ export default function RewardIcon({ setDisplay }) {
       }
 
       updateRewardCoins(BONUS_COINS);
-      router.refresh();
-      setDisplay(false);
+      // router.refresh();
+      setDisplay();
     });
   };
 

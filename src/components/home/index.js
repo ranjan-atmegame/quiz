@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import Ad from '../ad';
 import Tab from '@/components/tab';
 import Search from '../search/search';
@@ -15,6 +16,7 @@ export default function Home() {
   const [isMobile, isLoading] = useDevice();
   const [displaySearch, setDisplaySearch] = useState(false);
   const [displayReward, setDisplayReward] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
     if ('serviceWorker' in navigator)
@@ -31,6 +33,13 @@ export default function Home() {
 
     subscribe();
   }, []);
+
+  const handleDisplayReward = () => {
+    console.log('Refresh router');
+    router.refresh();
+    console.log('hide reward icon');
+    setDisplayReward(false);
+  };
 
   const toggleSearch = (e) => {
     e.preventDefault();
@@ -50,7 +59,7 @@ export default function Home() {
         <ContestList />
       </Tab>
       {isMobile && displayReward && (
-        <RewardIcon setDisplay={setDisplayReward} />
+        <RewardIcon setDisplay={handleDisplayReward} />
       )}
       {/* </PushNotificationLayout> */}
     </>
