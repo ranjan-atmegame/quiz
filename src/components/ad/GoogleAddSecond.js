@@ -7,11 +7,11 @@ export default function GoogleAddSecond() {
 
   useEffect(() => {
     // const addDivClassName = 'gpt-passback-' + new Date().valueOf();
+    const addDivClassName = 'div-gpt-ad-1694591154579-0';
     let hiddenElement = document.createElement('input');
     hiddenElement.type = 'hidden';
     hiddenElement.id = 'addDivClass';
-    // hiddenElement.value = addDivClassName;
-    hiddenElement.value = 'div-gpt-ad-1694591154579-0';
+    hiddenElement.value = addDivClassName;
     adRef.current.appendChild(hiddenElement);
 
     let addScript = document.createElement('script');
