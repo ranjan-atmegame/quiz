@@ -18,7 +18,7 @@ export default function TestGoogleSeconds() {
     addDiv.style.height = '250px';
 
     const divAddScript = document.createElement('script');
-    divAddScript.src = '/js/secondAdScript-v2.js';
+    divAddScript.src = '/js/secondAdScript-v3.js';
 
     addDiv.appendChild(divAddScript);
     adRef.current.appendChild(addDiv);
