@@ -61,12 +61,16 @@ googletag.cmd.push(function () {
 });
 
 function dismissRewardedAd() {
+  console.log('Destroy Ad');
   googletag.destroySlots([rewardedSlot]);
 
+  console.log('Regenerate slot');
   rewardedSlot = googletag.defineOutOfPageSlot(
     '/21619656201/Atmegame_RewardedNew',
     googletag.enums.OutOfPageFormat.REWARDED
   );
+
+  console.log({ rewardedSlot });
 }
 
 function rewardAdX() {
