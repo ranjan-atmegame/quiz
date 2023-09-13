@@ -11,10 +11,10 @@ const GoogleAddSecond = () => {
     hiddenElement.value = addDivClassName;
     adRef.current.appendChild(hiddenElement);
 
-    let addScript = document.createElement('script');
-    addScript.src = 'https://securepubads.g.doubleclick.net/tag/js/gpt.js';
-    addScript.async = true;
-    adRef.current.appendChild(addScript);
+    // let addScript = document.createElement('script');
+    // addScript.src = 'https://securepubads.g.doubleclick.net/tag/js/gpt.js';
+    // addScript.async = true;
+    // adRef.current.appendChild(addScript);
 
     let addDiv = document.createElement('div');
     // addDiv.id = "gpt-passback";
