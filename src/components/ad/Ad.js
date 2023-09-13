@@ -24,7 +24,7 @@ const GoogleAdd = () => {
           //   if (status === 'unfilled') {
           //     setIsAdUnfilled(true);
           //   }
-          console.log({ status });
+          // console.log({ status });
           if (['unfilled', 'frequencyCapped'].includes(status)) {
             setIsAdUnfilled(true);
           }

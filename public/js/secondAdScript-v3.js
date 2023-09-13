@@ -1,7 +1,5 @@
 console.log('add loaded in case of unfilled');
 
-console.log({ addDivClassName: document.querySelector('#addDivClass').value });
-
 window.googletag = window.googletag || { cmd: [] };
 window.googletag.cmd.push(function () {
   window.googletag
