@@ -9,7 +9,7 @@ export default function QuizRules() {
         <li>Upgrade your skills with our top quizzes.</li>
         <li>
           We have many top trending categories like Cricket, World, India,
-          Business &amp; many more!
+          Business, loan, insurance &amp; many more!
         </li>
         <li>Millions of quiz admirer like you showed trust on us.</li>
         <li>Challenge lakhs of players from across the world!</li>

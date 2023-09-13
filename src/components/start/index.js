@@ -51,14 +51,23 @@ export default function Start() {
       });
   }, []);
 
+  // useEffect(() => {
+  //   if (state.isSubmitted && !state.isBonusModal) {
+  //     setQuizSubmitted();
+  //     //testing purpose only
+  //     setDomain();
+  //     router.push(`/submit`);
+  //   }
+  // }, [state.isSubmitted, state.isBonusModal]);
+
   useEffect(() => {
-    if (state.isSubmitted && !state.isBonusModal) {
+    if (state.isSubmitted) {
       setQuizSubmitted();
       //testing purpose only
       setDomain();
       router.push(`/submit`);
     }
-  }, [state.isSubmitted, state.isBonusModal]);
+  }, [state.isSubmitted]);
 
   const addRewardCoins = (coins) => {
     const rewardCoins = getCookies(REWARD_COINS);
@@ -72,12 +81,18 @@ export default function Start() {
     }
 
     if (state.questionIndex >= 1) {
+      // setState((prevState) => ({
+      //   ...prevState,
+      //   lastQuestion: true,
+      //   // questionIndex: prevState.questionIndex + 1,
+      //   isSubmitted: isCorrect || prevState.displayedOnce,
+      //   isBonusModal: !prevState.displayedOnce && !isCorrect ? true : false,
+      // }));
+
       setState((prevState) => ({
         ...prevState,
         lastQuestion: true,
-        // questionIndex: prevState.questionIndex + 1,
-        isSubmitted: isCorrect || prevState.displayedOnce,
-        isBonusModal: !prevState.displayedOnce && !isCorrect ? true : false,
+        isSubmitted: true,
       }));
     } else {
       setState((prevState) => {
@@ -146,13 +161,13 @@ export default function Start() {
       )}
 
       {status !== 'authenticated' && <LoginOption />}
-      {!state.displayedOnce && state.isBonusModal && (
+      {/* {!state.displayedOnce && state.isBonusModal && (
         <Modal
           onClose={closeBonusModal}
           handleClick={handleBonusCoins}
           message={`Incorrect Answer`}
         />
-      )}
+      )} */}
       <QuizRules />
       {/* <Toast message="Subscribed successfully." /> */}
     </>

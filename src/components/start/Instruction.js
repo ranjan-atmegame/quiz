@@ -5,9 +5,7 @@ export default function Instruction({ total = 2 }) {
   return (
     <div className={header}>
       <h1>Quick Start!</h1>
-      <p>
-        Just answer {total} questions and win {DEFAULT_COIN} coins.
-      </p>
+      <p>Answer {total} questions and win upto 200 coins.</p>
     </div>
   );
 }
