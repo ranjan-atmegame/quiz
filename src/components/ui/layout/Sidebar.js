@@ -2,7 +2,6 @@ import Link from 'next/link';
 import Icon from '@/components/ui/Icon';
 import styles from './header.module.css';
 import { clearStorage } from '@/api/auth';
-import UserDetail from './UserDetail';
 
 export default function Sidebar({
   onClose,
@@ -23,7 +22,7 @@ export default function Sidebar({
     clearStorage();
   };
 
-  // const userName = isSignedIn ? `Guest ${user.name}` : 'Guest';
+  const userName = isSignedIn ? user.name : 'Guest';
   return (
     <div className={styles.sideMenu}>
       <div className={`${styles.mobileLeftMenu} ${styles.show}`}>
@@ -56,11 +55,44 @@ export default function Sidebar({
                     title="User Avatar"
                   />
                 </div>
-                <UserDetail
-                  styles={styles}
-                  isSignedIn={isSignedIn}
-                  handleSignout={handleSignout}
-                />
+                <div className={styles.userDetails}>
+                  <h3>
+                    <span contenteditable="true" className={styles.hide}>
+                      Welcome!
+                    </span>{' '}
+                    <span
+                      className={styles.contenteditable}
+                      contenteditable="true"
+                    >
+                      {userName}
+                    </span>
+                    <Icon
+                      width={18}
+                      height={18}
+                      src="/img/edit.svg"
+                      title="Edit"
+                      iconClass={styles.editText}
+                    />
+                  </h3>
+                  <p>Play Quiz &amp; earn coins</p>
+
+                  {!isSignedIn ? (
+                    <Link
+                      className={`${styles.btn} ${styles.btnSmall} ${styles.shine}`}
+                      href="/login"
+                    >
+                      Sign In
+                    </Link>
+                  ) : (
+                    <Link
+                      className={`${styles.btn} ${styles.btnSmall} ${styles.shine}`}
+                      onClick={handleSignout}
+                      href=""
+                    >
+                      Logout
+                    </Link>
+                  )}
+                </div>
               </div>
             </div>
             <div className={styles.menuItems}>
