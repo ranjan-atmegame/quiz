@@ -19,7 +19,9 @@ export default function RewardIcon({ setDisplay }) {
     showRewardAd((result) => {
       console.log(result);
       if (result?.status !== 'viewed') {
-        rewardAdX();
+        // rewardAdX();
+        console.log(adEvent);
+        adEvent?.makeRewardedVisible();
       }
 
       updateRewardCoins(BONUS_COINS);

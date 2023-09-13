@@ -14,8 +14,10 @@ export default function RewardAdX() {
         googletag.enums.OutOfPageFormat.REWARDED
       );
 
+      console.log('1 Load slot');
       // Slot returns null if the page or device does not support rewarded ads.
       if (rewardedSlot) {
+        console.log('2 Load slot');
         rewardedSlot.addService(googletag.pubads());
 
         googletag
@@ -31,6 +33,8 @@ export default function RewardAdX() {
         googletag
           .pubads()
           .addEventListener('rewardedSlotGranted', function (event) {
+            console.log('3 rewardedSlotGranted');
+
             // Set event
             setAddEvent(event);
 
@@ -58,10 +62,5 @@ export default function RewardAdX() {
     return null;
   }
 
-  //   return function rewardAdX() {
-  //     console.log('rewardAdX called...');
-  //     adEvent.makeRewardedVisible();
-  //   };
-
-  return adEvent.makeRewardedVisible;
+  return adEvent;
 }
