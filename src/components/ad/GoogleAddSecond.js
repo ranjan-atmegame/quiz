@@ -4,26 +4,25 @@ export default function TestGoogleSeconds() {
   const adRef = useRef();
 
   useEffect(() => {
-    const addDivClassName = adRef.current.getAttribute('class');
-    console.log('add loaded in case of unfilled');
+    const uniqueId = 'gpt-passback-' + new Date().valueOf();
 
-    googletag = googletag || { cmd: [] };
-    googletag.cmd.push(function () {
-      googletag
-        .defineSlot('/21619656201/Atmequiz_Filled', [300, 250], addDivClassName)
-        .addService(googletag.pubads());
-      googletag.enableServices();
-      googletag.display(addDivClassName);
-    });
+    let hiddenElement = document.createElement('input');
+    hiddenElement.type = 'hidden';
+    hiddenElement.id = 'addDivClass';
+    hiddenElement.value = uniqueId;
+    adRef.current.appendChild(hiddenElement);
+
+    const addDiv = document.createElement('div');
+    addDiv.id = uniqueId;
+    addDiv.style.width = '300px';
+    addDiv.style.height = '250px';
+
+    const divAddScript = document.createElement('script');
+    divAddScript.src = '/js/secondAdScript-v2.js';
+
+    addDiv.appendChild(divAddScript);
+    adRef.current.appendChild(addDiv);
   }, []);
 
-  return (
-    <div style={{ width: '100%' }}>
-      <div
-        ref={adRef}
-        className={'gpt-passback-' + new Date().valueOf()}
-        style={{ minWidth: '336px', minHeight: '280px' }}
-      ></div>
-    </div>
-  );
+  return <div ref={adRef} style={{ width: '100%' }}></div>;
 }
