@@ -34,7 +34,7 @@ const GoogleAddSecond = () => {
 
       const element = document.getElementById(addDivClassName);
       console.log(element);
-      element.remove();
+      element?.remove();
       console.log('removed');
     };
   }, []);
