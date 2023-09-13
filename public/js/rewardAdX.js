@@ -48,11 +48,11 @@ googletag.cmd.push(function () {
         // Remove this to force the user to close the ad themselves.
         dismissRewardedAd();
 
-        var reward = event.payload;
-        displayModal(
-          'grant',
-          'You have been rewarded ' + reward.amount + ' ' + reward.type + '!'
-        );
+        // var reward = event.payload;
+        // displayModal(
+        //   'grant',
+        //   'You have been rewarded ' + reward.amount + ' ' + reward.type + '!'
+        // );
       });
 
     googletag.enableServices();
