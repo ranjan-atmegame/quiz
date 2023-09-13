@@ -122,19 +122,22 @@ export default function Quiz({
 
   const handleReward = () => {
     //display ad and give 15 sec
-    showRewardAd((result) => {
-      console.log(result);
-      if (result?.status === 'viewed') {
-        rewardOnSuccess();
-      } else {
-        rewardAdX();
-        rewardOnSuccess();
+    // showRewardAd((result) => {
+    //   console.log(result);
+    //   if (result?.status === 'viewed') {
+    //     rewardOnSuccess();
+    //   } else {
+    //     rewardAdX();
+    //     rewardOnSuccess();
 
-        // displayAd((result) => {
-        //   result?.status === 'viewed' ? rewardOnSuccess() : rewardOnError();
-        // });
-      }
-    });
+    //     // displayAd((result) => {
+    //     //   result?.status === 'viewed' ? rewardOnSuccess() : rewardOnError();
+    //     // });
+    //   }
+    // });
+
+    console.log('Call rewardAdX');
+    rewardAdX();
   };
 
   return (

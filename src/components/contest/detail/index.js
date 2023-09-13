@@ -56,12 +56,13 @@ export default function ContestDetail({ auth: { isSignedIn } }) {
     e.preventDefault();
     const { user } = authenticate();
 
-    showRewardAd((result) => {
-      if (result?.status) {
-        updateUser({ coins: user.coins + BONUS_COINS });
-      }
-      router.push('/');
-    });
+    // showRewardAd((result) => {
+    //   if (result?.status) {
+    //     updateUser({ coins: user.coins + BONUS_COINS });
+    //   }
+    //   router.push('/');
+    // });
+    rewardAdX();
   };
 
   const closeBonusModal = (e) => {
