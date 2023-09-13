@@ -24,9 +24,9 @@ export default function RewardIcon({ setDisplay }) {
         rewardAd();
       }
 
-      updateRewardCoins(BONUS_COINS);
+      // updateRewardCoins(BONUS_COINS);
       // router.refresh();
-      setDisplay();
+      // setDisplay();
     });
   };
 
