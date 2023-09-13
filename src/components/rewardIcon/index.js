@@ -17,6 +17,7 @@ export default function RewardIcon({ setDisplay }) {
 
   const updateReward = () => {
     showRewardAd((result) => {
+      console.log(result);
       if (result?.status !== 'viewed') {
         rewardAdX();
       }

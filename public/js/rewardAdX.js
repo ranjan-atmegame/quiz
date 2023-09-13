@@ -70,10 +70,11 @@ initializeRewardAdX();
 function dismissRewardedAd() {
   googletag.destroySlots([rewardedSlot]);
 
+  console.log('destroyed...');
   initializeRewardAdX();
 }
 
 function rewardAdX() {
-  console.log(adEvent);
-  adEvent.makeRewardedVisible();
+  console.log('rewardAdX called...');
+  adEvent?.makeRewardedVisible();
 }
