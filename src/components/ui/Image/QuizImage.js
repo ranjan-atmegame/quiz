@@ -7,9 +7,11 @@ export default function QuizImage({
   width = 70,
   height = 70,
 }) {
+  const imagePath = `/img/${imageName}`.replace('.png', '.svg');
   return (
     <Image
-      src={`${IMG_PATH}/img/${imageName}`}
+      // src={`${IMG_PATH}/img/${imageName}`}
+      src={imagePath}
       alt={`Play ${name} Online Quiz`}
       title={`Play ${name} Online Quiz`}
       width={width}

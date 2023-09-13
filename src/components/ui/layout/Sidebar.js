@@ -66,13 +66,13 @@ export default function Sidebar({
                     >
                       {userName}
                     </span>
-                    <Icon
+                    {/* <Icon
                       width={18}
                       height={18}
                       src="/img/edit.svg"
                       title="Edit"
                       iconClass={styles.editText}
-                    />
+                    /> */}
                   </h3>
                   <p>Play Quiz &amp; earn coins</p>
 
