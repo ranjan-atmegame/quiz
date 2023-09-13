@@ -62,6 +62,11 @@ googletag.cmd.push(function () {
 
 function dismissRewardedAd() {
   googletag.destroySlots([rewardedSlot]);
+
+  rewardedSlot = googletag.defineOutOfPageSlot(
+    '/21619656201/Atmegame_RewardedNew',
+    googletag.enums.OutOfPageFormat.REWARDED
+  );
 }
 
 function rewardAdX() {
