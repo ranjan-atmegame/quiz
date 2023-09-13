@@ -6,7 +6,7 @@ const Home = dynamic(() => import('@/components/home'));
 const Layout = dynamic(() => import('@/components/ui/layout'));
 
 export async function generateMetadata({ params, searchParams }, parent) {
-  const { robots, canonical } = getRobot(true);
+  const { robots, host: canonical } = getRobot(true);
 
   return {
     title:
@@ -43,7 +43,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
   };
 }
 
-export default async function Page() {
+export default async function Page({ params, searchParams }) {
   // 1) Verify is two question submitted
   if (!isSubmitted()) {
     redirect('/start');

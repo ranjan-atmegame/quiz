@@ -9,7 +9,9 @@ import { getRobot } from '../server';
 // import { CONTEST_TYPES, CRICKET_SUBDOMAIN } from '@/utils/Constant';
 
 export async function generateMetadata({ params, searchParams }, parent) {
-  const { robots, canonical } = getRobot();
+  const { robots, host } = getRobot();
+  const canonical = `${host}/${params.slug}`;
+
   const slug = params.slug.replace('-quiz', '');
   let quizList = cookies().get(ALLOWED_CATEGORY)?.value;
   quizList = quizList ? JSON.parse(quizList) : [];

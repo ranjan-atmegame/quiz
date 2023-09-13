@@ -19,25 +19,25 @@ import { getCategory } from '@/api';
 
 export const getRobot = (indexPages) => {
   const headerList = headers();
-  const canonical = headerList.headers.referer;
+  const host = `${headerList.headers['x-forwarded-proto']}://${headerList.headers.host}`;
 
   if (!headerList.headers.host.includes('www')) {
     return {
       robots: { index: false, follow: false },
-      canonical,
+      host,
     };
   }
 
   if (indexPages) {
     return {
       robots: { index: true, follow: true },
-      canonical,
+      host,
     };
   }
 
   return {
     robots: { index: false, follow: true },
-    canonical,
+    host,
   };
 };
 

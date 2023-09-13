@@ -6,7 +6,8 @@ const Layout = dynamic(() => import('@/components/ui/layout'));
 const CoinHistory = dynamic(() => import('@/components/user/CoinHistory'));
 
 export async function generateMetadata({ params, searchParams }, parent) {
-  const { robots, canonical } = getRobot();
+  const { robots, host } = getRobot();
+  const canonical = `${host}/coin-history`;
 
   return {
     title: 'Coin History : AtmeQuiz.com',

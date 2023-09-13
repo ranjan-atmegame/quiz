@@ -5,7 +5,8 @@ const Layout = dynamic(() => import('@/components/ui/layout'));
 const Play = dynamic(() => import('@/components/contest/play'));
 
 export async function generateMetadata({ params, searchParams }, parent) {
-  const { robots, canonical } = getRobot();
+  const { robots, host } = getRobot();
+  const canonical = `${host}/${params.slug}/play-contest?contestId=${searchParams.contestId}`;
 
   return {
     title: 'Play Online Bollywood Quiz Contest : AtmeQuiz.com',

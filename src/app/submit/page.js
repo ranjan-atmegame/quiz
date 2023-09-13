@@ -5,7 +5,8 @@ const Layout = dynamic(() => import('@/components/ui/layout'));
 const Submit = dynamic(() => import('@/components/submit'));
 
 export async function generateMetadata({ params, searchParams }, parent) {
-  const { robots, canonical } = getRobot();
+  const { robots, host } = getRobot();
+  const canonical = `${host}/submit`;
 
   return {
     title: 'Now Play More Quiz Contest and Submit : AtmeQuiz.com',

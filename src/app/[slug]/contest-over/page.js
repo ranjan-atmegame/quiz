@@ -4,7 +4,8 @@ const Layout = dynamic(() => import('@/components/ui/layout'));
 const ContestOver = dynamic(() => import('@/components/contest/over'));
 
 export async function generateMetadata({ params, searchParams }, parent) {
-  const { robots, canonical } = getRobot();
+  const { robots, host } = getRobot();
+  const canonical = `${host}/${params.slug}/contest-over?contestId=${searchParams.contestId}`;
 
   return {
     title: 'Thanku- Online Sports Quiz Contest Over : AtmeQuiz.com',

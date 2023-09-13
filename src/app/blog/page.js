@@ -4,7 +4,8 @@ const Blog = dynamic(() => import('@/components/blog'));
 const Layout = dynamic(() => import('@/components/ui/layout'));
 
 export async function generateMetadata({ params, searchParams }, parent) {
-  const { robots, canonical } = getRobot(1);
+  const { robots, host } = getRobot(true);
+  const canonical = `${host}/blog`;
 
   return {
     robots,

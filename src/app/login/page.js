@@ -10,7 +10,8 @@ import { headers } from 'next/headers';
 const Layout = dynamic(() => import('@/components/ui/layout'));
 
 export async function generateMetadata({ params, searchParams }, parent) {
-  const { robots, canonical } = getRobot();
+  const { robots, host } = getRobot();
+  const canonical = `${host}/login`;
 
   return {
     title: 'Online Quiz Contest Login : AtmeQuiz.com',
