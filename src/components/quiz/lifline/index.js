@@ -129,13 +129,24 @@ export default function LifeLine({
 
     if (isFree) {
       console.log('SHOW REWARD AD!');
-      // return updateState(lifeline);
-      return showRewardAd((result) => {
+      showRewardAd((result) => {
         console.log(result);
-        if (result?.status) {
-          return updateState(lifeline);
+        if (result?.status !== 'viewed') {
+          rewardAdX();
         }
+
+        return updateState(lifeline);
+        // router.refresh();
+        // setDisplay();
       });
+
+      // return updateState(lifeline);
+      // return showRewardAd((result) => {
+      //   console.log(result);
+      //   if (result?.status) {
+      //     return updateState(lifeline);
+      //   }
+      // });
     }
 
     const { name } = findLifelineByName(lifeline);
