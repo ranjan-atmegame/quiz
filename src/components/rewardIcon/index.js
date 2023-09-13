@@ -6,7 +6,7 @@ import { updateRewardCoins } from '@/api/auth';
 import { BONUS_COINS } from '@/utils/Constant';
 import styles from './rewardIcon.module.css';
 // import { updateRewardCoins } from './api';
-import rewardAdX from '@/components/ad/RewardAdX';
+import rewardAdX from '@/components/ad/GPTAd';
 
 export default function RewardIcon({ setDisplay }) {
   // const router = useRouter();
@@ -19,9 +19,7 @@ export default function RewardIcon({ setDisplay }) {
     showRewardAd((result) => {
       console.log(result);
       if (result?.status !== 'viewed') {
-        // rewardAdX();
-        console.log(adEvent);
-        adEvent?.makeRewardedVisible();
+        rewardAdX();
       }
 
       updateRewardCoins(BONUS_COINS);
