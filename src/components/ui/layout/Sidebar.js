@@ -57,12 +57,12 @@ export default function Sidebar({
                 </div>
                 <div className={styles.userDetails}>
                   <h3>
-                    <span contenteditable="true" className={styles.hide}>
+                    <span contenteditable="false" className={styles.hide}>
                       Welcome!
                     </span>{' '}
                     <span
                       className={styles.contenteditable}
-                      contenteditable="true"
+                      contenteditable="false"
                     >
                       {userName}
                     </span>
