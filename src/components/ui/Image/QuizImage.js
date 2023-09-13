@@ -4,8 +4,8 @@ import { IMG_PATH } from '@/config';
 export default function QuizImage({
   imageName,
   name,
-  width = 70,
-  height = 70,
+  width = 60,
+  height = 60,
 }) {
   const imagePath = `/img/${imageName}`.replace('.png', '.svg');
   return (
