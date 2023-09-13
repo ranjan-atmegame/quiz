@@ -30,7 +30,7 @@ export default function ContestInfo({ contest }) {
   const audioJSX = () => {
     return (
       <audio id="myAudio" ref={musicRef} autoplay="autoplay">
-        <source src="/audio/music.mp3" />
+        <source src="/audio/Quiz.wav" />
       </audio>
     );
   };
