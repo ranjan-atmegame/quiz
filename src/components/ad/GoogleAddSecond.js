@@ -4,7 +4,7 @@ const GoogleAddSecond = () => {
   const adRef = useRef();
   useEffect(() => {
     // const addDivClassName = 'gpt-passback-' + new Date().valueOf();
-    const addDivClass = 'div-gpt-ad-1694591154579-0';
+    const addDivClassName = 'div-gpt-ad-1694591154579-0';
     let hiddenElement = document.createElement('input');
     hiddenElement.type = 'hidden';
     hiddenElement.id = 'addDivClass';
