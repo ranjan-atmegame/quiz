@@ -9,7 +9,7 @@ import { getRobot } from '../server';
 // import { CONTEST_TYPES, CRICKET_SUBDOMAIN } from '@/utils/Constant';
 
 export async function generateMetadata({ params, searchParams }, parent) {
-  const { robots, host } = getRobot();
+  const { robots, host } = getRobot(true);
   const canonical = `${host}/${params.slug}`;
 
   const slug = params.slug.replace('-quiz', '');
