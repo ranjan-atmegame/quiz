@@ -74,8 +74,17 @@ function dismissRewardedAd() {
   initializeRewardAdX();
 }
 
+// function rewardAdX() {
+//   console.log('rewardAdX called...');
+//   console.log(adEvent);
+//   adEvent.makeRewardedVisible();
+// }
+
 function rewardAdX() {
-  console.log('rewardAdX called...');
-  console.log(adEvent);
-  adEvent.makeRewardedVisible();
+  initializeRewardAdX();
+  setTimeout(() => {
+    console.log('rewardAdX called...');
+    console.log(adEvent);
+    adEvent.makeRewardedVisible();
+  }, [2000]);
 }
