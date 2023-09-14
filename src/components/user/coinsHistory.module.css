@@ -29,21 +29,34 @@
     margin-top: 4px;
 }
 
+.spaceTop img{
+    margin-right: 4px;
+    font-size: 16px;
+}
+
 .coinHistory .historyList:last-child {border-bottom: solid 0px #ffffff21;}
 
 .coinHistory .historyList .quizThumb {
-    width: 56px;
-    height: 56px;
+    width: 70px;
+    height: 70px;
     border-radius: 16px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.coinHistory .historyList .quizThumb img{
+    width: 54px;
 }
 
 .coinHistory .historyList .quizNameDate {
-    width: 55%;
+    width: 51%;
     padding-left: 16px;
 }
 
 .coinHistory .historyList .quizNameDate h4 {
-    font-size: 14px;
+    font-size: 17px;
     font-weight: 500;
 }
 
@@ -63,20 +76,20 @@
     padding: 1px 8px;
     width: 45px;
     color: #dfe1fc;
-    font-size: 10px;
+    font-size: 11px;
 }
 .coinHistory .historyList .historyBedge span {
     color: #dfe1fc;
-    font-size: 10px;
+    font-size: 11px;
 }
 .coinHistory .historyList .historyBedge.earned {
-    color: #1fca83;
+    color: #007947;
     background: #bafceb;
 }
 
 
 .coinHistory .historyList .historyBedge.paid {
-    color: #de5353;
+    color: #9d0b0b;
     background: #ffcbcb
 }
 
@@ -86,6 +99,6 @@
 }
 
 .coinHistory .historyList .earnedPaidCoins {
-    width: 25%;
+    width: 27%;
     text-align: right;
 }

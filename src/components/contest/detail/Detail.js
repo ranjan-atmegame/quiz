@@ -12,7 +12,9 @@ export default function Detail({ contest }) {
       <div className={styles.playNow}>
         <div className={styles.stage}>
           <div className={`${styles.box} ${styles.bounce}`}>
-            <QuizImage imageName={contest.quizImage} name={contest.name} />
+            <div className={styles.thumbnialImg}>
+              <QuizImage imageName={contest.quizImage} name={contest.name} />
+            </div>
             <h3 className={styles.title}>{contest.name}</h3>
           </div>
         </div>
