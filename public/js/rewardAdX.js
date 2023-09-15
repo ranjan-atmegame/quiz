@@ -4,7 +4,6 @@ let rewardedSlot;
 let adEvent = null;
 
 function initializeRewardAdX() {
-  console.log('Called RewardAdX');
   googletag.cmd.push(function () {
     rewardedSlot = googletag.defineOutOfPageSlot(
       '/21619656201/Atmegame_RewardedNew',

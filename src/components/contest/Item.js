@@ -57,7 +57,7 @@ export default function Item({ contest }) {
             </p>
 
             <Link
-              // prefetch={false}
+              // prefetch={true}
               className={`${styles.btn} ${styles.btnSmall}`}
               title={`Play ${contest.name} contest`}
               href={`/${contest.slug}-quiz/join-contest?contestId=${contest._id}`}
