@@ -29,9 +29,9 @@ export default function Modal({ onClose, handleClick, message }) {
             <div className={styles.listCheck}>
               <button className={styles.reportBtn} onClick={handleClick}>
                 <Image
-                  src="/img/video.svg"
-                  width={40}
-                  height={40}
+                  src="/img/videoIcon.svg"
+                  width={30}
+                  height={30}
                   alt="Get More Coins"
                 />
                 Continue

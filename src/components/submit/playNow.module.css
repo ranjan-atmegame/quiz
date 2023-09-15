@@ -313,3 +313,14 @@
   }
   
 }
+
+.bounce .thumbnialImg{
+  width: 76px;
+  height: 76px;
+  background: #fff;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8px auto;
+}
