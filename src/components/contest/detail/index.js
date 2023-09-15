@@ -14,8 +14,10 @@ const JoinButton = dynamic(() => import('../joinButton'));
 const PrizeAndIssueButton = dynamic(() =>
   import('../joinButton/PrizeAndIssueButton')
 );
+import Header from '@/components/ui/layout/Header';
+import Footer from '@/components/ui/layout/Footer';
 
-export default function ContestDetail({ auth: { isSignedIn } }) {
+export default function ContestDetail() {
   const router = useRouter();
   const params = useParams();
   const searchParams = useSearchParams();
@@ -25,6 +27,7 @@ export default function ContestDetail({ auth: { isSignedIn } }) {
 
   const contestId = searchParams.get('contestId');
   const { slug } = params;
+  const isSignedIn = false;
 
   useEffect(() => {
     if (contestId && slug) {
@@ -90,6 +93,7 @@ export default function ContestDetail({ auth: { isSignedIn } }) {
 
   return (
     <>
+      <Header />
       {contest && <Detail contest={contest} />}
       <JoinButton
         isSignedIn={isSignedIn}
@@ -109,6 +113,7 @@ export default function ContestDetail({ auth: { isSignedIn } }) {
           message={`You don't have enough coins to play this contest.`}
         />
       )}
+      <Footer />
     </>
   );
 }

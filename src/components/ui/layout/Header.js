@@ -18,7 +18,8 @@ import {
 import Toast from '@/components/toast/toast';
 
 // const Header = ({ displayCoins = true, auth: { user, isSignedIn } }) => {
-const Header = ({ displayCoins = true, auth, isBackButton = false }) => {
+// const Header = ({ displayCoins = true, auth, isBackButton = false }) => {
+const Header = ({ displayCoins = true, isBackButton = false }) => {
   const router = useRouter();
   const [displaySidebar, setDisplaySidebar] = useState(false);
   const [displayReportModal, setDisplayReportModal] = useState(false);
@@ -90,6 +91,7 @@ const Header = ({ displayCoins = true, auth, isBackButton = false }) => {
   };
 
   let user = null;
+  const auth = { isSignedIn: false, user: { coins: 0 }, token: null };
   if (isServer()) {
     user = auth.user;
   } else {

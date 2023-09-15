@@ -10,6 +10,8 @@ import useCategory from '@/hooks/useCategory';
 import RewardIcon from '../rewardIcon';
 import useDevice from '@/hooks/useDevice';
 // import PushNotificationLayout from '@/co mponents/notification';
+import Header from '../ui/layout/Header';
+import Footer from '../ui/layout/Footer';
 
 export default function Home() {
   const [category, isCategoryLoading] = useCategory();
@@ -48,6 +50,7 @@ export default function Home() {
 
   return (
     <>
+      <Header />
       <Ad />
       {displaySearch && <Search tabs={category} toggleSearch={toggleSearch} />}
       {/* <PushNotificationLayout> */}
@@ -62,6 +65,7 @@ export default function Home() {
         <RewardIcon setDisplay={handleDisplayReward} />
       )}
       {/* </PushNotificationLayout> */}
+      <Footer />
     </>
   );
 }
