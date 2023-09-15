@@ -55,16 +55,44 @@
 .lifeLine ul.lifeLineWrapper li span{
     font-size: 11px;
 }
+@media only screen and (max-width:768px) {
+  .lifeLine ul.lifeLineWrapper li .lifeLineList.disabled::before{
+    left: 27px;
+    top: 26px;
+  }
+}
 
-@media only screen and (max-width:380px) {
+@media only screen and (max-width:400px) {
     .lifeLine ul.lifeLineWrapper li .lifeLineList{
-        width: 76px;
-        height: 80px;
+        width: 74px;
+        height: 74px;
 
     }
     .lifeLine ul.lifeLineWrapper li span{
         font-size: 9px;
+        white-space: nowrap;
     }
+}
+
+@media only screen and (max-width:350px) {
+  .lifeLine ul.lifeLineWrapper li .lifeLineList{
+    width: 70px;
+    height: 70px;
+
+}
+
+.lifeLine ul.lifeLineWrapper li .lifeLineList.disabled::before{
+  left: 18px;
+  top: 18px;
+}
+}
+
+@media only screen and (max-width:330px) {
+  .lifeLine ul.lifeLineWrapper li .lifeLineList{
+    width: 66px;
+    height: 66px;
+
+}
 }
 
 
