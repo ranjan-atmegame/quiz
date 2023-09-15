@@ -20,8 +20,7 @@ import { getCategory } from '@/api';
 export const getRobot = (indexPages) => {
   const headerList = headers();
   // const host = `${headerList.headers['x-forwarded-proto']}://${headerList.headers.host}`;
-  const host = headerList.headers.host;
-
+  const host = `https://${headerList.headers.host}`;
   if (!headerList.headers.host.includes('www')) {
     return {
       robots: { index: false, follow: false },
