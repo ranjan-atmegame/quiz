@@ -35,22 +35,22 @@ export default function Start() {
 
   useEffect(() => {
     getLocation();
-    // getTwoQuestions()
-    //   .then((response) => {
-    //     if (response.length) {
-    //       setState((prevState) => {
-    //         return {
-    //           ...prevState,
-    //           questions: response,
-    //           question: response[prevState.questionIndex],
-    //         };
-    //       });
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //     setState({ question: null, question: null, questionIndex: 0 });
-    //   });
+    getTwoQuestions()
+      .then((response) => {
+        if (response.length) {
+          setState((prevState) => {
+            return {
+              ...prevState,
+              questions: response,
+              question: response[prevState.questionIndex],
+            };
+          });
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        setState({ question: null, question: null, questionIndex: 0 });
+      });
   }, []);
 
   // useEffect(() => {
