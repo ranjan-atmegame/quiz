@@ -16,7 +16,7 @@ const FunFact = dynamic(() => import('@/components/start/FunFact'));
 // import QuizRules from '../rule';
 // import TwoQuestion from './twoQuestion/Question';
 // import FunFact from './FunFact';
-import EmptyStart from './emptyStart';
+// import EmptyStart from './emptyStart';
 import { getLocation } from '@/utils/Location';
 import { getCookies, setCookies } from '@/utils/Cookies';
 import { BONUS_COINS, REWARD_COINS } from '@/utils/Constant';
@@ -111,7 +111,7 @@ export default function Start() {
   return (
     <>
       <Ad />
-      {state.question ? (
+      {state.question && (
         <>
           <TwoQuestion
             question={state.question}
@@ -120,8 +120,6 @@ export default function Start() {
           />
           <FunFact />
         </>
-      ) : (
-        <EmptyStart />
       )}
 
       <QuizRules />
