@@ -1,21 +1,14 @@
 'use client';
-import dynamic from 'next/dynamic';
-
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Ad from '../ad';
 
 import { getTwoQuestions } from '@/api';
 import { setQuizSubmitted, setDomain } from './api';
-const QuizRules = dynamic(() => import('@/components/rule'));
-const TwoQuestion = dynamic(() =>
-  import('@/components/start/twoQuestion/Question')
-);
-const FunFact = dynamic(() => import('@/components/start/FunFact'));
 // const EmptyStart = dynamic(() => import('@/components/start/emptyStart'));
-// import QuizRules from '../rule';
-// import TwoQuestion from './twoQuestion/Question';
-// import FunFact from './FunFact';
+import QuizRules from '../rule';
+import TwoQuestion from './twoQuestion/Question';
+import FunFact from './FunFact';
 // import EmptyStart from './emptyStart';
 import { getLocation } from '@/utils/Location';
 import { getCookies, setCookies } from '@/utils/Cookies';

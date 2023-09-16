@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { IMG_PATH } from '@/config';
+import { S3_IMAGE_THUMB } from '@/config';
 
 export default function QuizImage({
   imageName,
@@ -7,7 +7,8 @@ export default function QuizImage({
   width = 60,
   height = 60,
 }) {
-  const imagePath = `/img/${imageName}`.replace('.png', '.svg');
+  const imagePath = `${S3_IMAGE_THUMB}/${imageName}`.replace('.png', '.svg');
+  console.log(imagePath);
   return (
     <Image
       // src={`${IMG_PATH}/img/${imageName}`}

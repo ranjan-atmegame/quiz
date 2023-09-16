@@ -1,6 +1,8 @@
 import { CONTEST_TYPES, CRICKET_SUBDOMAIN } from '@/utils/Constant';
 
 export const LOCATION_API = 'https://pro.ip-api.com/json?key=iZun9ZnnZf8crvL';
+export const S3_IMAGE_PATH = 'https://images.atmequiz.com';
+export const S3_IMAGE_THUMB = 'https://images.atmequiz.com/thumbs';
 
 const API_LIST = {
   PROD: process.env.NEXT_PUBLIC_API_URL,

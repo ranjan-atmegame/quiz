@@ -13,7 +13,7 @@ export default function ContestLoader() {
           <div className={styles.thumbnialImg}>
             <QuizImage
               name={'politics'}
-              imageName="politics.png"
+              imageName="politics.svg"
               quality={50}
             />
           </div>
