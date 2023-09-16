@@ -39,7 +39,7 @@ export default function Footer({ displayLogo = false }) {
             <Image
               width={12}
               height={11}
-              src={`${IMG_PATH}/img/heart-icon.svg`}
+              src={`/img/heart-icon.svg`}
               title="Heart"
               alt="Heart"
               // priority={true}
@@ -48,7 +48,7 @@ export default function Footer({ displayLogo = false }) {
             <Image
               width={14}
               height={9}
-              src={`${IMG_PATH}/img/india-flag-icon.svg`}
+              src={`/img/india-flag-icon.svg`}
               title="India Flag"
               alt="India Flag"
               // priority={true}

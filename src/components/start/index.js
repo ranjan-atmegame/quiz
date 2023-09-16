@@ -12,11 +12,11 @@ const TwoQuestion = dynamic(() =>
   import('@/components/start/twoQuestion/Question')
 );
 const FunFact = dynamic(() => import('@/components/start/FunFact'));
-const EmptyStart = dynamic(() => import('@/components/start/emptyStart'));
+// const EmptyStart = dynamic(() => import('@/components/start/emptyStart'));
 // import QuizRules from '../rule';
 // import TwoQuestion from './twoQuestion/Question';
 // import FunFact from './FunFact';
-// import EmptyStart from './emptyStart';
+import EmptyStart from './emptyStart';
 import { getLocation } from '@/utils/Location';
 import { getCookies, setCookies } from '@/utils/Cookies';
 import { BONUS_COINS, REWARD_COINS } from '@/utils/Constant';
@@ -35,22 +35,22 @@ export default function Start() {
 
   useEffect(() => {
     getLocation();
-    getTwoQuestions()
-      .then((response) => {
-        if (response.length) {
-          setState((prevState) => {
-            return {
-              ...prevState,
-              questions: response,
-              question: response[prevState.questionIndex],
-            };
-          });
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        setState({ question: null, question: null, questionIndex: 0 });
-      });
+    // getTwoQuestions()
+    //   .then((response) => {
+    //     if (response.length) {
+    //       setState((prevState) => {
+    //         return {
+    //           ...prevState,
+    //           questions: response,
+    //           question: response[prevState.questionIndex],
+    //         };
+    //       });
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //     setState({ question: null, question: null, questionIndex: 0 });
+    //   });
   }, []);
 
   // useEffect(() => {
