@@ -1,6 +1,7 @@
 // Cricket sub-domain
 export const CRICKET_SUBDOMAIN = 'cricketguru.atmequiz.com';
 
+export const CORRECT_ANSWER_COINS = 100;
 export const DEFAULT_SCORE = 0;
 // export const DEFAULT_COIN = 200;
 export const DEFAULT_COIN = 0;

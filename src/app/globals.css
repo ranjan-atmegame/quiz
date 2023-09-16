@@ -12,7 +12,7 @@
   font-display: swap;
 } */
 
-html{
+html {
   padding: 0;
   margin: 0;
 }
@@ -70,10 +70,12 @@ body {
 :root {
   --animate-duration: 1s;
   --animate-delay: 1s;
-  --animate-repeat: 1
+  --animate-repeat: 1;
 }
 
-h2{font-size: 20px;}
+h2 {
+  font-size: 20px;
+}
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -135,7 +137,7 @@ body {
 body::after {
   background: url(../../public/bg_quiz.jpg);
   content: '';
-  position: absolute;
+  /* position: absolute; */
   z-index: 0;
   width: 100%;
   height: 100%;
@@ -178,12 +180,12 @@ ul {
   }
 }
 
-
 *:focus {
   outline: none;
 }
 
-:focus-visible, :focus-within{
+:focus-visible,
+:focus-within {
   outline: none;
 }
 
@@ -194,4 +196,3 @@ select,
 a {
     -webkit-tap-highlight-color: transparent;
 } */
-
