@@ -15,7 +15,7 @@ export default function RewardIcon({ setDisplay }) {
   //   setDisplay(false);
   // };
 
-  const updateReward = () => {
+  const updateReward_v1 = () => {
     showRewardAd((result) => {
       console.log(result);
       if (result?.status !== 'viewed') {
@@ -26,6 +26,10 @@ export default function RewardIcon({ setDisplay }) {
       // router.refresh();
       setDisplay();
     });
+  };
+
+  const updateReward = () => {
+    rewardAdX();
   };
 
   return (

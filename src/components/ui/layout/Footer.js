@@ -1,5 +1,5 @@
 'use client';
-import Link from 'next/link';
+// import Link from 'next/link';
 import Image from 'next/image';
 import { IMG_PATH } from '@/config';
 import { getCookies } from '@/utils/Cookies';
@@ -20,16 +20,16 @@ export default function Footer({ displayLogo = false }) {
       <div className={styles.madeWithLove}>
         {displayLogo && (
           <div className={styles.logo}>
-            <Link className={styles.atmequizLogo} href="/">
-              <Image
-                src={`${IMG_PATH}/logo.png`}
-                width={133}
-                height={34}
-                alt="Play Online Quiz Contest win Coin - AtmeQuiz"
-                title="Play Online Quiz Contest win Coin - AtmeQuiz"
-                // priority={true}
-              />
-            </Link>
+            {/* <Link className={styles.atmequizLogo} href="/" prefetch={false}> */}
+            <Image
+              src={`${IMG_PATH}/logo.png`}
+              width={133}
+              height={34}
+              alt="Play Online Quiz Contest win Coin - AtmeQuiz"
+              title="Play Online Quiz Contest win Coin - AtmeQuiz"
+              // priority={true}
+            />
+            {/* </Link> */}
           </div>
         )}
 

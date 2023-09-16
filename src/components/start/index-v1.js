@@ -1,23 +1,20 @@
 'use client';
-import dynamic from 'next/dynamic';
-
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Ad from '../ad';
-
+import QuizRules from '../rule';
 import { getTwoQuestions } from '@/api';
+import { showRewardAd } from '@/utils';
 import { setQuizSubmitted, setDomain } from './api';
-const QuizRules = dynamic(() => import('@/components/rule'));
-const TwoQuestion = dynamic(() =>
-  import('@/components/start/twoQuestion/Question')
-);
-const FunFact = dynamic(() => import('@/components/start/FunFact'));
-const EmptyStart = dynamic(() => import('@/components/start/emptyStart'));
-// import QuizRules from '../rule';
-// import TwoQuestion from './twoQuestion/Question';
-// import FunFact from './FunFact';
-// import EmptyStart from './emptyStart';
+// import { authenticate, updateUser } from '@/api/auth';
+import LoginOption from './LoginOptions';
+import TwoQuestion from './twoQuestion/Question';
+import FunFact from './FunFact';
+import Modal from '../bonusModal/Modal';
+// import { useSession } from 'next-auth/react';
+import EmptyStart from './emptyStart';
 import { getLocation } from '@/utils/Location';
+// import Toast from '../toast/toast';
 import { getCookies, setCookies } from '@/utils/Cookies';
 import { BONUS_COINS, REWARD_COINS } from '@/utils/Constant';
 
@@ -32,6 +29,7 @@ export default function Start() {
     displayedOnce: false,
     lastQuestion: false,
   });
+  // const { status } = useSession();
 
   useEffect(() => {
     getLocation();
@@ -108,6 +106,44 @@ export default function Start() {
     }
   };
 
+  const closeBonusModal = (e) => {
+    e.preventDefault();
+
+    if (state.lastQuestion) {
+      setState((prevState) => ({
+        ...prevState,
+        displayedOnce: true,
+        isBonusModal: false,
+        isSubmitted: true,
+      }));
+    } else {
+      setState((prevState) => ({
+        ...prevState,
+        displayedOnce: true,
+        isBonusModal: false,
+      }));
+    }
+  };
+
+  const handleBonusCoins = (e) => {
+    e.preventDefault();
+    const questionIndex = state.questionIndex;
+
+    showRewardAd((result) => {
+      if (result?.status) {
+        // updateUser({ coins: user.coins + BONUS_COINS });
+        addRewardCoins(BONUS_COINS);
+      }
+
+      setState((prevState) => ({
+        ...prevState,
+        isBonusModal: false,
+        displayedOnce: true,
+        isSubmitted: state.lastQuestion,
+      }));
+    }, questionIndex);
+  };
+
   return (
     <>
       <Ad />
@@ -124,7 +160,16 @@ export default function Start() {
         <EmptyStart />
       )}
 
+      {/* {status !== 'authenticated' && <LoginOption />} */}
+      {/* {!state.displayedOnce && state.isBonusModal && (
+        <Modal
+          onClose={closeBonusModal}
+          handleClick={handleBonusCoins}
+          message={`Incorrect Answer`}
+        />
+      )} */}
       <QuizRules />
+      {/* <Toast message="Subscribed successfully." /> */}
     </>
   );
 }

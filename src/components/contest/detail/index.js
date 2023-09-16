@@ -52,26 +52,35 @@ export default function ContestDetail({ auth: { isSignedIn } }) {
   //   router.push('/');
   // };
 
+  // const onModalOk = (e) => {
+  //   e.preventDefault();
+  //   const { user } = authenticate();
+
+  //   showRewardAd((result) => {
+  //     if (result?.status !== 'viewed') {
+  //       rewardAdX();
+  //     }
+
+  //     updateUser({ coins: user.coins + BONUS_COINS });
+  //     router.push('/');
+  //   });
+
+  //   // showRewardAd((result) => {
+  //   //   if (result?.status) {
+  //   //     updateUser({ coins: user.coins + BONUS_COINS });
+  //   //   }
+  //   //   router.push('/');
+  //   // });
+  //   // rewardAdX();
+  // };
+
   const onModalOk = (e) => {
     e.preventDefault();
     const { user } = authenticate();
+    rewardAdX();
 
-    showRewardAd((result) => {
-      if (result?.status !== 'viewed') {
-        rewardAdX();
-      }
-
-      updateUser({ coins: user.coins + BONUS_COINS });
-      router.push('/');
-    });
-
-    // showRewardAd((result) => {
-    //   if (result?.status) {
-    //     updateUser({ coins: user.coins + BONUS_COINS });
-    //   }
-    //   router.push('/');
-    // });
-    // rewardAdX();
+    updateUser({ coins: user.coins + BONUS_COINS });
+    router.push('/');
   };
 
   const closeBonusModal = (e) => {

@@ -28,6 +28,7 @@ export default function RootLayout({ session, children }) {
           content="Copyright © 2023 by Apay Marketing Private Limited, All rights reserved."
         />
         <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#000000" />
 
         <Script
           async
