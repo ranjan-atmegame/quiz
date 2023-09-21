@@ -476,8 +476,8 @@ background-position: 75% 0
 
 .shine {
   position: relative;
-  overflow: hidden;
 }
+
 
 .shine:before {
   content: '';

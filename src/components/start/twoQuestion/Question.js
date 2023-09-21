@@ -39,7 +39,7 @@ export default function Question({
     <>
       <Instruction />
       <div className={styles.body}>
-        <div className={styles.qaOptions}>
+        <div className={`${styles.qaOptions} ${styles.shine}`}>
           <>
             <QuestionNumber questionNumber={questionIndex + 1} />
             <h3>{question.question}</h3>
